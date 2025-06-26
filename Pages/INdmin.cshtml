@@ -1,0 +1,6 @@
+@page
+@model AdminIndexModel
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Admin")]
+<h1>Page Admin</h1>
+<p>Seuls les utilisateurs du rôle Admin peuvent voir cette page.</p>

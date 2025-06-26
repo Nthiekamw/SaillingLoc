@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+
+namespace SaillingLoc.Models
+{
+    public class User : IdentityUser
+    {
+        // Propriétés personnalisées uniquement (ne PAS redéfinir Id, Email, PasswordHash, PhoneNumber…)
+
+        public string Reference { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public string PaymentMethod { get; set; }
+        public string Photo { get; set; }
+        public string Address { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
+        // Navigation properties
+        public ICollection<UserDocument> Documents { get; set; }
+        public ICollection<Boat> Boats { get; set; }
+        public ICollection<Reservation> Reservations { get; set; }
+    }
+}
