@@ -1,165 +1,355 @@
 ﻿@page
-@model IndexModel
+@model SaillingLoc.Pages.IndexModel
 @{
     ViewData["Title"] = "Accueil";
 }
 
-<!-- NAVBAR -->
-<header class="bg-white shadow-md fixed w-full top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div class="text-xl font-bold text-[#2d3e50]">SailFind</div>
-        <nav class="hidden md:flex gap-6 text-sm font-medium text-[#2d3e50]">
-            <a href="#" class="hover:text-[#c28b63]">Accueil</a>
-            <a href="#" class="hover:text-[#c28b63]">Bateaux</a>
-            <a href="#" class="hover:text-[#c28b63]">Destinations</a>
-            <a href="#" class="hover:text-[#c28b63]">Contact</a>
-        </nav>
-        <div class="md:hidden">
-            <!-- Mobile menu toggle -->
-        </div>
-    </div>
-</header>
+<style>
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    .hero {
+        background: url('@Url.Content("~/images/hero-background.jpg")') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+    }
+
+    .hero h1 {
+        font-size: 3.5em;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .hero p {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .search-bar {
+        margin-top: 20px;
+    }
+
+    .search-bar input,
+    .search-bar button {
+        padding: 12px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 2.5em;
+        margin: 40px 0 20px;
+        font-weight: bold;
+    }
+
+    .boat-types {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+
+    .boat-types a {
+        flex: 1 1 150px;
+        margin: 10px;
+    }
+
+    .boat-types img {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        border-radius: 6px;
+    }
+
+    .offers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px 10px;
+    }
+
+    .offer-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        width: 280px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fff;
+    }
+
+    .offer-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .offer-card img {
+        max-width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 10px;
+    }
+
+    .offer-card .content {
+        flex-grow: 1;
+    }
+
+    .btn {
+        margin: 5px 3px;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        display: inline-block;
+    }
+
+    .btn-view {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-view:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-edit {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-edit:hover {
+        background-color: #1e7e34;
+    }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn-delete:hover {
+        background-color: #a71d2a;
+    }
+
+    /* Les autres styles (features, testimonials, rent) restent inchangés */
+
+    .features {
+        display: flex;
+        justify-content: space-around;
+        margin: 40px 0;
+        padding: 20px 0;
+        background-color: #f9f9f9;
+    }
+
+    .testimonials {
+        background-color: #e0f7fa;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .rent {
+        background-color: #c8e6c9;
+        padding: 30px;
+        text-align: center;
+    }
+
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .author {
+        font-style: italic;
+        margin-top: 10px;
+    }
+    .icon-circle {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.anchor-icon {
+    background-color: #007bff; /* bleu */
+    color: white;
+}
+
+.calendar-icon {
+    background-color: #28a745; /* vert */
+    color: white;
+}
+
+.ship-icon {
+    background-color: #ffc107; /* jaune/or */
+    color: white;
+}
+
+/* Optionnel : hover effect */
+.icon-circle:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    cursor: default;
+}
+</style>
 
 <!-- HERO -->
-<section class="relative w-full h-[520px] bg-cover bg-center pt-[80px]" style="background-image: url('/images/hero-boat.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4">
-        <h1 class="text-3xl md:text-5xl font-bold mb-4">Trouvez le bateau parfait pour votre prochaine aventure</h1>
-        <p class="text-lg mb-6">Explorez les plus belles destinations en mer</p>
-
-        <!-- SEARCH FILTER -->
-        <div class="bg-white p-4 rounded-lg shadow-md flex flex-col md:flex-row gap-4 w-full max-w-4xl">
-            <input type="text" placeholder="Destination" class="flex-1 p-2 border rounded-md" />
-            <input type="date" class="flex-1 p-2 border rounded-md" />
-            <input type="number" placeholder="Nombre de personnes" class="flex-1 p-2 border rounded-md" />
-            <button class="bg-[#c28b63] text-white px-6 py-2 rounded-md hover:bg-[#aa6f47]">Rechercher</button>
-        </div>
+<section class="hero">
+    <h1>Trouvez le bateau parfait pour votre prochaine aventure</h1>
+    <p>Explorez les plus belles destinations en mer</p>
+    <div class="search-bar">
+        <input type="text" placeholder="Destination" />
+        <input type="date" />
+        <input type="number" placeholder="Nombre de personnes" />
+        <button>Rechercher</button>
     </div>
 </section>
 
 <!-- Naviguez librement -->
-<section class="py-12 px-4 text-center bg-white">
-    <h2 class="text-2xl md:text-3xl font-semibold mb-4">Naviguez librement</h2>
-    <p class="max-w-2xl mx-auto text-gray-600">Choisissez parmi des milliers de bateaux à travers l'Europe. Réservez facilement et partez à l'aventure.</p>
-    <img src="/images/solo-boat.jpg" alt="Naviguez librement" class="mx-auto mt-6 rounded-lg shadow-md w-full max-w-xl" />
-    <button class="mt-6 bg-[#c28b63] text-white px-6 py-2 rounded-md hover:bg-[#aa6f47]">En savoir plus</button>
+<section>
+    <h2 class="section-title">Naviguez librement</h2>
+    <p>Choisissez parmi des milliers de bateaux à travers l'Europe. Réservez facilement et partez à l'aventure.</p>
+    <img src="@Url.Content("~/images/solo-boat.jpg")" alt="Naviguez librement" style="width: 100%; max-width: 600px;" />
 </section>
 
-<!-- TROUVEZ LE BATEAU - SLIDES -->
-<section class="py-12 bg-[#f0efeb] text-center">
-    <h2 class="text-2xl font-semibold mb-6">Trouvez le bateau qui vous correspond</h2>
-    <div class="flex overflow-x-auto gap-4 px-4 scrollbar-hide">
-        <img src="/images/sail.jpg" alt="Voilier" class="rounded-lg h-40 w-64 object-cover shadow-md" />
-        <img src="/images/motor.jpg" alt="Moteur" class="rounded-lg h-40 w-64 object-cover shadow-md" />
-        <img src="/images/catamaran.jpg" alt="Catamaran" class="rounded-lg h-40 w-64 object-cover shadow-md" />
-        <img src="/images/yacht.jpg" alt="Yacht" class="rounded-lg h-40 w-64 object-cover shadow-md" />
-        <img src="/images/ferry.jpg" alt="Ferry" class="rounded-lg h-40 w-64 object-cover shadow-md" />
+<!-- Types de bateaux -->
+<section style="background-color: #f0efeb;">
+    <h2 class="section-title">Trouvez le bateau qui vous correspond</h2>
+    <div class="boat-types">
+        <a asp-page="/ListeBateaux" asp-route-type="Voilier">
+            <img src=@Url.Content("~/images/sail.jpg") alt="Voilier" />
+        </a>
+        <a asp-page="/ListeBateaux" asp-route-type="Moteur">
+            <img src=@Url.Content("~/images/motor.jpg") alt="Moteur" />
+        </a>
+        <a asp-page="/ListeBateaux" asp-route-type="Catamaran">
+            <img src=@Url.Content("~/images/catamaran.jpg") alt="Catamaran" />
+        </a>
+        <a asp-page="/ListeBateaux" asp-route-type="Yacht">
+            <img src=@Url.Content("~/images/yacht.jpg") alt="Yacht" />
+        </a>
+        <a asp-page="/ListeBateaux" asp-route-type="Ferry">
+            <img src=@Url.Content("~/images/ferry.jpg") alt="Ferry" />
+        </a>
     </div>
 </section>
 
-<!-- OFFRES -->
-<section class="bg-white py-12">
-    <h2 class="text-center text-2xl font-semibold mb-8">Découvrez nos meilleures offres</h2>
-    <div class="flex flex-wrap justify-center gap-6 px-4">
-        @* Offres répétées *@
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden w-80">
-            <img src="/images/offer1.jpg" class="w-full h-48 object-cover" />
-            <div class="p-4">
-                <h3 class="font-bold text-lg mb-2">Voilier en Croatie</h3>
-                <p class="text-[#c28b63] font-semibold text-xl">850€ / semaine</p>
-                <button class="mt-4 bg-[#c28b63] text-white px-4 py-2 rounded hover:bg-[#aa6f47]">Voir l'annonce</button>
-            </div>
+
+<!-- Offres dynamiques -->
+<section>
+    <h2 class="section-title">Découvrez nos meilleures offres</h2>
+    <div class="offers">
+        @if (Model.Boats != null && Model.Boats.Any())
+        {
+            foreach (var boat in Model.Boats)
+            {
+                <div class="offer-card">
+                    <img src="@(boat.Photos != null && boat.Photos.Any() ? Url.Content(boat.Photos.First().PhotoUrl) : Url.Content("~/images/default-boat.jpg"))" alt="@boat.Name" />
+                    <div class="content">
+                        <h3>@boat.Name</h3>
+                        <p>@boat.DailyPrice € / jour</p>
+                        <p>@boat.Port?.Name</p>
+                        <a asp-page="/BoatDetails" asp-route-id="@boat.Id" class="btn btn-view">Voir l'annonce</a>
+
+                        @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
+                        {
+                            <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn btn-edit">Modifier</a>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
+                                <button type="submit" class="btn btn-delete">Supprimer</button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Aucune offre de bateau disponible pour le moment.</p>
+        }
+    </div>
+
+    @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
+    {
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="@Url.Content("~/Ajoutbat")" class="btn btn-add-annonce">Ajouter une annonce</a>
         </div>
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden w-80">
-            <img src="/images/offer2.jpg" class="w-full h-48 object-cover" />
-            <div class="p-4">
-                <h3 class="font-bold text-lg mb-2">Catamaran en Grèce</h3>
-                <p class="text-[#c28b63] font-semibold text-xl">530€ / jour</p>
-                <button class="mt-4 bg-[#c28b63] text-white px-4 py-2 rounded hover:bg-[#aa6f47]">Voir l'annonce</button>
-            </div>
+    }
+</section>
+
+<!-- Avantages -->
+<section class="features">
+  <div class="row mt-5 text-center">
+    <div class="col-md-4">
+        <div class="icon-circle anchor-icon mb-3">
+            <i class="fas fa-anchor fa-3x"></i>
         </div>
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden w-80">
-            <img src="/images/offer3.jpg" class="w-full h-48 object-cover" />
-            <div class="p-4">
-                <h3 class="font-bold text-lg mb-2">Yacht à Monaco</h3>
-                <p class="text-[#c28b63] font-semibold text-xl">1100€ / jour</p>
-                <button class="mt-4 bg-[#c28b63] text-white px-4 py-2 rounded hover:bg-[#aa6f47]">Voir l'annonce</button>
-            </div>
+        <h4>Choisir votre bateau</h4>
+        <p>Parcourez notre sélection.</p>
+    </div>
+    <div class="col-md-4">
+        <div class="icon-circle calendar-icon mb-3">
+            <i class="fas fa-calendar-check fa-3x"></i>
         </div>
+        <h4>Réserver en ligne</h4>
+        <p>Simple et sécurisé.</p>
+    </div>
+    <div class="col-md-4">
+        <div class="icon-circle ship-icon mb-3">
+            <i class="fas fa-ship fa-3x"></i>
+        </div>
+        <h4>Embarquez et profitez</h4>
+        <p>Profitez de votre aventure.</p>
+    </div>
+</div>
+</section>
+
+<!-- termoignages -->
+<section class="testimonials">
+    <div class="testimonial">
+        <p>"Service incroyable, bateau impeccable, expérience inoubliable!"</p>
+        <div class="author">👤 Sophie L. ★★★★★</div>
+    </div>
+    <div class="testimonial">
+        <p>"La réservation a été rapide et facile, je recommande à 100%."</p>
+        <div class="author">👤 Julien M. ★★★★★</div>
+    </div>
+    <div class="testimonial">
+        <p>"Une équipe à l'écoute, tout était parfait du début à la fin."</p>
+        <div class="author">👤 Clara D. ★★★★★</div>
     </div>
 </section>
 
-<!-- SIMPLE, RAPIDE, SÉCURISÉ -->
-<section class="py-16 bg-[#dfe8df] text-center">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-8">
-        <div class="flex-1">
-            <h3 class="font-bold text-xl mb-2">Choisissez votre bateau</h3>
-            <p class="text-gray-700">Plus de 12 000 bateaux disponibles en quelques clics.</p>
-        </div>
-        <div class="flex-1">
-            <h3 class="font-bold text-xl mb-2">Réservez en ligne</h3>
-            <p class="text-gray-700">Un processus simple, rapide et entièrement sécurisé.</p>
-        </div>
-        <div class="flex-1">
-            <h3 class="font-bold text-xl mb-2">Embarquez partout</h3>
-            <p class="text-gray-700">Dans toute l’Europe, depuis plus de 600 ports.</p>
-        </div>
-    </div>
+<!-- Rentabilisez -->
+<section class="rent">
+    <h2 class="section-title">Rentabilisez votre bateau en toute simplicité</h2>
+    <p>Mettez votre bateau en location et rejoignez une communauté de passionnés.</p>
+    <a href="@Url.Content("~/Ajoutbat")">
+        <button>Proposer mon bateau</button>
+    </a>
 </section>
-
-<!-- TÉMOIGNAGES -->
-<section class="py-16 bg-white text-center">
-    <h2 class="text-2xl font-semibold mb-8">Ce que disent nos clients</h2>
-    <div class="flex flex-wrap justify-center gap-6 px-4">
-        <div class="bg-gray-100 rounded-lg p-6 w-80 shadow text-left">
-            <p class="italic">"Service incroyable, bateau impeccable, expérience inoubliable!"</p>
-            <div class="mt-4 flex items-center gap-2 text-[#2d3e50] font-semibold">
-                <i class="fas fa-user"></i> Sophie L.
-                <div class="ml-auto text-yellow-500">★★★★★</div>
-            </div>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 w-80 shadow text-left">
-            <p class="italic">"La réservation a été rapide et facile, je recommande à 100%."</p>
-            <div class="mt-4 flex items-center gap-2 text-[#2d3e50] font-semibold">
-                <i class="fas fa-user"></i> Julien M.
-                <div class="ml-auto text-yellow-500">★★★★★</div>
-            </div>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 w-80 shadow text-left">
-            <p class="italic">"Une équipe à l'écoute, tout était parfait du début à la fin."</p>
-            <div class="mt-4 flex items-center gap-2 text-[#2d3e50] font-semibold">
-                <i class="fas fa-user"></i> Clara D.
-                <div class="ml-auto text-yellow-500">★★★★★</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- RENTABILISEZ -->
-<section class="py-16 bg-[#f9f9f9] text-center">
-    <h2 class="text-2xl font-semibold mb-4">Rentabilisez votre bateau en toute simplicité</h2>
-    <p class="text-gray-600 max-w-xl mx-auto">Mettez votre bateau en location et rejoignez une communauté de passionnés.</p>
-    <button class="mt-6 bg-[#c28b63] text-white px-6 py-2 rounded-md hover:bg-[#aa6f47]">Proposer mon bateau</button>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-[#2d3e50] text-white py-10 px-6 mt-12">
-    <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-8">
-        <div>
-            <h4 class="font-bold mb-2">SailFind</h4>
-            <p>Votre plateforme de location de bateaux partout en Europe.</p>
-        </div>
-        <div>
-            <h4 class="font-bold mb-2">Liens rapides</h4>
-            <ul>
-                <li><a href="#" class="hover:underline">Accueil</a></li>
-                <li><a href="#" class="hover:underline">À propos</a></li>
-                <li><a href="#" class="hover:underline">Contact</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="font-bold mb-2">Suivez-nous</h4>
-            <p>[Facebook] [Instagram]</p>
-        </div>
-    </div>
-    <div class="text-center mt-6 text-sm text-gray-300">© 2025 SailFind. Tous droits réservés.</div>
-</footer>

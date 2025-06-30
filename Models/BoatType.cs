@@ -8,9 +8,9 @@ namespace SaillingLoc.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string PhotoUrl { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        public ICollection<Boat> Boats { get; set; }
+        public ICollection<Boat> Boats { get; set; } = new List<Boat>();
     }
 }

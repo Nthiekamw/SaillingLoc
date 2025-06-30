@@ -13,5 +13,11 @@ namespace SaillingLoc.Models
         public DateTime UpdatedAt { get; set; }
 
         public Boat Boat { get; set; }
+
+        public Availability()
+        {
+            CreatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
+        }
     }
 }

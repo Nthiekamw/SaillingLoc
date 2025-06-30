@@ -5,7 +5,7 @@
 namespace SaillingLoc.Migrations
 {
     /// <inheritdoc />
-    public partial class FixCascadeRules : Migration
+    public partial class NomDeLaMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

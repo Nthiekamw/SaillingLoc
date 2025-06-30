@@ -13,6 +13,42 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\0c00afcc-0aa7-4850-b5a3-730bfe52581c_20110423_8241.jpg",
+      "PackagePath": "staticwebassets\\images\\0c00afcc-0aa7-4850-b5a3-730bfe52581c_20110423_8241.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\0c612607-b5c7-4809-85df-5323a7fcc41a_cv.jpg",
+      "PackagePath": "staticwebassets\\images\\0c612607-b5c7-4809-85df-5323a7fcc41a_cv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\428ed7e4-2923-43b9-b199-2ec91b39bdac_cv.jpg",
+      "PackagePath": "staticwebassets\\images\\428ed7e4-2923-43b9-b199-2ec91b39bdac_cv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\58d5909b-beba-48ff-adcb-6dbcbf1fa861_cv.jpg",
+      "PackagePath": "staticwebassets\\images\\58d5909b-beba-48ff-adcb-6dbcbf1fa861_cv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\694c00ab-76f8-4878-a7e7-cffb0bfe985c_cv.jpg",
+      "PackagePath": "staticwebassets\\images\\694c00ab-76f8-4878-a7e7-cffb0bfe985c_cv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\b43e082e-4d2a-495c-9cbd-331359d94d02_cv.jpg",
+      "PackagePath": "staticwebassets\\images\\b43e082e-4d2a-495c-9cbd-331359d94d02_cv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\d7488317-995a-47c9-bbfa-e567dc374f20_logo simple.jpg",
+      "PackagePath": "staticwebassets\\images\\d7488317-995a-47c9-bbfa-e567dc374f20_logo simple.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\dbb2b09e-304c-45b4-bbbf-2fabf2ed058b_cv.jpg",
+      "PackagePath": "staticwebassets\\images\\dbb2b09e-304c-45b4-bbbf-2fabf2ed058b_cv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg",
+      "PackagePath": "staticwebassets\\images\\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -255,6 +291,18 @@
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\Capture d’écran 2025-03-19 153831.png",
+      "PackagePath": "staticwebassets\\uploads\\Capture d’écran 2025-03-19 153831.png"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\SECU.jpg",
+      "PackagePath": "staticwebassets\\uploads\\SECU.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\loc.png",
+      "PackagePath": "staticwebassets\\uploads\\loc.png"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.SaillingLoc.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

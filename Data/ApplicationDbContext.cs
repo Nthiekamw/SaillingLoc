@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SaillingLoc.Models;
 
 namespace SaillingLoc.Data
@@ -12,7 +12,7 @@ namespace SaillingLoc.Data
         {
         }
 
-        // DbSets (enlever Users si User hérite de IdentityUser)
+        // Déclaration des tables
         public DbSet<UserDocument> UserDocuments { get; set; }
         public DbSet<Port> Ports { get; set; }
         public DbSet<BoatType> BoatTypes { get; set; }
@@ -28,44 +28,27 @@ namespace SaillingLoc.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder); // Obligatoire pour Identity !
+            base.OnModelCreating(modelBuilder);
 
-            // Relations personnalisées
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Documents)
-                .WithOne(d => d.User)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+            // Configuration des décimales
+            modelBuilder.Entity<Boat>().Property(b => b.DailyPrice).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<Payment>().Property(p => p.Amount).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<Payment>().Property(p => p.CommissionAmount).HasColumnType("decimal(18,2)");
+            modelBuilder.Entity<Reservation>().Property(r => r.TotalPrice).HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Boats)
-                .WithOne(b => b.User)
-                .HasForeignKey(b => b.UserId)
+            // BoatPhoto
+            modelBuilder.Entity<BoatPhoto>()
+                .HasOne(bp => bp.Boat)
+                .WithMany(b => b.Photos)
+                .HasForeignKey(bp => bp.BoatId)
+                .OnDelete(DeleteBehavior.Cascade); // Photo supprimée si bateau supprimé
+
+            // Boat -> Port, BoatType, User
+            modelBuilder.Entity<Boat>()
+                .HasOne(b => b.Port)
+                .WithMany(p => p.Boats)
+                .HasForeignKey(b => b.PortId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Reservations)
-                .WithOne(r => r.User)
-                .HasForeignKey(r => r.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Boat>()
-                .HasMany(b => b.Photos)
-                .WithOne(p => p.Boat)
-                .HasForeignKey(p => p.BoatId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Boat>()
-                .HasMany(b => b.Equipments)
-                .WithOne(e => e.Boat)
-                .HasForeignKey(e => e.BoatId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Boat>()
-                .HasMany(b => b.Availabilities)
-                .WithOne(a => a.Boat)
-                .HasForeignKey(a => a.BoatId)
-                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Boat>()
                 .HasOne(b => b.BoatType)
@@ -74,51 +57,83 @@ namespace SaillingLoc.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Boat>()
-                .HasOne(b => b.Port)
-                .WithMany(p => p.Boats)
-                .HasForeignKey(b => b.PortId)
+                .HasOne(b => b.User)
+                .WithMany(u => u.Boats)
+                .HasForeignKey(b => b.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Reservation
             modelBuilder.Entity<Reservation>()
                 .HasOne(r => r.Boat)
-                .WithMany()
+                .WithMany(b => b.Reservations)
                 .HasForeignKey(r => r.BoatId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Reservation>()
-                .HasOne(r => r.Review)
-                .WithOne(rv => rv.Reservation)
-                .HasForeignKey<Review>(rv => rv.ReservationId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasOne(r => r.User)
+                .WithMany(u => u.Reservations)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Reservation>()
-                .HasOne(r => r.Contract)
-                .WithOne(c => c.Reservation)
+            // Contract
+            modelBuilder.Entity<Contract>()
+                .HasOne(c => c.Reservation)
+                .WithOne(r => r.Contract)
                 .HasForeignKey<Contract>(c => c.ReservationId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Reservation>()
-                .HasOne(r => r.Payment)
-                .WithOne(p => p.Reservation)
+            // Payment
+            modelBuilder.Entity<Payment>()
+                .HasOne(p => p.Reservation)
+                .WithOne(r => r.Payment)
                 .HasForeignKey<Payment>(p => p.ReservationId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Review
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.Reservation)
+                .WithOne(res => res.Review)
+                .HasForeignKey<Review>(r => r.ReservationId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Message
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Reservation)
+                .WithMany(r => r.Messages)
+                .HasForeignKey(m => m.ReservationId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Message>()
                 .HasOne(m => m.Sender)
                 .WithMany()
                 .HasForeignKey(m => m.SenderId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Message>()
                 .HasOne(m => m.Receiver)
                 .WithMany()
                 .HasForeignKey(m => m.ReceiverId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Message>()
-                .HasOne(m => m.Reservation)
-                .WithMany()
-                .HasForeignKey(m => m.ReservationId)
+            // UserDocument
+            modelBuilder.Entity<UserDocument>()
+                .HasOne(d => d.User)
+                .WithMany(u => u.Documents)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Availability
+            modelBuilder.Entity<Availability>()
+                .HasOne(a => a.Boat)
+                .WithMany(b => b.Availabilities)
+                .HasForeignKey(a => a.BoatId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // BoatEquipment
+            modelBuilder.Entity<BoatEquipment>()
+                .HasOne(be => be.Boat)
+                .WithMany(b => b.Equipments)
+                .HasForeignKey(be => be.BoatId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

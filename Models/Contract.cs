@@ -10,8 +10,9 @@ namespace SaillingLoc.Models
         public string ContractUrl { get; set; }
         public string OwnerSignature { get; set; }
         public string TenantSignature { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         public Reservation Reservation { get; set; }
     }

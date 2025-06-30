@@ -1,6 +1,88 @@
 @page
-@model AdminIndexModel
-@using Microsoft.AspNetCore.Authorization
-@attribute [Authorize(Roles = "Admin")]
-<h1>Page Admin</h1>
-<p>Seuls les utilisateurs du rôle Admin peuvent voir cette page.</p>
+@model SaillingLoc.Pages.Admin.INdminModel
+@using Microsoft.AspNetCore.Identity
+
+@{
+    ViewData["Title"] = "Dashboard Admin";
+}
+
+<div class="container my-5">
+    <h2 class="mb-4 text-2xl font-bold text-gray-700">📊 Tableau de bord - Admin</h2>
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Utilisateurs</h5>
+                    <p class="card-text fs-4">@Model.UserCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Annonces</h5>
+                    <p class="card-text fs-4">@Model.AnnonceCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Commentaires</h5>
+                    <p class="card-text fs-4">@Model.CommentCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Contrats</h5>
+                    <p class="card-text fs-4">@Model.ContratCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mb-3 mt-4">👥 Gestion des utilisateurs</h4>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Rôles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>
+                        @if (Model.UserRoles.ContainsKey(user.Id))
+                        {
+                            foreach (var role in Model.UserRoles[user.Id])
+                            {
+                                <span class="badge bg-secondary me-1">@role</span>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <form method="post" asp-page-handler="ChangeRole" class="d-flex align-items-center">
+                            <input type="hidden" name="UserId" value="@user.Id" />
+                            <select name="NewRole" class="form-select form-select-sm w-auto me-2">
+                                <option value="Admin">Admin</option>
+                                <option value="Proprietaire">Proprietaire</option>
+                                <option value="Locataire">Locataire</option>
+                                <option value="Visiteur">Visiteur</option>
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-warning">Modifier</button>
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

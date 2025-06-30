@@ -12,8 +12,8 @@ namespace SaillingLoc.Models
         public string TransactionId { get; set; }
         public string Status { get; set; }
         public decimal CommissionAmount { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         public Reservation Reservation { get; set; }
     }

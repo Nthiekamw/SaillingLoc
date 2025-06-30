@@ -1,46 +1,50 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SaillingLoc.Data;
-using SaillingLoc.Models; // Pour le User
+using SaillingLoc.Models; // Pour la classe User personnalisée
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Ajouter le DbContext avec SQL Server
+// === Configuration du DbContext avec SQL Server ===
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Ajouter Identity avec rôles + User personnalisé
+// === Configuration d'Identity avec rôles et User personnalisé ===
 builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
-    options.SignIn.RequireConfirmedAccount = false; // Dev : false
+    options.SignIn.RequireConfirmedAccount = false; // Activez en production
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// Ajouter Razor Pages
+// === Services pour Razor Pages et API ===
 builder.Services.AddRazorPages();
-
-// (Facultatif) API Controllers
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Initialisation des rôles au démarrage
+// === Initialisation des rôles et de l'utilisateur admin au démarrage ===
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     try
     {
+        Console.WriteLine("▶ Initialisation des rôles...");
         await RoleInitializer.InitializeRolesAsync(services);
+        Console.WriteLine("▶ Création de l'utilisateur admin...");
+        await RoleInitializer.CreateAdminUserAsync(services);
+        Console.WriteLine("✅ Initialisation terminée.");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Erreur lors de l'initialisation des rôles : {ex.Message}");
+        Console.WriteLine($"❌ Erreur lors de l'initialisation : {ex.Message}");
+        if (ex.InnerException != null)
+            Console.WriteLine($"→ Détails : {ex.InnerException.Message}");
     }
 }
 
-// Middlewares
+// === Middlewares ===
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -52,32 +56,90 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); // Authentification
-app.UseAuthorization();  // Autorisation
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorPages();
-app.MapControllers(); // Pour API
+app.MapControllers();
 
 app.Run();
 
-
-// ============================================
-// Initialisation des rôles au démarrage
-// ============================================
+// =====================================
+// Classe statique pour initialiser rôles et utilisateur admin
+// =====================================
 public static class RoleInitializer
 {
     public static async Task InitializeRolesAsync(IServiceProvider serviceProvider)
     {
         var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
         string[] roleNames = { "Admin", "Proprietaire", "Locataire", "Visiteur" };
 
         foreach (var roleName in roleNames)
         {
             if (!await roleManager.RoleExistsAsync(roleName))
             {
-                await roleManager.CreateAsync(new IdentityRole(roleName));
+                var result = await roleManager.CreateAsync(new IdentityRole(roleName));
+                if (result.Succeeded)
+                    Console.WriteLine($"✅ Rôle '{roleName}' créé.");
+                else
+                    Console.WriteLine($"❌ Échec création rôle '{roleName}' : {string.Join(", ", result.Errors.Select(e => e.Description))}");
             }
+            else
+            {
+                Console.WriteLine($"ℹ️ Rôle '{roleName}' existe déjà.");
+            }
+        }
+    }
+
+    public static async Task CreateAdminUserAsync(IServiceProvider serviceProvider)
+    {
+        var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
+
+        const string adminEmail = "admin@loc.com";
+        const string adminPassword = "Admin123!"; // ⚠️ À sécuriser
+
+        var existingUser = await userManager.FindByEmailAsync(adminEmail);
+        if (existingUser == null)
+        {
+            var adminUser = new User
+            {
+                UserName = adminEmail,
+                Email = adminEmail,
+                EmailConfirmed = true,
+                FirstName = "Admin",
+                LastName = "Root",
+                Address = "Adresse par défaut",
+                PhoneNumber = "0000000000",
+                PaymentMethod = "None",
+                Photo = "",
+                Reference = "N/A",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            };
+
+            var result = await userManager.CreateAsync(adminUser, adminPassword);
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(adminUser, "Admin");
+                Console.WriteLine("✅ Utilisateur admin créé.");
+            }
+            else
+            {
+                HandleErrors(result.Errors, "création de l'utilisateur admin");
+            }
+        }
+        else
+        {
+            Console.WriteLine("ℹ️ L'utilisateur admin existe déjà.");
+        }
+    }
+
+    private static void HandleErrors(IEnumerable<IdentityError> errors, string action)
+    {
+        Console.WriteLine($"❌ Échec de {action} :");
+        foreach (var error in errors)
+        {
+            Console.WriteLine($"- {error.Description}");
         }
     }
 }

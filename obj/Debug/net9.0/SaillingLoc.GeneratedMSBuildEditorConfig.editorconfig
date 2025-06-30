@@ -32,12 +32,24 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Account/ogout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxvZ291dC5jc2h0bWw=
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Account/logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxsb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Ajoutbat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWpvdXRiYXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/BoatDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9hdERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/EditBoat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEJvYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Error.cshtml]
