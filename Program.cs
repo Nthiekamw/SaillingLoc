@@ -1,68 +1,88 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SaillingLoc.Data;
-using SaillingLoc.Models; // Pour la classe User personnalisée
 using Microsoft.Extensions.DependencyInjection;
+using SaillingLoc.Data;
+using SaillingLoc.Models;
+using SaillingLoc.Services;
+using SaillingLoc.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// === Configuration du DbContext avec SQL Server ===
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// === Configuration d'Identity avec rôles et User personnalisé ===
-builder.Services.AddIdentity<User, IdentityRole>(options =>
+internal class Program
 {
-    options.SignIn.RequireConfirmedAccount = false; // Activez en production
-})
-.AddEntityFrameworkStores<ApplicationDbContext>()
-.AddDefaultTokenProviders();
-
-// === Services pour Razor Pages et API ===
-builder.Services.AddRazorPages();
-builder.Services.AddControllers();
-
-var app = builder.Build();
-
-// === Initialisation des rôles et de l'utilisateur admin au démarrage ===
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    try
+    private static async Task Main(string[] args)
     {
-        Console.WriteLine("▶ Initialisation des rôles...");
-        await RoleInitializer.InitializeRolesAsync(services);
-        Console.WriteLine("▶ Création de l'utilisateur admin...");
-        await RoleInitializer.CreateAdminUserAsync(services);
-        Console.WriteLine("✅ Initialisation terminée.");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"❌ Erreur lors de l'initialisation : {ex.Message}");
-        if (ex.InnerException != null)
-            Console.WriteLine($"→ Détails : {ex.InnerException.Message}");
+        var builder = WebApplication.CreateBuilder(args);
+
+        // === Configuration du DbContext avec SQL Server ===
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+        // === Configuration d'Identity avec rôles et User personnalisé ===
+        builder.Services.AddIdentity<User, IdentityRole>(options =>
+        {
+            options.SignIn.RequireConfirmedAccount = false; // À activer en production
+        })
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
+        // === Services personnalisés ===
+        builder.Services.AddScoped<INotificationService, NotificationService>();
+        builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+        builder.Services.AddScoped<IEmailService, EmailService>();
+
+        // === SignalR ===
+        builder.Services.AddSignalR();
+        builder.Services.AddSingleton<IUserIdProvider, IdentifierUserIdProvider>();
+
+        // === Razor Pages & Controllers ===
+        builder.Services.AddRazorPages();
+        builder.Services.AddControllers();
+
+        var app = builder.Build();
+
+        // === Initialisation rôles + utilisateur admin ===
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            try
+            {
+                Console.WriteLine("▶ Initialisation des rôles...");
+                await RoleInitializer.InitializeRolesAsync(services);
+                Console.WriteLine("▶ Création de l'utilisateur admin...");
+                await RoleInitializer.CreateAdminUserAsync(services);
+                Console.WriteLine("✅ Initialisation terminée.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Erreur lors de l'initialisation : {ex.Message}");
+                if (ex.InnerException != null)
+                    Console.WriteLine($"→ Détails : {ex.InnerException.Message}");
+            }
+        }
+
+        // === Middlewares ===
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Error");
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        // === Mapping des routes ===
+        app.MapRazorPages();
+        app.MapControllers();
+        app.MapHub<NotificationHub>("/notificationHub");
+
+        app.Run();
     }
 }
-
-// === Middlewares ===
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapRazorPages();
-app.MapControllers();
-
-app.Run();
 
 // =====================================
 // Classe statique pour initialiser rôles et utilisateur admin

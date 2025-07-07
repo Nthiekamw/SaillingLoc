@@ -1,0 +1,18 @@
+@page
+@model SaillingLoc.Pages.NotificationsModel
+
+<h1>Notifications</h1>
+
+@if (Model.Notifications.Count == 0)
+{
+    <p>Aucune notification.</p>
+}
+else
+{
+    <ul>
+    @foreach(var notif in Model.Notifications)
+    {
+        <li>@notif.Message - @notif.CreatedAt.ToString("g")</li>
+    }
+    </ul>
+}

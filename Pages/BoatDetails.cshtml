@@ -101,8 +101,8 @@
         <h1>@Model.Boat.Name</h1>
 
         <div class="details">
-            <p><strong>Type :</strong> @Model.Boat.BoatType?.Name ?? "Non renseigné"</p>
-            <p><strong>Port :</strong> @Model.Boat.Port?.Name ?? "Non renseigné"</p>
+            <p><strong>Type :</strong> @(Model.Boat.BoatType?.Name ?? "Non renseigné")</p>
+            <p><strong>Port :</strong> @(Model.Boat.Port?.Name ?? "Non renseigné")</p>
             <p><strong>Prix :</strong> @Model.Boat.DailyPrice.ToString("0.00") € / jour</p>
         </div>
 
@@ -111,9 +111,14 @@
             <div class="photos">
                 @foreach (var photo in Model.Boat.Photos)
                 {
-                    <img src="~/@photo.PhotoUrl" alt="Photo de @Model.Boat.Name" />
+                    <img src="@photo.PhotoUrl" alt="Photo de @Model.Boat.Name" />
                 }
             </div>
+        }
+        else if (!string.IsNullOrEmpty(Model.Boat.Photo))
+        {
+            <!-- Affiche la photo principale si aucune photo multiple -->
+            <img src="@Model.Boat.Photo" alt="Photo principale du bateau @Model.Boat.Name" style="max-width:300px; height:auto;" />
         }
         else
         {

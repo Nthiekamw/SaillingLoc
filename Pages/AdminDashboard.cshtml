@@ -1,0 +1,129 @@
+@page
+@model SaillingLoc.Pages.AdminDashboardModel
+@{
+    ViewData["Title"] = "Dashboard Admin";
+}
+
+<h2 class="text-center my-4">Dashboard Administrateur</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <!-- ✅ Utilisateurs -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow dashboard-card" role="button" tabindex="0"
+                 onclick="location.href='@Url.Page("/Admin/Users")'"
+                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Admin/Users")'}"
+                 aria-label="Voir la gestion des utilisateurs"
+                 style="cursor:pointer;">
+                <div class="card-body text-center">
+                    <h5>@Model.UserCount Utilisateur(s)</h5>
+                    <canvas id="usersChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✅ Réservations -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow dashboard-card" role="button" tabindex="0"
+                 onclick="location.href='@Url.Page("/Admin/Reservations")'"
+                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Admin/Reservations")'}"
+                 aria-label="Voir la gestion des réservations"
+                 style="cursor:pointer;">
+                <div class="card-body text-center">
+                    <h5>@Model.ReservationCount Réservation(s)</h5>
+                    <canvas id="reservationsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✅ Messages -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow dashboard-card" role="button" tabindex="0"
+                 onclick="location.href='@Url.Page("/Admin/Messages")'"
+                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Admin/Messages")'}"
+                 aria-label="Voir la gestion des messages"
+                 style="cursor:pointer;">
+                <div class="card-body text-center">
+                    <h5>@Model.MessageCount Message(s)</h5>
+                    <canvas id="messagesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✅ Bateaux -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow dashboard-card" role="button" tabindex="0"
+                 onclick="location.href='@Url.Page("/Admin/Boats")'"
+                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Admin/Boats")'}"
+                 aria-label="Voir la gestion des bateaux"
+                 style="cursor:pointer;">
+                <div class="card-body text-center">
+                    <h5>@Model.BoatCount Bateau(x)</h5>
+                    <canvas id="boatsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .dashboard-card:hover {
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        transition: box-shadow 0.3s ease;
+    }
+</style>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const usersChart = new Chart(document.getElementById('usersChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Utilisateurs'],
+                datasets: [{
+                    label: 'Nombre d\'utilisateurs',
+                    data: [@Model.UserCount],
+                    backgroundColor: ['#C1D0C4']
+                }]
+            }
+        });
+
+        const reservationsChart = new Chart(document.getElementById('reservationsChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Réservations'],
+                datasets: [{
+                    label: 'Réservations',
+                    data: [@Model.ReservationCount],
+                    backgroundColor: ['#A0C4FF']
+                }]
+            }
+        });
+
+        const messagesChart = new Chart(document.getElementById('messagesChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Messages'],
+                datasets: [{
+                    label: 'Messages',
+                    data: [@Model.MessageCount],
+                    backgroundColor: ['#FFD6A5']
+                }]
+            }
+        });
+
+        const boatsChart = new Chart(document.getElementById('boatsChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Bateaux'],
+                datasets: [{
+                    label: 'Bateaux',
+                    data: [@Model.BoatCount],
+                    backgroundColor: ['#FFADAD']
+                }]
+            }
+        });
+    </script>
+}

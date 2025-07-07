@@ -1,89 +1,296 @@
+
+
 @page
+@model SaillingLoc.Pages.Proprietaire.AjoutBatModel
+
+@{
+    ViewData["Title"] = "Ajouter un Bateau";
+}
+
+<style>
+    .ajout-bateau-container {
+        background-color: #AD7C59;
+        padding: 40px 20px;
+        border-radius: 10px;
+        max-width: 700px;
+        margin: 40px auto;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .ajout-bateau-container h2 {
+        text-align: center;
+        color: #fff;
+    }
+
+    .ajout-bateau-container label {
+        font-weight: 600;
+    }
+
+    .btn-ajouter-bateau {
+        background-color: #fff;
+        color: #AD7C59;
+        border: 2px solid #AD7C59;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-ajouter-bateau:hover {
+        background-color: #AD7C59;
+        color: #fff;
+    }
+</style>
+
+<div class="ajout-bateau-container">
+    <h2>Ajouter un Bateau</h2>
+
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Name" class="form-label">Nom du bateau</label>
+            <input asp-for="Boat.Name" class="form-control" />
+            <span asp-validation-for="Boat.Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Brand" class="form-label">Marque</label>
+            <input asp-for="Boat.Brand" class="form-control" />
+            <span asp-validation-for="Boat.Brand" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Model" class="form-label">Modèle</label>
+            <input asp-for="Boat.Model" class="form-control" />
+            <span asp-validation-for="Boat.Model" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.EngineType" class="form-label">Type de moteur</label>
+            <input asp-for="Boat.EngineType" class="form-control" />
+            <span asp-validation-for="Boat.EngineType" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Length" class="form-label">Longueur (m)</label>
+            <input asp-for="Boat.Length" type="number" step="0.1" min="0.1" class="form-control" />
+            <span asp-validation-for="Boat.Length" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Description" class="form-label">Description</label>
+            <textarea asp-for="Boat.Description" class="form-control"></textarea>
+            <span asp-validation-for="Boat.Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.MaxPassengers" class="form-label">Nombre max. de passagers</label>
+            <input asp-for="Boat.MaxPassengers" type="number" min="1" class="form-control" />
+            <span asp-validation-for="Boat.MaxPassengers" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.DailyPrice" class="form-label">Prix journalier (€)</label>
+            <input asp-for="Boat.DailyPrice" type="number" step="0.01" min="0" class="form-control" />
+            <span asp-validation-for="Boat.DailyPrice" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input asp-for="Boat.SkipperRequired" class="form-check-input" />
+            <label asp-for="Boat.SkipperRequired" class="form-check-label">Skipper obligatoire</label>
+            <span asp-validation-for="Boat.SkipperRequired" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.BoatTypeId" class="form-label">Type de bateau</label>
+            <select asp-for="Boat.BoatTypeId" asp-items="Model.BoatTypes" class="form-control"></select>
+            <span asp-validation-for="Boat.BoatTypeId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.PortId" class="form-label">Port</label>
+            <select asp-for="Boat.PortId" asp-items="Model.Ports" class="form-control"></select>
+            <span asp-validation-for="Boat.PortId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Photo" class="form-label">Photo principale</label>
+            <input asp-for="Photo" type="file" class="form-control" accept="image/*" />
+            <span asp-validation-for="Photo" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-ajouter-bateau">Ajouter le Bateau</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* 
 @model SaillingLoc.Pages.Proprietaire.AjouterBateauModel
 @{
     ViewData["Title"] = "Ajouter un Bateau";
 }
 
-<h2>Ajouter un Bateau</h2>
 
-<form method="post" enctype="multipart/form-data" class="mt-4">
-    <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
-    <div class="mb-3">
-        <label asp-for="Boat.Name" class="form-label"></label>
-        <input asp-for="Boat.Name" class="form-control" />
-        <span asp-validation-for="Boat.Name" class="text-danger"></span>
-    </div>
 
-    <div class="mb-3">
-        <label asp-for="Boat.Brand" class="form-label"></label>
-        <input asp-for="Boat.Brand" class="form-control" />
-        <span asp-validation-for="Boat.Brand" class="text-danger"></span>
-    </div>
 
-    <div class="mb-3">
-        <label asp-for="Boat.Model" class="form-label"></label>
-        <input asp-for="Boat.Model" class="form-control" />
-        <span asp-validation-for="Boat.Model" class="text-danger"></span>
-    </div>
+<style>
 
-    <div class="mb-3">
-        <label asp-for="Boat.EngineType" class="form-label"></label>
-        <input asp-for="Boat.EngineType" class="form-control" />
-        <span asp-validation-for="Boat.EngineType" class="text-danger"></span>
-    </div>
 
-    <div class="mb-3">
-        <label asp-for="Boat.Length" class="form-label"></label>
-        <input asp-for="Boat.Length" type="number" step="0.1" min="0.1" class="form-control" />
-        <span asp-validation-for="Boat.Length" class="text-danger"></span>
-    </div>
+.ajout-bateau-container {
+    background-color: #AD7C59;
+    padding: 40px 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 40px auto;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-    <div class="mb-3">
-        <label asp-for="Boat.Description" class="form-label"></label>
-        <textarea asp-for="Boat.Description" class="form-control"></textarea>
-        <span asp-validation-for="Boat.Description" class="text-danger"></span>
-    </div>
+.ajout-bateau-container h2 {
+    text-align: center;
+    color: #fff;
+}
 
-    <div class="mb-3">
-        <label asp-for="Boat.MaxPassengers" class="form-label"></label>
-        <input asp-for="Boat.MaxPassengers" type="number" min="1" class="form-control" />
-        <span asp-validation-for="Boat.MaxPassengers" class="text-danger"></span>
-    </div>
+.ajout-bateau-container label {
+    font-weight: 600;
+}
 
-    <div class="mb-3">
-        <label asp-for="Boat.DailyPrice" class="form-label"></label>
-        <input asp-for="Boat.DailyPrice" type="number" step="0.01" min="0" class="form-control" />
-        <span asp-validation-for="Boat.DailyPrice" class="text-danger"></span>
-    </div>
+.btn-ajouter-bateau {
+    background-color: #fff;
+    color: #AD7C59;
+    border: 2px solid #AD7C59;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
 
-    <div class="mb-3 form-check">
-        <input asp-for="Boat.SkipperRequired" class="form-check-input" />
-        <label asp-for="Boat.SkipperRequired" class="form-check-label"></label>
-        <span asp-validation-for="Boat.SkipperRequired" class="text-danger"></span>
-    </div>
+.btn-ajouter-bateau:hover {
+    background-color: #AD7C59;
+    color: #fff;
+}
 
-    <div class="mb-3">
-        <label asp-for="Boat.BoatTypeId" class="form-label"></label>
-        <select asp-for="Boat.BoatTypeId" asp-items="Model.BoatTypes" class="form-control"></select>
-        <span asp-validation-for="Boat.BoatTypeId" class="text-danger"></span>
-    </div>
 
-    <div class="mb-3">
-        <label asp-for="Boat.PortId" class="form-label"></label>
-        <select asp-for="Boat.PortId" asp-items="Model.Ports" class="form-control"></select>
-        <span asp-validation-for="Boat.PortId" class="text-danger"></span>
-    </div>
 
-    <div class="mb-3">
-        <label asp-for="Photo" class="form-label">Photo principale</label>
-        <input asp-for="Photo" type="file" class="form-control" accept="image/*" />
-        <span asp-validation-for="Photo" class="text-danger"></span>
-    </div>
 
-    <button type="submit" class="btn btn-primary">Ajouter le Bateau</button>
-</form>
+</style>
+
+
+
+
+
+
+
+<div class="ajout-bateau-container">
+    <h2>Ajouter un Bateau</h2>
+
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Name" class="form-label">Nom du bateau</label>
+            <input asp-for="Boat.Name" class="form-control" />
+            <span asp-validation-for="Boat.Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Brand" class="form-label">Marque</label>
+            <input asp-for="Boat.Brand" class="form-control" />
+            <span asp-validation-for="Boat.Brand" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Model" class="form-label">Modèle</label>
+            <input asp-for="Boat.Model" class="form-control" />
+            <span asp-validation-for="Boat.Model" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.EngineType" class="form-label">Type de moteur</label>
+            <input asp-for="Boat.EngineType" class="form-control" />
+            <span asp-validation-for="Boat.EngineType" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Length" class="form-label">Longueur (m)</label>
+            <input asp-for="Boat.Length" type="number" step="0.1" min="0.1" class="form-control" />
+            <span asp-validation-for="Boat.Length" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.Description" class="form-label">Description</label>
+            <textarea asp-for="Boat.Description" class="form-control"></textarea>
+            <span asp-validation-for="Boat.Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.MaxPassengers" class="form-label">Nombre max. de passagers</label>
+            <input asp-for="Boat.MaxPassengers" type="number" min="1" class="form-control" />
+            <span asp-validation-for="Boat.MaxPassengers" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.DailyPrice" class="form-label">Prix journalier (€)</label>
+            <input asp-for="Boat.DailyPrice" type="number" step="0.01" min="0" class="form-control" />
+            <span asp-validation-for="Boat.DailyPrice" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input asp-for="Boat.SkipperRequired" class="form-check-input" />
+            <label asp-for="Boat.SkipperRequired" class="form-check-label">Skipper obligatoire</label>
+            <span asp-validation-for="Boat.SkipperRequired" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.BoatTypeId" class="form-label">Type de bateau</label>
+            <select asp-for="Boat.BoatTypeId" asp-items="Model.BoatTypes" class="form-control"></select>
+            <span asp-validation-for="Boat.BoatTypeId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Boat.PortId" class="form-label">Port</label>
+            <select asp-for="Boat.PortId" asp-items="Model.Ports" class="form-control"></select>
+            <span asp-validation-for="Boat.PortId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Photo" class="form-label">Photo principale</label>
+            <input asp-for="Photo" type="file" class="form-control" accept="image/*" />
+            <span asp-validation-for="Photo" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-ajouter-bateau">Ajouter le Bateau</button>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-}
+} *@

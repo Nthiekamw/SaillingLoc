@@ -33,8 +33,32 @@
       "PackagePath": "staticwebassets\\images\\694c00ab-76f8-4878-a7e7-cffb0bfe985c_cv.jpg"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Bateaux 7.webp",
+      "PackagePath": "staticwebassets\\images\\Bateaux 7.webp"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Bateaux4.webp",
+      "PackagePath": "staticwebassets\\images\\Bateaux4.webp"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp",
+      "PackagePath": "staticwebassets\\images\\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\ad820eba-94e3-4b26-a564-cced936621ec_Bateaux 7.webp",
+      "PackagePath": "staticwebassets\\images\\ad820eba-94e3-4b26-a564-cced936621ec_Bateaux 7.webp"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\b43e082e-4d2a-495c-9cbd-331359d94d02_cv.jpg",
       "PackagePath": "staticwebassets\\images\\b43e082e-4d2a-495c-9cbd-331359d94d02_cv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\bateaux moteur.jpg",
+      "PackagePath": "staticwebassets\\images\\bateaux moteur.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\catamaran.webp",
+      "PackagePath": "staticwebassets\\images\\catamaran.webp"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\d7488317-995a-47c9-bbfa-e567dc374f20_logo simple.jpg",
@@ -45,8 +69,24 @@
       "PackagePath": "staticwebassets\\images\\dbb2b09e-304c-45b4-bbbf-2fabf2ed058b_cv.jpg"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\default-boat.jpg",
+      "PackagePath": "staticwebassets\\images\\default-boat.jpg"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg",
       "PackagePath": "staticwebassets\\images\\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\ferry.jpg",
+      "PackagePath": "staticwebassets\\images\\ferry.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\pic-1-1.jpeg",
+      "PackagePath": "staticwebassets\\images\\pic-1-1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\yatch.webp",
+      "PackagePath": "staticwebassets\\images\\yatch.webp"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\js\\site.js",
@@ -293,16 +333,68 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
-      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\Capture d’écran 2025-03-19 153831.png",
-      "PackagePath": "staticwebassets\\uploads\\Capture d’écran 2025-03-19 153831.png"
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\08978bf7-56b3-4215-b7e7-ac1e5b0e5173.jpg",
+      "PackagePath": "staticwebassets\\uploads\\08978bf7-56b3-4215-b7e7-ac1e5b0e5173.jpg"
     },
     {
-      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\SECU.jpg",
-      "PackagePath": "staticwebassets\\uploads\\SECU.jpg"
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\11453fcc-8ce6-4f11-8d7d-e2401f3c370a.jpg",
+      "PackagePath": "staticwebassets\\uploads\\11453fcc-8ce6-4f11-8d7d-e2401f3c370a.jpg"
     },
     {
-      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\loc.png",
-      "PackagePath": "staticwebassets\\uploads\\loc.png"
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\331ed769-881a-4a53-a77e-6a396aa7acd7.webp",
+      "PackagePath": "staticwebassets\\uploads\\331ed769-881a-4a53-a77e-6a396aa7acd7.webp"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\551c5374-4d99-4c10-abaa-9cb7f13f48be.jpg",
+      "PackagePath": "staticwebassets\\uploads\\551c5374-4d99-4c10-abaa-9cb7f13f48be.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\70390dfc-0e03-4c82-a6b7-73dfc92b61cd.jpg",
+      "PackagePath": "staticwebassets\\uploads\\70390dfc-0e03-4c82-a6b7-73dfc92b61cd.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\87644e80-5f0f-44b3-bc18-530da87c3304.jpg",
+      "PackagePath": "staticwebassets\\uploads\\87644e80-5f0f-44b3-bc18-530da87c3304.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\8765f413-5324-441e-805d-6422578ab0fb.webp",
+      "PackagePath": "staticwebassets\\uploads\\8765f413-5324-441e-805d-6422578ab0fb.webp"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\91d6be1f-6238-4a8d-86e2-550fde39e2d3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\91d6be1f-6238-4a8d-86e2-550fde39e2d3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\b90922d3-38f1-490f-b716-bdaba2a0de4c.jpg",
+      "PackagePath": "staticwebassets\\uploads\\b90922d3-38f1-490f-b716-bdaba2a0de4c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\bateaux 2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\bateaux 2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\c6464c1b-48b6-4d62-a333-789e508af7df.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c6464c1b-48b6-4d62-a333-789e508af7df.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\d2b846d2-0b46-4fe1-a772-588b49fb7080.webp",
+      "PackagePath": "staticwebassets\\uploads\\d2b846d2-0b46-4fe1-a772-588b49fb7080.webp"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\da889fe4-b5a4-4ad8-870d-6050e7f1110d.webp",
+      "PackagePath": "staticwebassets\\uploads\\da889fe4-b5a4-4ad8-870d-6050e7f1110d.webp"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\e9e8bb90-b892-45bd-baea-d795cb7d77ff.png",
+      "PackagePath": "staticwebassets\\uploads\\e9e8bb90-b892-45bd-baea-d795cb7d77ff.png"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\f0d2429c-9583-4d9f-ade7-819b0cea535b.webp",
+      "PackagePath": "staticwebassets\\uploads\\f0d2429c-9583-4d9f-ade7-819b0cea535b.webp"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\test.jpg",
+      "PackagePath": "staticwebassets\\uploads\\test.jpg"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.SaillingLoc.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

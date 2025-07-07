@@ -1,0 +1,33 @@
+@page
+@model SaillingLoc.Pages.MessagesModel
+@{
+    ViewData["Title"] = "Gestion des messages";
+}
+
+<h2 class="text-center my-4">Liste des messages</h2>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Expéditeur</th>
+                <th>Destinataire</th>
+                <th>Contenu</th>
+                <th>Date d’envoi</th>
+                <th>Lu</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var msg in Model.Messages)
+        {
+            <tr>
+                <td>@(msg.Sender?.FullName ?? msg.SenderId)</td>
+                <td>@(msg.Receiver?.FullName ?? msg.ReceiverId)</td> <!-- ✅ Correction ici -->
+                <td>@msg.Content</td>
+                <td>@msg.SentAt.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@(msg.IsRead ? "Oui" : "Non")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

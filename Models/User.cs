@@ -16,6 +16,8 @@ namespace SaillingLoc.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        public string FullName => $"{FirstName} {LastName}";
+
 
         // Navigation properties
         public ICollection<UserDocument> Documents { get; set; }

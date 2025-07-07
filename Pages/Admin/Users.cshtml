@@ -1,0 +1,57 @@
+@page
+@model SaillingLoc.Pages.Admin.UsersModel
+@{
+    ViewData["Title"] = "Gestion des utilisateurs";
+}
+
+<h2>Liste des utilisateurs</h2>
+
+<!-- ✅ Barre de recherche -->
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Rechercher un utilisateur..." />
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+        @if (!string.IsNullOrWhiteSpace(Model.SearchTerm))
+        {
+            <a class="btn btn-secondary" href="/Admin/Users">Réinitialiser</a>
+        }po
+    </div>
+</form>
+
+<!-- ✅ Tableau -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom complet</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model.Users)
+    {
+        <tr>
+            <td>@user.FullName</td>
+            <td>@user.Email</td>
+            <td>
+                <!-- Modifier -->
+                <form method="post" asp-page-handler="Edit" class="d-inline">
+                    <input type="hidden" name="EditedUser.Id" value="@user.Id" />
+                    <div class="mb-1">
+                        <input type="text" name="EditedUser.FirstName" value="@user.FirstName" class="form-control form-control-sm mb-1" placeholder="Prénom" />
+                        <input type="text" name="EditedUser.LastName" value="@user.LastName" class="form-control form-control-sm mb-1" placeholder="Nom" />
+                        <input type="email" name="EditedUser.Email" value="@user.Email" class="form-control form-control-sm mb-1" placeholder="Email" />
+                        <button type="submit" class="btn btn-warning btn-sm">Modifier</button>
+                    </div>
+                </form>
+
+                <!-- Supprimer -->
+                <form method="post" asp-page-handler="Delete" class="d-inline" onsubmit="return confirm('Supprimer cet utilisateur ?');">
+                    <input type="hidden" name="UserIdToDelete" value="@user.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

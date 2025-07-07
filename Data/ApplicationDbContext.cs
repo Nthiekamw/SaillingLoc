@@ -25,6 +25,8 @@ namespace SaillingLoc.Data
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

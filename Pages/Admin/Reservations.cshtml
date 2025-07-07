@@ -1,0 +1,29 @@
+@page
+@model SaillingLoc.Pages.Admin.ReservationsModel
+@{
+    ViewData["Title"] = "Gestion des réservations";
+}
+
+<h2>Liste des réservations</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Référence</th>
+            <th>Utilisateur</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var r in Model.Reservations)
+    {
+        <tr>
+            <td>@r.Reference</td>
+            <td>@r.User?.FullName</td>
+            <td>@r.StartDate.ToShortDateString()</td>
+            <td>@r.EndDate.ToShortDateString()</td>
+        </tr>
+    }
+    </tbody>
+</table>

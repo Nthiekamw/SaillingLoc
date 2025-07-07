@@ -42,18 +42,38 @@ namespace SaillingLoc.Models
         public int PortId { get; set; }
 
         public string? UserId { get; set; }
+
+        // Photo principale du bateau
         public string? Photo { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
+        // Références aux entités associées
         public BoatType? BoatType { get; set; }
         public User? User { get; set; }
         public Port? Port { get; set; }
 
+        // Collection de photos supplémentaires du bateau
         public ICollection<BoatPhoto> Photos { get; set; } = new List<BoatPhoto>();
+
+        // Collection d'équipements disponibles sur le bateau
         public ICollection<BoatEquipment> Equipments { get; set; } = new List<BoatEquipment>();
+
+        // Disponibilité du bateau
         public ICollection<Availability> Availabilities { get; set; } = new List<Availability>();
+
+        // Réservations associées au bateau
         public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
+
+        // Méthode pour récupérer la première photo si elle existe
+        public string GetFirstPhotoUrl()
+        {
+            if (Photos != null && Photos.Any())
+            {
+                return Photos.First().PhotoUrl; // Si la collection Photos contient des éléments, renvoyer la première photo
+            }
+            return Photo; // Si aucune photo supplémentaire, renvoyer la photo principale
+        }
     }
 }

@@ -1,0 +1,29 @@
+@page
+@model SaillingLoc.Pages.Admin.BoatsModel
+@{
+    ViewData["Title"] = "Gestion des bateaux";
+}
+
+<h2>Liste des bateaux</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>Prix/jour</th>
+            <th>Port</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var boat in Model.Boats)
+    {
+        <tr>
+            <td>@boat.Name</td>
+            <td>@boat.BoatType?.Name</td>
+            <td>@boat.DailyPrice €</td>
+            <td>@boat.Port?.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>

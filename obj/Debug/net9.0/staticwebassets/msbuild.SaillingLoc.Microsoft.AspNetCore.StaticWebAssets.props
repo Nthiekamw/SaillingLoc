@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5kuxyrf2lg</Fingerprint>
-      <Integrity>C8mNJn1PWj6tn+x6NR+1GS3oKlRbLKQDdpJesufAMuA=</Integrity>
+      <Fingerprint>nqiu8qqd3c</Fingerprint>
+      <Integrity>X0o7MnkOP7oeEaPZpf7fpzQtSXXWBeaCszSNnOqgTiU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -126,6 +126,42 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\694c00ab-76f8-4878-a7e7-cffb0bfe985c_cv.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>1ae6151cgm</Fingerprint>
+      <Integrity>yXIF3+ztkRFTPoEXZb0XH44hoqds8Zgon/Okw0inYPc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\ad820eba-94e3-4b26-a564-cced936621ec_Bateaux 7.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/ad820eba-94e3-4b26-a564-cced936621ec_Bateaux 7.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cy7uruhtpc</Fingerprint>
+      <Integrity>xAYfU5UMN4YDnY+SUKPcKPv1AIML7Opaai/XlR5vNSo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\ad820eba-94e3-4b26-a564-cced936621ec_Bateaux 7.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\b43e082e-4d2a-495c-9cbd-331359d94d02_cv.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>SaillingLoc</SourceId>
@@ -143,6 +179,78 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\b43e082e-4d2a-495c-9cbd-331359d94d02_cv.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Bateaux 7.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/Bateaux 7.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cy7uruhtpc</Fingerprint>
+      <Integrity>xAYfU5UMN4YDnY+SUKPcKPv1AIML7Opaai/XlR5vNSo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Bateaux 7.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\bateaux moteur.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/bateaux moteur.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>0e4qynbklx</Fingerprint>
+      <Integrity>uGZqOZJANVQv9OY9X8w++glumWtj9GbhPUfZNEXwvec=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\bateaux moteur.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Bateaux4.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/Bateaux4.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>5xq78s42zl</Fingerprint>
+      <Integrity>98MjtxouCNrQ1fVHfpeNh2l39zC0ozmW+G7sItyfiHY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Bateaux4.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\catamaran.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/catamaran.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>jgz21k3grb</Fingerprint>
+      <Integrity>A8GYqaVQAPsOb3XzwgWsI6RSjZPjyWqMR4OBaRdVJFg=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\catamaran.webp'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\d7488317-995a-47c9-bbfa-e567dc374f20_logo simple.jpg'))">
       <SourceType>Package</SourceType>
@@ -180,6 +288,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\dbb2b09e-304c-45b4-bbbf-2fabf2ed058b_cv.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\default-boat.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/default-boat.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>my4i8ktioh</Fingerprint>
+      <Integrity>Yu5/m5zJskKhHtchBxrigBeXFpq2WMr8bkZ0xKrQ9F0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\default-boat.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>SaillingLoc</SourceId>
@@ -197,6 +323,60 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\ferry.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/ferry.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>my4i8ktioh</Fingerprint>
+      <Integrity>Yu5/m5zJskKhHtchBxrigBeXFpq2WMr8bkZ0xKrQ9F0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\ferry.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\pic-1-1.jpeg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/pic-1-1.jpeg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>bzbyqhipnw</Fingerprint>
+      <Integrity>2fDt5IKIU3CVOwaZXRhZDmZkxW2Wm1jIH9RKgASudlE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\pic-1-1.jpeg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yatch.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>images/yatch.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ed179ovg3r</Fingerprint>
+      <Integrity>svsAKoGKRMx7Kdo7Gcfph6fzjcQfZPls12N3HWLimU0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\yatch.webp'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))">
       <SourceType>Package</SourceType>
@@ -1314,30 +1494,246 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SaillingLoc.mn9113qj9v.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Capture d’écran 2025-03-19 153831.png'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\08978bf7-56b3-4215-b7e7-ac1e5b0e5173.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>SaillingLoc</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/SaillingLoc</BasePath>
-      <RelativePath>uploads/Capture d’écran 2025-03-19 153831.png</RelativePath>
+      <RelativePath>uploads/08978bf7-56b3-4215-b7e7-ac1e5b0e5173.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hjiv7uxmti</Fingerprint>
-      <Integrity>Y2E3G0PfUBCUfEedEJKyJ8Rw1baqrwCHQ9mTslphIWs=</Integrity>
+      <Fingerprint>cacxy4v602</Fingerprint>
+      <Integrity>dB6aoG1akVhWTQRl3lXn8m9BhgKbc2gAN/XgshJDfQ8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Capture d’écran 2025-03-19 153831.png'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\08978bf7-56b3-4215-b7e7-ac1e5b0e5173.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\loc.png'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\11453fcc-8ce6-4f11-8d7d-e2401f3c370a.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>SaillingLoc</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/SaillingLoc</BasePath>
-      <RelativePath>uploads/loc.png</RelativePath>
+      <RelativePath>uploads/11453fcc-8ce6-4f11-8d7d-e2401f3c370a.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cacxy4v602</Fingerprint>
+      <Integrity>dB6aoG1akVhWTQRl3lXn8m9BhgKbc2gAN/XgshJDfQ8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\11453fcc-8ce6-4f11-8d7d-e2401f3c370a.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\331ed769-881a-4a53-a77e-6a396aa7acd7.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/331ed769-881a-4a53-a77e-6a396aa7acd7.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>w3l5j2dqz2</Fingerprint>
+      <Integrity>5HretTaIq/aLdLF/dgXInVXPEqikN9nRYaQNKnyKZv8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\331ed769-881a-4a53-a77e-6a396aa7acd7.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\551c5374-4d99-4c10-abaa-9cb7f13f48be.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/551c5374-4d99-4c10-abaa-9cb7f13f48be.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cacxy4v602</Fingerprint>
+      <Integrity>dB6aoG1akVhWTQRl3lXn8m9BhgKbc2gAN/XgshJDfQ8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\551c5374-4d99-4c10-abaa-9cb7f13f48be.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\70390dfc-0e03-4c82-a6b7-73dfc92b61cd.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/70390dfc-0e03-4c82-a6b7-73dfc92b61cd.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cacxy4v602</Fingerprint>
+      <Integrity>dB6aoG1akVhWTQRl3lXn8m9BhgKbc2gAN/XgshJDfQ8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\70390dfc-0e03-4c82-a6b7-73dfc92b61cd.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\87644e80-5f0f-44b3-bc18-530da87c3304.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/87644e80-5f0f-44b3-bc18-530da87c3304.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cacxy4v602</Fingerprint>
+      <Integrity>dB6aoG1akVhWTQRl3lXn8m9BhgKbc2gAN/XgshJDfQ8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\87644e80-5f0f-44b3-bc18-530da87c3304.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\8765f413-5324-441e-805d-6422578ab0fb.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/8765f413-5324-441e-805d-6422578ab0fb.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vxs5ym5rdb</Fingerprint>
+      <Integrity>PVSlB1YX70zqefGU75OLoAlZP1pR6P/oshf80nwB/VI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\8765f413-5324-441e-805d-6422578ab0fb.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\91d6be1f-6238-4a8d-86e2-550fde39e2d3.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/91d6be1f-6238-4a8d-86e2-550fde39e2d3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cacxy4v602</Fingerprint>
+      <Integrity>dB6aoG1akVhWTQRl3lXn8m9BhgKbc2gAN/XgshJDfQ8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\91d6be1f-6238-4a8d-86e2-550fde39e2d3.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\b90922d3-38f1-490f-b716-bdaba2a0de4c.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/b90922d3-38f1-490f-b716-bdaba2a0de4c.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>y5esr6mlum</Fingerprint>
+      <Integrity>SlarkrlbFdHWu6NGyTmA5y0gs5eZaWuluDGvn6LmDmE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\b90922d3-38f1-490f-b716-bdaba2a0de4c.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\bateaux 2.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/bateaux 2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>y5esr6mlum</Fingerprint>
+      <Integrity>SlarkrlbFdHWu6NGyTmA5y0gs5eZaWuluDGvn6LmDmE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\bateaux 2.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\c6464c1b-48b6-4d62-a333-789e508af7df.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/c6464c1b-48b6-4d62-a333-789e508af7df.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cacxy4v602</Fingerprint>
+      <Integrity>dB6aoG1akVhWTQRl3lXn8m9BhgKbc2gAN/XgshJDfQ8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\c6464c1b-48b6-4d62-a333-789e508af7df.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d2b846d2-0b46-4fe1-a772-588b49fb7080.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/d2b846d2-0b46-4fe1-a772-588b49fb7080.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vxs5ym5rdb</Fingerprint>
+      <Integrity>PVSlB1YX70zqefGU75OLoAlZP1pR6P/oshf80nwB/VI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d2b846d2-0b46-4fe1-a772-588b49fb7080.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\da889fe4-b5a4-4ad8-870d-6050e7f1110d.webp'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/da889fe4-b5a4-4ad8-870d-6050e7f1110d.webp</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>gh92u6civy</Fingerprint>
+      <Integrity>hJJugdCz+9A532323ggA3f5Z5Npkb9Ya7uM5l3/7mkY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\da889fe4-b5a4-4ad8-870d-6050e7f1110d.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\e9e8bb90-b892-45bd-baea-d795cb7d77ff.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/e9e8bb90-b892-45bd-baea-d795cb7d77ff.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1348,25 +1744,43 @@
       <Integrity>LDu/wlQSvxMw0Nm1VjPmBwERaBVBvm9qHsnGDfpbFHE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\loc.png'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\e9e8bb90-b892-45bd-baea-d795cb7d77ff.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\SECU.jpg'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f0d2429c-9583-4d9f-ade7-819b0cea535b.webp'))">
       <SourceType>Package</SourceType>
       <SourceId>SaillingLoc</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/SaillingLoc</BasePath>
-      <RelativePath>uploads/SECU.jpg</RelativePath>
+      <RelativePath>uploads/f0d2429c-9583-4d9f-ade7-819b0cea535b.webp</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>91y288wa3n</Fingerprint>
-      <Integrity>Mz/McPnC4Tmg15jGgrEznbZ/PRVIIQtg3O/DmiaOXiU=</Integrity>
+      <Fingerprint>jlxxtgllkp</Fingerprint>
+      <Integrity>VzUJRXWkPwdc6H4EmMRaS9wIH9rxxJCYDVpqQQ7lZ+Y=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\SECU.jpg'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f0d2429c-9583-4d9f-ade7-819b0cea535b.webp'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\test.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/test.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>w1rzncksx1</Fingerprint>
+      <Integrity>tNqHndndGipLBkgEtwQdxqvLduCouVAjOdlmu8HHaVQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\test.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>
