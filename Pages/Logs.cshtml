@@ -1,0 +1,31 @@
+@page
+@model LogsModel
+@{
+    ViewData["Title"] = "Historique des actions utilisateurs";
+}
+
+<h1>Historique des actions utilisateurs</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Utilisateur</th>
+            <th>Action</th>
+            <th>Page</th>
+            <th>IP</th>
+            <th>Date/Heure</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var log in Model.Logs)
+    {
+        <tr>
+            <td>@log.User?.UserName ?? "Invité"</td>
+            <td>@log.Action</td>
+            <td>@log.PageUrl</td>
+            <td>@log.IPAddress</td>
+            <td>@log.Timestamp.ToLocalTime().ToString("g")</td>
+        </tr>
+    }
+    </tbody>
+</table>

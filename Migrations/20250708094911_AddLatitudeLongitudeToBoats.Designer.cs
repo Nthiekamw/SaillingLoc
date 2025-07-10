@@ -12,8 +12,8 @@ using SaillingLoc.Data;
 namespace SaillingLoc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250630101350_CorrectionBoatModel")]
-    partial class CorrectionBoatModel
+    [Migration("20250708094911_AddLatitudeLongitudeToBoats")]
+    partial class AddLatitudeLongitudeToBoats
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -178,10 +178,6 @@ namespace SaillingLoc.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -214,14 +210,19 @@ namespace SaillingLoc.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EngineType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
                     b.Property<double>("Length")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
                         .HasColumnType("float");
 
                     b.Property<int>("MaxPassengers")
@@ -236,11 +237,13 @@ namespace SaillingLoc.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Photo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PortId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("PricePerDay")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("SkipperRequired")
                         .HasColumnType("bit");
@@ -249,7 +252,6 @@ namespace SaillingLoc.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -409,12 +411,15 @@ namespace SaillingLoc.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ReservationId")
+                    b.Property<int?>("ReservationId")
                         .HasColumnType("int");
 
                     b.Property<string>("SenderId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -428,6 +433,33 @@ namespace SaillingLoc.Migrations
                     b.HasIndex("SenderId");
 
                     b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("SaillingLoc.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("SaillingLoc.Models.Payment", b =>
@@ -525,6 +557,9 @@ namespace SaillingLoc.Migrations
                     b.Property<int>("BoatId")
                         .HasColumnType("int");
 
+                    b.Property<string>("BoatOwnerId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -537,10 +572,6 @@ namespace SaillingLoc.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
@@ -556,9 +587,11 @@ namespace SaillingLoc.Migrations
 
                     b.HasIndex("BoatId");
 
+                    b.HasIndex("BoatOwnerId");
+
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", "dbo");
                 });
 
             modelBuilder.Entity("SaillingLoc.Models.Review", b =>
@@ -667,6 +700,9 @@ namespace SaillingLoc.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
+
+                    b.Property<int>("UnreadMessagesCount")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -807,8 +843,7 @@ namespace SaillingLoc.Migrations
                     b.HasOne("SaillingLoc.Models.User", "User")
                         .WithMany("Boats")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("BoatType");
 
@@ -861,8 +896,7 @@ namespace SaillingLoc.Migrations
                     b.HasOne("SaillingLoc.Models.Reservation", "Reservation")
                         .WithMany("Messages")
                         .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SaillingLoc.Models.User", "Sender")
                         .WithMany()
@@ -896,6 +930,11 @@ namespace SaillingLoc.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("SaillingLoc.Models.User", "BoatOwner")
+                        .WithMany()
+                        .HasForeignKey("BoatOwnerId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("SaillingLoc.Models.User", "User")
                         .WithMany("Reservations")
                         .HasForeignKey("UserId")
@@ -903,6 +942,8 @@ namespace SaillingLoc.Migrations
                         .IsRequired();
 
                     b.Navigation("Boat");
+
+                    b.Navigation("BoatOwner");
 
                     b.Navigation("User");
                 });

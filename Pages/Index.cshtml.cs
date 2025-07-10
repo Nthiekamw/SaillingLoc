@@ -1,27 +1,9 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,22 +23,58 @@ namespace SaillingLoc.Pages
             _context = context;
         }
 
-        // Liste des bateaux à afficher sur la page d'accueil
         public List<Boat> Boats { get; set; }
         public Boat Boat { get; set; }
         public BoatPhoto BoatPhoto { get; set; }
 
-        // Liste déroulante des ports (pas utilisée dans la vue, mais prête pour un futur filtre)
+        public string GoogleMapsApiKey { get; set; } = "AIzaSyAv5i7Pcfoy7KGhEo3bs_NpVhxPj9JaUJs";
+
         public IEnumerable<SelectListItem> PortOptions { get; set; }
 
-        // Chargement des données lors d'un GET
+        // Bind propriétés avec noms exacts
+        [BindProperty(SupportsGet = true)]
+        public string searchDestination { get; set; } = "";
+
+        [BindProperty(SupportsGet = true)]
+        public DateTime? searchStartDate { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public DateTime? searchEndDate { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int? searchNumberOfPeople { get; set; }
+
         public async Task OnGetAsync()
         {
-            Boats = await _context.Boats
-                .Include(b => b.Port)         // Inclure les ports liés
-                .Include(b => b.BoatType)     // Inclure le type de bateau
-                .Include(b => b.Photos)       // Inclure les photos pour l'affichage
-                .ToListAsync();
+            var query = _context.Boats
+                .Include(b => b.Port)
+                .Include(b => b.BoatType)
+                .Include(b => b.Photos)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchDestination))
+            {
+                query = query.Where(b => b.Port != null && b.Port.Name.Contains(searchDestination));
+            }
+
+            if (searchNumberOfPeople.HasValue)
+            {
+                query = query.Where(b => b.Capacity >= searchNumberOfPeople.Value);
+            }
+
+            if (searchStartDate.HasValue && searchEndDate.HasValue)
+            {
+                query = query.Where(b => !_context.Reservations.Any(r =>
+                    r.BoatId == b.Id &&
+                    (
+                        (searchStartDate.Value >= r.StartDate && searchStartDate.Value <= r.EndDate) ||
+                        (searchEndDate.Value >= r.StartDate && searchEndDate.Value <= r.EndDate) ||
+                        (searchStartDate.Value <= r.StartDate && searchEndDate.Value >= r.EndDate)
+                    )
+                ));
+            }
+
+            Boats = await query.ToListAsync();
 
             var ports = await _context.Ports.ToListAsync();
             PortOptions = ports.Select(p => new SelectListItem
@@ -66,7 +84,6 @@ namespace SaillingLoc.Pages
             });
         }
 
-        // Suppression d'un bateau (POST)
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             var boat = await _context.Boats.FindAsync(id);
@@ -82,18 +99,6 @@ namespace SaillingLoc.Pages
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -142,12 +147,12 @@ namespace SaillingLoc.Pages
 //         // Liste des bateaux à afficher sur la page d'accueil
 //         public List<Boat> Boats { get; set; }
 //         public Boat Boat { get; set; }
-        
-// public BoatPhoto BoatPhoto { get; set; }
+//         public BoatPhoto BoatPhoto { get; set; }
 
+//         // Clé API Google Maps
+//         public string GoogleMapsApiKey { get; set; } = "AIzaSyAv5i7Pcfoy7KGhEo3bs_NpVhxPj9JaUJs";
 
-
-//         // Liste déroulante des ports (pas utilisée dans la vue, mais prête pour un futur filtre)
+//         // Liste déroulante des ports (non utilisée mais disponible)
 //         public IEnumerable<SelectListItem> PortOptions { get; set; }
 
 //         // Chargement des données lors d'un GET

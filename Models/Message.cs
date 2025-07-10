@@ -24,7 +24,7 @@ namespace SaillingLoc.Models
         public User Receiver { get; set; }
 
         // Lié à une réservation
-        public int ReservationId { get; set; }
+        public int? ReservationId { get; set; }
         public Reservation Reservation { get; set; }
     }
 }

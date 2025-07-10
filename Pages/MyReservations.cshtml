@@ -1,0 +1,38 @@
+@page
+@model SaillingLoc.Pages.MyReservationsModel
+@{
+    ViewData["Title"] = "Mes Réservations";
+}
+
+<h2>Mes Réservations</h2>
+
+@if (Model.Reservations == null || !Model.Reservations.Any())
+{
+    <p>Vous n'avez pas encore de réservations.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Bateau</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Prix total</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var res in Model.Reservations)
+        {
+            <tr>
+                <td>@res.Reference</td>
+                <td>@(res.Boat != null ? res.Boat.Name : "<em>Bateau supprimé</em>")</td>
+                <td>@res.StartDate.ToShortDateString()</td>
+                <td>@res.EndDate.ToShortDateString()</td>
+                <td>@res.TotalPrice.ToString("C")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

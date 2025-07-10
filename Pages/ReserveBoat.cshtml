@@ -1,0 +1,88 @@
+@page
+@model SaillingLoc.Pages.ReserveBoatModel
+@{
+    ViewData["Title"] = "Réserver un bateau";
+}
+
+<h2>Réserver le bateau : <strong>@Model.Boat?.Name</strong></h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <partial name="_ValidationSummary" />
+        Veuillez corriger les erreurs ci-dessous.
+    </div>
+}
+
+@if (Model.Boat != null)
+{
+    <p><strong>Prix par jour :</strong> @Model.Boat.PricePerDay €</p>
+}
+
+<!-- Affichage de la référence de la réservation si elle a été créée -->
+@if (Model.Reservation != null)
+{
+    <div class="alert alert-info">
+        <strong>Référence :</strong> @Model.Reservation.Reference
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="post">
+    <div class="form-group mb-3">
+        <label asp-for="StartDate" class="form-label">Date de début</label>
+        <input type="date" asp-for="StartDate" class="form-control" id="StartDate" required />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="EndDate" class="form-label">Date de fin</label>
+        <input type="date" asp-for="EndDate" class="form-control" id="EndDate" required />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+
+    <!-- Affichage dynamique du prix total estimé -->
+    <div class="form-group mb-3">
+        <label>Prix total estimé</label>
+        <input type="text" id="totalPrice" class="form-control" readonly />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Réserver</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        const pricePerDay = parseFloat('@Model.Boat?.PricePerDay');
+
+        function calculateTotalPrice() {
+            const startInput = document.querySelector('#StartDate');
+            const endInput = document.querySelector('#EndDate');
+            const totalInput = document.querySelector('#totalPrice');
+
+            const start = new Date(startInput.value);
+            const end = new Date(endInput.value);
+
+            if (!isNaN(start) && !isNaN(end) && end > start) {
+                const diffTime = end - start;
+                const diffDays = diffTime / (1000 * 60 * 60 * 24);
+                const total = diffDays * pricePerDay;
+                totalInput.value = total.toFixed(2) + ' €';
+            } else {
+                totalInput.value = '';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('#StartDate').addEventListener('change', calculateTotalPrice);
+            document.querySelector('#EndDate').addEventListener('change', calculateTotalPrice);
+        });
+    </script>
+}

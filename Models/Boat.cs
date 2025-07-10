@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace SaillingLoc.Models
 {
@@ -23,13 +24,15 @@ namespace SaillingLoc.Models
         [Required(ErrorMessage = "Le type de moteur est obligatoire")]
         public string EngineType { get; set; }
 
+        public decimal DailyPrice { get; set; }
+
         public string? Description { get; set; }
 
         [Range(1, int.MaxValue, ErrorMessage = "Le nombre maximal de passagers doit être au moins 1")]
         public int MaxPassengers { get; set; }
 
         [Range(0, double.MaxValue, ErrorMessage = "Le prix journalier doit être positif")]
-        public decimal DailyPrice { get; set; }
+        public decimal PricePerDay { get; set; }
 
         public bool SkipperRequired { get; set; }
 
@@ -37,22 +40,29 @@ namespace SaillingLoc.Models
         [Range(1, int.MaxValue, ErrorMessage = "Veuillez sélectionner un type valide")]
         public int? BoatTypeId { get; set; }
 
+        // Clé étrangère pour le port
         [Required(ErrorMessage = "Le port est obligatoire")]
         [Range(1, int.MaxValue, ErrorMessage = "Veuillez sélectionner un port valide")]
         public int PortId { get; set; }
 
-        public string? UserId { get; set; }
+        public string UserId { get; set; }  // UserId ici représente le propriétaire du bateau
 
         // Photo principale du bateau
         public string? Photo { get; set; }
 
+        // Date de création et de mise à jour
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         // Références aux entités associées
         public BoatType? BoatType { get; set; }
-        public User? User { get; set; }
-        public Port? Port { get; set; }
+        public User? User { get; set; }  // Propriétaire du bateau
+        public Port Port { get; set; } // Propriété de navigation vers Port
+         // Ajoute ces propriétés pour la localisation GPS
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+          public int? Capacity { get; set; }
+
 
         // Collection de photos supplémentaires du bateau
         public ICollection<BoatPhoto> Photos { get; set; } = new List<BoatPhoto>();
@@ -71,9 +81,9 @@ namespace SaillingLoc.Models
         {
             if (Photos != null && Photos.Any())
             {
-                return Photos.First().PhotoUrl; // Si la collection Photos contient des éléments, renvoyer la première photo
+                return Photos.First().PhotoUrl;  // Si la collection Photos contient des éléments, renvoyer la première photo
             }
-            return Photo; // Si aucune photo supplémentaire, renvoyer la photo principale
+            return Photo;  // Si aucune photo supplémentaire, renvoyer la photo principale
         }
     }
 }

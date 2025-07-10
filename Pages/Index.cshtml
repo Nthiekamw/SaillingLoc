@@ -590,15 +590,17 @@ button:hover {
     background-position: center;
     color: white; /* pour que le texte soit visible sur l'image */
     padding: 40px 20px; /* un peu d'espace interne */
-">
+">   
     <h1>Trouvez le bateau parfait pour votre prochaine aventure</h1>
-    <p>Explorez les plus belles destinations en mer</p>
-    <div class="search-bar">
-        <input type="text" placeholder="Destination" />
-        <input type="date" />
-        <input type="number" placeholder="Nombre de personnes" />
-        <button>Rechercher</button>
-    </div>
+    <p>Explorez les plus belles destinations en mer</p> 
+  <form method="get">
+    <input type="text" name="Destination" placeholder="Destination" value="@Model.searchDestination" />
+    <input type="date" name="StartDate" value="@(Model.searchStartDate?.ToString("yyyy-MM-dd"))" />
+    <input type="date" name="EndDate" value="@(Model.searchEndDate?.ToString("yyyy-MM-dd"))" />
+    <input type="number" name="NumberOfPeople" placeholder="Nombre de personnes" min="1" value="@(Model.searchNumberOfPeople ?? 0)" />
+    <button type="submit">Rechercher</button>
+</form>
+
 </section>
 
 
@@ -613,6 +615,75 @@ button:hover {
   </div>
 </section>
 
+<!-- Carte Google Maps -->
+<section style="margin-top: 30px;">
+  <h3>Localisation des bateaux</h3>
+  <div id="map" style="width: 100%; height: 400px;"></div>
+</section>
+
+<script>
+  function initMap() {
+    const center = { lat: 48.8566, lng: 2.3522 };
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 5,
+      center: center,
+    });
+
+    const boats = [
+      @foreach (var boat in Model.Boats)
+      {
+          if (boat.Latitude != 0 && boat.Longitude != 0)
+          {
+              var photo = boat.Photos?.FirstOrDefault()?.PhotoUrl ?? "";
+
+              var portName = boat.Port?.Name ?? "Port inconnu";
+              var typeName = boat.BoatType?.Name ?? "Type inconnu";
+
+              <text>
+              {
+                lat: @boat.Latitude,
+                lng: @boat.Longitude,
+                name: "@boat.Name",
+                port: "@portName",
+                type: "@typeName",
+                photo: "@Url.Content($"~/uploads/{photo}")"
+              },
+              </text>
+          }
+      }
+    ];
+
+    boats.forEach(boat => {
+      const marker = new google.maps.Marker({
+        position: { lat: boat.lat, lng: boat.lng },
+        map: map,
+        title: boat.name
+      });
+
+      const contentString = `
+        <div style="max-width: 250px;">
+          <h4>${boat.name}</h4>
+          <p><strong>Port:</strong> ${boat.port}</p>
+          <p><strong>Type:</strong> ${boat.type}</p>
+          ${boat.photo ? `<img src="${boat.photo}" alt="Photo bateau" style="width: 100%; height: auto; border-radius: 8px;" />` : ""}
+        </div>
+      `;
+
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      marker.addListener("click", () => {
+        infowindow.open(map, marker);
+      });
+    });
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5i7Pcfoy7KGhEo3bs_NpVhxPj9JaUJs&callback=initMap">
+</script>
 
 <!-- Types de bateaux -->
 <!-- Types de bateaux -->
@@ -680,49 +751,49 @@ a:hover .label {
     <h2 class="section-title">Découvrez nos meilleures offres</h2>
 
     <div class="offers">
-@if (Model.Boats != null && Model.Boats.Any())
-{
-    foreach (var boat in Model.Boats)
+    @if (Model.Boats != null && Model.Boats.Any())
     {
-        // Récupérer la première photo si disponible, sinon image par défaut
-        var photoUrl = (boat.Photos != null && boat.Photos.Any()) 
-            ? Url.Content(boat.Photos.First().PhotoUrl)  // Pas de ~ ni de TrimStart ici
-            : Url.Content("~/images/default-boat.jpg");
+        foreach (var boat in Model.Boats)
+        {
+            // Récupérer la première photo si disponible, sinon image par défaut
+            var photoUrl = (boat.Photos != null && boat.Photos.Any()) 
+                ? Url.Content(boat.Photos.First().PhotoUrl)  // Correction ici
+                : Url.Content("~/images/default-boat.jpg");
 
-        <div class="offer-card">
-            <img src="@photoUrl" alt="Photo de @boat.Name" class="boat-image" />
+            <div class="offer-card">
+                <img src="@photoUrl" alt="Photo de @boat.Name" class="boat-image" />
 
-            <div class="content">
-                <h3>@boat.Name</h3>
-                <p>@boat.DailyPrice € / jour</p>
-                <p>@boat.Port?.Name</p>
+                <div class="content">
+                    <h3>@boat.Name</h3>
+                    <p>@boat.DailyPrice € / jour</p>
+                    <p>@boat.Port?.Name</p>
 
-                <!-- Lien vers la page des détails -->
-                <a asp-page="/BoatDetails" asp-route-id="@boat.Id" style="background-color: #AD7C59; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px;">Voir l'annonce</a>
+                    <!-- Lien vers la page des détails -->
+                    <a asp-page="/BoatDetails" asp-route-id="@boat.Id" style="background-color: #AD7C59; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px;">Voir l'annonce</a>
 
-                <!-- Lien vers la réservation -->
-                <a asp-page="/ReserveBoat" asp-route-id="@boat.Id" class="btn" style="margin-left: 10px; background-color: white; border: 2px solid #AD7C59; color: #AD7C59; padding: 10px 20px; border-radius: 5px;">Réserver</a>
+                    <!-- Lien vers la réservation -->
+                    <a asp-page="/ReserveBoat" asp-route-id="@boat.Id" class="btn" style="margin-left: 10px; background-color: white; border: 2px solid #AD7C59; color: #AD7C59; padding: 10px 20px; border-radius: 5px;">Réserver</a>
 
-                <!-- Section pour les administrateurs et propriétaires -->
-                @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
-                {
-                    <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn btn-warning">Modifier</a>
-                    
-                    <!-- Formulaire de suppression -->
-                    <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                    </form>
-                }
+                    <!-- Section pour les administrateurs et propriétaires -->
+                    @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
+                    {
+                        <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn btn-warning">Modifier</a>
+                        
+                        <!-- Formulaire de suppression -->
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    }
+                </div>
             </div>
-        </div>
+        }
     }
-}
-else
-{
-    <p>Aucune offre de bateau disponible pour le moment.</p>
-}
+    else
+    {
+        <p>Aucune offre de bateau disponible pour le moment.</p>
+    }
+</div>
 
-    </div>
 
     @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
     {

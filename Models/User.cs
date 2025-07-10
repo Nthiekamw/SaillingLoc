@@ -17,6 +17,11 @@ namespace SaillingLoc.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
         public string FullName => $"{FirstName} {LastName}";
+         
+
+    // Ajoute un champ pour le nombre de messages non lus
+    public int UnreadMessagesCount { get; set; } = 0;
+
 
 
         // Navigation properties

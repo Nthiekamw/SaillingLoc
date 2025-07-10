@@ -7,6 +7,86 @@
 <h2 class="text-center my-4">Liste des messages</h2>
 
 <div class="container">
+    <table class="table table-bordered table-striped"> 
+        <thead class="thead-dark">
+            <tr>
+                <th>Expéditeur</th>
+                <th>Destinataire</th>
+                <th>Contenu</th>
+                <th>Date d’envoi</th>
+                <th>Lu</th>
+                <th>Action</th> <!-- ✅ Nouvelle colonne pour le bouton -->
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var msg in Model.Messages)
+        {
+            <tr>
+                <td>@(msg.Sender?.FullName ?? msg.SenderId)</td>
+                <td>@(msg.Receiver?.FullName ?? msg.ReceiverId)</td>
+                <td>@msg.Content</td>
+                <td>@msg.SentAt.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@(msg.IsRead ? "Oui" : "Non")</td>
+
+                <!-- ✅ Bouton "Marquer comme lu" pour le destinataire uniquement -->
+                <td>
+                    @if (!msg.IsRead && msg.ReceiverId == User.Identity.Name)
+                    {
+                        <a href="@Url.Page("/Messages/MarkAsRead", new { messageId = msg.Id })" class="btn btn-sm btn-primary">
+                            Marquer comme lu
+                        </a>
+                    }
+                    else
+                    {
+                        <span>-</span>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <!-- ✅ Formulaire d'envoi de message -->
+    <h3 class="my-4">Envoyer un message</h3>
+    <form method="post">
+        <div class="form-group">
+            <label for="ReceiverId">Destinataire</label>
+            <select asp-for="ReceiverId" class="form-control" asp-items="Model.Users"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="Content">Contenu</label>
+            <textarea asp-for="Content" class="form-control" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* @page
+@model SaillingLoc.Pages.MessagesModel
+@{
+    ViewData["Title"] = "Gestion des messages";
+}
+
+<h2 class="text-center my-4">Liste des messages</h2>
+
+<div class="container">
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
@@ -30,4 +110,4 @@
         }
         </tbody>
     </table>
-</div>
+</div> *@

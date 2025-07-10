@@ -65,8 +65,22 @@
             </div>
         </div>
 
-    </div>
-</div>
+        <!-- Nouvelle carte Historique -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow dashboard-card" role="button" tabindex="0"
+                 onclick="location.href='@Url.Page("/Logs")'"
+                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Logs")'}"
+                 aria-label="Voir l'historique des actions utilisateurs"
+                 style="cursor:pointer;">
+                <div class="card-body text-center">
+                    <h5>Historique des actions</h5>
+                    <i class="fa fa-history fa-3x mt-2" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- fin row -->
+</div> <!-- fin container -->
 
 <style>
     .dashboard-card:hover {

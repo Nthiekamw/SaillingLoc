@@ -29,6 +29,8 @@ internal class Program
         builder.Services.AddScoped<INotificationService, NotificationService>();
         builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
         builder.Services.AddScoped<IEmailService, EmailService>();
+        builder.Services.AddScoped<IUserActionLogger, UserActionLogger>();
+
 
         // === SignalR ===
         builder.Services.AddSignalR();

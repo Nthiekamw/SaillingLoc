@@ -12,8 +12,8 @@ using SaillingLoc.Data;
 namespace SaillingLoc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250704105800_AddNotificationsTable")]
-    partial class AddNotificationsTable
+    [Migration("20250708084720_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -178,10 +178,6 @@ namespace SaillingLoc.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -239,6 +235,9 @@ namespace SaillingLoc.Migrations
 
                     b.Property<int>("PortId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("PricePerDay")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("SkipperRequired")
                         .HasColumnType("bit");
@@ -406,7 +405,7 @@ namespace SaillingLoc.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ReservationId")
+                    b.Property<int?>("ReservationId")
                         .HasColumnType("int");
 
                     b.Property<string>("SenderId")
@@ -438,7 +437,7 @@ namespace SaillingLoc.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRead")
@@ -552,6 +551,10 @@ namespace SaillingLoc.Migrations
                     b.Property<int>("BoatId")
                         .HasColumnType("int");
 
+                    b.Property<string>("BoatOwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -564,10 +567,6 @@ namespace SaillingLoc.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
@@ -583,9 +582,11 @@ namespace SaillingLoc.Migrations
 
                     b.HasIndex("BoatId");
 
+                    b.HasIndex("BoatOwnerId");
+
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", "dbo");
                 });
 
             modelBuilder.Entity("SaillingLoc.Models.Review", b =>
@@ -694,6 +695,9 @@ namespace SaillingLoc.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
+
+                    b.Property<int>("UnreadMessagesCount")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -887,8 +891,7 @@ namespace SaillingLoc.Migrations
                     b.HasOne("SaillingLoc.Models.Reservation", "Reservation")
                         .WithMany("Messages")
                         .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SaillingLoc.Models.User", "Sender")
                         .WithMany()
@@ -922,6 +925,12 @@ namespace SaillingLoc.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("SaillingLoc.Models.User", "BoatOwner")
+                        .WithMany()
+                        .HasForeignKey("BoatOwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SaillingLoc.Models.User", "User")
                         .WithMany("Reservations")
                         .HasForeignKey("UserId")
@@ -929,6 +938,8 @@ namespace SaillingLoc.Migrations
                         .IsRequired();
 
                     b.Navigation("Boat");
+
+                    b.Navigation("BoatOwner");
 
                     b.Navigation("User");
                 });

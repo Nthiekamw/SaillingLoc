@@ -12,7 +12,6 @@ namespace SaillingLoc.Data
         {
         }
 
-        // Déclaration des tables
         public DbSet<UserDocument> UserDocuments { get; set; }
         public DbSet<Port> Ports { get; set; }
         public DbSet<BoatType> BoatTypes { get; set; }
@@ -26,11 +25,14 @@ namespace SaillingLoc.Data
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserActionLog> UserActionLogs { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Reservation>().ToTable("Reservations", "dbo");
 
             // Configuration des décimales
             modelBuilder.Entity<Boat>().Property(b => b.DailyPrice).HasColumnType("decimal(18,2)");
@@ -43,9 +45,9 @@ namespace SaillingLoc.Data
                 .HasOne(bp => bp.Boat)
                 .WithMany(b => b.Photos)
                 .HasForeignKey(bp => bp.BoatId)
-                .OnDelete(DeleteBehavior.Cascade); // Photo supprimée si bateau supprimé
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // Boat -> Port, BoatType, User
+            // Boat
             modelBuilder.Entity<Boat>()
                 .HasOne(b => b.Port)
                 .WithMany(p => p.Boats)
@@ -75,6 +77,12 @@ namespace SaillingLoc.Data
                 .HasOne(r => r.User)
                 .WithMany(u => u.Reservations)
                 .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Reservation>()
+                .HasOne(r => r.BoatOwner)
+                .WithMany()
+                .HasForeignKey(r => r.BoatOwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Contract
