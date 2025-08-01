@@ -130,6 +130,18 @@
         body.dark-mode .form-check-label {
             color: #f1f1f1 !important;
         }
+
+         .custom-btn {
+        background-color: #F5F1EB;
+        color: #AD7C59;
+        border: 1px solid #AD7C59;
+    }
+
+    .custom-btn:hover {
+        background-color: #AD7C59;
+        color: white;
+        border-color: #AD7C59;
+    }
     </style>
 </head>
 <body>
@@ -207,16 +219,17 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm">Déconnexion</button>
-                                </form>
-                            </li>
+    <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
+        <button type="submit" class="btn btn-sm custom-btn">Déconnexion</button>
+    </form>
+</li>
                         }
                         else
                         {
                             <li class="nav-item me-2">
-                                <a class="btn btn-outline-primary btn-sm" asp-page="/Account/Login">Connexion</a>
-                            </li>
+    <a class="btn btn-sm custom-btn" asp-page="/Account/Login">Connexion</a>
+</li>
+
                             <li class="nav-item">
                                 <a class="btn btn-outline-success btn-sm" asp-page="/Account/Register">Inscription</a>
                             </li>
