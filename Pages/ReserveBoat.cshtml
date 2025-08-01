@@ -9,7 +9,7 @@
 @if (!ViewData.ModelState.IsValid)
 {
     <div class="alert alert-danger">
-        <partial name="_ValidationSummary" />
+        <partial name="_ValidationSummary" model="ViewData.ModelState" />
         Veuillez corriger les erreurs ci-dessous.
     </div>
 }

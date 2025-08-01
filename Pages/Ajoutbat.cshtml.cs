@@ -64,8 +64,14 @@ namespace SaillingLoc.Pages.Proprietaire
         {
             Boat.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            if (string.IsNullOrEmpty(Boat.UserId))
-                ModelState.AddModelError(string.Empty, "Utilisateur non identifié.");
+            if (!string.IsNullOrEmpty(Boat.UserId))
+{
+    ModelState.Remove("Boat.UserId");
+}
+else
+{
+    ModelState.AddModelError(string.Empty, "Utilisateur non identifié.");
+}
 
             if (Photo == null || Photo.Length == 0)
                 ModelState.AddModelError("Photo", "Une photo est obligatoire.");

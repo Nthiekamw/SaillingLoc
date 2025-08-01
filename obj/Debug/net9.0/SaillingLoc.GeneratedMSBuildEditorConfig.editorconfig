@@ -88,6 +88,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Messages/MarkAsRead.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXNcTWFya0FzUmVhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/MyReservations.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlSZXNlcnZhdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -102,6 +106,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Shared/_ValidationSummary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU3VtbWFyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/_ViewImports.cshtml]

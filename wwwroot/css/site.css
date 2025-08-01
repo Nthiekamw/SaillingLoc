@@ -54,3 +54,28 @@ body {
         transform: translateX(-50%);
     }
 }
+
+.hero {
+  background-image: url('/images/Bateaux4.webp');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px 20px;
+  height: 100vh;
+
+  /* Animation de zoom */
+  animation: zoomBackground 10s ease-in-out infinite;
+}
+
+/* Animation définie */
+@keyframes zoomBackground {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 110%; /* Zoom */
+  }
+  100% {
+    background-size: 100%; /* Retour normal */
+  }
+}

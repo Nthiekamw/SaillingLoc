@@ -134,9 +134,13 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom shadow-sm mb-4">
+       <nav class="navbar navbar-expand-md navbar-light border-bottom shadow-sm mb-4" style="background-color: #F5F1EB;">
+
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">SaillingLoc</a>
+               <a class="navbar-brand" asp-area="" asp-page="/Index">
+    <img src="~/images/plan de travail 2.png" alt="Logo" style="height:40px;" />
+</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -147,9 +151,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-page="/Index">Accueil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Privacy">Confidentialité</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-page="/Messages">Messagerie</a>
                         </li>
@@ -168,6 +170,10 @@
                                 <a class="nav-link text-dark" href="#mes-bateaux">Mes Bateaux</a>
                             </li>
                         }
+
+                        <li class="nav-item"></li>
+                            <a class="nav-link text-dark" asp-page="/Privacy">Contacts</a>
+                        </li>
                     </ul>
 
                     <ul class="navbar-nav ms-auto mb-2 mb-md-0">
@@ -225,15 +231,66 @@
         @RenderBody()
     </main>
 
-    <section class="cta-section" style="background-color: #4B6A88; color: white;">
-        <h2>Prêt à réserver votre prochaine aventure ?</h2>
-        <p>Des milliers de bateaux à louer dans toute l'Europe. Trouvez celui qui vous convient !</p>
-        <a href="/Recherche" class="btn btn-light">Voir les offres</a>
-    </section>
+<section class="cta-section" style="background-color: #4B6A88; color: black; padding: 20px;">
+  <div class="row mt-5 text-center" style="color: white;">
+    
+    <!-- Bloc 1 : SAILINGLOC avec icônes -->
+    <div class="col-md-4" style="padding: 15px; background-color: #4B6A88;">
+      <h2 class="section-title" style="font-weight: bold; color: white;">SAILINGLOC</h2>
+      <p style="margin: 0;">Rejoignez l’aventure SailingLoc en un clic</p>
+      <div style="font-size: 24px; margin-top: 15px; display: flex; justify-content: center; gap: 15px;">
+  <a href="#" style="display: inline-flex; align-items: center; justify-content: center; 
+                     width: 45px; height: 45px; border-radius: 50%; 
+                     background-color: #AD7C59; color: white; text-decoration: none;">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <a href="#" style="display: inline-flex; align-items: center; justify-content: center; 
+                     width: 45px; height: 45px; border-radius: 50%; 
+                     background-color: #AD7C59; color: white; text-decoration: none;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="#" style="display: inline-flex; align-items: center; justify-content: center; 
+                     width: 45px; height: 45px; border-radius: 50%; 
+                     background-color: #AD7C59; color: white; text-decoration: none;">
+    <i class="fab fa-linkedin"></i>
+  </a>
+</div>
+
+    </div>
+
+    <!-- Bloc 2 : Liens Rapides -->
+    <div class="col-md-4" style="padding: 15px; background-color: #4B6A88;">
+      <h4 style="font-weight: bold;">Liens Rapides</h4>
+      <p>
+        À Propos<br>
+        CGU<br>
+        Mentions Légales<br>
+        Politique des Cookies<br>
+        Politiques de Confidentialité<br>
+        Plan du site<br>
+        Contact
+      </p>
+    </div>
+
+    <!-- Bloc 3 : Newsletter -->
+    <div class="col-md-4" style="padding: 15px; background-color: #4B6A88;">
+      <h4 style="font-weight: bold;">Ne manquez aucune opportunité</h4>
+      <p>
+        Inscrivez-vous à notre newsletter et recevez en avant-première les meilleures offres de location,
+        conseils de navigation et actualités exclusives.
+      </p>
+     <input type="email" placeholder="Entrer votre email"
+       style="padding: 10px; width: 80%; margin-top: 10px; border: none; border-radius: 4px; background-color: #AD7C59; color: white;">
+
+
+  </div>
+</section>
+
+
 
     <footer class="text-muted text-center py-3" style="background-color: #4B6A88; color: white;">
         <div class="container">
-            &copy; @DateTime.Now.Year - SaillingLoc - Tous droits réservés
+            &copy; @DateTime.Now.Year -©2025 Pandawan. All rights reserved.
         </div>
     </footer>
 

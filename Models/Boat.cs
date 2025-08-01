@@ -38,13 +38,14 @@ namespace SaillingLoc.Models
 
         [Required(ErrorMessage = "Le type de bateau est obligatoire")]
         [Range(1, int.MaxValue, ErrorMessage = "Veuillez sélectionner un type valide")]
-        public int? BoatTypeId { get; set; }
+        public int BoatTypeId { get; set; }
 
         // Clé étrangère pour le port
         [Required(ErrorMessage = "Le port est obligatoire")]
         [Range(1, int.MaxValue, ErrorMessage = "Veuillez sélectionner un port valide")]
         public int PortId { get; set; }
 
+  
         public string UserId { get; set; }  // UserId ici représente le propriétaire du bateau
 
         // Photo principale du bateau
@@ -57,12 +58,14 @@ namespace SaillingLoc.Models
         // Références aux entités associées
         public BoatType? BoatType { get; set; }
         public User? User { get; set; }  // Propriétaire du bateau
-        public Port Port { get; set; } // Propriété de navigation vers Port
+        public Port? Port { get; set; } // Propriété de navigation vers Port
          // Ajoute ces propriétés pour la localisation GPS
         public double Latitude { get; set; }
         public double Longitude { get; set; }
           public int? Capacity { get; set; }
-
+          
+           public string? OwnerId { get; set; }    // ← doit exister !
+    public User? Owner { get; set; }    
 
         // Collection de photos supplémentaires du bateau
         public ICollection<BoatPhoto> Photos { get; set; } = new List<BoatPhoto>();

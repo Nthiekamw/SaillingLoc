@@ -22,6 +22,7 @@ namespace SaillingLoc.Models
     // Ajoute un champ pour le nombre de messages non lus
     public int UnreadMessagesCount { get; set; } = 0;
 
+  
 
 
         // Navigation properties

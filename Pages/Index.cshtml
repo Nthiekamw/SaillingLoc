@@ -222,6 +222,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
+        background-color: #F5F1EB; /* couleur de fond ajoutée */
 }
 
 .hero {
@@ -588,31 +589,119 @@ button:hover {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    color: white; /* pour que le texte soit visible sur l'image */
-    padding: 40px 20px; /* un peu d'espace interne */
-">   
-    <h1>Trouvez le bateau parfait pour votre prochaine aventure</h1>
-    <p>Explorez les plus belles destinations en mer</p> 
-  <form method="get">
-    <input type="text" name="Destination" placeholder="Destination" value="@Model.searchDestination" />
-    <input type="date" name="StartDate" value="@(Model.searchStartDate?.ToString("yyyy-MM-dd"))" />
-    <input type="date" name="EndDate" value="@(Model.searchEndDate?.ToString("yyyy-MM-dd"))" />
-    <input type="number" name="NumberOfPeople" placeholder="Nombre de personnes" min="1" value="@(Model.searchNumberOfPeople ?? 0)" />
-    <button type="submit">Rechercher</button>
-</form>
+    color: white;
+    padding: 40px 20px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centrage horizontal */
+    text-align: center;
+">
+
+    <h1 style="font-weight: bold; color: black; max-width: 800px;">
+        Trouvez le bateau parfait pour votre prochaine aventure
+    </h1>
+
+    <button style="
+        background-color: #AD7C59; 
+        color: white; 
+        border: none; 
+        padding: 12px 24px; 
+        font-size: 1.2rem; 
+        border-radius: 8px; 
+        cursor: pointer; 
+        margin: 20px auto;
+        width: fit-content;
+    ">
+        Commencez votre aventure
+    </button>
+
+   <p style="max-width: 600px; color: black;">Explorez les plus belles destinations en mer</p>
+
+
+    <div style="
+        background-color: #4B6A88; 
+        padding: 20px; 
+        border-radius: 8px; 
+        max-width: 600px; 
+        width: 100%; 
+        margin: 20px auto;
+    ">
+        <form method="get" style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="text" name="Destination" placeholder="Destination" value="@Model.searchDestination" style="padding: 10px; border-radius: 4px; border: none;" />
+            <input type="date" name="StartDate" value="@(Model.searchStartDate?.ToString("yyyy-MM-dd"))" style="padding: 10px; border-radius: 4px; border: none;" />
+            <input type="date" name="EndDate" value="@(Model.searchEndDate?.ToString("yyyy-MM-dd"))" style="padding: 10px; border-radius: 4px; border: none;" />
+            <input type="number" name="NumberOfPeople" placeholder="Nombre de personnes" min="1" value="@(Model.searchNumberOfPeople ?? 0)" style="padding: 10px; border-radius: 4px; border: none;" />
+            <button type="submit" style="
+                background-color: #AD7C59; 
+                color: white; 
+                border: none; 
+                padding: 10px; 
+                border-radius: 4px; 
+                cursor: pointer;
+            ">
+                Rechercher
+            </button>
+        </form>
+    </div>
 
 </section>
+
 
 
 <!-- Naviguez librement -->
 <section style="display: flex; align-items: center; gap: 20px;">
   <div style="flex: 1;">
+   <p style="font-weight: bold;">À propos de SailingLoc</p>
+
     <h2 class="section-title">Naviguez librement</h2>
-    <p>Choisissez parmi des milliers de bateaux à travers l'Europe. Réservez facilement et partez à l'aventure.</p>
+    <p>Chez SailingLoc, nous mettons en relation les amoureux de la mer pour faciliter la location de voiliers et bateaux à moteur entre particuliers. 
+        Que vous soyez marin expérimenté ou aventurier en quête de découverte, notre plateforme vous offre une expérience simple, sécurisée et conviviale.  
+         Découvrez une nouvelle façon de naviguer, avec une communauté qui partage la même passion.</p>
   </div>
-  <div style="flex: 1;">
-    <img src="@Url.Content("~/images/Bateaux 7.webp")" alt="Naviguez librement" style="width: 100%; max-width: 600px;" />
-  </div>
+
+  <button style="
+  background-color: #AD7C59; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  margin-top: 16px;
+  margin-left: 50px; /* ajoute cette ligne */
+  font-size: 1rem;
+">
+  En savoir plus
+</button>
+
+  
+  <div style="flex: 1; margin-top: 30px;">
+    <div id="slider" style="width: 100%; max-width: 600px; height: auto; border-radius: 12px; overflow: hidden;">
+        <img src="@Url.Content("~/images/Bateaux 7.webp")" 
+             alt="Image Slider" 
+             style="width: 100%; display: block; border-radius: 12px;" />
+    </div>
+</div>
+
+<script>
+    const images = [
+        '@Url.Content("~/images/Bateaux 7.webp")',
+        '@Url.Content("~/images/yatch.webp")',
+        '@Url.Content("~/images/pic-1-1.jpeg")'
+    ];
+
+    const slider = document.getElementById('slider').querySelector('img');
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % images.length;
+        slider.src = images[index];
+    }, 4000); // change d'image toutes les 4 secondes
+</script>
+
+
+
 </section>
 
 <!-- Carte Google Maps -->
@@ -686,58 +775,39 @@ button:hover {
 </script>
 
 <!-- Types de bateaux -->
-<!-- Types de bateaux -->
-<style>
-.boat-types img {
-  width: 150px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-.label {
-  margin-top: 8px;
-  font-weight: 600;
-  font-size: 1em;
-  color: #333;
-}
-a:hover .label {
-  color: #007bff;
-}
-</style>
-
-<section style="background-color: #f0efeb; padding: 20px;">
+<section style="background-color: #f0efeb; padding: 40px;">
   <h2 class="section-title">Trouvez le bateau qui vous correspond</h2>
   <div class="boat-types" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
     
-    <div style="text-align: center;">
+    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
       <a href="https://example.com/listebateaux?type=Pic" style="text-decoration: none; color: inherit;">
         <img src="/images/pic-1-1.jpeg" alt="Pic" />
         <div class="label">Pic</div>
       </a>
     </div>
 
-    <div style="text-align: center;">
+    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
       <a href="https://example.com/listebateaux?type=Moteur" style="text-decoration: none; color: inherit;">
         <img src="/images/bateaux%20moteur.jpg" alt="Bateau à moteur" />
         <div class="label">Moteur</div>
       </a>
     </div>
 
-    <div style="text-align: center;">
+    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
       <a href="https://example.com/listebateaux?type=Catamaran" style="text-decoration: none; color: inherit;">
         <img src="/images/catamaran.webp" alt="Catamaran" />
         <div class="label">Catamaran</div>
       </a>
     </div>
 
-    <div style="text-align: center;">
+    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
       <a href="https://example.com/listebateaux?type=Yacht" style="text-decoration: none; color: inherit;">
         <img src="/images/yatch.webp" alt="Yacht" />
         <div class="label">Yacht</div>
       </a>
     </div>
 
-    <div style="text-align: center;">
+    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
       <a href="https://example.com/listebateaux?type=Ferry" style="text-decoration: none; color: inherit;">
         <img src="/images/ferry.jpg" alt="Ferry" />
         <div class="label">Ferry</div>
@@ -747,6 +817,7 @@ a:hover .label {
   </div>
 </section>
 
+
 <section id="mes-bateaux">
     <h2 class="section-title">Découvrez nos meilleures offres</h2>
 
@@ -755,9 +826,9 @@ a:hover .label {
     {
         foreach (var boat in Model.Boats)
         {
-            // Récupérer la première photo si disponible, sinon image par défaut
-            var photoUrl = (boat.Photos != null && boat.Photos.Any()) 
-                ? Url.Content(boat.Photos.First().PhotoUrl)  // Correction ici
+            // Récupérer la première photo si disponible, sinon image par défaut? && boat.Photos.Any()
+            var photoUrl = (boat.Photo != null ) 
+                ? Url.Content(boat.Photo)  // Correction ici  s.First().PhotoUrl
                 : Url.Content("~/images/default-boat.jpg");
 
             <div class="offer-card">
@@ -775,15 +846,33 @@ a:hover .label {
                     <a asp-page="/ReserveBoat" asp-route-id="@boat.Id" class="btn" style="margin-left: 10px; background-color: white; border: 2px solid #AD7C59; color: #AD7C59; padding: 10px 20px; border-radius: 5px;">Réserver</a>
 
                     <!-- Section pour les administrateurs et propriétaires -->
-                    @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
+                    @* @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire")) *@
+                    @* @if (Model.IsAdmin || boat.OwnerId == Model.CurrentUserId)
+
+                   @if (Model.IsAdmin || (Model.IsProprietaire && boat.OwnerId == Model.CurrentUserId))
+
+    // Afficher Modifier et Supprimer
+
+
+
                     {
                         <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn btn-warning">Modifier</a>
                         
                         <!-- Formulaire de suppression -->
                         <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
                             <button type="submit" class="btn btn-danger">Supprimer</button>
-                        </form>
-                    }
+                        </form> *@
+
+                        @if (Model.IsAdmin || (Model.IsProprietaire && boat.OwnerId == Model.CurrentUserId))
+{
+    <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn btn-warning">Modifier</a>
+
+    <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+    </form>
+}
+
+                    
                 </div>
             </div>
         }
@@ -813,79 +902,77 @@ a:hover .label {
 
 
 <!-- Avantages -->
-<section id="mes-bateaux"  class="features">
-    <h2 class="section-title">Louer votre bateau en 3 étapes</h2>
-    
-    <div class="row mt-5 text-center">
-        <div class="col-md-4">
+<section id="mes-bateaux" class="features" style="background-color: #C1D0C4; padding: 20px;">
+    <div class="text-center mb-4">
+        <p style="margin: 0;">Louer votre bateau en 3 étapes</p>
+        <h2 class="section-title" style="font-weight: bold; color: black;">Simple, rapide et sécurisé</h2>
+    </div>
+
+    <div class="row mt-5 text-center" style="color: black;">
+        <div class="col-md-4" style="background-color: #C1D0C4; padding: 15px;">
             <div class="icon-circle anchor-icon mb-3">
                 <i class="fas fa-anchor fa-3x"></i>
             </div>
-            <h4>Choisir votre bateau</h4>
-            <p>Parcourez notre sélection.</p>
+            <h4 style="font-weight: bold;">Choisir votre bateau</h4>
+            <p>Parcourez notre sélection et trouvez le bateau idéal selon vos besoins : voilier, catamaran, bateau à moteur…</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="background-color: #C1D0C4; padding: 15px;">
             <div class="icon-circle calendar-icon mb-3">
                 <i class="fas fa-calendar-check fa-3x"></i>
             </div>
-            <h4>Réserver en ligne</h4>
-            <p>Simple et sécurisé.</p>
+            <h4 style="font-weight: bold;">Réserver en ligne</h4>
+            <p>Sélectionnez vos dates, ajoutez les options souhaitées et effectuez votre paiement en toute sécurité.</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="background-color: #C1D0C4; padding: 15px;">
             <div class="icon-circle ship-icon mb-3">
                 <i class="fas fa-ship fa-3x"></i>
             </div>
-            <h4>Embarquez et profitez</h4>
-            <p>Profitez de votre aventure.</p>
+            <h4 style="font-weight: bold;">Embarquez et profitez</h4>
+            <p>Rendez-vous au port, récupérez votre bateau et vivez une expérience inoubliable sur l’eau !</p>
+        </div>
+        <p style="margin-top: 20px;">Si vous n’avez jamais loué un bateau auparavant, nous vous guiderons à chaque étape du processus.</p>
+    </div>
+</section>
+
+
+<!-- Témoignages -->
+<section class="testimonials" style="background-color: #F5F1EB; padding: 20px;">
+    <div class="text-center mb-4">
+        <p>Ce que nos navigateurs disent de nous</p>
+        <h2 class="section-title" style="font-weight: bold;">Des expériences inoubliables en mer</h2>
+        
+    </div>
+    
+    <div class="row mt-5 text-center" style="color: black; display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div class="col-md-4" style="background-color: white; border-radius: 8px; padding: 20px; margin: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <i class="fas fa-user user-icon" style="font-size: 30px;"></i>
+            <p>"Louer un voilier via SailingLoc a été une expérience incroyable. Le bateau était en excellent état, et le processus de réservation était fluide. Nous avons passé une semaine magique à explorer la côte méditerranéenne. Je recommande vivement !</p>
+            <div class="author" style="font-weight: bold;">Marc L. <span style="color: gold;">★★★★☆</span></div>
+        </div>
+
+        <div class="col-md-4" style="background-color: white; border-radius: 8px; padding: 20px; margin: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <i class="fas fa-user user-icon" style="font-size: 30px;"></i>
+            <p>Nous avons loué un catamaran pour un week-end entre amis, et tout était parfait ! L’équipe de SailingLoc nous a accompagnés à chaque étape, et le bateau était spacieux et confortable. Une expérience à refaire !</p>
+            <div class="author" style="font-weight: bold;">Sophie D. <span style="color: gold;">★★★★☆</span></div>
+        </div>
+
+        <div class="col-md-4" style="background-color: white; border-radius: 8px; padding: 20px; margin: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <i class="fas fa-user user-icon" style="font-size: 30px;"></i>
+            <p>"C’était ma première location de bateau, et SailingLoc m’a vraiment facilité la tâche. Le site est intuitif, et j’ai trouvé exactement ce que je cherchais en quelques clics. Le bateau était conforme à la description, et la prise en main s’est faite sans souci."</p>
+            <div class="author" style="font-weight: bold;">Julien R. <span style="color: gold;">★★★★☆</span></div>
         </div>
     </div>
 </section>
-<!-- Témoignages -->
-<section class="testimonials">
-    <h2 class="section-title">Ce que nos navigateurs disent de nous</h2>
-    <p>Des expériences inoubliables en mer</p>
-    <div class="testimonial-container">
-        <div class="testimonial">
-            <i class="fas fa-user user-icon"></i>
-            <p>"Louer un voilier via SailingLoc a été une expérience incroyable. Le bateau était en excellent état, et le processus de réservation était fluide."</p>
-            <div class="author">Marc L. ★★★★★</div>
-        </div>
-        <div class="testimonial">
-            <i class="fas fa-user user-icon"></i>
-            <p>"Nous avons loué un catamaran pour un week-end entre amis. L'équipe de SailingLoc nous a accompagnés à chaque étape, c'était une expérience à refaire !"</p>
-            <div class="author">Sophie D. ★★★★★</div>
-        </div>
-        <div class="testimonial">
-            <i class="fas fa-user user-icon"></i>
-            <p>"C'était ma première location de bateau, j'ai vraiment facilité la tâche. Le site est intuitif, et j'ai trouvé exactement ce qu'il me fallait."</p>
-            <div class="author">Julien R. ★★★★★</div>
-        </div>
-     
-</section>
 
-<!-- Rentabilisez -->
-<section class="rent">
-    <h2 class="section-title">Rentabilisez votre bateau en toute simplicité</h2>
-    <p>Mettez votre bateau en location et rejoignez une communauté de passionnés.</p>
-    <a href="@Url.Content("~/Ajoutbat")">
-        <button>Proposer mon bateau</button>
-    </a>
-</section>
 
-<!-- Rentabilisez -->
-<section class="rent">
-    <h2 class="section-title">Rentabilisez votre bateau en toute simplicité</h2>
-    <p>Mettez votre bateau en location et rejoignez une communauté de passionnés.</p>
-    <a href="@Url.Content("~/Ajoutbat")">
-        <button>Proposer mon bateau</button>
-    </a>
-    </section>
     
 <!-- Rentabilisez -->
 <section class="rent">
+    <p>Devenez propriétaire sur SailingLoc</p>
     <h2 class="section-title">Rentabilisez votre bateau en toute simplicité</h2>
-    <p>Mettez votre bateau en location et rejoignez une communauté de passionnés.</p>
+    <p>Mettez votre bateau en location et rejoignez une communauté de passionnés. SailingLoc vous permet de gérer vos disponibilités, 
+        sécuriser vos transactions et maximiser vos revenus en toute sérénité.</p>
     <a href="@Url.Content("~/Ajoutbat")">
-        <button>Proposer mon bateau</button>
+        <button  style="color: white; background-color:#AD7C59;">Enregistrer votre bateau</button>
     </a>
     </section>

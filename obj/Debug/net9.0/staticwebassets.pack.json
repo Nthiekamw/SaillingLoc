@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\images\\Bateaux4.webp"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Plan de travail 2.png",
+      "PackagePath": "staticwebassets\\images\\Plan de travail 2.png"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp",
       "PackagePath": "staticwebassets\\images\\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp"
     },
@@ -79,6 +83,10 @@
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\ferry.jpg",
       "PackagePath": "staticwebassets\\images\\ferry.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\pic-1-1.jpeg",
@@ -345,6 +353,10 @@
       "PackagePath": "staticwebassets\\uploads\\331ed769-881a-4a53-a77e-6a396aa7acd7.webp"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\4e6b0a94-f88e-41a4-8e0a-6638a56e0b15.jpg",
+      "PackagePath": "staticwebassets\\uploads\\4e6b0a94-f88e-41a4-8e0a-6638a56e0b15.jpg"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\551c5374-4d99-4c10-abaa-9cb7f13f48be.jpg",
       "PackagePath": "staticwebassets\\uploads\\551c5374-4d99-4c10-abaa-9cb7f13f48be.jpg"
     },
@@ -361,6 +373,10 @@
       "PackagePath": "staticwebassets\\uploads\\8765f413-5324-441e-805d-6422578ab0fb.webp"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\88866627-ea6c-4874-8ce3-2ecffbfe8467.jpg",
+      "PackagePath": "staticwebassets\\uploads\\88866627-ea6c-4874-8ce3-2ecffbfe8467.jpg"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\91d6be1f-6238-4a8d-86e2-550fde39e2d3.jpg",
       "PackagePath": "staticwebassets\\uploads\\91d6be1f-6238-4a8d-86e2-550fde39e2d3.jpg"
     },
@@ -369,12 +385,20 @@
       "PackagePath": "staticwebassets\\uploads\\9d4754c7-a223-4c01-8922-3abedcd78b1e.jpg"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\IMG_7960.jpg",
+      "PackagePath": "staticwebassets\\uploads\\IMG_7960.jpg"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\b90922d3-38f1-490f-b716-bdaba2a0de4c.jpg",
       "PackagePath": "staticwebassets\\uploads\\b90922d3-38f1-490f-b716-bdaba2a0de4c.jpg"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\bateaux 2.jpg",
       "PackagePath": "staticwebassets\\uploads\\bateaux 2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\c1686d9b-7426-40ed-b2b6-85f7d8dfd9a2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c1686d9b-7426-40ed-b2b6-85f7d8dfd9a2.jpg"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\c6464c1b-48b6-4d62-a333-789e508af7df.jpg",
@@ -391,6 +415,10 @@
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\e9e8bb90-b892-45bd-baea-d795cb7d77ff.png",
       "PackagePath": "staticwebassets\\uploads\\e9e8bb90-b892-45bd-baea-d795cb7d77ff.png"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\ed68db91-79ef-408b-999b-e6b700a07f93.jpg",
+      "PackagePath": "staticwebassets\\uploads\\ed68db91-79ef-408b-999b-e6b700a07f93.jpg"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\f0d2429c-9583-4d9f-ade7-819b0cea535b.webp",
