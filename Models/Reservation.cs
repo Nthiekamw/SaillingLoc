@@ -14,7 +14,7 @@ namespace SaillingLoc.Models
         public decimal TotalPrice { get; set; }
 
         // Laisser la colonne Status sans être utilisée pour la validation
-    public string? BoatOwnerId { get; set; }  // Clé étrangère vers User (propriétaire du bateau)    
+        public string? BoatOwnerId { get; set; }  // Clé étrangère vers User (propriétaire du bateau)    
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
@@ -32,7 +32,20 @@ namespace SaillingLoc.Models
 
         // Propriétaire du bateau
         public User? BoatOwner { get; set; }  // Propriétaire du bateau
-       
+
+        public ReservationStatus Status { get; set; } = ReservationStatus.EnAttente;
+
 
     }
+    
+
+
+
+public enum ReservationStatus
+{
+    EnAttente,
+    Acceptee,
+    Refusee
+}
+
 }

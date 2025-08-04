@@ -1,0 +1,59 @@
+@page
+@model SaillingLoc.Pages.ManageModel
+@using SaillingLoc.Models
+@{
+    ViewData["Title"] = "Gérer les réservations";
+}
+
+<h2>Gérer les réservations</h2>
+
+@if (Model.Reservations == null || !Model.Reservations.Any())
+{
+    <p>Aucune réservation à gérer.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Bateau</th>
+                <th>Réservé par</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Prix total</th>
+                <th>Statut</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var res in Model.Reservations)
+        {
+            <tr>
+                <td>@res.Reference</td>
+                <td>@(res.Boat != null ? res.Boat.Name : "<em>Bateau supprimé</em>")</td>
+                <td>@(res.User != null ? res.User.FullName : "Utilisateur supprimé")</td>
+                <td>@res.StartDate.ToShortDateString()</td>
+                <td>@res.EndDate.ToShortDateString()</td>
+                <td>@res.TotalPrice.ToString("C")</td>
+                <td>@res.Status.ToString()</td>
+                <td>
+                    @if (res.Status == ReservationStatus.EnAttente)
+                    {
+                        <form method="post" asp-page-handler="Accepter" asp-route-id="@res.Id" style="display:inline;">
+                            <button type="submit" class="btn btn-success btn-sm">Accepter</button>
+                        </form>
+                        <form method="post" asp-page-handler="Refuser" asp-route-id="@res.Id" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Refuser</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span>-</span>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

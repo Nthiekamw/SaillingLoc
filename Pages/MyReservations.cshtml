@@ -6,6 +6,8 @@
 
 <h2>Mes Réservations</h2>
 
+<a asp-page="/Manage" class="btn btn-primary mb-3">Gérer mes réservations reçues</a>
+
 @if (Model.Reservations == null || !Model.Reservations.Any())
 {
     <p>Vous n'avez pas encore de réservations.</p>
@@ -20,6 +22,7 @@ else
                 <th>Date de début</th>
                 <th>Date de fin</th>
                 <th>Prix total</th>
+                 <th>Statut</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +34,7 @@ else
                 <td>@res.StartDate.ToShortDateString()</td>
                 <td>@res.EndDate.ToShortDateString()</td>
                 <td>@res.TotalPrice.ToString("C")</td>
+                 <td>@res.Status.ToString()</td>
             </tr>
         }
         </tbody>

@@ -1,22 +1,59 @@
 @page
 @model SaillingLoc.Pages.Admin.ReservationsModel
+@using SaillingLoc.Models
+
 @{
     ViewData["Title"] = "Gestion des réservations";
 }
 
 <h2>Liste des réservations</h2>
 
+<a asp-page="/Manage" class="btn btn-primary mb-3">Gérer mes réservations reçues</a>
+
 <table class="table table-striped">
-    <thead>
+     <thead>
         <tr>
             <th>Référence</th>
-            <th>Utilisateur</th>
-            <th>Date début</th>
-            <th>Date fin</th>
+            <th>Bateau</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Prix total</th>
+            <th>Statut</th>
+            <th>Action</th> <!-- ✅ Colonne ajoutée une seule fois -->
         </tr>
     </thead>
     <tbody>
-    @foreach (var r in Model.Reservations)
+        @foreach (var res in Model.Reservations)
+        {
+            <tr>
+                <td>@res.Reference</td>
+                <td>@(res.Boat != null ? res.Boat.Name : "<em>Bateau supprimé</em>")</td>
+                <td>@res.StartDate.ToShortDateString()</td>
+                <td>@res.EndDate.ToShortDateString()</td>
+                <td>@res.TotalPrice.ToString("C")</td>
+                <td>@res.Status</td>
+                <td>
+                    @if (res.BoatOwnerId == Model.CurrentUserId && res.Status == ReservationStatus.EnAttente)
+                    {
+                        <form method="post" asp-page-handler="Accepter" asp-route-id="@res.Id" style="display:inline;">
+                            <button type="submit" class="btn btn-success btn-sm">Accepter</button>
+                        </form>
+                        <form method="post" asp-page-handler="Refuser" asp-route-id="@res.Id" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Refuser</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span>-</span> <!-- Rien à faire si ce n’est pas le propriétaire ou déjà traité -->
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+    @* @foreach (var r in Model.Reservations)
     {
         <tr>
             <td>@r.Reference</td>
@@ -26,4 +63,4 @@
         </tr>
     }
     </tbody>
-</table>
+</table> *@

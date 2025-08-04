@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,29 +8,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SaillingLoc.Pages.Admin
+namespace SaillingLoc.Pages
 {
-    public class ReservationsModel : PageModel
+    public class ManageModel : PageModel
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _userManager;
 
-        public ReservationsModel(ApplicationDbContext context, UserManager<User> userManager)
+        public ManageModel(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
 
-        public List<Reservation> Reservations { get; set; } = new();
+        public List<Reservation> Reservations { get; set; }
         public string CurrentUserId { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             var currentUser = await _userManager.GetUserAsync(User);
             if (currentUser == null)
             {
-                Reservations = new();
-                return;
+                return Challenge(); // Redirige vers login si non connecté
             }
 
             CurrentUserId = currentUser.Id;
@@ -42,124 +40,40 @@ namespace SaillingLoc.Pages.Admin
                 .Include(r => r.User)
                 .OrderByDescending(r => r.CreatedAt)
                 .ToListAsync();
+
+            return Page();
         }
 
-        // ✅ Handler pour accepter une réservation
         public async Task<IActionResult> OnPostAccepterAsync(int id)
         {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+                return Challenge();
+
             var reservation = await _context.Reservations.FindAsync(id);
-            if (reservation == null)
-                return NotFound();
+            if (reservation == null || reservation.BoatOwnerId != currentUser.Id)
+                return Unauthorized();
 
             reservation.Status = ReservationStatus.Acceptee;
-            reservation.UpdatedAt = DateTime.UtcNow;
             await _context.SaveChangesAsync();
 
             return RedirectToPage();
         }
 
-        // ✅ Handler pour refuser une réservation
         public async Task<IActionResult> OnPostRefuserAsync(int id)
         {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+                return Challenge();
+
             var reservation = await _context.Reservations.FindAsync(id);
-            if (reservation == null)
-                return NotFound();
+            if (reservation == null || reservation.BoatOwnerId != currentUser.Id)
+                return Unauthorized();
 
             reservation.Status = ReservationStatus.Refusee;
-            reservation.UpdatedAt = DateTime.UtcNow;
             await _context.SaveChangesAsync();
 
             return RedirectToPage();
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// using Microsoft.AspNetCore.Mvc.RazorPages;
-// using Microsoft.EntityFrameworkCore;
-// using SaillingLoc.Data;
-// using SaillingLoc.Models;
-// using System.Collections.Generic;
-// using System.Threading.Tasks;
-
-// namespace SaillingLoc.Pages.Admin
-// {
-//     public class ReservationsModel : PageModel
-//     {
-//         private readonly ApplicationDbContext _context;
-        
-
-//         public ReservationsModel(ApplicationDbContext context)
-//         {
-//             _context = context;
-//         }
-
-//         public List<Reservation> Reservations { get; set; }
-//             public string CurrentUserId { get; set; }
-
-//         public async Task OnGetAsync()
-//         {
-//             Reservations = await _context.Reservations
-//                 .Include(r => r.User)
-//                 .ToListAsync();
-//         }
-//     }
-// }
