@@ -2,49 +2,63 @@
 @model SaillingLoc.Pages.Account.RegisterModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<h2>Inscription</h2>
-<form method="post" enctype="multipart/form-data" novalidate>
+<h2 class="text-center fw-bold">Inscription</h2>
+
+<div class="d-flex justify-content-center" style="background-color: #F5F1EB; padding: 30px;">
+  <form method="post" enctype="multipart/form-data" novalidate class="text-center" style="max-width: 450px; width: 100%;">
     <div class="form-group mb-3">
-        <label asp-for="Input.FirstName"></label>
-        <input asp-for="Input.FirstName" class="form-control" required />
-        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+      <label asp-for="Input.FirstName" class="fw-bold d-block">Prénom</label>
+      <input asp-for="Input.FirstName" class="form-control mx-auto" required style="max-width: 100%;" />
+      <span asp-validation-for="Input.FirstName" class="text-danger d-block"></span>
     </div>
+    
     <div class="form-group mb-3">
-        <label asp-for="Input.LastName"></label>
-        <input asp-for="Input.LastName" class="form-control" required />
-        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+      <label asp-for="Input.LastName" class="fw-bold d-block">Nom</label>
+      <input asp-for="Input.LastName" class="form-control mx-auto" required style="max-width: 100%;" />
+      <span asp-validation-for="Input.LastName" class="text-danger d-block"></span>
     </div>
+    
     <div class="form-group mb-3">
-        <label asp-for="Input.Email"></label>
-        <input asp-for="Input.Email" class="form-control" required />
-        <span asp-validation-for="Input.Email" class="text-danger"></span>
+      <label asp-for="Input.Email" class="fw-bold d-block">Email</label>
+      <input asp-for="Input.Email" class="form-control mx-auto" required style="max-width: 100%;" />
+      <span asp-validation-for="Input.Email" class="text-danger d-block"></span>
     </div>
+    
     <div class="form-group mb-3">
-        <label asp-for="Input.Password"></label>
-        <input asp-for="Input.Password" class="form-control" type="password" required />
-        <span asp-validation-for="Input.Password" class="text-danger"></span>
+      <label asp-for="Input.Password" class="fw-bold d-block">Mot de passe</label>
+      <input asp-for="Input.Password" type="password" class="form-control mx-auto" required style="max-width: 100%;" />
+      <span asp-validation-for="Input.Password" class="text-danger d-block"></span>
     </div>
+    
     <div class="form-group mb-3">
-        <label asp-for="Input.ConfirmPassword"></label>
-        <input asp-for="Input.ConfirmPassword" class="form-control" type="password" required />
-        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+      <label asp-for="Input.ConfirmPassword" class="fw-bold d-block">Confirmer mot de passe</label>
+      <input asp-for="Input.ConfirmPassword" type="password" class="form-control mx-auto" required style="max-width: 100%;" />
+      <span asp-validation-for="Input.ConfirmPassword" class="text-danger d-block"></span>
     </div>
+    
     <div class="form-group mb-3">
-        <label asp-for="Input.Role"></label>
-        <select asp-for="Input.Role" class="form-control" required>
-            <option value="">-- Choisissez un rôle --</option>
-            <option value="Locataire">Locataire</option>
-            <option value="Proprietaire">Propriétaire</option>
-        </select>
-        <span asp-validation-for="Input.Role" class="text-danger"></span>
+      <label asp-for="Input.Role" class="fw-bold d-block">Rôle</label>
+      <select asp-for="Input.Role" class="form-control mx-auto" required style="max-width: 100%;">
+        <option value="">-- Choisissez un rôle --</option>
+        <option value="Locataire">Locataire</option>
+        <option value="Proprietaire">Propriétaire</option>
+      </select>
+      <span asp-validation-for="Input.Role" class="text-danger d-block"></span>
     </div>
+    
     <div class="form-group mb-3">
-        <label asp-for="Input.Photo"></label>
-        <input asp-for="Input.Photo" class="form-control" type="file" accept="image/*" />
-        <span asp-validation-for="Input.Photo" class="text-danger"></span>
+      <label asp-for="Input.Photo" class="fw-bold d-block">Photo</label>
+      <input asp-for="Input.Photo" type="file" class="form-control mx-auto" accept="image/*" style="max-width: 100%;" />
+      <span asp-validation-for="Input.Photo" class="text-danger d-block"></span>
     </div>
-    <button type="submit" class="btn btn-primary">S’inscrire</button>
-</form>
+    
+    <div class="mt-3">
+      <button type="submit" class="btn" style="background-color: #AD7C59; color: white;">
+        S’inscrire
+      </button>
+    </div>
+  </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

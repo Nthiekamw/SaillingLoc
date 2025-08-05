@@ -37,9 +37,16 @@ namespace SaillingLoc.Pages
         {
             var currentUser = await _userManager.GetUserAsync(User);
             if (currentUser == null)
-            {
-                throw new InvalidOperationException("Utilisateur non trouvé.");
-            }
+{
+    // Rediriger vers la page de connexion (avec retour ici après connexion)
+    Response.Redirect("/Identity/Account/Login?returnUrl=/Messages");
+    return;
+}
+
+            // if (currentUser == null)
+            // {
+            //     throw new InvalidOperationException("Utilisateur non trouvé.");
+            // }
 
             var isAdmin = await _userManager.IsInRoleAsync(currentUser, "Admin");
 
