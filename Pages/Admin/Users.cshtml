@@ -4,17 +4,32 @@
     ViewData["Title"] = "Gestion des utilisateurs";
 }
 
+
+<style>
+    .btn-rechercher {
+        background-color: #AD7C59;
+        color: white;
+        border: none;
+    }
+
+    .btn-rechercher:hover {
+        background-color: #c1926b; /* Optionnel : une version plus claire au survol */
+        color: white;
+    }
+</style>
+
 <h2>Liste des utilisateurs</h2>
 
 <!-- ✅ Barre de recherche -->
 <form method="get" class="mb-3">
     <div class="input-group">
         <input type="text" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Rechercher un utilisateur..." />
-        <button type="submit" class="btn btn-primary">Rechercher</button>
+       <button type="submit" class="btn btn-rechercher">Rechercher</button>
+
         @if (!string.IsNullOrWhiteSpace(Model.SearchTerm))
         {
             <a class="btn btn-secondary" href="/Admin/Users">Réinitialiser</a>
-        }po
+        }
     </div>
 </form>
 

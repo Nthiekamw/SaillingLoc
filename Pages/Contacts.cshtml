@@ -1,0 +1,132 @@
+@page
+@model SailingLoc.Pages.ContactModel
+@{
+    ViewData["Title"] = "Contact";
+     
+}
+
+
+<style>
+    .card {
+    background-color: #f9f9f9; /* Couleur de fond */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre */
+    transition: transform 0.2s; /* Animation au survol */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
+}
+
+.text-custom {
+    color: #AD7C59; /* Couleur de texte */
+}
+.form-group label {
+    margin-bottom: 5px; /* Espace entre le label et le champ */
+}
+
+</style>
+<link rel="stylesheet" href="~/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+@* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> *@
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">CONTACT</h2>
+    <p class="text-center">Envoyez-nous un mail</p>
+    <p class="text-center"><a href="mailto:info@sailingcop.com">info@sailingcop.com</a></p>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-3 text-center card p-3 mx-2 card-custom">
+            <i class="fas fa-map-marker-alt fa-2x text-custom"></i>
+            <h5 class="text-custom">Notre adresse</h5>
+            <p>123, Quai des Navigateurs, 75000 Paris, France</p>
+        </div>
+        <div class="col-md-3 text-center card p-3 mx-2 card-custom">
+            <i class="fas fa-clock fa-2x text-custom"></i>
+            <h5 class="text-custom">Heures d'ouverture</h5>
+            <p>Lun - Ven: 9h00 - 19h00</p>
+        </div>
+        <div class="col-md-3 text-center card p-3 mx-2 card-custom">
+            <i class="fas fa-phone fa-2x text-custom"></i>
+            <h5 class="text-custom">Appelez-nous</h5>
+            <p><a href="tel:+33612345678">+33 6 12 34 56 78</a></p>
+        </div>
+    </div>
+</div>
+  <div class="row">
+        <!-- Bloc Formulaire -->
+       <div class="col-md-6">
+    <h3 class="mt-5 text-center">Entrer en contact avec nous</h3>
+    <form method="post">
+        <div class="form-group">
+            <label for="Name" class="font-weight-bold">Votre Nom</label>
+            <input type="text" class="form-control" id="Name" name="Name" required />
+        </div>
+        <div class="form-group">
+            <label for="Email" class="font-weight-bold">Votre Email</label>
+            <input type="email" class="form-control" id="Email" name="Email" required />
+        </div>
+        <div class="form-group">
+            <label for="Phone" class="font-weight-bold">Votre Numéro</label>
+            <input type="text" class="form-control" id="Phone" name="Phone" required />
+        </div>
+        <div class="form-group">
+            <label for="Subject" class="font-weight-bold">Sujet</label>
+            <input type="text" class="form-control" id="Subject" name="Subject" required />
+        </div>
+        <div class="form-group">
+            <label for="Message" class="font-weight-bold">Message</label>
+            <textarea class="form-control" id="Message" name="Message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-custom">Envoyez votre message</button>
+    </form>
+</div>
+
+        <!-- Bloc Localisation -->
+        <div class="col-md-6">
+            <h3 class="mt-5 text-center">Localisation</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509967!2d144.95373531531716!3d-37.81720997975196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f0f1a93%3A0x5045675218ceed0!2sFlinders%20Street%20Station!5e0!3m2!1sen!2sau!4v1616481343653!5m2!1sen!2sau" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .map-container {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .container {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #2aa18b;
+    }
+
+    h3 {
+        color: #2aa18b;
+    }
+
+   .btn-custom {
+    background-color: #AD7C59; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    margin-left: 10px; 
+     padding-left: 30px;/* Déplace le bouton légèrement à droite */
+}
+    .btn-custom:hover {
+        background-color: #955b45; /* Couleur de fond au survol (optionnel) */
+    }
+  .form-group label {
+    margin-bottom: 5px; /* Espace entre le label et le champ */
+    padding-left: 30px; /* Augmentez cette valeur pour un décalage plus important */
+}
+</style>

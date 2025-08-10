@@ -79,3 +79,7 @@ body {
     background-size: 100%; /* Retour normal */
   }
 }
+
+.navbar {
+    background-color: #F5F1EB !important;
+}

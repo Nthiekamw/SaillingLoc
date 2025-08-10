@@ -2,10 +2,12 @@
 @model SaillingLoc.Pages.BoatDetailsModel
 @{
     ViewData["Title"] = "Détails du bateau";
+        Layout = "_Layout";
 }
 
 <!-- Import Google Font Montserrat -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <style>
     body {
@@ -15,6 +17,14 @@
         margin: 0;
         padding: 20px;
     }
+    .container.boat-details-container {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 
     .container {
         max-width: 900px;
@@ -103,7 +113,7 @@
         <div class="details">
             <p><strong>Type :</strong> @(Model.Boat.BoatType?.Name ?? "Non renseigné")</p>
             <p><strong>Port :</strong> @(Model.Boat.Port?.Name ?? "Non renseigné")</p>
-            <p><strong>Prix :</strong> @Model.Boat.DailyPrice.ToString("0.00") € / jour</p>
+            <p><strong>Prix :</strong> @Model.Boat.DailyPrice.ToString("50.00") € / jour</p>
         </div>
 
         @if (Model.Boat.Photos != null && Model.Boat.Photos.Any())
