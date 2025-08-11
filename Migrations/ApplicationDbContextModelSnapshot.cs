@@ -236,6 +236,9 @@ namespace SaillingLoc.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OwnerId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
@@ -258,6 +261,8 @@ namespace SaillingLoc.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BoatTypeId");
+
+                    b.HasIndex("OwnerId");
 
                     b.HasIndex("PortId");
 
@@ -574,6 +579,9 @@ namespace SaillingLoc.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -869,6 +877,10 @@ namespace SaillingLoc.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("SaillingLoc.Models.User", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId");
+
                     b.HasOne("SaillingLoc.Models.Port", "Port")
                         .WithMany("Boats")
                         .HasForeignKey("PortId")
@@ -882,6 +894,8 @@ namespace SaillingLoc.Migrations
                         .IsRequired();
 
                     b.Navigation("BoatType");
+
+                    b.Navigation("Owner");
 
                     b.Navigation("Port");
 

@@ -12,8 +12,8 @@ using SaillingLoc.Data;
 namespace SaillingLoc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250708084720_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250811011641_miseajourmigraton")]
+    partial class miseajourmigraton
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -203,6 +203,9 @@ namespace SaillingLoc.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Capacity")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -216,7 +219,13 @@ namespace SaillingLoc.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
                     b.Property<double>("Length")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
                         .HasColumnType("float");
 
                     b.Property<int>("MaxPassengers")
@@ -229,6 +238,9 @@ namespace SaillingLoc.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
@@ -246,11 +258,14 @@ namespace SaillingLoc.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BoatTypeId");
+
+                    b.HasIndex("OwnerId");
 
                     b.HasIndex("PortId");
 
@@ -552,7 +567,6 @@ namespace SaillingLoc.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("BoatOwnerId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -567,6 +581,9 @@ namespace SaillingLoc.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
@@ -719,6 +736,40 @@ namespace SaillingLoc.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SaillingLoc.Models.UserActionLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IPAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserActionLogs");
+                });
+
             modelBuilder.Entity("SaillingLoc.Models.UserDocument", b =>
                 {
                     b.Property<int>("Id")
@@ -829,6 +880,10 @@ namespace SaillingLoc.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("SaillingLoc.Models.User", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId");
+
                     b.HasOne("SaillingLoc.Models.Port", "Port")
                         .WithMany("Boats")
                         .HasForeignKey("PortId")
@@ -838,9 +893,12 @@ namespace SaillingLoc.Migrations
                     b.HasOne("SaillingLoc.Models.User", "User")
                         .WithMany("Boats")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("BoatType");
+
+                    b.Navigation("Owner");
 
                     b.Navigation("Port");
 
@@ -928,8 +986,7 @@ namespace SaillingLoc.Migrations
                     b.HasOne("SaillingLoc.Models.User", "BoatOwner")
                         .WithMany()
                         .HasForeignKey("BoatOwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SaillingLoc.Models.User", "User")
                         .WithMany("Reservations")
@@ -953,6 +1010,17 @@ namespace SaillingLoc.Migrations
                         .IsRequired();
 
                     b.Navigation("Reservation");
+                });
+
+            modelBuilder.Entity("SaillingLoc.Models.UserActionLog", b =>
+                {
+                    b.HasOne("SaillingLoc.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SaillingLoc.Models.UserDocument", b =>

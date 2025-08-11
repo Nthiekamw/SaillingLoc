@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SaillingLoc.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class miseajourmigraton : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -220,6 +220,29 @@ namespace SaillingLoc.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserActionLogs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Action = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IPAddress = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserActionLogs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserActionLogs_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserDocuments",
                 columns: table => new
                 {
@@ -262,14 +285,23 @@ namespace SaillingLoc.Migrations
                     SkipperRequired = table.Column<bool>(type: "bit", nullable: false),
                     BoatTypeId = table.Column<int>(type: "int", nullable: false),
                     PortId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Photo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Latitude = table.Column<double>(type: "float", nullable: false),
+                    Longitude = table.Column<double>(type: "float", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: true),
+                    OwnerId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Boats", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Boats_AspNetUsers_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Boats_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -370,9 +402,10 @@ namespace SaillingLoc.Migrations
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    BoatOwnerId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BoatOwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -382,7 +415,7 @@ namespace SaillingLoc.Migrations
                         column: x => x.BoatOwnerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Reservations_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -573,6 +606,11 @@ namespace SaillingLoc.Migrations
                 column: "BoatTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Boats_OwnerId",
+                table: "Boats",
+                column: "OwnerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Boats_PortId",
                 table: "Boats",
                 column: "PortId");
@@ -634,6 +672,11 @@ namespace SaillingLoc.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserActionLogs_UserId",
+                table: "UserActionLogs",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserDocuments_UserId",
                 table: "UserDocuments",
                 column: "UserId");
@@ -680,6 +723,9 @@ namespace SaillingLoc.Migrations
 
             migrationBuilder.DropTable(
                 name: "Reviews");
+
+            migrationBuilder.DropTable(
+                name: "UserActionLogs");
 
             migrationBuilder.DropTable(
                 name: "UserDocuments");
