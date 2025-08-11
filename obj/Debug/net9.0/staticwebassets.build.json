@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4wnP0mZVaYyDc2yiDzqlIJwtmVRg+gnr/zL11zZQNZY=",
+  "Hash": "eM5rneqHR5+IlmcAflI65JBvEb6NcUF0PJssuRGXb3U=",
   "Source": "SaillingLoc",
   "BasePath": "_content/SaillingLoc",
   "Mode": "Default",
@@ -1781,12 +1781,12 @@
       "OriginalItemSpec": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-9z5exhvo1v.gz",
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-c224tkpl88.gz",
       "SourceId": "SaillingLoc",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/SaillingLoc",
-      "RelativePath": "css/site#[.{fingerprint=9z5exhvo1v}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=c224tkpl88}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1795,8 +1795,8 @@
       "RelatedAsset": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "wt2yyuwzcw",
-      "Integrity": "1Jw/X91AZiFwEgOOBkup3DEE33ppduJUrYXrQwjwSYc=",
+      "Fingerprint": "41k3hbefl4",
+      "Integrity": "KOXI+1DqcJZ5jh3gNd34lJz+WDXfix8tktAqdRKru+8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\css\\site.css"
@@ -4042,8 +4042,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9z5exhvo1v",
-      "Integrity": "xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s=",
+      "Fingerprint": "c224tkpl88",
+      "Integrity": "jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -6107,6 +6107,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\c6464c1b-48b6-4d62-a333-789e508af7df.jpg"
     },
     {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\ChatGPT Image 8 juil. 2025, 18_00_08.png",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "uploads/ChatGPT Image 8 juil. 2025, 18_00_08#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "etqsdbu1ao",
+      "Integrity": "ws/yAicjwN1YE/acPoVoQh6m0QChBYMBSa//GZ2oAnU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\ChatGPT Image 8 juil. 2025, 18_00_08.png"
+    },
+    {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\d2b846d2-0b46-4fe1-a772-588b49fb7080.webp",
       "SourceId": "SaillingLoc",
       "SourceType": "Discovered",
@@ -6233,6 +6254,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\IMG_7960.jpg"
     },
     {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\terminal.png",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "uploads/terminal#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sbu8kyb45z",
+      "Integrity": "iFdg3leKc5g8UM5rH6M5h+QjsT2UT/y1xUDamgDqE2k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\terminal.png"
+    },
+    {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\test.jpg",
       "SourceId": "SaillingLoc",
       "SourceType": "Discovered",
@@ -6256,13 +6298,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.9z5exhvo1v.css",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-9z5exhvo1v.gz",
+      "Route": "css/site.c224tkpl88.css",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-c224tkpl88.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001373626374"
+          "Quality": "0.001353179973"
         }
       ],
       "ResponseHeaders": [
@@ -6272,15 +6314,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "727"
+          "Value": "738"
         },
         {
           "Name": "ETag",
-          "Value": "\"1Jw/X91AZiFwEgOOBkup3DEE33ppduJUrYXrQwjwSYc=\""
+          "Value": "\"KOXI+1DqcJZ5jh3gNd34lJz+WDXfix8tktAqdRKru+8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 05 Aug 2025 12:50:54 GMT"
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6300,13 +6342,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s=\""
+          "Value": "W/\"jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9z5exhvo1v"
+          "Value": "c224tkpl88"
         },
         {
           "Name": "label",
@@ -6314,12 +6356,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s="
+          "Value": "sha256-jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ="
         }
       ]
     },
     {
-      "Route": "css/site.9z5exhvo1v.css",
+      "Route": "css/site.c224tkpl88.css",
       "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6329,7 +6371,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1674"
+          "Value": "1715"
         },
         {
           "Name": "Content-Type",
@@ -6337,11 +6379,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s=\""
+          "Value": "\"jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 05 Aug 2025 12:50:54 GMT"
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6351,7 +6393,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9z5exhvo1v"
+          "Value": "c224tkpl88"
         },
         {
           "Name": "label",
@@ -6359,13 +6401,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s="
+          "Value": "sha256-jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ="
         }
       ]
     },
     {
-      "Route": "css/site.9z5exhvo1v.css.gz",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-9z5exhvo1v.gz",
+      "Route": "css/site.c224tkpl88.css.gz",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-c224tkpl88.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6374,7 +6416,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "727"
+          "Value": "738"
         },
         {
           "Name": "Content-Type",
@@ -6382,11 +6424,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1Jw/X91AZiFwEgOOBkup3DEE33ppduJUrYXrQwjwSYc=\""
+          "Value": "\"KOXI+1DqcJZ5jh3gNd34lJz+WDXfix8tktAqdRKru+8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 05 Aug 2025 12:50:54 GMT"
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6404,7 +6446,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9z5exhvo1v"
+          "Value": "c224tkpl88"
         },
         {
           "Name": "label",
@@ -6412,18 +6454,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-1Jw/X91AZiFwEgOOBkup3DEE33ppduJUrYXrQwjwSYc="
+          "Value": "sha256-KOXI+1DqcJZ5jh3gNd34lJz+WDXfix8tktAqdRKru+8="
         }
       ]
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-9z5exhvo1v.gz",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-c224tkpl88.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001373626374"
+          "Quality": "0.001353179973"
         }
       ],
       "ResponseHeaders": [
@@ -6433,15 +6475,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "727"
+          "Value": "738"
         },
         {
           "Name": "ETag",
-          "Value": "\"1Jw/X91AZiFwEgOOBkup3DEE33ppduJUrYXrQwjwSYc=\""
+          "Value": "\"KOXI+1DqcJZ5jh3gNd34lJz+WDXfix8tktAqdRKru+8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 05 Aug 2025 12:50:54 GMT"
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6461,13 +6503,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s=\""
+          "Value": "W/\"jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s="
+          "Value": "sha256-jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ="
         }
       ]
     },
@@ -6482,7 +6524,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1674"
+          "Value": "1715"
         },
         {
           "Name": "Content-Type",
@@ -6490,11 +6532,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s=\""
+          "Value": "\"jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 05 Aug 2025 12:50:54 GMT"
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6504,13 +6546,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xariQYlY7EJX8IaIddmOg+FooM34P3+r8IEd3SzTU+s="
+          "Value": "sha256-jD91qrCn6Mik2zjUI2FupMPgMvSPPBS5KvjZFWGMZzQ="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-9z5exhvo1v.gz",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-c224tkpl88.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6519,7 +6561,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "727"
+          "Value": "738"
         },
         {
           "Name": "Content-Type",
@@ -6527,11 +6569,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1Jw/X91AZiFwEgOOBkup3DEE33ppduJUrYXrQwjwSYc=\""
+          "Value": "\"KOXI+1DqcJZ5jh3gNd34lJz+WDXfix8tktAqdRKru+8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 05 Aug 2025 12:50:54 GMT"
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6549,7 +6591,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1Jw/X91AZiFwEgOOBkup3DEE33ppduJUrYXrQwjwSYc="
+          "Value": "sha256-KOXI+1DqcJZ5jh3gNd34lJz+WDXfix8tktAqdRKru+8="
         }
       ]
     },
@@ -36893,6 +36935,88 @@
       ]
     },
     {
+      "Route": "uploads/ChatGPT Image 8 juil. 2025, 18_00_08.etqsdbu1ao.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\ChatGPT Image 8 juil. 2025, 18_00_08.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1807766"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ws/yAicjwN1YE/acPoVoQh6m0QChBYMBSa//GZ2oAnU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "etqsdbu1ao"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/ChatGPT Image 8 juil. 2025, 18_00_08.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ws/yAicjwN1YE/acPoVoQh6m0QChBYMBSa//GZ2oAnU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/ChatGPT Image 8 juil. 2025, 18_00_08.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\ChatGPT Image 8 juil. 2025, 18_00_08.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1807766"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ws/yAicjwN1YE/acPoVoQh6m0QChBYMBSa//GZ2oAnU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ws/yAicjwN1YE/acPoVoQh6m0QChBYMBSa//GZ2oAnU="
+        }
+      ]
+    },
+    {
       "Route": "uploads/d2b846d2-0b46-4fe1-a772-588b49fb7080.vxs5ym5rdb.webp",
       "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\d2b846d2-0b46-4fe1-a772-588b49fb7080.webp",
       "Selectors": [],
@@ -37381,6 +37505,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-iq0R5jFRPjProCOHiaHXB4+vUnMxf0DgeG8yn9SMo3o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/terminal.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\terminal.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2608862"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iFdg3leKc5g8UM5rH6M5h+QjsT2UT/y1xUDamgDqE2k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iFdg3leKc5g8UM5rH6M5h+QjsT2UT/y1xUDamgDqE2k="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/terminal.sbu8kyb45z.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\terminal.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2608862"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iFdg3leKc5g8UM5rH6M5h+QjsT2UT/y1xUDamgDqE2k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 11 Aug 2025 02:02:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sbu8kyb45z"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/terminal.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iFdg3leKc5g8UM5rH6M5h+QjsT2UT/y1xUDamgDqE2k="
         }
       ]
     },
