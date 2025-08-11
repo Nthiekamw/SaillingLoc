@@ -11,3 +11,4 @@ Release*/
 *.vsidx
 *.VC.db
 *.opendb
+*.csproj
