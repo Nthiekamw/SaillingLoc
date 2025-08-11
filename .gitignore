@@ -1,0 +1,13 @@
+# VS / build
+.vs/
+bin/
+obj/
+Debug*/
+Release*/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vsidx
+*.VC.db
+*.opendb
