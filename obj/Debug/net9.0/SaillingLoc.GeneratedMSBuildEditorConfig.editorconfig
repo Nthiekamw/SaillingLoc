@@ -1,137 +1,127 @@
 is_global = true
 build_property.TargetFramework = net9.0
-build_property.TargetFramework = net9.0
-build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
-build_property.UsingMicrosoftNETSdkWeb = true
-build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
-build_property.InvariantGlobalization = 
-build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
-build_property.EnforceExtendedAnalyzerRules = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SaillingLoc
 build_property.RootNamespace = SaillingLoc
-build_property.ProjectDir = C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\
+build_property.ProjectDir = C:\Users\Arnaud\source\repos\SaillingLoc\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
-build_property.RazorLangVersion = 9.0
+build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc
+build_property.MSBuildProjectDirectory = C:\Users\Arnaud\source\repos\SaillingLoc
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 9.0
-build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Account/Login.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Account/logout.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Account/logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxsb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Account/Register.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/AdminDashboard.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/AdminDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5EYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Admin/Boats.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Admin/Boats.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQm9hdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Admin/Reservations.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Admin/Reservations.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVzZXJ2YXRpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Admin/Users.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Admin/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Ajoutbat.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Ajoutbat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWpvdXRiYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/BoatDetails.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/BoatDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9hdERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Contacts.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Contacts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/EditBoat.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/EditBoat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEJvYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Error.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Index.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/INdmin.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/INdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSU5kbWluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Logs.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Logs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Manage.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Manage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Messages.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Messages.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Messages/MarkAsRead.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Messages/MarkAsRead.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXNcTWFya0FzUmVhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/MyReservations.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/MyReservations.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlSZXNlcnZhdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Notifications.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Notifications.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWZpY2F0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/ReserveBoat.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/ReserveBoat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2ZUJvYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Shared/_ValidationSummary.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Shared/_ValidationSummary.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU3VtbWFyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/_ViewImports.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/_ViewStart.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/ViewComponents/UnreadMessages/Default.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/ViewComponents/UnreadMessages/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld0NvbXBvbmVudHNcVW5yZWFkTWVzc2FnZXNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Shared/_Layout.cshtml]
+[C:/Users/Arnaud/source/repos/SaillingLoc/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-g57bv3jiak
