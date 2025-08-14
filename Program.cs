@@ -41,6 +41,10 @@ internal class Program
         builder.Services.AddControllers();
 
         var app = builder.Build();
+        using (var scope = app.Services.CreateScope()) 
+        { 
+            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>(); dbContext.Database.Migrate();
+        }
 
         // === Initialisation rôles + utilisateur admin ===
         using (var scope = app.Services.CreateScope())
@@ -66,11 +70,12 @@ internal class Program
         // === Middlewares ===
         if (!app.Environment.IsDevelopment())
         {
+            app.UseHttpsRedirection();
             app.UseExceptionHandler("/Error");
             app.UseHsts();
         }
 
-        app.UseHttpsRedirection();
+        
         app.UseStaticFiles();
 
         app.UseRouting();

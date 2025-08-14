@@ -1,33 +1,56 @@
+﻿version: "3.9"
+
 services:
-  sqlserverDb:
+  sqlserver:
     container_name: SqlServerContainer
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
-        MSSQL_SA_PASSWORD: "Password12345!"
-        ACCEPT_EULA: "Y"
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password12345!"
+      MSSQL_PID: "Express"
     ports:
-        -   "1433:1433"
+      - "1433:1433"
     volumes:
-        - "sqlvolume:/var/opt/mssql"
+      # Volume nommé persistant pour les données SQL Server
+      - sqlvolume:/var/opt/mssql
     networks:
-        - saillinglocnetwork
+      - saillinglocnetwork
     restart: unless-stopped
+    # # (Optionnel mais recommandé) Healthcheck pour attendre que SQL soit prêt
+    # healthcheck:
+    #   test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P \"$MSSQL_SA_PASSWORD\" -Q \"SELECT 1\" || exit 1"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 10
+    #   start_period: 20s
 
   saillingloc:
     build:
-        context: .
-        dockerfile: ./Dockerfile
+      context: .
+      dockerfile: ./Dockerfile
+    # Expose HTTP et HTTPS correctement (voir Dockerfile ci-dessous)
     ports:
-        - "8095:8080"
-        - "8096:8081"  #Cette ligne represente pour le HTTPS
-    depends_on:
-        -   sqlserverDb
+      - "8095:8080"   # HTTP
+      - "8096:8443"   # HTTPS (correspond maintenant au port exposé 8443)
     environment:
-        - ASPNETCORE_ENVIRONMENT=Development
+       - ASPNETCORE_ENVIRONMENT=Development
+       #- ConnectionStrings__DefaultConnection=Server=sqlserverDb,1433;Initial Catalog=SaillingLocDb;User ID=sa;Password=Password12345!;Encrypt=False;TrustServerCertificate=True;MultipleActiveResultSets=True
+       - ASPNETCORE_URLS=http://+:8080
+       - ASPNETCORE_HTTP_PORTS=8080
+       - ASPNETCORE_HTTPS_PORTS=
+    depends_on:
+      # La condition 'service_healthy' est supportée par le Compose plugin récent.
+      # Si ta version ne la supporte pas, garde juste 'sqlserver' et gère la résilience côté app.
+      sqlserver:
+        condition: service_healthy
     networks:
-        -   saillinglocnetwork
+      - saillinglocnetwork
+    # (Optionnel) Monte un cert local si tu veux du vrai HTTPS dans le conteneur
+    # volumes:
+    #   - ./certs:/https:ro
+
 networks:
-    saillinglocnetwork:
+  saillinglocnetwork:
+
 volumes:
-    sqlvolume:    
-        
+  sqlvolume:
