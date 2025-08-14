@@ -22,6 +22,8 @@ services:
         - "8096:8081"  #Cette ligne represente pour le HTTPS
     depends_on:
         -   sqlserverDb
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
     networks:
         -   saillinglocnetwork
 networks:
