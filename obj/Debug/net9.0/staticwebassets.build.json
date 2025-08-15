@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7PN2Bcz78WXhpvi7Eca5PBmKjlweO17cDEw0l4L3Z9A=",
+  "Hash": "wmEhID0l0BdOSDRSku695iGvgwuI340FqX8/z2JxrxA=",
   "Source": "SaillingLoc",
   "BasePath": "_content/SaillingLoc",
   "Mode": "Default",
@@ -6084,6 +6084,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\bateaux 2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\bf83795b-437d-4a9c-94b9-a4075ce0128f.jpg",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "uploads/bf83795b-437d-4a9c-94b9-a4075ce0128f#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i5n1n8hez8",
+      "Integrity": "iq0R5jFRPjProCOHiaHXB4+vUnMxf0DgeG8yn9SMo3o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\bf83795b-437d-4a9c-94b9-a4075ce0128f.jpg"
     },
     {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\c1686d9b-7426-40ed-b2b6-85f7d8dfd9a2.jpg",
@@ -36891,6 +36912,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-SlarkrlbFdHWu6NGyTmA5y0gs5eZaWuluDGvn6LmDmE="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/bf83795b-437d-4a9c-94b9-a4075ce0128f.i5n1n8hez8.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\bf83795b-437d-4a9c-94b9-a4075ce0128f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3196028"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iq0R5jFRPjProCOHiaHXB4+vUnMxf0DgeG8yn9SMo3o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 11:18:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i5n1n8hez8"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/bf83795b-437d-4a9c-94b9-a4075ce0128f.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iq0R5jFRPjProCOHiaHXB4+vUnMxf0DgeG8yn9SMo3o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/bf83795b-437d-4a9c-94b9-a4075ce0128f.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\bf83795b-437d-4a9c-94b9-a4075ce0128f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3196028"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iq0R5jFRPjProCOHiaHXB4+vUnMxf0DgeG8yn9SMo3o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 11:18:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iq0R5jFRPjProCOHiaHXB4+vUnMxf0DgeG8yn9SMo3o="
         }
       ]
     },
