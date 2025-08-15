@@ -1890,6 +1890,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\da889fe4-b5a4-4ad8-870d-6050e7f1110d.webp'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\e6f539fa-d23e-4890-bfa9-36af7399e7c3.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SaillingLoc</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SaillingLoc</BasePath>
+      <RelativePath>uploads/e6f539fa-d23e-4890-bfa9-36af7399e7c3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cacxy4v602</Fingerprint>
+      <Integrity>dB6aoG1akVhWTQRl3lXn8m9BhgKbc2gAN/XgshJDfQ8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\e6f539fa-d23e-4890-bfa9-36af7399e7c3.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\e9e8bb90-b892-45bd-baea-d795cb7d77ff.png'))">
       <SourceType>Package</SourceType>
       <SourceId>SaillingLoc</SourceId>
@@ -1992,8 +2010,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>sbu8kyb45z</Fingerprint>
-      <Integrity>iFdg3leKc5g8UM5rH6M5h+QjsT2UT/y1xUDamgDqE2k=</Integrity>
+      <Fingerprint>i72nfj07a4</Fingerprint>
+      <Integrity>EjonDrjapsKOrOix+u1CARHRCneq5wKfPSpz+LbdIPE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\terminal.png'))</OriginalItemSpec>

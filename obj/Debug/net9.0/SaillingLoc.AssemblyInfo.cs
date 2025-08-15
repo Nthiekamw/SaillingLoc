@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaillingLoc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e1987870fd567e14c970a0020e22e36090f4616")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb97d2dfc2c958793c9207098426df82c3a16fa1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaillingLoc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaillingLoc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
