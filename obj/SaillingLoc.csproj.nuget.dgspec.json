@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\SaillingLoc.csproj": {}
+    "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\SaillingLoc.csproj": {
+    "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\SaillingLoc.csproj",
+        "projectUniqueName": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj",
         "projectName": "SaillingLoc",
-        "projectPath": "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\SaillingLoc.csproj",
-        "packagesPath": "C:\\Users\\Arnaud\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\obj\\",
+        "projectPath": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj",
+        "packagesPath": "C:\\Users\\William.NTHIEKAM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Arnaud\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\William.NTHIEKAM\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,11 +37,38 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Core": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,7 +80,15 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -41,8 +41,8 @@
       "PackagePath": "staticwebassets\\images\\Bateaux4.webp"
     },
     {
-      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Plan de travail 2.png",
-      "PackagePath": "staticwebassets\\images\\Plan de travail 2.png"
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Plan2.png",
+      "PackagePath": "staticwebassets\\images\\Plan2.png"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp",
@@ -349,6 +349,10 @@
       "PackagePath": "staticwebassets\\uploads\\11453fcc-8ce6-4f11-8d7d-e2401f3c370a.jpg"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\20110423_8241.jpg",
+      "PackagePath": "staticwebassets\\uploads\\20110423_8241.jpg"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\331ed769-881a-4a53-a77e-6a396aa7acd7.webp",
       "PackagePath": "staticwebassets\\uploads\\331ed769-881a-4a53-a77e-6a396aa7acd7.webp"
     },
@@ -391,6 +395,10 @@
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\IMG_7960.jpg",
       "PackagePath": "staticwebassets\\uploads\\IMG_7960.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\Le_Costa_Pacifica.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Le_Costa_Pacifica.jpg"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\b90922d3-38f1-490f-b716-bdaba2a0de4c.jpg",

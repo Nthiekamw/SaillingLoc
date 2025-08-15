@@ -57,7 +57,7 @@ internal class Program
                 Console.WriteLine("▶ Création de l'utilisateur admin...");
                 await RoleInitializer.CreateAdminUserAsync(services);
                 Console.WriteLine("✅ Initialisation terminée.");
-                // await RoleInitializer.InitializePortsAsync(services);
+                 await RoleInitializer.InitializePortsAsync(services);
             }
             catch (Exception ex)
             {
@@ -171,56 +171,55 @@ public static class RoleInitializer
         }
     }
 
-// public static async Task InitializePortsAsync(IServiceProvider serviceProvider)
-// {
-//     var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+ public static async Task InitializePortsAsync(IServiceProvider serviceProvider)
+{
+     var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
 
-//     // Vérifie si des ports existent déjà pour éviter les doublons
-//     if (dbContext.Ports.Any())
-//     {
-//         Console.WriteLine("ℹ️ Les ports sont déjà initialisés.");
-//         return;
-//     }
+     // Vérifie si des ports existent déjà pour éviter les doublons
+  if (dbContext.Ports.Any())
+    {
+        Console.WriteLine("ℹ️ Les ports sont déjà initialisés.");
+        return;
+    }
 
-//     var ports = new List<Port>
-//     {
-//         new Port
-//         {
-//             Name = "Port de Toulon",
-//             City = "Toulon",
-//             Country = "France",
-//             Latitude = 43.1242,
-//             Longitude = 5.9280,
-//             CreatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 586, DateTimeKind.Utc).AddTicks(9557),
-//             UpdatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 586, DateTimeKind.Utc).AddTicks(9558)
-//         },
-//         new Port
-//         {
-//             Name = "Port de Nice",
-//             City = "Nice",
-//             Country = "France",
-//             Latitude = 43.7102,
-//             Longitude = 7.2620,
-//             CreatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 587, DateTimeKind.Utc).AddTicks(123),
-//             UpdatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 587, DateTimeKind.Utc).AddTicks(123)
-//         },
-//         new Port
-//         {
-//             Name = "Port de Marseille",
-//             City = "Marseille",
-//             Country = "France",
-//             Latitude = 43.2965,
-//             Longitude = 5.3698,
-//             CreatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 587, DateTimeKind.Utc).AddTicks(125),
-//             UpdatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 587, DateTimeKind.Utc).AddTicks(125)
-//         }
-//     };
+   var ports = new List<Port>
+   {
+        new Port
+        {
+           Name = "Port de Toulon",
+           City = "Toulon",
+            Country = "France",
+            Latitude = 43.1242,
+            Longitude = 5.9280,
+           CreatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 586, DateTimeKind.Utc).AddTicks(9557),
+            UpdatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 586, DateTimeKind.Utc).AddTicks(9558)
+        },
+         new Port
+        {
+            Name = "Port de Nice",
+             City = "Nice",
+            Country = "France",
+             Latitude = 43.7102,
+             Longitude = 7.2620,
+             CreatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 587, DateTimeKind.Utc).AddTicks(123),
+             UpdatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 587, DateTimeKind.Utc).AddTicks(123)
+        },
+        new Port
+        {
+            Name = "Port de Marseille",
+            City = "Marseille",
+            Country = "France",
+            Latitude = 43.2965,
+            Longitude = 5.3698,
+            CreatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 587, DateTimeKind.Utc).AddTicks(125),
+            UpdatedAt = new DateTime(2025, 6, 28, 20, 59, 41, 587, DateTimeKind.Utc).AddTicks(125)
+       }
+    };
+     await dbContext.Ports.AddRangeAsync(ports);
+     await dbContext.SaveChangesAsync();
 
-//     await dbContext.Ports.AddRangeAsync(ports);
-//     await dbContext.SaveChangesAsync();
-
-//     Console.WriteLine("✅ Ports initialisés avec succès.");
-// }
+     Console.WriteLine("✅ Ports initialisés avec succès.");
+ }
 
 
 
