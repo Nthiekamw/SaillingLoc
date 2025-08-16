@@ -7,6 +7,7 @@ using SaillingLoc.Services;
 using SaillingLoc.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using System.IO;
+using Microsoft.Extensions.FileProviders;
 
 internal class Program
 {
