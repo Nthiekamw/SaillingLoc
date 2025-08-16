@@ -6,6 +6,7 @@ using SaillingLoc.Models;
 using SaillingLoc.Services;
 using SaillingLoc.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using System.IO;
 
 internal class Program
 {
@@ -76,7 +77,10 @@ internal class Program
         }
 
         
-        app.UseStaticFiles();
+        app.UseStaticFiles(new StaticFileOptions
+        {
+            FileProvider = new PhysicalFileProvider(Path.Combine(app.Environment.ContentRootPath, "wwwroot"))
+        });
 
         app.UseRouting();
 
