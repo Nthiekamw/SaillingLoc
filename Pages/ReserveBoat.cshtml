@@ -35,7 +35,7 @@
 }
 
 <form method="post">
-    <div class="form-group mb-3">
+    @* <div class="form-group mb-3">
         <label asp-for="StartDate" class="form-label">Date de début</label>
         <input type="date" asp-for="StartDate" class="form-control" id="StartDate" required />
         <span asp-validation-for="StartDate" class="text-danger"></span>
@@ -45,16 +45,41 @@
         <label asp-for="EndDate" class="form-label">Date de fin</label>
         <input type="date" asp-for="EndDate" class="form-control" id="EndDate" required />
         <span asp-validation-for="EndDate" class="text-danger"></span>
-    </div>
+    </div> *@
+
+
+
+
+
+
+<div class="form-group mb-3">
+    <label asp-for="StartDate" class="form-label">Date de début</label>
+    <input type="date" asp-for="StartDate" class="form-control" id="StartDate"
+           value="@(Model.StartDate == default ? DateTime.Today.ToString("yyyy-MM-dd") : Model.StartDate.ToString("yyyy-MM-dd"))"
+           required />
+    <span asp-validation-for="StartDate" class="text-danger"></span>
+</div>
+
+<div class="form-group mb-3">
+    <label asp-for="EndDate" class="form-label">Date de fin</label>
+    <input type="date" asp-for="EndDate" class="form-control" id="EndDate"
+           value="@(Model.EndDate == default ? DateTime.Today.ToString("yyyy-MM-dd") : Model.EndDate.ToString("yyyy-MM-dd"))"
+           required />
+    <span asp-validation-for="EndDate" class="text-danger"></span>
+</div>
 
     <!-- Affichage dynamique du prix total estimé -->
     <div class="form-group mb-3">
         <label>Prix total estimé</label>
         <input type="text" id="totalPrice" class="form-control" readonly />
     </div>
+   <div class="g-recaptcha" data-sitekey="6LcGSrErAAAAAIdnoBnj4TGt42miODROi2BWr9_C"></div>
 
     <button type="submit" class="btn btn-primary">Réserver</button>
 </form>
+
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

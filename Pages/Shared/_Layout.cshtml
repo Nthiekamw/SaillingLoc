@@ -1,4 +1,569 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿
+@using Microsoft.AspNetCore.Identity
+@using SaillingLoc.Models
+@using SaillingLoc.Services
+@using SaillingLoc.Data
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject INotificationService NotificationService
+
+@{
+    var isSignedIn = SignInManager.IsSignedIn(User);
+    User currentUser = null;
+    IList<string> roles = new List<string>();
+    int unreadNotificationsCount = 0;
+
+    if (isSignedIn)
+    {
+        currentUser = await UserManager.GetUserAsync(User);
+        roles = await UserManager.GetRolesAsync(currentUser);
+
+        if (currentUser != null)
+        {
+            unreadNotificationsCount = await NotificationService.GetUnreadNotificationsCountAsync(currentUser.Id);
+        }
+    }
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - SaillingLoc</title>
+
+    <!-- Icônes -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-pb41MQxDtPcR7i4l1+f6yxZNUvKv7FY9QpHboT1cUJ7SGHTlTftxEm6uUyOWYIsIEJf1hZx1e41yjzPWlYh5Bw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SaillingLoc.styles.css" asp-append-version="true" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+
+  <title>Location de bateaux - DSP Sailing</title>
+    <meta name="description" content="Louez un bateau facilement avec DSP Sailing. Réservez en ligne et profitez de votre séjour en mer.">
+    <meta name="keywords" content="location bateau, réservation bateau, mer, DSP Sailing">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="DSP Sailing - Location de bateaux"/>
+<meta property="og:description" content="Réservez facilement votre bateau pour vos vacances en mer."/>
+<meta property="og:image" content="https://dsp-dev-o23a-g6.fr/images/og-image.jpg"/>
+<meta property="og:url" content="https://dsp-dev-o23a-g6.fr/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+
+ <!-- JSON-LD pour SEO -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "SportsActivityLocation",
+      "name": "DSP Sailing",
+      "url": "https://dsp-dev-o23a-g6.fr/",
+      "address": {
+        "@@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      }
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #2d3e50;
+        }
+        body.dark-mode {
+            background-color: #121212 !important;
+            color: #f1f1f1 !important;
+        }
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode .cta-section {
+            background-color: #1f1f1f !important;
+            color: #f1f1f1 !important;
+        }
+        body.dark-mode a.nav-link,
+        body.dark-mode .nav-link,
+        body.dark-mode .navbar-brand {
+            color: #e0e0e0 !important;
+        }
+        body.dark-mode .btn-outline-primary,
+        body.dark-mode .btn-outline-success,
+        body.dark-mode .btn-outline-danger {
+            border-color: #888;
+            color: #e0e0e0;
+        }
+        a.nav-link:hover,
+        a.btn-outline-primary:hover,
+        a.btn-outline-success:hover {
+            color: #c28b63 !important;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #2d3e50 !important;
+        }
+        .btn-outline-primary,
+        .btn-outline-success,
+        .btn-outline-danger {
+            font-weight: 600;
+        }
+        header, footer {
+            background-color: #fff;
+        }
+        .cta-section {
+            background-color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 -1px 6px rgba(0,0,0,0.1);
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #eee;
+            margin-bottom: 30px;
+        }
+        .cta-section .btn {
+            font-size: 1rem;
+            padding: 12px 30px;
+        }
+        footer {
+            border-top: 1px solid #dee2e6;
+        }
+        .nav-link .badge {
+            font-size: 0.7rem;
+            padding: 0.25em 0.4em;
+        }
+        .position-relative .badge {
+            font-size: 0.65rem;
+            padding: 0.2em 0.4em;
+        }
+        .form-check-input:checked {
+            background-color: #4B6A88;
+            border-color: #4B6A88;
+        }
+        body.dark-mode .form-check-label {
+            color: #f1f1f1 !important;
+        }
+
+         .custom-btn {
+        background-color: #F5F1EB;
+        color: #AD7C59;
+        border: 1px solid #AD7C59;
+    }
+
+    .custom-btn:hover {
+        background-color: #AD7C59;
+        color: white;
+        border-color: #AD7C59;
+    }
+    </style>
+</head>
+<body>
+    <header>
+       <nav class="navbar navbar-expand-md navbar-light border-bottom shadow-sm mb-4" style="background-color: #F5F1EB;">
+
+            <div class="container">
+               <a class="navbar-brand" asp-area="" asp-page="/Index">
+    <img src="~/images/plan2.png" alt="Logo" style="height:40px;" />
+</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- 🔹 Bloc corrigé -->
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-page="/Index">Accueil</a>
+                        </li>
+
+                        @if (isSignedIn)
+                        {
+                            <!-- Liens visibles pour tout utilisateur connecté -->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Messages">Messagerie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/MyReservations">Mes Réservations</a>
+                            </li>
+
+                            <!-- Lien visible uniquement pour les Admins -->
+                            @if (roles.Contains("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-page="/AdminDashboard">Dashboard Admin</a>
+                                </li>
+                            }
+
+                            <!-- Lien visible pour tous les utilisateurs connectés -->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#mes-bateaux">Mes Bateaux</a>
+                            </li>
+                        }
+
+                        <!-- Visible pour tout le monde -->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-page="/Contacts">Contacts</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <!-- SWITCH MODE SOMBRE -->
+                        <li class="nav-item me-3 d-flex align-items-center">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
+                                <label class="form-check-label text-dark" for="darkModeSwitch">🌙</label>
+                            </div>
+                        </li>
+                        @if (isSignedIn)
+                        {
+                            <li class="nav-item d-flex align-items-center me-3">
+                                <span class="nav-link mb-0 px-0">
+                                    👤 @currentUser.FirstName (@roles.FirstOrDefault())
+                                </span>
+                            </li>
+                            <li class="nav-item me-3">
+                                @await Component.InvokeAsync("UnreadMessages")
+                            </li>
+                            <li class="nav-item me-3">
+                                <a href="/Notifications" class="nav-link position-relative" title="Notifications">
+                                    <i class="fa-regular fa-bell fa-lg"></i>
+                                    @if (unreadNotificationsCount > 0)
+                                    {
+                                        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
+                                            @unreadNotificationsCount
+                                            <span class="visually-hidden">notifications non lues</span>
+                                        </span>
+                                    }
+                                </a>
+                            </li>
+                            <li class="nav-item">
+    <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
+        <button type="submit" class="btn btn-sm custom-btn">Déconnexion</button>
+    </form>
+</li>
+                        }
+                        else
+                        {
+                            <li class="nav-item me-2">
+    <a class="btn btn-sm custom-btn" asp-page="/Account/Login">Connexion</a>
+</li>
+
+                            <li class="nav-item">
+                                <a class="btn btn-outline-success btn-sm" asp-page="/Account/Register">Inscription</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pb-4">
+        @RenderBody()
+    </main>
+
+<section class="cta-section" style="background-color: #4B6A88; color: black; padding: 20px;">
+  <div class="row mt-5 text-center" style="color: white;">
+    
+    <!-- Bloc 1 : SAILINGLOC avec icônes -->
+    <div class="col-md-4" style="padding: 15px; background-color: #4B6A88;">
+      <h2 class="section-title" style="font-weight: bold; color: white;">SAILINGLOC</h2>
+      <p style="margin: 0;">Rejoignez l’aventure SailingLoc en un clic</p>
+      <div style="font-size: 24px; margin-top: 15px; display: flex; justify-content: center; gap: 15px;">
+  <a href="#" style="display: inline-flex; align-items: center; justify-content: center; 
+                     width: 45px; height: 45px; border-radius: 50%; 
+                     background-color: #AD7C59; color: white; text-decoration: none;">
+    <i class="fab fa-facebook"></i>
+  </a>
+  <a href="#" style="display: inline-flex; align-items: center; justify-content: center; 
+                     width: 45px; height: 45px; border-radius: 50%; 
+                     background-color: #AD7C59; color: white; text-decoration: none;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="#" style="display: inline-flex; align-items: center; justify-content: center; 
+                     width: 45px; height: 45px; border-radius: 50%; 
+                     background-color: #AD7C59; color: white; text-decoration: none;">
+    <i class="fab fa-linkedin"></i>
+  </a>
+</div>
+
+    </div>
+
+    @* <!-- Bloc 2 : Liens Rapides -->
+    <div class="col-md-4" style="padding: 15px; background-color: #4B6A88;">
+      <h4 style="font-weight: bold;">Liens Rapides</h4>
+      <p>
+        À Propos<br>
+        CGU<br>
+        Mentions Légales<br>
+        Politique des Cookies<br>
+        Politiques de Confidentialité<br>
+        Plan du site<br>
+        Contact
+      </p>
+    </div> *@
+
+
+    <!-- Bloc 2 : Liens Rapides -->
+<div class="col-md-4" style="padding: 15px; background-color: #4B6A88;">
+  <h4 style="font-weight: bold; color: white;">Liens Rapides</h4>
+  <p style="color: white; line-height: 1.8;">
+    <a asp-page="/About" style="color: #F5F1EB; text-decoration: underline;">À Propos</a><br>
+    <a asp-page="/CGU" style="color: #F5F1EB; text-decoration: underline;">CGU</a><br>
+    <a asp-page="/Legal" style="color: #F5F1EB; text-decoration: underline;">Mentions Légales</a><br>
+    <a asp-page="/CookiePolicy" style="color: #F5F1EB; text-decoration: underline;">Politique des Cookies</a><br>
+    <a asp-page="/PrivacyPolicy" style="color: #F5F1EB; text-decoration: underline;">Politiques de Confidentialité</a><br>
+    <a asp-page="/Sitemap" style="color: #F5F1EB; text-decoration: underline;">Plan du site</a><br>
+    <a asp-page="/Contacts" style="color: #F5F1EB; text-decoration: underline;">Contact</a>
+  </p>
+</div>
+
+
+    <!-- Bloc 3 : Newsletter -->
+    <div class="col-md-4" style="padding: 15px; background-color: #4B6A88;">
+      <h4 style="font-weight: bold;">Ne manquez aucune opportunité</h4>
+      <p>
+        Inscrivez-vous à notre newsletter et recevez en avant-première les meilleures offres de location,
+        conseils de navigation et actualités exclusives.
+      </p>
+     <input type="email" placeholder="Entrer votre email" 
+       style="padding: 10px; width: 80%; margin-top: 10px; border: none; border-radius: 4px; background-color: #AD7C59; color: white;">
+
+
+  </div>
+</section>
+
+
+
+    <footer class="text-muted text-center py-3" style="background-color: #4B6A88; color: white;">
+        <div class="container">
+            &copy; @DateTime.Now.Year -©2025 Pandawan. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- SignalR JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/notificationHub")
+            .build();
+
+        connection.on("ReceiveNotification", function (message) {
+            alert("🔔 Nouvelle notification : " + message);
+
+            const badge = document.querySelector(".nav-link.position-relative .badge");
+            if (badge) {
+                let count = parseInt(badge.textContent) || 0;
+                badge.textContent = count + 1;
+            }
+        });
+
+        connection.start().catch(function (err) {
+            return console.error(err.toString());
+        });
+    </script>
+
+    <!-- Script pour activer le Dark Mode -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const darkModeSwitch = document.getElementById("darkModeSwitch");
+            const isDark = localStorage.getItem("darkMode") === "true";
+
+            if (isDark) {
+                document.body.classList.add("dark-mode");
+                if (darkModeSwitch) darkModeSwitch.checked = true;
+            }
+
+            if (darkModeSwitch) {
+                darkModeSwitch.addEventListener("change", function () {
+                    if (this.checked) {
+                        document.body.classList.add("dark-mode");
+                        localStorage.setItem("darkMode", "true");
+                    } else {
+                        document.body.classList.remove("dark-mode");
+                        localStorage.setItem("darkMode", "false");
+                    }
+                });
+            }
+        });
+
+     
+
+    </script>
+
+
+
+
+
+<!-- Bandeau cookies -->
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #4B6A88; color: white; padding: 15px; text-align: center; display: flex; justify-content: space-between; align-items: center; z-index: 1000;">
+    <span>
+        Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
+        <a href="/Legal" style="color: #AD7C59; text-decoration: underline;">En savoir plus</a>
+    </span>
+    <button id="accept-cookies" style="background-color: #AD7C59; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+        Accepter
+    </button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+
+        // Vérifier si l'utilisateur a déjà accepté
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
+            banner.style.display = 'none';
+        }
+
+        // Accepter les cookies
+        acceptBtn.addEventListener('click', function () {
+            localStorage.setItem('cookiesAccepted', 'true');
+            banner.style.display = 'none';
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* @using Microsoft.AspNetCore.Identity
 @using SaillingLoc.Models
 @using SaillingLoc.Services
 @using SaillingLoc.Data
@@ -361,4 +926,4 @@
 
     @RenderSection("Scripts", required: false)
 </body>
-</html>
+</html> *@

@@ -7,6 +7,7 @@ using SaillingLoc.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace SaillingLoc.Pages
 {
@@ -47,6 +48,24 @@ namespace SaillingLoc.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            // 1️⃣ Vérification du captcha
+            var captchaResponse = Request.Form["g-recaptcha-response"];
+            var secretKey = "6LcGSrErAAAAADr7CQLWSSywunsmo6kBg57qX7dU"; // Ta clé secrète
+
+            using var client = new HttpClient();
+            var response = await client.GetStringAsync(
+                $"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={captchaResponse}");
+
+            var captchaResult = JsonSerializer.Deserialize<RecaptchaResponse>(response);
+
+            if (!captchaResult.success)
+            {
+                ModelState.AddModelError("", "Veuillez valider le captcha.");
+                Boat = await _context.Boats.FindAsync(Id); // recharge le bateau
+                return Page();
+            }
+
+            // 2️⃣ Vérification des champs et de l'utilisateur connecté
             var user = await _userManager.GetUserAsync(User);
 
             if (!ModelState.IsValid || StartDate >= EndDate || user == null)
@@ -86,14 +105,14 @@ namespace SaillingLoc.Pages
             double totalDays = (EndDate - StartDate).TotalDays;
             decimal totalPrice = (decimal)totalDays * boat.PricePerDay;
 
-            var boatOwnerId = boat.UserId; // ✅ Récupération du propriétaire
+            var boatOwnerId = boat.UserId;
 
             var reservation = new Reservation
             {
                 Reference = $"RES-{Guid.NewGuid().ToString().Substring(0, 8).ToUpper()}",
                 BoatId = Id,
                 UserId = user.Id,
-                BoatOwnerId = boatOwnerId, // ✅ Ajout ici
+                BoatOwnerId = boatOwnerId,
                 StartDate = StartDate,
                 EndDate = EndDate,
                 TotalPrice = totalPrice,
@@ -110,4 +129,14 @@ namespace SaillingLoc.Pages
             return RedirectToPage("/MyReservations");
         }
     }
+
+    // Classe pour parser la réponse du captcha
+    public class RecaptchaResponse
+    {
+        public bool success { get; set; }
+        public float score { get; set; } // uniquement pour v3
+        public string action { get; set; } // uniquement pour v3
+    }
 }
+
+

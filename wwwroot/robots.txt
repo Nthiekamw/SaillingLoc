@@ -1,0 +1,10 @@
+# Bloquer tous les robots pour certaines parties sensibles
+User-agent: *
+Disallow: /Identity/
+Disallow: /Admin/
+
+# Autoriser le reste du site
+Allow: /
+
+# Lien vers le sitemap
+Sitemap: https://dsp-dev-o23a-g6.fr/sitemap.xml

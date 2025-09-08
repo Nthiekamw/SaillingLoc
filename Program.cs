@@ -25,6 +25,22 @@ internal class Program
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
 
+
+
+// Activer la politique de cookies
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    // Nécessité du consentement pour les cookies non essentiels
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.Lax;
+});
+
+
+
+
+
+
+
         // === Services personnalisés ===
         builder.Services.AddScoped<INotificationService, NotificationService>();
         builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
@@ -75,7 +91,11 @@ internal class Program
             app.UseHsts();
         }
 
-        
+        // Middleware pour la politique de cookies
+app.UseCookiePolicy();
+
+        app.UseStatusCodePagesWithReExecute("/NotFound");
+
         app.UseStaticFiles();
 
         app.UseRouting();
@@ -125,7 +145,6 @@ public static class RoleInitializer
 
         const string adminEmail = "admin@loc.com";
         const string adminPassword = "Admin123!"; // ⚠️ À sécuriser
-
         var existingUser = await userManager.FindByEmailAsync(adminEmail);
         if (existingUser == null)
         {

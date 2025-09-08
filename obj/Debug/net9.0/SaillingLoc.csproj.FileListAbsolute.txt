@@ -1,17 +1,9 @@
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.csproj.AssemblyReference.cache
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.AssemblyInfoInputs.cache
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.AssemblyInfo.cs
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.csproj.CoreCompileInputs.cache
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.RazorAssemblyInfo.cache
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.RazorAssemblyInfo.cs
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.sourcelink.json
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\xunit.abstractions.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\appsettings.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SaillingLoc.staticwebassets.runtime.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SaillingLoc.staticwebassets.endpoints.json
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\xunit.runner.visualstudio.testadapter.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SaillingLoc.exe
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SaillingLoc.deps.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SaillingLoc.runtimeconfig.json
@@ -19,7 +11,10 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Sa
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SaillingLoc.pdb
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Azure.Identity.dll
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\FluentAssertions.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Humanizer.dll
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\MailKit.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -80,6 +75,7 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Mi
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\MimeKit.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Mono.TextTemplating.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\NuGet.Common.dll
@@ -106,6 +102,9 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Sy
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\System.Runtime.Caching.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\System.Text.Json.dll
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\xunit.assert.dll
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\xunit.core.dll
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\xunit.execution.dotnet.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\af\Humanizer.resources.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\ar\Humanizer.resources.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\az\Humanizer.resources.dll
@@ -265,6 +264,14 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\ru
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.csproj.AssemblyReference.cache
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.csproj.CoreCompileInputs.cache
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.RazorAssemblyInfo.cache
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.RazorAssemblyInfo.cs
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.sourcelink.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\scopedcss\bundle\SaillingLoc.styles.css
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\scopedcss\projectbundle\SaillingLoc.bundle.scp.css
@@ -330,6 +337,7 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\co
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\5vnxdm3r2a-ooeh0eg6pk.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\xcwniflrmh-61n19gt1b8.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\3zibqoopar-xtxxf3hu2r.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\irqylmyhq8-bqjiyaj88i.gz
@@ -391,6 +399,10 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\co
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\ej20bzxti4-muycvpuwrr.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\ugxrvrzfx4-87fc7y1x7t.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\e69nzrejnz-mlv21k5csn.gz
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\3klt1ytty8-drqfg6xldt.gz
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\aaq0n1dy99-n0db9vmno6.gz
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\b5ntmyupbt-ru4rj4fyry.gz
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\smlfziig9w-nz53p3smgh.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\v0n6dm4a3n-mn9113qj9v.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\ut277t9iyq-mn9113qj9v.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\staticwebassets.build.json
@@ -408,4 +420,3 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\re
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.pdb
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\SaillingLoc.genruntimeconfig.cache
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\ref\SaillingLoc.dll
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\5vnxdm3r2a-c224tkpl88.gz

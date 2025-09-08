@@ -20,9 +20,15 @@ namespace SaillingLoc.Models
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
         public string FullName => $"{FirstName} {LastName}";
          
+         
+    // Propriétés existantes
+    public string Role { get; set; }
+
+    // Ajoute cette ligne
+    public string Siret { get; set; }
 
     // Ajoute un champ pour le nombre de messages non lus
-    public int UnreadMessagesCount { get; set; } = 0;
+        public int UnreadMessagesCount { get; set; } = 0;
 
   
 

@@ -1,0 +1,77 @@
+@page
+@model SaillingLoc.Pages.NotFoundModel
+@{
+    ViewData["Title"] = "Page non trouvée";
+}
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #f5f7fa;
+        overflow-x: hidden;
+    }
+
+    .notfound-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        padding: 20px;
+        animation: fadeIn 1s ease-in;
+    }
+
+    .notfound-container h1 {
+        font-size: 8rem;
+        color: #4B6A88;
+        margin: 0;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .notfound-container h2 {
+        font-size: 2rem;
+        color: #2d3e50;
+        margin: 20px 0;
+    }
+
+    .notfound-container p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .notfound-container a {
+        background-color: #AD7C59;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .notfound-container a:hover {
+        background-color: #4B6A88;
+        transform: scale(1.05);
+    }
+
+    
+</style>
+
+<div class="notfound-container">
+    <!-- Illustration SVG simple -->
+    <svg class="notfound-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="#AD7C59"/>
+        <text x="32" y="38" text-anchor="middle" font-size="24" fill="white" font-family="Poppins">404</text>
+    </svg>
+
+    <h1>404</h1>
+    <h2>Oups ! Page introuvable</h2>
+    <p>La page que vous cherchez n’existe pas ou a été déplacée.</p>
+   <a class="btn" asp-page="/Index" style="background-color: #AD7C59; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: 600;">
+    Retour à l'accueil
+</a>
+
+</div>

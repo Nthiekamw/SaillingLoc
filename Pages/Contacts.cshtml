@@ -57,7 +57,47 @@
   <div class="row">
         <!-- Bloc Formulaire -->
        <div class="col-md-6">
-    <h3 class="mt-5 text-center">Entrer en contact avec nous</h3>
+
+<h3 class="mt-5 text-center">Entrer en contact avec nous</h3>
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name" class="font-weight-bold">Votre Nom</label>
+        <input type="text" class="form-control" id="Name" name="Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Email" class="font-weight-bold">Votre Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" required />
+    </div>
+    <div class="form-group">
+        <label for="Phone" class="font-weight-bold">Votre Numéro</label>
+        <input type="text" class="form-control" id="Phone" name="Phone" required />
+    </div>
+    <div class="form-group">
+        <label for="Subject" class="font-weight-bold">Sujet</label>
+        <input type="text" class="form-control" id="Subject" name="Subject" required />
+    </div>
+    <div class="form-group">
+        <label for="Message" class="font-weight-bold">Message</label>
+        <textarea class="form-control" id="Message" name="Message" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-custom">Envoyez votre message</button>
+</form>
+
+
+
+
+    @* <h3 class="mt-5 text-center">Entrer en contact avec nous</h3>
     <form method="post">
         <div class="form-group">
             <label for="Name" class="font-weight-bold">Votre Nom</label>
@@ -80,7 +120,7 @@
             <textarea class="form-control" id="Message" name="Message" rows="4" required></textarea>
         </div>
         <button type="submit" class="btn btn-custom">Envoyez votre message</button>
-    </form>
+    </form> *@
 </div>
 
         <!-- Bloc Localisation -->
