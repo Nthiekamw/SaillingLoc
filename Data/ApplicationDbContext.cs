@@ -145,6 +145,10 @@ namespace SaillingLoc.Data
                 .WithMany(b => b.Equipments)
                 .HasForeignKey(be => be.BoatId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Boat>()
+                .Property(b => b.PricePerDay)
+                .HasPrecision(18, 2);
         }
     }
 }

@@ -6,6 +6,8 @@ using SaillingLoc.Models;
 using SaillingLoc.Services;
 using SaillingLoc.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
 
 internal class Program
 {
@@ -91,12 +93,20 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
             app.UseHsts();
         }
 
+//  HEAD
         // Middleware pour la politique de cookies
 app.UseCookiePolicy();
 
         app.UseStatusCodePagesWithReExecute("/NotFound");
 
         app.UseStaticFiles();
+
+        
+        app.UseStaticFiles(new StaticFileOptions
+        {
+            FileProvider = new PhysicalFileProvider(Path.Combine(app.Environment.ContentRootPath, "wwwroot"))
+        });
+// f45ed24323b2c8fb70ad0d5f865c17a857694b57
 
         app.UseRouting();
 

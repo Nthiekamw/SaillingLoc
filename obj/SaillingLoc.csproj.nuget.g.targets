@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<<<<<<< HEAD
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)xunit.core\2.9.3\build\xunit.core.targets" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.9.3\build\xunit.core.targets')" />
@@ -10,3 +11,6 @@
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.identity.ui\9.0.6\buildTransitive\Microsoft.AspNetCore.Identity.UI.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.identity.ui\9.0.6\buildTransitive\Microsoft.AspNetCore.Identity.UI.targets')" />
   </ImportGroup>
 </Project>
+=======
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+>>>>>>> f45ed24323b2c8fb70ad0d5f865c17a857694b57

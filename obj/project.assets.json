@@ -1,6 +1,7 @@
 {
   "version": 3,
   "targets": {
+<<<<<<< HEAD
     "net9.0": {
       "Azure.Core/1.38.0": {
         "type": "package",
@@ -8779,8 +8780,13 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     }
+=======
+    "net9.0": {}
+>>>>>>> f45ed24323b2c8fb70ad0d5f865c17a857694b57
   },
+  "libraries": {},
   "projectFileDependencyGroups": {
+<<<<<<< HEAD
     "net9.0": [
       "FluentAssertions >= 8.6.0",
       "MailKit >= 4.13.0",
@@ -8793,26 +8799,37 @@
       "xunit >= 2.9.3",
       "xunit.runner.visualstudio >= 3.1.4"
     ]
+=======
+    "net9.0": []
+>>>>>>> f45ed24323b2c8fb70ad0d5f865c17a857694b57
   },
   "packageFolders": {
-    "C:\\Users\\William.NTHIEKAM\\.nuget\\packages\\": {}
+    "C:\\Users\\Arnaud\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj",
+      "projectUniqueName": "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\SaillingLoc.csproj",
       "projectName": "SaillingLoc",
-      "projectPath": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj",
-      "packagesPath": "C:\\Users\\William.NTHIEKAM\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\",
+      "projectPath": "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\SaillingLoc.csproj",
+      "packagesPath": "C:\\Users\\Arnaud\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\William.NTHIEKAM\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Arnaud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8830,12 +8847,12 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net9.0": {
         "targetAlias": "net9.0",
+<<<<<<< HEAD
         "dependencies": {
           "FluentAssertions": {
             "target": "Package",
@@ -8880,6 +8897,8 @@
             "version": "[3.1.4, )"
           }
         },
+=======
+>>>>>>> f45ed24323b2c8fb70ad0d5f865c17a857694b57
         "imports": [
           "net461",
           "net462",
@@ -8891,6 +8910,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+<<<<<<< HEAD
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8900,6 +8920,9 @@
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+>>>>>>> f45ed24323b2c8fb70ad0d5f865c17a857694b57
       }
     }
   }
