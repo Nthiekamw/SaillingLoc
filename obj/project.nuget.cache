@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "wsAE0Wr0nSM=",
   "success": true,
   "projectFilePath": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj",
@@ -190,11 +189,12 @@
     "C:\\Users\\William.NTHIEKAM\\.nuget\\packages\\xunit.extensibility.execution\\2.9.3\\xunit.extensibility.execution.2.9.3.nupkg.sha512",
     "C:\\Users\\William.NTHIEKAM\\.nuget\\packages\\xunit.runner.visualstudio\\3.1.4\\xunit.runner.visualstudio.3.1.4.nupkg.sha512"
   ],
-=======
-  "dgSpecHash": "dgZVYCKP3IFGqYXFmFrgqIVzh95B4leGCneqtq4Q76H2W84Jt5RbCTY8SG1beq+uT9NavoPLGun5dpKSPRH4SA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Arnaud\\source\\repos\\SaillingLoc\\SaillingLoc.csproj",
-  "expectedPackageFiles": [],
->>>>>>> f45ed24323b2c8fb70ad0d5f865c17a857694b57
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problème de lecture du fichier cache C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

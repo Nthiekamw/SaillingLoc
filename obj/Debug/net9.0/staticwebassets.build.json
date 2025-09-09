@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nI/EBQAt5rCkp0Mo3qNyHQGMAwIM8AywMHhjVkJzFic=",
+  "Hash": "EudNn3vHs8Xla3Avvzwx0awwHY7sqWlTQ95icPcGDr0=",
   "Source": "SaillingLoc",
   "BasePath": "_content/SaillingLoc",
   "Mode": "Default",
@@ -4553,12 +4553,12 @@
       "OriginalItemSpec": "wwwroot\\images\\pic-1-1.jpeg"
     },
     {
-      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Plan2.png",
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\plan2.png",
       "SourceId": "SaillingLoc",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
       "BasePath": "_content/SaillingLoc",
-      "RelativePath": "images/Plan2#[.{fingerprint}]?.png",
+      "RelativePath": "images/plan2#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -4571,7 +4571,7 @@
       "Integrity": "q+qV9H4nEHViDTm2nWGpUWPswNVgFeswOdTcBHB6rdk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Plan2.png"
+      "OriginalItemSpec": "wwwroot\\images\\plan2.png"
     },
     {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\yatch.webp",
@@ -17256,8 +17256,8 @@
       ]
     },
     {
-      "Route": "images/Plan2.3i6rhsr10c.png",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Plan2.png",
+      "Route": "images/plan2.3i6rhsr10c.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\plan2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -17278,7 +17278,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 22 Jul 2025 13:00:49 GMT"
+          "Value": "Mon, 08 Sep 2025 15:13:20 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17292,7 +17292,7 @@
         },
         {
           "Name": "label",
-          "Value": "images/Plan2.png"
+          "Value": "images/plan2.png"
         },
         {
           "Name": "integrity",
@@ -17301,8 +17301,8 @@
       ]
     },
     {
-      "Route": "images/Plan2.png",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Plan2.png",
+      "Route": "images/plan2.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\plan2.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -17323,7 +17323,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 22 Jul 2025 13:00:49 GMT"
+          "Value": "Mon, 08 Sep 2025 15:13:20 GMT"
         },
         {
           "Name": "Cache-Control",

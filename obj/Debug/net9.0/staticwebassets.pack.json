@@ -41,10 +41,6 @@
       "PackagePath": "staticwebassets\\images\\Bateaux4.webp"
     },
     {
-      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\Plan2.png",
-      "PackagePath": "staticwebassets\\images\\Plan2.png"
-    },
-    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp",
       "PackagePath": "staticwebassets\\images\\aa7f3e68-a8af-46fa-8c65-f81c15b51f18_Bateaux 3.webp"
     },
@@ -91,6 +87,10 @@
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\pic-1-1.jpeg",
       "PackagePath": "staticwebassets\\images\\pic-1-1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\plan2.png",
+      "PackagePath": "staticwebassets\\images\\plan2.png"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\yatch.webp",

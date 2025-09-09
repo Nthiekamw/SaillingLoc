@@ -1,8 +1,4 @@
- HEAD
 
-
-
-f45ed24323b2c8fb70ad0d5f865c17a857694b57
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
