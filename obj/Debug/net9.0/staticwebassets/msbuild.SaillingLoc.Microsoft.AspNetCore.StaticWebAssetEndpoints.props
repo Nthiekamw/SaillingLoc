@@ -1048,13 +1048,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SaillingLoc.mn9113qj9v.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3ivKC8I5IgHHQxvlwAgsvossXGKXbf43vucIt/pFiw0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1129"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223ivKC8I5IgHHQxvlwAgsvossXGKXbf43vucIt/pFiw0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Sep 2025 14:04:05 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1129"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223ivKC8I5IgHHQxvlwAgsvossXGKXbf43vucIt/pFiw0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 09 Sep 2025 14:59:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SaillingLoc/SaillingLoc.mn9113qj9v.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SaillingLoc.mn9113qj9v.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mn9113qj9v"},{"Name":"integrity","Value":"sha256-3ivKC8I5IgHHQxvlwAgsvossXGKXbf43vucIt/pFiw0="},{"Name":"label","Value":"_content/SaillingLoc/SaillingLoc.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1129"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223ivKC8I5IgHHQxvlwAgsvossXGKXbf43vucIt/pFiw0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 02 Sep 2025 14:04:05 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1129"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223ivKC8I5IgHHQxvlwAgsvossXGKXbf43vucIt/pFiw0=\u0022"},{"Name":"Last-Modified","Value":"Tue, 09 Sep 2025 14:59:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SaillingLoc/sitemap.nz53p3smgh.xml">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\sitemap.xml'))</AssetFile>
@@ -1344,6 +1344,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ogs42le37v"},{"Name":"integrity","Value":"sha256-6EAZaRhOp6bWI48LHIBzlcmpLUsCj7NBZQ8hw0e2qSU="},{"Name":"label","Value":"_content/SaillingLoc/uploads/ed68db91-79ef-408b-999b-e6b700a07f93.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"84098"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00226EAZaRhOp6bWI48LHIBzlcmpLUsCj7NBZQ8hw0e2qSU=\u0022"},{"Name":"Last-Modified","Value":"Fri, 01 Aug 2025 09:30:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SaillingLoc/uploads/editer.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\editer.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-L\u002B/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"18048"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022L\u002B/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 13 Sep 2025 01:08:55 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SaillingLoc/uploads/editer.ttuzy6xpnh.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\editer.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ttuzy6xpnh"},{"Name":"integrity","Value":"sha256-L\u002B/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY="},{"Name":"label","Value":"_content/SaillingLoc/uploads/editer.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"18048"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022L\u002B/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 13 Sep 2025 01:08:55 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SaillingLoc/uploads/f0d2429c-9583-4d9f-ade7-819b0cea535b.jlxxtgllkp.webp">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f0d2429c-9583-4d9f-ade7-819b0cea535b.webp'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -1367,6 +1379,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-iq0R5jFRPjProCOHiaHXB4\u002BvUnMxf0DgeG8yn9SMo3o="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"3196028"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022iq0R5jFRPjProCOHiaHXB4\u002BvUnMxf0DgeG8yn9SMo3o=\u0022"},{"Name":"Last-Modified","Value":"Fri, 15 Aug 2025 19:13:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SaillingLoc/uploads/interface.39mx600rni.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\interface.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"39mx600rni"},{"Name":"integrity","Value":"sha256-53TRhafbE1JFwY25QxOq0WY65IlQVP7i\u002BJkod6M0UBo="},{"Name":"label","Value":"_content/SaillingLoc/uploads/interface.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"188635"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u002253TRhafbE1JFwY25QxOq0WY65IlQVP7i\u002BJkod6M0UBo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 13 Sep 2025 01:36:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SaillingLoc/uploads/interface.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\interface.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-53TRhafbE1JFwY25QxOq0WY65IlQVP7i\u002BJkod6M0UBo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"188635"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u002253TRhafbE1JFwY25QxOq0WY65IlQVP7i\u002BJkod6M0UBo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 13 Sep 2025 01:36:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SaillingLoc/uploads/Le_Costa_Pacifica.hgdw3o7j1j.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Le_Costa_Pacifica.jpg'))</AssetFile>

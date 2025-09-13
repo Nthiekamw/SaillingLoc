@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EudNn3vHs8Xla3Avvzwx0awwHY7sqWlTQ95icPcGDr0=",
+  "Hash": "hJLzfIMhUvSwO7yE19BJA6yTh7btXvYCfV76w83p7aE=",
   "Source": "SaillingLoc",
   "BasePath": "_content/SaillingLoc",
   "Mode": "Default",
@@ -6443,6 +6443,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\ed68db91-79ef-408b-999b-e6b700a07f93.jpg"
     },
     {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\editer.png",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "uploads/editer#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ttuzy6xpnh",
+      "Integrity": "L+/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\editer.png"
+    },
+    {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\f0d2429c-9583-4d9f-ade7-819b0cea535b.webp",
       "SourceId": "SaillingLoc",
       "SourceType": "Discovered",
@@ -6483,6 +6504,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\IMG_7960.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\interface.png",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "uploads/interface#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "39mx600rni",
+      "Integrity": "53TRhafbE1JFwY25QxOq0WY65IlQVP7i+Jkod6M0UBo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\interface.png"
     },
     {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\Le_Costa_Pacifica.jpg",
@@ -36300,7 +36342,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36353,7 +36395,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36390,7 +36432,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36437,7 +36479,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36498,7 +36540,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36543,7 +36585,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36598,7 +36640,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36659,7 +36701,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36704,7 +36746,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36759,7 +36801,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36812,7 +36854,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36849,7 +36891,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 02 Sep 2025 14:04:05 GMT"
+          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -39056,6 +39098,88 @@
       ]
     },
     {
+      "Route": "uploads/editer.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\editer.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18048"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L+/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 13 Sep 2025 01:08:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-L+/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/editer.ttuzy6xpnh.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\editer.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18048"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L+/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 13 Sep 2025 01:08:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ttuzy6xpnh"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/editer.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-L+/unUFuTofrayADSqNdGE2HEe1RniZrVUJ6Gn/knBY="
+        }
+      ]
+    },
+    {
       "Route": "uploads/f0d2429c-9583-4d9f-ade7-819b0cea535b.jlxxtgllkp.webp",
       "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\f0d2429c-9583-4d9f-ade7-819b0cea535b.webp",
       "Selectors": [],
@@ -39216,6 +39340,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-iq0R5jFRPjProCOHiaHXB4+vUnMxf0DgeG8yn9SMo3o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/interface.39mx600rni.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\interface.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "188635"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"53TRhafbE1JFwY25QxOq0WY65IlQVP7i+Jkod6M0UBo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 13 Sep 2025 01:36:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "39mx600rni"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/interface.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-53TRhafbE1JFwY25QxOq0WY65IlQVP7i+Jkod6M0UBo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/interface.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\uploads\\interface.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "188635"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"53TRhafbE1JFwY25QxOq0WY65IlQVP7i+Jkod6M0UBo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 13 Sep 2025 01:36:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-53TRhafbE1JFwY25QxOq0WY65IlQVP7i+Jkod6M0UBo="
         }
       ]
     },
