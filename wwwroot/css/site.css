@@ -153,3 +153,80 @@ body {
 .legal-page li {
     margin-bottom: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2em;
+        }
+
+        .about-section {
+            flex-direction: column;
+            padding: 40px 20px;
+        }
+
+        .search-container form {
+            grid-template-columns: 1fr;
+        }
+
+        .section-title {
+            font-size: 2em;
+        }
+
+        .offers {
+            grid-template-columns: 1fr;
+            padding: 20px;
+        }
+
+        .features-grid,
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+
+
+       /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .navbar-nav {
+                gap: 0;
+                margin-top: 1rem;
+            }
+
+            .nav-link {
+                padding: 0.6rem 0 !important;
+            }
+
+            .navbar-nav.ms-auto {
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid #ddd;
+            }
+        }

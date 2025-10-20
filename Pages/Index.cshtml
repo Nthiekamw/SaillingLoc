@@ -5,743 +5,550 @@
 }
 
 <style>
-    @* body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         padding: 0;
-        color: #333;
+        color: #2c3e50;
+        background-color: #f8f9fa;
     }
 
+    /* Hero Section */
     .hero {
-        background: url('@Url.Content("~/images/hero-background.jpg")') no-repeat center center/cover;
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                    url('@Url.Content("~/images/Bateaux4.webp")') no-repeat center center/cover;
         color: white;
         text-align: center;
-        padding: 100px 20px;
+        padding: 120px 20px 80px;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .hero h1 {
-        font-size: 3.5em;
-        margin-bottom: 15px;
-        font-weight: bold;
+        font-size: 2.8em;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        max-width: 900px;
+        line-height: 1.3;
     }
 
     .hero p {
-        font-size: 1.5em;
+        font-size: 1.3em;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-primary-custom {
+        background-color: #d4a574;
+        color: white;
+        border: none;
+        padding: 14px 32px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-primary-custom:hover {
+        background-color: #c49563;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+    }
+
+    /* Search Box */
+    .search-container {
+        background: linear-gradient(135deg, #4a6b8a 0%, #5a7a99 100%);
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 700px;
+        width: 90%;
+        margin: 30px auto 0;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-container form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .search-container label {
+        color: white;
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .search-container input {
+        padding: 12px;
+        border-radius: 6px;
+        border: none;
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .search-container button {
+        grid-column: 1 / -1;
+        background-color: #d4a574;
+        color: white;
+        border: none;
+        padding: 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+
+    .search-container button:hover {
+        background-color: #c49563;
+        transform: translateY(-1px);
+    }
+
+    /* About Section */
+    .about-section {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 80px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: white;
+    }
+
+    .about-section > div:first-child {
+        flex: 1;
+    }
+
+    .about-section h2 {
+        font-size: 2.5em;
+        font-weight: 700;
+        color: #2c3e50;
         margin-bottom: 20px;
     }
 
-    .search-bar {
-        margin-top: 20px;
+    .about-section p {
+        font-size: 1.1em;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 15px;
     }
 
-    .search-bar input,
-    .search-bar button {
-        padding: 12px;
-        margin: 5px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
+    .about-label {
+        color: #d4a574;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
     }
 
+    .slider-container {
+        flex: 1;
+        max-width: 500px;
+    }
+
+    .slider-container img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Section Title */
     .section-title {
         text-align: center;
         font-size: 2.5em;
-        margin: 40px 0 20px;
-        font-weight: bold;
+        font-weight: 700;
+        color: #2c3e50;
+        margin: 60px 0 40px;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: #d4a574;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    /* Boat Types */
+    .boat-types-section {
+        background-color: #f8f9fa;
+        padding: 60px 20px;
     }
 
     .boat-types {
         display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        padding: 20px 0;
-    }
-
-    .boat-types a {
-        flex: 1 1 150px;
-        margin: 10px;
-    }
-
-    .boat-types img {
-        width: 100%;
-        max-width: 150px;
-        height: auto;
-        border-radius: 6px;
-    }
-
-    .offers {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
-        padding: 20px 10px;
+        gap: 25px;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .boat-type-card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        width: 180px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .boat-type-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .boat-type-card img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 12px;
+    }
+
+    .boat-type-card .label {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #2c3e50;
+    }
+
+    /* Offers */
+    .offers {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .offer-card {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 15px;
-        text-align: center;
-        width: 280px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: #fff;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
     }
 
     .offer-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .offer-card img {
-        max-width: 100%;
-        height: 160px;
+        width: 100%;
+        height: 200px;
         object-fit: cover;
-        border-radius: 6px;
-        margin-bottom: 10px;
     }
 
     .offer-card .content {
-        flex-grow: 1;
+        padding: 20px;
     }
 
-    .btn {
-        margin: 5px 3px;
-        padding: 8px 16px;
-        border-radius: 5px;
-        font-weight: 600;
-        text-decoration: none;
-        cursor: pointer;
-        border: none;
+    .offer-card h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+
+    .offer-card p {
+        color: #666;
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+    .offer-card .price {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #d4a574;
+        margin-bottom: 15px;
+    }
+
+    .btn-view, .btn-reserve {
         display: inline-block;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        margin: 5px 5px 5px 0;
     }
 
     .btn-view {
-        background-color: #007bff;
+        background-color: #d4a574;
         color: white;
     }
 
     .btn-view:hover {
-        background-color: #0056b3;
+        background-color: #c49563;
     }
 
-    .btn-edit {
+    .btn-reserve {
+        background-color: white;
+        border: 2px solid #d4a574;
+        color: #d4a574;
+    }
+
+    .btn-reserve:hover {
+        background-color: #d4a574;
+        color: white;
+    }
+
+    /* Features Section */
+    .features-section {
+        background: linear-gradient(135deg, #c1d0c4 0%, #d4e0d7 100%);
+        padding: 80px 40px;
+    }
+
+    .features {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+    }
+
+    .feature-card {
+        text-align: center;
+        padding: 30px;
+    }
+
+    .icon-circle {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+    .icon-circle:hover {
+        transform: scale(1.05);
+    }
+
+    .anchor-icon {
+        background-color: #5a7a99;
+        color: white;
+    }
+
+    .calendar-icon {
         background-color: #28a745;
         color: white;
     }
 
-    .btn-edit:hover {
-        background-color: #1e7e34;
-    }
-
-    .btn-delete {
-        background-color: #dc3545;
+    .ship-icon {
+        background-color: #ffc107;
         color: white;
     }
 
-    .btn-delete:hover {
-        background-color: #a71d2a;
+    .feature-card h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
     }
 
-    /* Les autres styles (features, testimonials, rent) restent inchangés */
-
-    .features {
-        display: flex;
-        justify-content: space-around;
-        margin: 40px 0;
-        padding: 20px 0;
-        background-color: #f9f9f9;
+    .feature-card p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: #555;
     }
 
-    .testimonials {
-        background-color: #e0f7fa;
+    /* Testimonials */
+    .testimonials-section {
+        background-color: #f8f9fa;
+        padding: 80px 40px;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 50px auto 0;
+    }
+
+    .testimonial {
+        background: white;
+        border-radius: 12px;
         padding: 30px;
-        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        position: relative;
+        transition: all 0.3s ease;
     }
 
-    .rent {
-        background-color: #c8e6c9;
-        padding: 30px;
-        text-align: center;
+    .testimonial:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
 
-    button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 1em;
+    .testimonial .user-icon {
+        position: absolute;
+        top: -15px;
+        left: 30px;
+        font-size: 30px;
+        color: #5a7a99;
+        background: white;
+        padding: 5px 10px;
+        border-radius: 50%;
     }
 
-    button:hover {
-        background-color: #0056b3;
+    .testimonial p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #555;
+        margin-top: 20px;
+        font-style: italic;
     }
 
     .author {
-        font-style: italic;
-        margin-top: 10px;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-top: 15px;
+        font-style: normal;
     }
-    .icon-circle {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease;
-}
 
-.anchor-icon {
-    background-color: #007bff; /* bleu */
-    color: white;
-}
+    .author span {
+        color: #ffc107;
+        margin-left: 5px;
+    }
 
-.calendar-icon {
-    background-color: #28a745; /* vert */
-    color: white;
-}
+    /* Rent Section */
+    .rent-section {
+        background: linear-gradient(135deg, #e8e5df 0%, #f5f1eb 100%);
+        padding: 80px 40px;
+        text-align: center;
+    }
 
-.ship-icon {
-    background-color: #ffc107; /* jaune/or */
-    color: white;
-}
+    .rent-section p:first-child {
+        color: #d4a574;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
 
-/* Optionnel : hover effect */
-.icon-circle:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    cursor: default;
-} *@
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-        background-color: #F5F1EB; /* couleur de fond ajoutée */
-}
+    .rent-section .section-title {
+        margin: 0 0 20px;
+    }
 
-.hero {
-    background: url('@Url.Content("~/images/hero-background.jpg")') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5); /* Adding depth */
-}
+    .rent-section > p {
+        max-width: 700px;
+        margin: 0 auto 30px;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #555;
+    }
 
-.hero h1 {
-    font-size: 3em; /* Adjusted for consistency */
-    margin-bottom: 15px;
-    font-weight: bold;
-}
+    /* Map Section */
+    .map-section {
+        padding: 60px 40px;
+        background-color: white;
+    }
 
-.hero p {
-    font-size: 1.25em; /* Smaller for a more refined look */
-    margin-bottom: 20px;
-}
+    .map-section h3 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 30px;
+    }
 
-.search-bar {
-    margin-top: 20px;
-}
+    #map {
+        width: 100%;
+        max-width: 1200px;
+        height: 450px;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-.search-bar input,
-.search-bar button {
-    padding: 12px;
-    margin: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1em; /* Consistent font size */
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5em;
-    margin: 40px 0 20px;
-    font-weight: bold;
-}
-
-.boat-types {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 20px 0;
-}
-
-.boat-types a {
-    flex: 1 1 150px;
-    margin: 10px;
-}
-
-.boat-types img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    border-radius: 6px;
-}
-
-.offers {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 10px;
-}
-
-.offer-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    width: 280px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
-}
-
-.offer-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.offer-card img {
-    max-width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 10px;
-}
-
-.btn {
-    margin: 5px 3px;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    display: inline-block;
-}
-
-.btn-view {
-    background-color: #007bff; /* Primary color */
-    color: white;
-}
-
-.btn-view:hover {
-    background-color: #0056b3;
-}
-
-/* Adjust other button styles similarly */
-
-@* .features,
-.testimonials,
-.rent {
-    padding: 30px;
-    text-align: center;
-} *@
-
-.features {
-    background-color: #87CEEB; /* Couleur de fond */
-    padding: 40px 20px;       /* Rembourrage pour l'espacement interne */
-    border-radius: 8px;       /* Coins arrondis (optionnel) */
-}
     
-
-
-.testimonials {
-    background-color: #e0f7fa;
-}
-
-.rent {
-    background-color: #c8e6c9;
-}
-
-.icon-circle {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease;
-}
-
-.icon-circle:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    cursor: default;
-}
-.testimonials {
-    background-color: #f8f9fa; /* Fond clair */
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.testimonial {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-
-.testimonial:hover {
-    transform: scale(1.05);
-}
-
-.author {
-    font-style: italic;
-    margin-top: 10px;
-    color: #6c757d; /* Gris pour l'auteur */
-}
-
-.testimonial p {
-    font-size: 1.2em; /* Texte légèrement plus grand */
-    color: #333; /* Couleur de texte foncé */
-    margin: 0;
-}
-
-.testimonial-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.boat-types {
-    display: flex;
-    justify-content: space-around; /* Espacement égal entre les éléments */
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
-    padding: 40px 20px; /* Espacement interne */
-}
-
-.boat-types a {
-    text-decoration: none; /* Supprime le soulignement des liens */
-}
-
-.boat-types img {
-    width: 100%; /* Prend toute la largeur de l'élément parent */
-    max-width: 150px; /* Largeur maximale pour les images */
-    border-radius: 8px; /* Coins arrondis */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre pour profondeur */
-    transition: transform 0.2s; /* Transition pour l'effet au survol */
-}
-
-.boat-types img:hover {
-    transform: scale(1.05); /* Effet de zoom au survol */
-}
-
-.section-title {
-    text-align: center; /* Centre le titre */
-    font-size: 2.5em; /* Taille de police du titre */
-    margin: 20px 0; /* Marges autour du titre */
-    color: #333; /* Couleur du texte */
-}
-
-
-.row {
-    display: flex;
-    justify-content: space-around; /* Espacement égal entre les colonnes */
-    flex-wrap: wrap; /* Permet aux colonnes de passer à la ligne */
-}
-
-.col-md-4 {
-    flex: 1 1 30%; /* Colonne adaptable */
-    max-width: 300px; /* Largeur maximale */
-    margin: 20px; /* Marges autour des colonnes */
-    text-align: center; /* Centre le texte */
-    background-color: #ffffff; /* Fond blanc pour les colonnes */
-    border-radius: 8px; /* Coins arrondis */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre pour profondeur */
-    padding: 20px; /* Espacement interne */
-}
-
-.icon-circle {
-    width: 80px; /* Taille des icônes */
-    height: 80px; /* Taille des icônes */
-    margin: 0 auto; /* Centre l'icône */
-    border-radius: 50%; /* Forme circulaire */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #007bff; /* Couleur de fond des icônes */
-    color: white; /* Couleur des icônes */
-    margin-bottom: 15px; /* Espacement en bas */
-}
-
-h4 {
-    font-size: 1.5em; /* Taille de police des titres */
-    margin: 10px 0; /* Marges autour des titres */
-}
-
-p {
-    color: #333; /* Couleur du texte */
-    font-size: 1em; /* Taille de police */
-}
-
-
-.rent {
-    background-color: #f0efeb; /* Fond clair */
-    padding: 40px 20px; /* Espacement interne */
-    text-align: center; /* Centre le texte */
-    border-radius: 8px; /* Coins arrondis */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre pour profondeur */
-}
-
-h2.section-title {
-    font-size: 2.5em; /* Taille de police du titre */
-    margin-bottom: 15px; /* Marges autour du titre */
-    color: #333; /* Couleur du texte */
-}
-
-p {
-    font-size: 1.2em; /* Taille de police du texte */
-    color: #666; /* Couleur du texte */
-    margin-bottom: 20px; /* Marges autour du texte */
-}
-
-button {
-    background-color: #007bff; /* Couleur de fond du bouton */
-    color: white; /* Couleur du texte du bouton */
-    border: none; /* Pas de bordure */
-    border-radius: 5px; /* Coins arrondis */
-    padding: 12px 20px; /* Espacement interne */
-    font-size: 1em; /* Taille de police du bouton */
-    cursor: pointer; /* Curseur en main */
-    transition: background-color 0.3s; /* Transition pour le survol */
-}
-
-button:hover {
-    background-color: #0056b3; /* Couleur au survol */
-}
-.testimonials {
-    background-color: #f0efeb;
-    padding: 40px 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-container {
-    display: flex;
-    flex-wrap: wrap;        /* Permet aux éléments de passer à la ligne si nécessaire */
-    justify-content: center; /* Centre les témoignages */
-    gap: 20px;              /* Espacement entre les témoignages */
-    max-width: 1200px;     /* Largeur maximale */
-    margin: 0 auto;
-      flex-direction: row; 
-}
-
-.testimonial {
-    background-color:#C1D0C4;
-     border-radius: 8px;
-    padding: 20px;
-    box-sizing: border-box;
-    width: calc(33.33% - 20px); /* Trois témoignages par ligne, ajusté pour l'espacement */
-    min-width: 300px;         /* Largeur minimale pour les petits écrans */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-      display: flex;
-       flex-direction: row; 
-}
-
-.testimonial p {
-    font-size: 1.2em;
-    color: #333;
-    margin: 0;
-      display: flex;
-}
-
-.author {
-    font-style: italic;
-    margin-top: 10px;
-    color: #6c757d;
-}
-
-.user-icon {
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    font-size: 30px;
-    color: #007bff;
-}
-
-
-    .testimonial {
-        flex: 0 0 100%;
-    }
-}
-
-
-
-
 </style>
 
-<section class="hero" style="
-    background-image: url('@Url.Content("~/images/Bateaux4.webp")');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 40px 20px;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Centrage horizontal */
-    text-align: center;
-">
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Trouvez le bateau parfait pour votre prochaine aventure</h1>
+    <p>Explorez les plus belles destinations en mer</p>
+    <button class="btn-primary-custom">Commencez votre aventure</button>
 
-    <h1 style="font-weight: bold; color: black; max-width: 800px;">
-        Trouvez le bateau parfait pour votre prochaine aventure
-    </h1>
+    <div class="search-container">
+        <form method="get">
+            <div>
+                <label for="Destination">Destination</label>
+                <input type="text" id="Destination" name="Destination" 
+                       placeholder="Où voulez-vous naviguer ?" 
+                       value="@Model.searchDestination" />
+            </div>
 
-    <button style="
-        background-color: #AD7C59; 
-        color: white; 
-        border: none; 
-        padding: 12px 24px; 
-        font-size: 1.2rem; 
-        border-radius: 8px; 
-        cursor: pointer; 
-        margin: 20px auto;
-        width: fit-content;
-    ">
-        Commencez votre aventure
-    </button>
+            <div>
+                <label for="NumberOfPeople">Nombre de places</label>
+                <input type="number" id="NumberOfPeople" name="NumberOfPeople" 
+                       placeholder="Personnes" min="1" 
+                       value="@(Model.searchNumberOfPeople ?? 0)" />
+            </div>
 
-   <p style="max-width: 600px; color: black;">Explorez les plus belles destinations en mer</p>
+            <div>
+                <label for="StartDate">Date de départ</label>
+                <input type="date" id="StartDate" name="StartDate" 
+                       value="@(Model.searchStartDate?.ToString("yyyy-MM-dd"))" />
+            </div>
 
+            <div>
+                <label for="EndDate">Date de retour</label>
+                <input type="date" id="EndDate" name="EndDate" 
+                       value="@(Model.searchEndDate?.ToString("yyyy-MM-dd"))" />
+            </div>
 
-
-
-<div style="
-    background-color: #4B6A88; 
-    padding: 20px; 
-    border-radius: 8px; 
-    max-width: 600px; 
-    width: 100%; 
-    margin: 20px auto;
-    color: white; /* texte en blanc pour contraste */
-">
-    <form method="get" style="display: flex; flex-direction: column; gap: 15px;">
-
-        <label for="Destination" style="font-weight: bold;">Destination</label>
-        <input type="text" id="Destination" name="Destination" 
-               placeholder="Destination" 
-               value="@Model.searchDestination" 
-               style="padding: 10px; border-radius: 4px; border: none;" />
-
-        <label for="StartDate" style="font-weight: bold;">Date de départ</label>
-        <input type="date" id="StartDate" name="StartDate" 
-               value="@(Model.searchStartDate?.ToString("yyyy-MM-dd"))" 
-               style="padding: 10px; border-radius: 4px; border: none;" />
-
-        <label for="EndDate" style="font-weight: bold;">Date de retour</label>
-        <input type="date" id="EndDate" name="EndDate" 
-               value="@(Model.searchEndDate?.ToString("yyyy-MM-dd"))" 
-               style="padding: 10px; border-radius: 4px; border: none;" />
-
-        <label for="NumberOfPeople" style="font-weight: bold;">Nombre de places</label>
-        <input type="number" id="NumberOfPeople" name="NumberOfPeople" 
-               placeholder="Nombre de personnes" min="1" 
-               value="@(Model.searchNumberOfPeople ?? 0)" 
-               style="padding: 10px; border-radius: 4px; border: none;" />
-
-        <button type="submit" style="
-            background-color: #AD7C59; 
-            color: white; 
-            border: none; 
-            padding: 12px; 
-            border-radius: 4px; 
-            cursor: pointer;
-            font-weight: bold;
-        ">
-            Rechercher
-        </button>
-    </form>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    @* <div style="
-        background-color: #4B6A88; 
-        padding: 20px; 
-        border-radius: 8px; 
-        max-width: 600px; 
-        width: 100%; 
-        margin: 20px auto;
-    ">
-        <form method="get" style="display: flex; flex-direction: column; gap: 10px;">
-            <input type="text" name="Destination" placeholder="Destination" value="@Model.searchDestination" style="padding: 10px; border-radius: 4px; border: none;" />
-            <input type="date" name="StartDate" value="@(Model.searchStartDate?.ToString("yyyy-MM-dd"))" style="padding: 10px; border-radius: 4px; border: none;" />
-            <input type="date" name="EndDate" value="@(Model.searchEndDate?.ToString("yyyy-MM-dd"))" style="padding: 10px; border-radius: 4px; border: none;" />
-            <input type="number" name="NumberOfPeople" placeholder="Nombre de personnes" min="1" value="@(Model.searchNumberOfPeople ?? 0)" style="padding: 10px; border-radius: 4px; border: none;" />
-            <button type="submit" style="
-                background-color: #AD7C59; 
-                color: white; 
-                border: none; 
-                padding: 10px; 
-                border-radius: 4px; 
-                cursor: pointer;
-            ">
-                Rechercher
-            </button>
+            <button type="submit">Rechercher</button>
         </form>
-    </div> *@
-
+    </div>
 </section>
 
-
-
-<!-- Naviguez librement -->
-<section style="display: flex; align-items: center; gap: 20px;">
-  <div style="flex: 1;">
-   <p style="font-weight: bold;">À propos de SailingLoc</p>
-
-    <h2 class="section-title">Naviguez librement</h2>
-    <p>Chez SailingLoc, nous mettons en relation les amoureux de la mer pour faciliter la location de voiliers et bateaux à moteur entre particuliers. 
-        Que vous soyez marin expérimenté ou aventurier en quête de découverte, notre plateforme vous offre une expérience simple, sécurisée et conviviale.  
-         Découvrez une nouvelle façon de naviguer, avec une communauté qui partage la même passion.</p>
-  </div>
-
-  <button style="
-  background-color: #AD7C59; 
-  color: white; 
-  border: none; 
-  padding: 10px 20px; 
-  border-radius: 6px; 
-  cursor: pointer; 
-  margin-top: 16px;
-  margin-left: 50px; /* ajoute cette ligne */
-  font-size: 1rem;
-">
-  En savoir plus
-</button>
-
-  
-  <div style="flex: 1; margin-top: 30px;">
-    <div id="slider" style="width: 100%; max-width: 600px; height: auto; border-radius: 12px; overflow: hidden;">
-        <img src="@Url.Content("~/images/Bateaux 7.webp")" 
-             alt="Image Slider" 
-             style="width: 100%; display: block; border-radius: 12px;" />
+<!-- About Section -->
+<section class="about-section">
+    <div>
+        <p class="about-label">À propos de SailingLoc</p>
+        <h2>Naviguez librement</h2>
+        <p>Chez SailingLoc, nous mettons en relation les amoureux de la mer pour faciliter la location de voiliers et bateaux à moteur entre particuliers.</p>
+        <p>Que vous soyez marin expérimenté ou aventurier en quête de découverte, notre plateforme vous offre une expérience simple, sécurisée et conviviale. Découvrez une nouvelle façon de naviguer, avec une communauté qui partage la même passion.</p>
+        <button class="btn-primary-custom" style="margin-top: 20px;">En savoir plus</button>
     </div>
-</div>
+
+    <div class="slider-container">
+        <div id="slider">
+            <img src="@Url.Content("~/images/Bateaux 7.webp")" alt="Image Slider" />
+        </div>
+    </div>
+</section>
 
 <script>
     const images = [
@@ -756,282 +563,240 @@ button:hover {
     setInterval(() => {
         index = (index + 1) % images.length;
         slider.src = images[index];
-    }, 4000); // change d'image toutes les 4 secondes
+    }, 4000);
 </script>
 
-
-
-</section>
-
-<!-- Carte Google Maps -->
-<section style="margin-top: 30px;">
-  <h3>Localisation des bateaux</h3>
-  <div id="map" style="width: 100%; height: 400px;"></div>
+<!-- Map Section -->
+<section class="map-section">
+    <h3>Localisation des bateaux</h3>
+    <div id="map"></div>
 </section>
 
 <script>
-  function initMap() {
-    const center = { lat: 48.8566, lng: 2.3522 };
+    function initMap() {
+        const center = { lat: 48.8566, lng: 2.3522 };
 
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 5,
-      center: center,
-    });
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 5,
+            center: center,
+        });
 
-    const boats = [
-      @foreach (var boat in Model.Boats)
-      {
-          if (boat.Latitude != 0 && boat.Longitude != 0)
-          {
-              var photo = boat.Photos?.FirstOrDefault()?.PhotoUrl ?? "";
+        const boats = [
+            @foreach (var boat in Model.Boats)
+            {
+                if (boat.Latitude != 0 && boat.Longitude != 0)
+                {
+                    var photo = boat.Photos?.FirstOrDefault()?.PhotoUrl ?? "";
+                    var portName = boat.Port?.Name ?? "Port inconnu";
+                    var typeName = boat.BoatType?.Name ?? "Type inconnu";
 
-              var portName = boat.Port?.Name ?? "Port inconnu";
-              var typeName = boat.BoatType?.Name ?? "Type inconnu";
+                    <text>
+                    {
+                        lat: @boat.Latitude,
+                        lng: @boat.Longitude,
+                        name: "@boat.Name",
+                        port: "@portName",
+                        type: "@typeName",
+                        photo: "@Url.Content($"~/uploads/{photo}")"
+                    },
+                    </text>
+                }
+            }
+        ];
 
-              <text>
-              {
-                lat: @boat.Latitude,
-                lng: @boat.Longitude,
-                name: "@boat.Name",
-                port: "@portName",
-                type: "@typeName",
-                photo: "@Url.Content($"~/uploads/{photo}")"
-              },
-              </text>
-          }
-      }
-    ];
+        boats.forEach(boat => {
+            const marker = new google.maps.Marker({
+                position: { lat: boat.lat, lng: boat.lng },
+                map: map,
+                title: boat.name
+            });
 
-    boats.forEach(boat => {
-      const marker = new google.maps.Marker({
-        position: { lat: boat.lat, lng: boat.lng },
-        map: map,
-        title: boat.name
-      });
+            const contentString = `
+                <div style="max-width: 250px;">
+                    <h4>${boat.name}</h4>
+                    <p><strong>Port:</strong> ${boat.port}</p>
+                    <p><strong>Type:</strong> ${boat.type}</p>
+                    ${boat.photo ? `<img src="${boat.photo}" alt="Photo bateau" style="width: 100%; height: auto; border-radius: 8px;" />` : ""}
+                </div>
+            `;
 
-      const contentString = `
-        <div style="max-width: 250px;">
-          <h4>${boat.name}</h4>
-          <p><strong>Port:</strong> ${boat.port}</p>
-          <p><strong>Type:</strong> ${boat.type}</p>
-          ${boat.photo ? `<img src="${boat.photo}" alt="Photo bateau" style="width: 100%; height: auto; border-radius: 8px;" />` : ""}
-        </div>
-      `;
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
 
-      const infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-
-      marker.addListener("click", () => {
-        infowindow.open(map, marker);
-      });
-    });
-  }
+            marker.addListener("click", () => {
+                infowindow.open(map, marker);
+            });
+        });
+    }
 </script>
 
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5i7Pcfoy7KGhEo3bs_NpVhxPj9JaUJs&callback=initMap">
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5i7Pcfoy7KGhEo3bs_NpVhxPj9JaUJs&callback=initMap"></script>
 
-<!-- Types de bateaux -->
-<section style="background-color: #f0efeb; padding: 40px;">
-  <h2 class="section-title">Trouvez le bateau qui vous correspond</h2>
-  <div class="boat-types" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+<!-- Boat Types Section -->
+<section class="boat-types-section">
+    <p class="section-subtitle">Nos catégories</p>
+    <h2 class="section-title">Trouvez le bateau qui vous correspond</h2>
     
-    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
-      <a href="https://example.com/listebateaux?type=Pic" style="text-decoration: none; color: inherit;">
-        <img src="/images/pic-1-1.jpeg" alt="Pic" />
-        <div class="label">Pic</div>
-      </a>
-    </div>
+    <div class="boat-types">
+        <a href="https://example.com/listebateaux?type=Pic" class="boat-type-card">
+            <img src="/images/pic-1-1.jpeg" alt="Pic" />
+            <div class="label">Pic</div>
+        </a>
 
-    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
-      <a href="https://example.com/listebateaux?type=Moteur" style="text-decoration: none; color: inherit;">
-        <img src="/images/bateaux%20moteur.jpg" alt="Bateau à moteur" />
-        <div class="label">Moteur</div>
-      </a>
-    </div>
+        <a href="https://example.com/listebateaux?type=Moteur" class="boat-type-card">
+            <img src="/images/bateaux%20moteur.jpg" alt="Bateau à moteur" />
+            <div class="label">Moteur</div>
+        </a>
 
-    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
-      <a href="https://example.com/listebateaux?type=Catamaran" style="text-decoration: none; color: inherit;">
-        <img src="/images/catamaran.webp" alt="Catamaran" />
-        <div class="label">Catamaran</div>
-      </a>
-    </div>
+        <a href="https://example.com/listebateaux?type=Catamaran" class="boat-type-card">
+            <img src="/images/catamaran.webp" alt="Catamaran" />
+            <div class="label">Catamaran</div>
+        </a>
 
-    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
-      <a href="https://example.com/listebateaux?type=Yacht" style="text-decoration: none; color: inherit;">
-        <img src="/images/yatch.webp" alt="Yacht" />
-        <div class="label">Yacht</div>
-      </a>
-    </div>
+        <a href="https://example.com/listebateaux?type=Yacht" class="boat-type-card">
+            <img src="/images/yatch.webp" alt="Yacht" />
+            <div class="label">Yacht</div>
+        </a>
 
-    <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
-      <a href="https://example.com/listebateaux?type=Ferry" style="text-decoration: none; color: inherit;">
-        <img src="/images/ferry.jpg" alt="Ferry" />
-        <div class="label">Ferry</div>
-      </a>
+        <a href="https://example.com/listebateaux?type=Ferry" class="boat-type-card">
+            <img src="/images/ferry.jpg" alt="Ferry" />
+            <div class="label">Ferry</div>
+        </a>
     </div>
-
-  </div>
 </section>
 
-
+<!-- Offers Section -->
 <section id="mes-bateaux">
+    <p class="section-subtitle">Nos offres</p>
     <h2 class="section-title">Découvrez nos meilleures offres</h2>
 
     <div class="offers">
-    @if (Model.Boats != null && Model.Boats.Any())
-    {
-        foreach (var boat in Model.Boats)
+        @if (Model.Boats != null && Model.Boats.Any())
         {
-            // Récupérer la première photo si disponible, sinon image par défaut? && boat.Photos.Any()
-            var photoUrl = (boat.Photo != null ) 
-                ? Url.Content(boat.Photo)  // Correction ici  s.First().PhotoUrl
-                : Url.Content("~/images/default-boat.jpg");
+            foreach (var boat in Model.Boats)
+            {
+                var photoUrl = (boat.Photo != null) 
+                    ? Url.Content(boat.Photo)
+                    : Url.Content("~/images/default-boat.jpg");
 
-            <div class="offer-card">
-                <img src="@photoUrl" alt="Photo de @boat.Name" class="boat-image" />
+                <div class="offer-card">
+                    <img src="@photoUrl" alt="Photo de @boat.Name" />
 
-                <div class="content">
-                    <h3>@boat.Name</h3>
-                    <p>@boat.DailyPrice € / jour</p>
-                    <p>@boat.Port?.Name</p>
+                    <div class="content">
+                        <h3>@boat.Name</h3>
+                        <p class="price">@boat.DailyPrice € / jour</p>
+                        <p>📍 @boat.Port?.Name</p>
 
-                    <!-- Lien vers la page des détails -->
-                    <a asp-page="/BoatDetails" asp-route-id="@boat.Id" style="background-color: #AD7C59; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px;">Voir l'annonce</a>
-
-                    <!-- Lien vers la réservation -->
-                    <a asp-page="/ReserveBoat" asp-route-id="@boat.Id" class="btn" style="margin-left: 10px; background-color: white; border: 2px solid #AD7C59; color: #AD7C59; padding: 10px 20px; border-radius: 5px;">Réserver</a>
-
-                    <!-- Section pour les administrateurs et propriétaires -->
-                    @* @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire")) *@
-                    @* @if (Model.IsAdmin || boat.OwnerId == Model.CurrentUserId)
-
-                   @if (Model.IsAdmin || (Model.IsProprietaire && boat.OwnerId == Model.CurrentUserId))
-
-    // Afficher Modifier et Supprimer
-
-
-
-                    {
-                        <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn btn-warning">Modifier</a>
-                        
-                        <!-- Formulaire de suppression -->
-                        <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
-                            <button type="submit" class="btn btn-danger">Supprimer</button>
-                        </form> *@
+                        <div>
+                            <a asp-page="/BoatDetails" asp-route-id="@boat.Id" class="btn-view">Voir l'annonce</a>
+                            <a asp-page="/ReserveBoat" asp-route-id="@boat.Id" class="btn-reserve">Réserver</a>
+                        </div>
 
                         @if (Model.IsAdmin || (Model.IsProprietaire && boat.OwnerId == Model.CurrentUserId))
-{
-    <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn btn-warning">Modifier</a>
+                        {
+                            <div style="margin-top: 10px;">
+                                <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn-view" style="background-color: #28a745; font-size: 0.9rem; padding: 8px 15px;">Modifier</a>
 
-    <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
-        <button type="submit" class="btn btn-danger">Supprimer</button>
-    </form>
-}
-
-                    
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
+                                    <button type="submit" class="btn-view" style="background-color: #dc3545; font-size: 0.9rem; padding: 8px 15px;">Supprimer</button>
+                                </form>
+                            </div>
+                        }
+                    </div>
                 </div>
-            </div>
+            }
         }
-    }
-    else
-    {
-        <p>Aucune offre de bateau disponible pour le moment.</p>
-    }
-</div>
-
+        else
+        {
+            <p style="grid-column: 1 / -1; text-align: center; color: #666;">Aucune offre de bateau disponible pour le moment.</p>
+        }
+    </div>
 
     @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
     {
-        <div style="text-align: center; margin-top: 20px;">
-          <a href="@Url.Content("~/Ajoutbat")" class="btn" style="background-color: #C1D0C4; color: #000; border: none;">
-    Ajouter une annonce
-</a>
-
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="@Url.Content("~/Ajoutbat")" class="btn-primary-custom">
+                Ajouter une annonce
+            </a>
         </div>
     }
 </section>
 
+<!-- Features Section -->
+<section class="features-section">
+    <div class="features">
+        <p class="section-subtitle" style="color: #2c3e50;">Le processus</p>
+        <h2 class="section-title" style="margin: 10px 0 20px;">Simple, rapide et sécurisé</h2>
+        <p style="text-align: center; font-size: 1.05rem; color: #555; margin-bottom: 20px;">Louer votre bateau en 3 étapes</p>
 
-
-
-
-
-
-<!-- Avantages -->
-<section id="mes-bateaux" class="features" style="background-color: #C1D0C4; padding: 20px;">
-    <div class="text-center mb-4">
-        <p style="margin: 0;">Louer votre bateau en 3 étapes</p>
-        <h2 class="section-title" style="font-weight: bold; color: black;">Simple, rapide et sécurisé</h2>
-    </div>
-
-    <div class="row mt-5 text-center" style="color: black;">
-        <div class="col-md-4" style="background-color: #C1D0C4; padding: 15px;">
-            <div class="icon-circle anchor-icon mb-3">
-                <i class="fas fa-anchor fa-3x"></i>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon-circle anchor-icon">
+                    <i class="fas fa-anchor fa-3x"></i>
+                </div>
+                <h4>Choisir votre bateau</h4>
+                <p>Parcourez notre sélection et trouvez le bateau idéal selon vos besoins : voilier, catamaran, bateau à moteur…</p>
             </div>
-            <h4 style="font-weight: bold;">Choisir votre bateau</h4>
-            <p>Parcourez notre sélection et trouvez le bateau idéal selon vos besoins : voilier, catamaran, bateau à moteur…</p>
-        </div>
-        <div class="col-md-4" style="background-color: #C1D0C4; padding: 15px;">
-            <div class="icon-circle calendar-icon mb-3">
-                <i class="fas fa-calendar-check fa-3x"></i>
+
+            <div class="feature-card">
+                <div class="icon-circle calendar-icon">
+                    <i class="fas fa-calendar-check fa-3x"></i>
+                </div>
+                <h4>Réserver en ligne</h4>
+                <p>Sélectionnez vos dates, ajoutez les options souhaitées et effectuez votre paiement en toute sécurité.</p>
             </div>
-            <h4 style="font-weight: bold;">Réserver en ligne</h4>
-            <p>Sélectionnez vos dates, ajoutez les options souhaitées et effectuez votre paiement en toute sécurité.</p>
-        </div>
-        <div class="col-md-4" style="background-color: #C1D0C4; padding: 15px;">
-            <div class="icon-circle ship-icon mb-3">
-                <i class="fas fa-ship fa-3x"></i>
+
+            <div class="feature-card">
+                <div class="icon-circle ship-icon">
+                    <i class="fas fa-ship fa-3x"></i>
+                </div>
+                <h4>Embarquez et profitez</h4>
+                <p>Rendez-vous au port, récupérez votre bateau et vivez une expérience inoubliable sur l'eau !</p>
             </div>
-            <h4 style="font-weight: bold;">Embarquez et profitez</h4>
-            <p>Rendez-vous au port, récupérez votre bateau et vivez une expérience inoubliable sur l’eau !</p>
         </div>
-        <p style="margin-top: 20px;">Si vous n’avez jamais loué un bateau auparavant, nous vous guiderons à chaque étape du processus.</p>
+
+        <p style="text-align: center; margin-top: 30px; font-size: 1.05rem; color: #555;">
+            Si vous n'avez jamais loué un bateau auparavant, nous vous guiderons à chaque étape du processus.
+        </p>
     </div>
 </section>
 
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <p class="section-subtitle">Témoignages</p>
+    <h2 class="section-title">Des expériences inoubliables en mer</h2>
+    <p style="text-align: center; font-size: 1.05rem; color: #666; max-width: 700px; margin: 0 auto 20px;">
+        Ce que nos navigateurs disent de nous
+    </p>
 
-<!-- Témoignages -->
-<section class="testimonials" style="background-color: #F5F1EB; padding: 20px;">
-    <div class="text-center mb-4">
-        <p>Ce que nos navigateurs disent de nous</p>
-        <h2 class="section-title" style="font-weight: bold;">Des expériences inoubliables en mer</h2>
-        
-    </div>
-    
-    <div class="row mt-5 text-center" style="color: black; display: flex; justify-content: space-around; flex-wrap: wrap;">
-        <div class="col-md-4" style="background-color: white; border-radius: 8px; padding: 20px; margin: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            <i class="fas fa-user user-icon" style="font-size: 30px;"></i>
-            <p>"Louer un voilier via SailingLoc a été une expérience incroyable. Le bateau était en excellent état, et le processus de réservation était fluide. Nous avons passé une semaine magique à explorer la côte méditerranéenne. Je recommande vivement !</p>
-            <div class="author" style="font-weight: bold;">Marc L. <span style="color: gold;">★★★★☆</span></div>
+    <div class="testimonials-grid">
+        <div class="testimonial">
+            <i class="fas fa-user user-icon"></i>
+            <p>"Louer un voilier via SailingLoc a été une expérience incroyable. Le bateau était en excellent état, et le processus de réservation était fluide. Nous avons passé une semaine magique à explorer la côte méditerranéenne. Je recommande vivement !"</p>
+            <div class="author">Marc L. <span>★★★★★</span></div>
         </div>
 
-        <div class="col-md-4" style="background-color: white; border-radius: 8px; padding: 20px; margin: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            <i class="fas fa-user user-icon" style="font-size: 30px;"></i>
-            <p>Nous avons loué un catamaran pour un week-end entre amis, et tout était parfait ! L’équipe de SailingLoc nous a accompagnés à chaque étape, et le bateau était spacieux et confortable. Une expérience à refaire !</p>
-            <div class="author" style="font-weight: bold;">Sophie D. <span style="color: gold;">★★★★☆</span></div>
+        <div class="testimonial">
+            <i class="fas fa-user user-icon"></i>
+            <p>Nous avons loué un catamaran pour un week-end entre amis, et tout était parfait ! L'équipe de SailingLoc nous a accompagnés à chaque étape, et le bateau était spacieux et confortable. Une expérience à refaire !</p>
+            <div class="author">Sophie D. <span>★★★★★</span></div>
         </div>
 
-        <div class="col-md-4" style="background-color: white; border-radius: 8px; padding: 20px; margin: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            <i class="fas fa-user user-icon" style="font-size: 30px;"></i>
-            <p>"C’était ma première location de bateau, et SailingLoc m’a vraiment facilité la tâche. Le site est intuitif, et j’ai trouvé exactement ce que je cherchais en quelques clics. Le bateau était conforme à la description, et la prise en main s’est faite sans souci."</p>
-            <div class="author" style="font-weight: bold;">Julien R. <span style="color: gold;">★★★★☆</span></div>
+        <div class="testimonial">
+            <i class="fas fa-user user-icon"></i>
+            <p>"C'était ma première location de bateau, et SailingLoc m'a vraiment facilité la tâche. Le site est intuitif, et j'ai trouvé exactement ce que je cherchais en quelques clics. Le bateau était conforme à la description, et la prise en main s'est faite sans souci."</p>
+            <div class="author">Julien R. <span>★★★★★</span></div>
         </div>
     </div>
 </section>
 
-
-    
-<!-- Rentabilisez -->
-<section class="rent">
+<!-- Rent Section -->
+<section class="rent-section">
     <p>Devenez propriétaire sur SailingLoc</p>
     <h2 class="section-title">Rentabilisez votre bateau en toute simplicité</h2>
-    <p>Mettez votre bateau en location et rejoignez une communauté de passionnés. SailingLoc vous permet de gérer vos disponibilités, 
-        sécuriser vos transactions et maximiser vos revenus en toute sérénité.</p>
+    <p>Mettez votre bateau en location et rejoignez une communauté de passionnés. SailingLoc vous permet de gérer vos disponibilités, sécuriser vos transactions et maximiser vos revenus en toute sérénité.</p>
     <a href="@Url.Content("~/Ajoutbat")">
-        <button  style="color: white; background-color:#AD7C59;">Enregistrer votre bateau</button>
+        <button class="btn-primary-custom">Enregistrer votre bateau</button>
     </a>
-    </section>
+</section>
