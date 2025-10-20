@@ -1,36 +1,74 @@
 @page
 @model LoginModel
 @{
-    ViewData["Title"] = "Se connecter";
+    ViewData["Title"] = "Connexion";
 }
 
-<h2 class="mb-4 fw-bold text-center">Se connecter</h2>
-<div class="d-flex justify-content-center" style="background-color: #F5F1EB; padding: 30px;">
-  <form method="post" class="text-center" style="max-width: 400px; width: 100%;">
-    <div class="mb-3">
-      <label asp-for="Input.Email" class="form-label d-block fw-bold">Email</label>
-      <input asp-for="Input.Email" class="form-control mx-auto" style="max-width: 100%;" />
-      <span asp-validation-for="Input.Email" class="text-danger d-block"></span>
-    </div>
+<div class="d-flex justify-content-center align-items-center min-vh-100" style="background-color: #F5F1EB;">
+    <div class="text-center" style="max-width: 500px; width: 100%;">
+        
+        <!-- Logo -->
+        <div class="mb-4">
+            <img src="~/images/sailingloc-logo.png" alt="SailingLoc" style="height: 80px;" />
+        </div>
 
-    <div class="mb-3">
-      <label asp-for="Input.Password" class="form-label d-block fw-bold">Mot de passe</label>
-      <input asp-for="Input.Password" type="password" class="form-control mx-auto" style="max-width: 100%;" />
-      <span asp-validation-for="Input.Password" class="text-danger d-block"></span>
-    </div>
+        <!-- Titre -->
+        <h2 class="mb-2 fw-bold" style="color: #4A4A4A; font-size: 28px;">Connexion</h2>
+        <p class="mb-4" style="color: #6B6B6B;">Connectez-vous à votre compte SailingLoc</p>
 
-    <div class="mt-3">
-      <button type="submit" class="btn" style="background-color: #AD7C59; color: white;">
-        Se connecter
-      </button>
+        <!-- Formulaire -->
+        <form method="post">
+            
+            <!-- Email -->
+            <div class="mb-3 text-start">
+                <label asp-for="Input.Email" class="form-label" style="color: #4A4A4A; font-weight: 500;">Adresse email</label>
+                <input asp-for="Input.Email" class="form-control" style="background-color: #E8F0FE; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <!-- Mot de passe -->
+            <div class="mb-3 text-start">
+                <label asp-for="Input.Password" class="form-label" style="color: #4A4A4A; font-weight: 500;">Mot de passe</label>
+                <div class="position-relative">
+                    <input asp-for="Input.Password" type="password" class="form-control" style="background-color: #E8F0FE; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Se souvenir de moi et mot de passe oublié -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="RememberMe" name="Input.RememberMe" />
+                    <label class="form-check-label" for="RememberMe" style="color: #4A4A4A; font-size: 14px;">
+                        Se souvenir de moi
+                    </label>
+                </div>
+                <a asp-page="/Account/ForgotPassword" style="color: #AD7C59; text-decoration: none; font-size: 14px;">Mot de passe oublié ?</a>
+            </div>
+
+            <!-- reCAPTCHA -->
+            <div class="mb-3 d-flex justify-content-center">
+                <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+            </div>
+
+            <!-- Bouton de connexion -->
+            <div class="mb-3">
+                <button type="submit" class="btn w-100" style="background-color: #B8C5D6; color: #FFFFFF; padding: 12px; border-radius: 6px; border: none; font-weight: 500; font-size: 16px;">
+                    Se connecter
+                </button>
+            </div>
+
+            <!-- Lien d'inscription -->
+            <div class="mt-3">
+                <span style="color: #6B6B6B;">Pas encore de compte ? </span>
+                <a asp-page="/Account/Register" style="color: #AD7C59; text-decoration: none; font-weight: 500;">Créer un compte</a>
+            </div>
+
+        </form>
     </div>
-  </form>
 </div>
-
-
-
-
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 }

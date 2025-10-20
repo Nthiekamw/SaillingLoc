@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CRWaR0jQbprgq8lZNcWk1fBNKzzLTiVndu7ciE1SpXQ=",
+  "Hash": "iyehT4MV0QRUAczdYETk6XUXvV98DwMem4UmRjZZ+P4=",
   "Source": "SaillingLoc",
   "BasePath": "_content/SaillingLoc",
   "Mode": "Default",
@@ -1802,12 +1802,12 @@
       "OriginalItemSpec": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-ntdl8sw7yb.gz",
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-t9mlz36hoy.gz",
       "SourceId": "SaillingLoc",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/SaillingLoc",
-      "RelativePath": "css/site#[.{fingerprint=ntdl8sw7yb}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=t9mlz36hoy}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1816,8 +1816,8 @@
       "RelatedAsset": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "1e50cstzpa",
-      "Integrity": "t9g5yWlPYhCMbW6AFdXA/Ti5Z1sdxcqpNdhS4ZmT88g=",
+      "Fingerprint": "4dgxqx6uk4",
+      "Integrity": "6NBEdGVkfHyvIUPrq5atZk0Jj2c1VyyhBDQZ4ZWxbyc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\css\\site.css"
@@ -4126,8 +4126,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ntdl8sw7yb",
-      "Integrity": "xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo=",
+      "Fingerprint": "t9mlz36hoy",
+      "Integrity": "/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -4469,6 +4469,27 @@
       "OriginalItemSpec": "wwwroot\\images\\default-boat.jpg"
     },
     {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\f.jpg",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "images/f#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wnh9qlsb1p",
+      "Integrity": "rA/o+S2dMzg253/C4r7pUMEslAQFj7MwXAPHuym+wSs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\f.jpg"
+    },
+    {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg",
       "SourceId": "SaillingLoc",
       "SourceType": "Discovered",
@@ -4509,6 +4530,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ferry.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\jpt.png",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "images/jpt#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "c15smtpo55",
+      "Integrity": "gAKEbYa1F7poKvM2czxzgeCxn7jn4oiawqpSTkFvWxE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\jpt.png"
     },
     {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\logo.png",
@@ -4572,6 +4614,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\plan2.png"
+    },
+    {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\tt.jpg",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "images/tt#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6ge8xzxdml",
+      "Integrity": "2ofjwtrOSzPqP8t5VkJiLtws3ht5zpaxakMIyolPGt8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\tt.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\vv.jpg",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "images/vv#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n7h42k72ky",
+      "Integrity": "3c1yJ/ltgyL9QQMzjbfQ+UmDFtxV0jKIbt2Fs+INgmk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\vv.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\y.jpg",
+      "SourceId": "SaillingLoc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\",
+      "BasePath": "_content/SaillingLoc",
+      "RelativePath": "images/y#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n0boc71ygn",
+      "Integrity": "ORrx+CeBMJvHaRIGCF73IEj43XWuHDtcHQBlL3nfX0E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\y.jpg"
     },
     {
       "Identity": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\yatch.webp",
@@ -6635,12 +6740,12 @@
   "Endpoints": [
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-ntdl8sw7yb.gz",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-t9mlz36hoy.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000755857899"
+          "Quality": "0.000734753857"
         }
       ],
       "ResponseHeaders": [
@@ -6650,15 +6755,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1322"
+          "Value": "1360"
         },
         {
           "Name": "ETag",
-          "Value": "\"t9g5yWlPYhCMbW6AFdXA/Ti5Z1sdxcqpNdhS4ZmT88g=\""
+          "Value": "\"6NBEdGVkfHyvIUPrq5atZk0Jj2c1VyyhBDQZ4ZWxbyc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 08 Oct 2025 08:12:10 GMT"
+          "Value": "Mon, 20 Oct 2025 11:24:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6678,13 +6783,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo=\""
+          "Value": "W/\"/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo="
+          "Value": "sha256-/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0="
         }
       ]
     },
@@ -6699,7 +6804,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4117"
+          "Value": "4450"
         },
         {
           "Name": "Content-Type",
@@ -6707,11 +6812,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo=\""
+          "Value": "\"/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 08 Oct 2025 08:12:10 GMT"
+          "Value": "Mon, 20 Oct 2025 11:24:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6721,13 +6826,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo="
+          "Value": "sha256-/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-ntdl8sw7yb.gz",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-t9mlz36hoy.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6736,7 +6841,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1322"
+          "Value": "1360"
         },
         {
           "Name": "Content-Type",
@@ -6744,11 +6849,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"t9g5yWlPYhCMbW6AFdXA/Ti5Z1sdxcqpNdhS4ZmT88g=\""
+          "Value": "\"6NBEdGVkfHyvIUPrq5atZk0Jj2c1VyyhBDQZ4ZWxbyc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 08 Oct 2025 08:12:10 GMT"
+          "Value": "Mon, 20 Oct 2025 11:24:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6766,18 +6871,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-t9g5yWlPYhCMbW6AFdXA/Ti5Z1sdxcqpNdhS4ZmT88g="
+          "Value": "sha256-6NBEdGVkfHyvIUPrq5atZk0Jj2c1VyyhBDQZ4ZWxbyc="
         }
       ]
     },
     {
-      "Route": "css/site.ntdl8sw7yb.css",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-ntdl8sw7yb.gz",
+      "Route": "css/site.t9mlz36hoy.css",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-t9mlz36hoy.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000755857899"
+          "Quality": "0.000734753857"
         }
       ],
       "ResponseHeaders": [
@@ -6787,15 +6892,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1322"
+          "Value": "1360"
         },
         {
           "Name": "ETag",
-          "Value": "\"t9g5yWlPYhCMbW6AFdXA/Ti5Z1sdxcqpNdhS4ZmT88g=\""
+          "Value": "\"6NBEdGVkfHyvIUPrq5atZk0Jj2c1VyyhBDQZ4ZWxbyc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 08 Oct 2025 08:12:10 GMT"
+          "Value": "Mon, 20 Oct 2025 11:24:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6815,13 +6920,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo=\""
+          "Value": "W/\"/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ntdl8sw7yb"
+          "Value": "t9mlz36hoy"
         },
         {
           "Name": "label",
@@ -6829,12 +6934,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo="
+          "Value": "sha256-/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0="
         }
       ]
     },
     {
-      "Route": "css/site.ntdl8sw7yb.css",
+      "Route": "css/site.t9mlz36hoy.css",
       "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6844,7 +6949,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4117"
+          "Value": "4450"
         },
         {
           "Name": "Content-Type",
@@ -6852,11 +6957,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo=\""
+          "Value": "\"/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 08 Oct 2025 08:12:10 GMT"
+          "Value": "Mon, 20 Oct 2025 11:24:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6866,7 +6971,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ntdl8sw7yb"
+          "Value": "t9mlz36hoy"
         },
         {
           "Name": "label",
@@ -6874,13 +6979,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xQ5GJjAB7p/RWuc+gLN4OYjamXzqEK7k6T1iOttULYo="
+          "Value": "sha256-/wwDVIs28GjUQi3pEkIZgufnIecGC6iumJsJxZAX7G0="
         }
       ]
     },
     {
-      "Route": "css/site.ntdl8sw7yb.css.gz",
-      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-ntdl8sw7yb.gz",
+      "Route": "css/site.t9mlz36hoy.css.gz",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\Debug\\net9.0\\compressed\\5vnxdm3r2a-t9mlz36hoy.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6889,7 +6994,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1322"
+          "Value": "1360"
         },
         {
           "Name": "Content-Type",
@@ -6897,11 +7002,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"t9g5yWlPYhCMbW6AFdXA/Ti5Z1sdxcqpNdhS4ZmT88g=\""
+          "Value": "\"6NBEdGVkfHyvIUPrq5atZk0Jj2c1VyyhBDQZ4ZWxbyc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 08 Oct 2025 08:12:10 GMT"
+          "Value": "Mon, 20 Oct 2025 11:24:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6919,7 +7024,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ntdl8sw7yb"
+          "Value": "t9mlz36hoy"
         },
         {
           "Name": "label",
@@ -6927,7 +7032,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-t9g5yWlPYhCMbW6AFdXA/Ti5Z1sdxcqpNdhS4ZmT88g="
+          "Value": "sha256-6NBEdGVkfHyvIUPrq5atZk0Jj2c1VyyhBDQZ4ZWxbyc="
         }
       ]
     },
@@ -16991,6 +17096,88 @@
       ]
     },
     {
+      "Route": "images/f.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "95088"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rA/o+S2dMzg253/C4r7pUMEslAQFj7MwXAPHuym+wSs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 13:05:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rA/o+S2dMzg253/C4r7pUMEslAQFj7MwXAPHuym+wSs="
+        }
+      ]
+    },
+    {
+      "Route": "images/f.wnh9qlsb1p.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "95088"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rA/o+S2dMzg253/C4r7pUMEslAQFj7MwXAPHuym+wSs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 13:05:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wnh9qlsb1p"
+        },
+        {
+          "Name": "label",
+          "Value": "images/f.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rA/o+S2dMzg253/C4r7pUMEslAQFj7MwXAPHuym+wSs="
+        }
+      ]
+    },
+    {
       "Route": "images/fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.744d0b28hr.jpg",
       "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg",
       "Selectors": [],
@@ -17151,6 +17338,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Yu5/m5zJskKhHtchBxrigBeXFpq2WMr8bkZ0xKrQ9F0="
+        }
+      ]
+    },
+    {
+      "Route": "images/jpt.c15smtpo55.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\jpt.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "471668"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gAKEbYa1F7poKvM2czxzgeCxn7jn4oiawqpSTkFvWxE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 11:36:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "c15smtpo55"
+        },
+        {
+          "Name": "label",
+          "Value": "images/jpt.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gAKEbYa1F7poKvM2czxzgeCxn7jn4oiawqpSTkFvWxE="
+        }
+      ]
+    },
+    {
+      "Route": "images/jpt.png",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\jpt.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "471668"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gAKEbYa1F7poKvM2czxzgeCxn7jn4oiawqpSTkFvWxE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 11:36:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gAKEbYa1F7poKvM2czxzgeCxn7jn4oiawqpSTkFvWxE="
         }
       ]
     },
@@ -17397,6 +17666,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-q+qV9H4nEHViDTm2nWGpUWPswNVgFeswOdTcBHB6rdk="
+        }
+      ]
+    },
+    {
+      "Route": "images/tt.6ge8xzxdml.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\tt.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "349745"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ofjwtrOSzPqP8t5VkJiLtws3ht5zpaxakMIyolPGt8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 13:00:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6ge8xzxdml"
+        },
+        {
+          "Name": "label",
+          "Value": "images/tt.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ofjwtrOSzPqP8t5VkJiLtws3ht5zpaxakMIyolPGt8="
+        }
+      ]
+    },
+    {
+      "Route": "images/tt.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\tt.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "349745"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ofjwtrOSzPqP8t5VkJiLtws3ht5zpaxakMIyolPGt8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 13:00:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ofjwtrOSzPqP8t5VkJiLtws3ht5zpaxakMIyolPGt8="
+        }
+      ]
+    },
+    {
+      "Route": "images/vv.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\vv.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "112915"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3c1yJ/ltgyL9QQMzjbfQ+UmDFtxV0jKIbt2Fs+INgmk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 13:02:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3c1yJ/ltgyL9QQMzjbfQ+UmDFtxV0jKIbt2Fs+INgmk="
+        }
+      ]
+    },
+    {
+      "Route": "images/vv.n7h42k72ky.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\vv.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "112915"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3c1yJ/ltgyL9QQMzjbfQ+UmDFtxV0jKIbt2Fs+INgmk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 13:02:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n7h42k72ky"
+        },
+        {
+          "Name": "label",
+          "Value": "images/vv.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3c1yJ/ltgyL9QQMzjbfQ+UmDFtxV0jKIbt2Fs+INgmk="
+        }
+      ]
+    },
+    {
+      "Route": "images/y.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\y.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41521"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ORrx+CeBMJvHaRIGCF73IEj43XWuHDtcHQBlL3nfX0E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 13:04:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ORrx+CeBMJvHaRIGCF73IEj43XWuHDtcHQBlL3nfX0E="
+        }
+      ]
+    },
+    {
+      "Route": "images/y.n0boc71ygn.jpg",
+      "AssetFile": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\y.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41521"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ORrx+CeBMJvHaRIGCF73IEj43XWuHDtcHQBlL3nfX0E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 20 Oct 2025 13:04:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n0boc71ygn"
+        },
+        {
+          "Name": "label",
+          "Value": "images/y.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ORrx+CeBMJvHaRIGCF73IEj43XWuHDtcHQBlL3nfX0E="
         }
       ]
     },
@@ -36363,7 +36878,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36416,7 +36931,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36453,7 +36968,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36500,7 +37015,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36561,7 +37076,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36606,7 +37121,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36661,7 +37176,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36722,7 +37237,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36767,7 +37282,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36822,7 +37337,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36875,7 +37390,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36912,7 +37427,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 09 Sep 2025 14:59:35 GMT"
+          "Value": "Mon, 20 Oct 2025 08:44:11 GMT"
         },
         {
           "Name": "Cache-Control",

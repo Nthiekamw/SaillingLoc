@@ -24,6 +24,11 @@ namespace SaillingLoc.Pages.Account
 
         public class InputModel
         {
+
+            [Phone]
+[Display(Name = "Téléphone")]
+public string? PhoneNumber { get; set; }
+
             [Required]
             [Display(Name = "Prénom")]
             public string FirstName { get; set; }
@@ -73,7 +78,9 @@ namespace SaillingLoc.Pages.Account
                 Email = Input.Email,
                 FirstName = Input.FirstName,
                 LastName = Input.LastName,
-                Reference = Guid.NewGuid().ToString() // Assurez-vous d'initialiser Reference
+                Reference = Guid.NewGuid().ToString(), // Assurez-vous d'initialiser Reference
+                PhoneNumber = Input.PhoneNumber,
+                     
             };
 
             // Gérer le téléchargement de la photo, si fourni

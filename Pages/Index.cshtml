@@ -5,533 +5,667 @@
 }
 
 <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #2c3e50;
-        background-color: #f8f9fa;
-    }
-
-    /* Hero Section */
-    .hero {
-        position: relative;
-        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                    url('@Url.Content("~/images/Bateaux4.webp")') no-repeat center center/cover;
-        color: white;
-        text-align: center;
-        padding: 120px 20px 80px;
-        min-height: 600px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hero h1 {
-        font-size: 2.8em;
-        font-weight: 700;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        max-width: 900px;
-        line-height: 1.3;
-    }
-
-    .hero p {
-        font-size: 1.3em;
-        margin-bottom: 30px;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .btn-primary-custom {
-        background-color: #d4a574;
-        color: white;
-        border: none;
-        padding: 14px 32px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .btn-primary-custom:hover {
-        background-color: #c49563;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
-    }
-
-    /* Search Box */
-    .search-container {
-        background: linear-gradient(135deg, #4a6b8a 0%, #5a7a99 100%);
-        padding: 30px;
-        border-radius: 12px;
-        max-width: 700px;
-        width: 90%;
-        margin: 30px auto 0;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    }
-
-    .search-container form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-    }
-
-    .search-container label {
-        color: white;
-        font-weight: 600;
-        font-size: 0.95rem;
-        margin-bottom: 5px;
-        display: block;
-    }
-
-    .search-container input {
-        padding: 12px;
-        border-radius: 6px;
-        border: none;
-        font-size: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .search-container button {
-        grid-column: 1 / -1;
-        background-color: #d4a574;
-        color: white;
-        border: none;
-        padding: 14px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-    }
-
-    .search-container button:hover {
-        background-color: #c49563;
-        transform: translateY(-1px);
-    }
-
-    /* About Section */
-    .about-section {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        padding: 80px 40px;
-        max-width: 1200px;
-        margin: 0 auto;
-        background-color: white;
-    }
-
-    .about-section > div:first-child {
-        flex: 1;
-    }
-
-    .about-section h2 {
-        font-size: 2.5em;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 20px;
-    }
-
-    .about-section p {
-        font-size: 1.1em;
-        line-height: 1.7;
-        color: #555;
-        margin-bottom: 15px;
-    }
-
-    .about-label {
-        color: #d4a574;
-        font-weight: 600;
-        font-size: 0.95rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-    }
-
-    .slider-container {
-        flex: 1;
-        max-width: 500px;
-    }
-
-    .slider-container img {
-        width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Section Title */
-    .section-title {
-        text-align: center;
-        font-size: 2.5em;
-        font-weight: 700;
-        color: #2c3e50;
-        margin: 60px 0 40px;
-    }
-
-    .section-subtitle {
-        text-align: center;
-        color: #d4a574;
-        font-weight: 600;
-        font-size: 0.95rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-    }
-
-    /* Boat Types */
-    .boat-types-section {
-        background-color: #f8f9fa;
-        padding: 60px 20px;
-    }
-
-    .boat-types {
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .boat-type-card {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        text-align: center;
-        width: 180px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
-        text-decoration: none;
-        color: inherit;
-        display: block;
-    }
-
-    .boat-type-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .boat-type-card img {
-        width: 100%;
-        height: 140px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 12px;
-    }
-
-    .boat-type-card .label {
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #2c3e50;
-    }
-
-    /* Offers */
-    .offers {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 30px;
-        padding: 40px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .offer-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
-    }
-
-    .offer-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-
-    .offer-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .offer-card .content {
-        padding: 20px;
-    }
-
-    .offer-card h3 {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 10px;
-    }
-
-    .offer-card p {
-        color: #666;
-        margin-bottom: 8px;
-        font-size: 1rem;
-    }
-
-    .offer-card .price {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: #d4a574;
-        margin-bottom: 15px;
-    }
-
-    .btn-view, .btn-reserve {
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: all 0.3s ease;
-        margin: 5px 5px 5px 0;
-    }
-
-    .btn-view {
-        background-color: #d4a574;
-        color: white;
-    }
-
-    .btn-view:hover {
-        background-color: #c49563;
-    }
-
-    .btn-reserve {
-        background-color: white;
-        border: 2px solid #d4a574;
-        color: #d4a574;
-    }
-
-    .btn-reserve:hover {
-        background-color: #d4a574;
-        color: white;
-    }
-
-    /* Features Section */
-    .features-section {
-        background: linear-gradient(135deg, #c1d0c4 0%, #d4e0d7 100%);
-        padding: 80px 40px;
-    }
-
-    .features {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 40px;
-        margin-top: 50px;
-    }
-
-    .feature-card {
-        text-align: center;
-        padding: 30px;
-    }
-
-    .icon-circle {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto 20px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-    }
-
-    .icon-circle:hover {
-        transform: scale(1.05);
-    }
-
-    .anchor-icon {
-        background-color: #5a7a99;
-        color: white;
-    }
-
-    .calendar-icon {
-        background-color: #28a745;
-        color: white;
-    }
-
-    .ship-icon {
-        background-color: #ffc107;
-        color: white;
-    }
-
-    .feature-card h4 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 15px;
-    }
-
-    .feature-card p {
-        font-size: 1.05rem;
-        line-height: 1.6;
-        color: #555;
-    }
-
-    /* Testimonials */
-    .testimonials-section {
-        background-color: #f8f9fa;
-        padding: 80px 40px;
-    }
-
-    .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 50px auto 0;
-    }
-
-    .testimonial {
-        background: white;
-        border-radius: 12px;
-        padding: 30px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        position: relative;
-        transition: all 0.3s ease;
-    }
-
-    .testimonial:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    .testimonial .user-icon {
-        position: absolute;
-        top: -15px;
-        left: 30px;
-        font-size: 30px;
-        color: #5a7a99;
-        background: white;
-        padding: 5px 10px;
-        border-radius: 50%;
-    }
-
-    .testimonial p {
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: #555;
-        margin-top: 20px;
-        font-style: italic;
-    }
-
-    .author {
-        font-weight: 700;
-        color: #2c3e50;
-        margin-top: 15px;
-        font-style: normal;
-    }
-
-    .author span {
-        color: #ffc107;
-        margin-left: 5px;
-    }
-
-    /* Rent Section */
-    .rent-section {
-        background: linear-gradient(135deg, #e8e5df 0%, #f5f1eb 100%);
-        padding: 80px 40px;
-        text-align: center;
-    }
-
-    .rent-section p:first-child {
-        color: #d4a574;
-        font-weight: 600;
-        font-size: 0.95rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-    }
-
-    .rent-section .section-title {
-        margin: 0 0 20px;
-    }
-
-    .rent-section > p {
-        max-width: 700px;
-        margin: 0 auto 30px;
-        font-size: 1.1rem;
-        line-height: 1.7;
-        color: #555;
-    }
-
-    /* Map Section */
-    .map-section {
-        padding: 60px 40px;
-        background-color: white;
-    }
-
-    .map-section h3 {
-        text-align: center;
-        font-size: 2rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 30px;
-    }
-
-    #map {
-        width: 100%;
-        max-width: 1200px;
-        height: 450px;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    
+   body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+    background-color: #f8f9fa;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('@Url.Content("~/images/Bateaux4.webp")') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px 80px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    line-height: 1.3;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary-custom {
+    background-color: #d4a574;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary-custom:hover {
+    background-color: #c49563;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
+}
+
+/* Search Box */
+.search-container {
+    background: linear-gradient(135deg, #4a6b8a 0%, #5a7a99 100%);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 90%;
+    margin: 30px auto 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.search-container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.search-container label {
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.search-container input {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-container button {
+    grid-column: 1 / -1;
+    background-color: #d4a574;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #c49563;
+    transform: translateY(-1px);
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.about-section > div:first-child {
+    flex: 1;
+}
+
+.about-section h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.about-label {
+    color: #d4a574;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.slider-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+.slider-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 60px 0 40px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #d4a574;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+/* Boat Types */
+.boat-types-section {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+}
+
+.boat-types {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.boat-type-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.boat-type-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.boat-type-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.boat-type-card .label {
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    text-align: center;
+    background: var(--secondary-color);
+    color: white;
+    width: 100%;
+}
+
+/* Offers */
+.offers {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.offer-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.offer-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.offer-card .content {
+    padding: 20px;
+}
+
+.offer-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.offer-card p {
+    color: #666;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.offer-card .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #d4a574;
+    margin-bottom: 15px;
+}
+
+.btn-view, .btn-reserve {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    margin: 5px 5px 5px 0;
+}
+
+.btn-view {
+    background-color: #d4a574;
+    color: white;
+}
+
+.btn-view:hover {
+    background-color: #c49563;
+}
+
+.btn-reserve {
+    background-color: white;
+    border: 2px solid #d4a574;
+    color: #d4a574;
+}
+
+.btn-reserve:hover {
+    background-color: #d4a574;
+    color: white;
+}
+
+/* Features Section */
+.features-section {
+    background: linear-gradient(135deg, #c1d0c4 0%, #d4e0d7 100%);
+    padding: 80px 40px;
+}
+
+.features {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 30px;
+}
+
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.icon-circle:hover {
+    transform: scale(1.05);
+}
+
+.anchor-icon {
+    background-color: #5a7a99;
+    color: white;
+}
+
+.calendar-icon {
+    background-color: #28a745;
+    color: white;
+}
+
+.ship-icon {
+    background-color: #ffc107;
+    color: white;
+}
+
+.feature-card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Testimonials */
+.testimonials-section {
+    background-color: #f8f9fa;
+    padding: 80px 40px;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+}
+
+.testimonial {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial .user-icon {
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    font-size: 30px;
+    color: #5a7a99;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+.testimonial p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.author {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-top: 15px;
+    font-style: normal;
+}
+
+.author span {
+    color: #ffc107;
+    margin-left: 5px;
+}
+
+/* Rent Section */
+.rent-section {
+    background: linear-gradient(135deg, #e8e5df 0%, #f5f1eb 100%);
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.rent-section p:first-child {
+    color: #d4a574;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.rent-section .section-title {
+    margin: 0 0 20px;
+}
+
+.rent-section > p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Map Section */
+.map-section {
+    padding: 60px 40px;
+    background-color: white;
+}
+
+.map-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+#map {
+    width: 100%;
+    max-width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('/images/jpt.png') no-repeat center center/cover;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Search Form */
+.search-form {
+    background: var(--primary-color);
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
+}
+
+.form-control, .form-select {
+    border: none;
+    border-radius: 5px;
+    padding: 12px 15px;
+    height: 50px;
+}
+
+.btn-search {
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.boat-types-section {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.category-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.category-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; /* Couleur de fond noire */
+    border-radius: 50%; /* Pour arrondir les icônes */
+}
+
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+    color: black; /* Couleur des flèches */
+
+    .category-card {
+    border: 1px solid #ddd; /* Bordure pour chaque carte */
+    border-radius: 5px; /* Coins arrondis */
+    overflow: hidden; /* Cache le débordement */
+}
+
+.category-image {
+    width: 100%;
+    height: 200px; /* Ajustez la hauteur selon vos besoins */
+    background-size: cover; /* S'assure que l'image couvre toute la zone */
+    background-position: center; /* Centre l'image */
+}
+
+.category-content {
+    padding: 15px; /* Espacement autour du contenu */
+}
+
+.search-form {
+    margin-top: 20px;
+}
+
+.form-select,
+.form-control {
+    border-radius: 0; /* Pour des bordures carrées */
+}
 </style>
 
+
+
 <!-- Hero Section -->
-<section class="hero">
-    <h1>Trouvez le bateau parfait pour votre prochaine aventure</h1>
-    <p>Explorez les plus belles destinations en mer</p>
-    <button class="btn-primary-custom">Commencez votre aventure</button>
-
-    <div class="search-container">
-        <form method="get">
-            <div>
-                <label for="Destination">Destination</label>
-                <input type="text" id="Destination" name="Destination" 
-                       placeholder="Où voulez-vous naviguer ?" 
-                       value="@Model.searchDestination" />
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class = "h" style="color: black">Trouvez le bateau parfait pour votre prochaine aventure</h1>
+                    <p  class = "h" style="color:black">Découvrez notre collection exceptionnelle de bateaux et vivez des moments inoubliables en mer.</p>
+                    <button class="btn btn-primary-custom">Commencer votre avanture </button>
+                </div>
             </div>
-
-            <div>
-                <label for="NumberOfPeople">Nombre de places</label>
-                <input type="number" id="NumberOfPeople" name="NumberOfPeople" 
-                       placeholder="Personnes" min="1" 
-                       value="@(Model.searchNumberOfPeople ?? 0)" />
-            </div>
-
-            <div>
-                <label for="StartDate">Date de départ</label>
-                <input type="date" id="StartDate" name="StartDate" 
-                       value="@(Model.searchStartDate?.ToString("yyyy-MM-dd"))" />
-            </div>
-
-            <div>
-                <label for="EndDate">Date de retour</label>
-                <input type="date" id="EndDate" name="EndDate" 
-                       value="@(Model.searchEndDate?.ToString("yyyy-MM-dd"))" />
-            </div>
-
-            <button type="submit">Rechercher</button>
-        </form>
+        </div>
     </div>
 </section>
+
+<!-- Search Form -->
+<form method="get" asp-page="/Bateaux" class="search-form" 
+      style="background-color: #4B6A88; padding: 20px; border-radius: 5px;">
+    <div class="row g-3 align-items-center">
+        <div class="col-lg-3">
+            <select class="form-select" name="LieuDepart" style="color: #4B6A88; border: 1px solid #4B6A88;">
+                <option value="">Lieu de départ</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Nice">Nice</option>
+                <option value="Cannes">Cannes</option>
+                 <option value="Marseille">Marseille</option>
+                  <option value="Toulon">Toulon</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <label for="departureDate" class="form-label text-white">Date de départ</label>
+            <input type="date" id="departureDate" name="DateDepart" class="form-control"
+                   style="background-color: #4B6A88; color: white; border: 1px solid #4B6A88;">
+        </div>
+        <div class="col-lg-2">
+            <label for="arrivalDate" class="form-label text-white">Date d'arrivée</label>
+            <input type="date" id="arrivalDate" name="DateArrivee" class="form-control"
+                   style="background-color: #4B6A88; color: white; border: 1px solid #4B6A88;">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-select" name="TypeBateau" style="color: #4B6A88; border: 1px solid #4B6A88;">
+                <option value="">Type de bateau</option>
+                <option value="Voilier">Voilier</option>
+                <option value="Catamaran">Catamaran</option>
+                <option value="Yacht">Yacht</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <button type="submit" class="btn btn-warning w-100" 
+                    style="background-color:#AD7C59; border: none;">Rechercher</button>
+        </div>
+    </div>
+</form>
+
+
 
 <!-- About Section -->
 <section class="about-section">
@@ -632,44 +766,119 @@
 </script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5i7Pcfoy7KGhEo3bs_NpVhxPj9JaUJs&callback=initMap"></script>
-
 <!-- Boat Types Section -->
 <section class="boat-types-section">
-    <p class="section-subtitle">Nos catégories</p>
-    <h2 class="section-title">Trouvez le bateau qui vous correspond</h2>
-    
-    <div class="boat-types">
-        <a href="https://example.com/listebateaux?type=Pic" class="boat-type-card">
-            <img src="/images/pic-1-1.jpeg" alt="Pic" />
-            <div class="label">Pic</div>
-        </a>
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title" style="color: var(--dark-color); font-weight: 700;">Nos catégories de bateaux</h2>
+            <p class="text-muted">Choisissez le type de bateau qui correspond à vos envies</p>
+        </div>
 
-        <a href="https://example.com/listebateaux?type=Moteur" class="boat-type-card">
-            <img src="/images/bateaux%20moteur.jpg" alt="Bateau à moteur" />
-            <div class="label">Moteur</div>
-        </a>
+        <div id="boatCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
 
-        <a href="https://example.com/listebateaux?type=Catamaran" class="boat-type-card">
-            <img src="/images/catamaran.webp" alt="Catamaran" />
-            <div class="label">Catamaran</div>
-        </a>
+                <!-- Premier Item du Carrousel -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-image" style="background-image: url('/images/pic-1-1.jpeg');"></div>
+                                <div class="category-content">
+                                    <h5>Pic</h5>
+                                    <p class="text-muted">Description du bateau Pic</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-image" style="background-image: url('/images/bateaux%20moteur.jpg');"></div>
+                                <div class="category-content">
+                                    <h5>Moteur</h5>
+                                    <p class="text-muted">Description du bateau à moteur</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-image" style="background-image: url('/images/catamaran.webp');"></div>
+                                <div class="category-content">
+                                    <h5>Catamaran</h5>
+                                    <p class="text-muted">Description du catamaran</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-image" style="background-image: url('/images/yatch.webp');"></div>
+                                <div class="category-content">
+                                    <h5>Yacht</h5>
+                                    <p class="text-muted">Description du yacht</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <a href="https://example.com/listebateaux?type=Yacht" class="boat-type-card">
-            <img src="/images/yatch.webp" alt="Yacht" />
-            <div class="label">Yacht</div>
-        </a>
+                <!-- Deuxième Item du Carrousel -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-image" style="background-image: url('/images/yatch.webp');"></div>
+                                <div class="category-content">
+                                    <h5>Yacht</h5>
+                                    <p class="text-muted">Description du yacht</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-image" style="background-image: url('/images/catamaran.webp');"></div>
+                                <div class="category-content">
+                                    <h5>Catamaran</h5>
+                                    <p class="text-muted">Description du catamaran</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-image" style="background-image: url('/images/bateaux%20moteur.jpg');"></div>
+                                <div class="category-content">
+                                    <h5>Moteur</h5>
+                                    <p class="text-muted">Description du bateau à moteur</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-image" style="background-image: url('/images/pic-1-1.jpeg');"></div>
+                                <div class="category-content">
+                                    <h5>Pic</h5>
+                                    <p class="text-muted">Description du bateau Pic</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <a href="https://example.com/listebateaux?type=Ferry" class="boat-type-card">
-            <img src="/images/ferry.jpg" alt="Ferry" />
-            <div class="label">Ferry</div>
-        </a>
+            </div>
+
+            <a class="carousel-control-prev" href="#boatCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Précédent</span>
+            </a>
+            <a class="carousel-control-next" href="#boatCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Suivant</span>
+            </a>
+        </div>
     </div>
 </section>
-
 <!-- Offers Section -->
 <section id="mes-bateaux">
-    <p class="section-subtitle">Nos offres</p>
-    <h2 class="section-title">Découvrez nos meilleures offres</h2>
+    <p class="section-subtitle">Nos bateaux les plus prisés</p>
+    <h2 class="section-title">Sélection des modèles les plus loués et appréciés</h2>
+      
 
     <div class="offers">
         @if (Model.Boats != null && Model.Boats.Any())

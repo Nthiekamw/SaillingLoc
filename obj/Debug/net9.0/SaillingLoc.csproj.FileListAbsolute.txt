@@ -424,8 +424,6 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\co
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\aaq0n1dy99-n0db9vmno6.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\b5ntmyupbt-ru4rj4fyry.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\smlfziig9w-nz53p3smgh.gz
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\v0n6dm4a3n-mn9113qj9v.gz
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\ut277t9iyq-mn9113qj9v.gz
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -452,4 +450,6 @@ C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\Sa
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SailingLoc.Tests\bin\Debug\net9.0\SailingLoc.Tests\bin\Debug\net9.0\SailingLoc.Tests\bin\Debug\net9.0\SaillingLoc.staticwebassets.endpoints.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SailingLoc.Tests\bin\Debug\net9.0\SailingLoc.Tests\bin\Debug\net9.0\SailingLoc.Tests\bin\Debug\net9.0\SaillingLoc.staticwebassets.runtime.json
 C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\bin\Debug\net9.0\SailingLoc.Tests\bin\Debug\net9.0\SailingLoc.Tests\bin\Debug\net9.0\SailingLoc.Tests\obj\Debug\net9.0\SailingLoc.Tests.sourcelink.json
-C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\5vnxdm3r2a-ntdl8sw7yb.gz
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\v0n6dm4a3n-mn9113qj9v.gz
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\ut277t9iyq-mn9113qj9v.gz
+C:\Users\William.NTHIEKAM\OneDrive - AKTO\Bureau\saillingloc\obj\Debug\net9.0\compressed\5vnxdm3r2a-t9mlz36hoy.gz

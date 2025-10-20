@@ -73,12 +73,20 @@
       "PackagePath": "staticwebassets\\images\\default-boat.jpg"
     },
     {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\f.jpg",
+      "PackagePath": "staticwebassets\\images\\f.jpg"
+    },
+    {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg",
       "PackagePath": "staticwebassets\\images\\fa435456-3b4d-4939-a2d9-e464bf0cde87_cv.jpg"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\ferry.jpg",
       "PackagePath": "staticwebassets\\images\\ferry.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\jpt.png",
+      "PackagePath": "staticwebassets\\images\\jpt.png"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\logo.png",
@@ -91,6 +99,18 @@
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\plan2.png",
       "PackagePath": "staticwebassets\\images\\plan2.png"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\tt.jpg",
+      "PackagePath": "staticwebassets\\images\\tt.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\vv.jpg",
+      "PackagePath": "staticwebassets\\images\\vv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\y.jpg",
+      "PackagePath": "staticwebassets\\images\\y.jpg"
     },
     {
       "Id": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\wwwroot\\images\\yatch.webp",

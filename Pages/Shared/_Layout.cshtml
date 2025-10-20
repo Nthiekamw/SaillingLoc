@@ -35,7 +35,14 @@
     <!-- Icônes -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Inclure jQuery, Popper.js et Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+@* <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script> *@
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
@@ -200,6 +207,99 @@
             background-color: #fff;
             border-top: 1px solid #dee2e6;
         }
+
+        /* --- VISIBILITÉ MAXIMALE DES LIENS NAVBAR --- */
+        header {
+          position: relative;
+          z-index: 9999 !important;
+          background-color: #F5F1EB !important;
+        }
+
+        .navbar {
+          background-color: #F5F1EB !important;
+          z-index: 10000 !important;
+        }
+
+        .navbar-nav .nav-link {
+          color: #000 !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          position: relative;
+          z-index: 10001;
+        }
+
+        .navbar-nav .nav-link:hover {
+          color: #AD7C59 !important;
+          background-color: rgba(173, 124, 89, 0.08);
+        }
+
+        /* ✅ Correction finale — rend visibles "Se connecter" et "Inscription" */
+        .navbar .btn.custom-btn {
+            background-color: #AD7C59 !important;
+            color: #fff !important;
+            border: 1.5px solid #AD7C59 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            position: relative;
+            z-index: 10002 !important;
+        }
+
+        .navbar .btn.custom-btn:hover {
+            background-color: #9a6b4f !important;
+            border-color: #9a6b4f !important;
+        }
+
+        .navbar .btn.btn-outline-success {
+            background-color: #2d3e50 !important;
+            color: #fff !important;
+            border: 1.5px solid #2d3e50 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            position: relative;
+            z-index: 10003 !important;
+        }
+
+        .navbar .btn.btn-outline-success:hover {
+            background-color: #1b2735 !important;
+            border-color: #1b2735 !important;
+        }
+
+
+        .language-selector {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 10005 !important;
+}
+
+
+/* Centrer uniquement les liens principaux de la navbar */
+.navbar-nav.me-auto {
+    display: flex;
+    justify-content: center; /* centre horizontalement */
+    flex: 1; /* occupe tout l'espace disponible entre le logo et la droite */
+    gap: 15px; /* espace entre les liens */
+}
+
+/* S'assurer que le logo reste à gauche et les boutons à droite */
+.navbar-brand {
+    margin-right: auto; /* pousse les liens vers le centre */
+}
+
+.navbar-nav.ms-auto {
+    margin-left: auto; /* reste à droite */
+}
+ /* Assure que les éléments de droite restent visibles */
+.navbar-nav.ms-auto > .nav-item {
+    display: flex !important;
+    align-items: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10004 !important; /* plus haut que le reste */
+}
+
+
     </style>
 </head>
 <body>
@@ -228,8 +328,13 @@
                             {
                                 <li class="nav-item"><a class="nav-link" asp-page="/AdminDashboard">Dashboard Admin</a></li>
                             }
+<li class="nav-item">
+    <a class="nav-link" asp-page="/Bateaux">Mes Bateaux</a>
 
-                            <li class="nav-item"><a class="nav-link" href="#mes-bateaux">Mes Bateaux</a></li>
+</li>
+
+
+
                         }
 
                         <li class="nav-item"><a class="nav-link" asp-page="/Contacts">Contact</a></li>
@@ -243,13 +348,13 @@
                                 <option value="es">ES</option>
                             </select>
                         </li>
-
+@* 
                         <li class="nav-item me-3">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
                                 <label class="form-check-label" for="darkModeSwitch">🌙</label>
                             </div>
-                        </li>
+                        </li> *@
 
                         @if (isSignedIn)
                         {
@@ -265,18 +370,38 @@
                                     }
                                 </a>
                             </li>
-                            <li class="nav-item me-3"><span class="user-info"><i class="fa-solid fa-user"></i>@currentUser.FirstName</span></li>
-                            <li class="nav-item">
-                                <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
-                                    <button type="submit" class="btn btn-sm custom-btn">Déconnexion</button>
-                                </form>
-                            </li>
+                      <li class="nav-item dropdown me-3">
+    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-user me-2"></i>
+        <span>@currentUser.FirstName</span>
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+        <li>
+            <a class="dropdown-item" asp-page="/MonEspace">
+                <i class="fa-solid fa-user-circle me-2"></i> Mon espace
+            </a>
+        </li>
+
+        <li><hr class="dropdown-divider"></li>
+
+        <li>
+            <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
+                <button type="submit" class="dropdown-item text-danger">
+                    <i class="fa-solid fa-right-from-bracket me-2"></i> Déconnexion
+                </button>
+            </form>
+        </li>
+    </ul>
+</li>
+
+
                         }
                         else
                         {
-                            <li class="nav-item me-2"><a class="nav-link" asp-page="/Ajoutbat" style="font-weight: 600;">Enregistrer votre bateau</a></li>
+                            @* <li class="nav-item me-2"><a class="nav-link" asp-page="/Ajoutbat" style="font-weight: 600;">Enregistrer votre bateau</a></li> *@
                             <li class="nav-item me-2"><a class="btn btn-sm custom-btn" asp-page="/Account/Login">Se connecter</a></li>
-                            <li class="nav-item"><a class="btn btn-sm btn-outline-success" asp-page="/Account/Register">Inscription</a></li>
+                            @* <li class="nav-item"><a class="btn btn-sm btn-outline-success" asp-page="/Account/Register">Inscription</a></li> *@
                         }
                     </ul>
                 </div>
@@ -289,45 +414,86 @@
     </main>
 
     <!-- FOOTER -->
-    <section class="cta-section" style="background-color: #4B6A88; color: black; padding: 20px;">
-        <div class="row mt-5 text-center" style="color: white;">
-            <div class="col-md-4">
-                <h2 style="font-weight: bold;">SAILINGLOC</h2>
-                <p>Rejoignez l’aventure SailingLoc en un clic</p>
-                <div style="display: flex; justify-content: center; gap: 15px;">
-                    <a href="#" style="width: 45px; height: 45px; border-radius: 50%; background-color: #AD7C59; color: white; display: flex; align-items: center; justify-content: center;"><i class="fab fa-facebook"></i></a>
-                    <a href="#" style="width: 45px; height: 45px; border-radius: 50%; background-color: #AD7C59; color: white; display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="width: 45px; height: 45px; border-radius: 50%; background-color: #AD7C59; color: white; display: flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin"></i></a>
+<footer style="background-color: #4B6A88; color: white; padding: 60px 0 0 0;">
+    <div class="container">
+        <div class="row">
+            
+            <!-- Colonne 1 : SAILINGLOC -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight: bold; margin-bottom: 20px; font-size: 18px;">SAILINGLOC</h5>
+                <p style="color: #E0E7EF; font-size: 14px; line-height: 1.6; margin-bottom: 25px;">
+                    Suivez-nous sur les réseaux sociaux et plongez dans l'univers SailingLoc. Partagez vos expériences, découvrez nos meilleures destinations et restez informé des nouveautés.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background-color: #5A7A98; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background-color 0.3s;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background-color: #5A7A98; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background-color 0.3s;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background-color: #5A7A98; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background-color 0.3s;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <h4 style="font-weight: bold;">Liens Rapides</h4>
-                <p>
-                    <a asp-page="/About" style="color: #F5F1EB;">À Propos</a><br>
-                    <a asp-page="/CGU" style="color: #F5F1EB;">CGU</a><br>
-                    <a asp-page="/Legal" style="color: #F5F1EB;">Mentions Légales</a><br>
-                    <a asp-page="/CookiePolicy" style="color: #F5F1EB;">Politique des Cookies</a><br>
-                    <a asp-page="/PrivacyPolicy" style="color: #F5F1EB;">Politiques de Confidentialité</a><br>
-                    <a asp-page="/Sitemap" style="color: #F5F1EB;">Plan du site</a><br>
-                    <a asp-page="/Contacts" style="color: #F5F1EB;">Contact</a>
+            <!-- Colonne 2 : Liens Rapides -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight: bold; margin-bottom: 20px; font-size: 18px;">Liens Rapides</h5>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 10px;">
+                        <a asp-page="/About" style="color: #E0E7EF; text-decoration: none; font-size: 14px; transition: color 0.3s;">À Propos</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a asp-page="/CGU" style="color: #E0E7EF; text-decoration: none; font-size: 14px; transition: color 0.3s;">CGU</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a asp-page="/Legal" style="color: #E0E7EF; text-decoration: none; font-size: 14px; transition: color 0.3s;">Mentions Légales</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a asp-page="/CookiePolicy" style="color: #E0E7EF; text-decoration: none; font-size: 14px; transition: color 0.3s;">Politique des Cookies</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a asp-page="/PrivacyPolicy" style="color: #E0E7EF; text-decoration: none; font-size: 14px; transition: color 0.3s;">Politiques de Confidentialité</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a asp-page="/Sitemap" style="color: #E0E7EF; text-decoration: none; font-size: 14px; transition: color 0.3s;">Plan du site</a>
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <a asp-page="/Contact" style="color: #E0E7EF; text-decoration: none; font-size: 14px; transition: color 0.3s;">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Newsletter -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight: bold; margin-bottom: 20px; font-size: 18px;">Ne manquez aucune opportunité</h5>
+                <p style="color: #E0E7EF; font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+                    Inscrivez-vous à notre newsletter et recevez en avant-première les meilleures offres de location, conseils de navigation et actualités exclusives.
                 </p>
+                <div class="position-relative" style="max-width: 350px;">
+                    <input type="email" placeholder="Entrez votre email" style="width: 100%; padding: 12px 45px 12px 15px; border: none; border-radius: 6px; background-color: #5A7A98; color: white; font-size: 14px;" />
+                    <button type="submit" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background-color: #AD7C59; border: none; border-radius: 4px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                        <i class="fas fa-arrow-right" style="color: white; font-size: 14px;"></i>
+                    </button>
+                </div>
             </div>
 
-            <div class="col-md-4">
-                <h4 style="font-weight: bold;">Ne manquez aucune opportunité</h4>
-                <p>Inscrivez-vous à notre newsletter et recevez les meilleures offres.</p>
-                <input type="email" placeholder="Entrer votre email" style="padding: 10px; width: 80%; border: none; border-radius: 4px; background-color: #AD7C59; color: white;">
-            </div>
         </div>
-    </section>
+    </div>
 
-    <footer class="text-muted text-center py-3" style="background-color: #4B6A88; color: white;">
+    <!-- Ligne de copyright -->
+    <div style="background-color: #3E5A75; padding: 20px 0; margin-top: 40px;">
         <div class="container">
-            &copy; @DateTime.Now.Year - ©2025 Pandawan. All rights reserved.
+            <p class="text-center mb-0" style="color: #B8C5D6; font-size: 14px;">
+                ©2025 Pandawan. All rights reserved.
+            </p>
         </div>
-    </footer>
+    </div>
+</footer>
 
+<!-- Font Awesome pour les icônes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- SCRIPTS -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

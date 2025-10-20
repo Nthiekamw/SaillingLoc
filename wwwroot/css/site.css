@@ -230,3 +230,20 @@ body {
                 border-top: 1px solid #ddd;
             }
         }
+
+
+         /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+
+        .about-section {
+            flex-direction: column;
+            padding: 40px 20px;
+        }
+    }

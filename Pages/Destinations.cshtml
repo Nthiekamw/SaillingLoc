@@ -1,0 +1,151 @@
+@page
+@model SaillingLoc.Pages.DestinationsModel
+@{
+    ViewData["Title"] = "Destinations Disponibles";
+}
+
+<!-- Lien Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background-color: #f9f7f2;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .destinations-section {
+        padding: 60px 0;
+        background-color: #f9f7f2;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 1.1rem;
+        color: #666;
+    }
+
+    .destination-card {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 30px;
+        background-color: #5a7a98;
+        height: 250px;
+    }
+
+    .destination-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .destination-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        color: #5a7a98;
+    }
+
+    .destination-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .destination-name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .destination-location {
+        font-size: 0.95rem;
+        color: #e0e7ef;
+        margin: 0;
+    }
+
+    .destination-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: #c47a53;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+</style>
+
+<section class="destinations-section">
+    <div class="container">
+        <h1 class="section-title">Destinations Disponibles</h1>
+        <p class="section-subtitle">Découvrez nos ports et choisissez votre destination de rêve</p>
+
+        <div class="row">
+            @if (Model.Ports != null && Model.Ports.Any())
+            {
+                foreach (var port in Model.Ports)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a asp-page="/Bateaux" 
+                           asp-route-SelectedPortId="@port.Id" 
+                           class="destination-card">
+                            
+                            <!-- Badge avec nombre de bateaux -->
+                            @if (port.BoatCount > 0)
+                            {
+                                <span class="destination-badge">@port.BoatCount bateau@(port.BoatCount > 1 ? "x" : "")</span>
+                            }
+                            
+                            <!-- Icône de localisation -->
+                            <div class="destination-icon">
+                                📍
+                            </div>
+
+                            <!-- Nom du port et ville -->
+                            <div class="destination-content">
+                                <h3 class="destination-name">@port.Name</h3>
+                                <p class="destination-location">@port.City, @port.Country</p>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center py-5">
+                    <p class="fs-5 text-muted">Aucune destination disponible pour le moment.</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
