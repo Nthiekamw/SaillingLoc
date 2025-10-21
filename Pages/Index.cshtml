@@ -5,50 +5,62 @@
 }
 
 <style>
-   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --primary-color: #4B6A88;
+    --secondary-color: #AD7C59;
+    --dark-color: #2c3e50;
+    --light-bg: #f8f9fa;
+}
+
+* {
     margin: 0;
     padding: 0;
-    color: #2c3e50;
-    background-color: #f8f9fa;
+    box-sizing: border-box;
 }
 
-/* Hero Section */
-.hero {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-color);
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* Hero Section - Style de l'image */
+.hero-section {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                url('@Url.Content("~/images/Bateaux4.webp")') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 120px 20px 80px;
-    min-height: 600px;
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
+                url('@Url.Content("~/images/jpt.png")') no-repeat center center/cover;
+    min-height: 500px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.hero h1 {
-    font-size: 2.8em;
+.hero-content {
+    max-width: 600px;
+    padding: 40px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
     font-weight: 700;
+    color: #1a1a1a;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    max-width: 900px;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
-.hero p {
-    font-size: 1.3em;
+.hero-content p {
+    font-size: 1.1rem;
+    color: #333;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .btn-primary-custom {
-    background-color: #d4a574;
+    background-color: var(--secondary-color);
     color: white;
     border: none;
     padding: 14px 32px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
@@ -58,99 +70,124 @@
 }
 
 .btn-primary-custom:hover {
-    background-color: #c49563;
+    background-color: #9a6b4d;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.4);
-}
-
-/* Search Box */
-.search-container {
-    background: linear-gradient(135deg, #4a6b8a 0%, #5a7a99 100%);
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 700px;
-    width: 90%;
-    margin: 30px auto 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.search-container form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.search-container label {
+    box-shadow: 0 4px 12px rgba(173, 124, 89, 0.4);
     color: white;
-    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Louer maintenant/Réserver section */
+.reservation-banner {
+    background-color: #f5f1eb;
+    padding: 15px;
+    text-align: center;
     font-size: 0.95rem;
+    color: var(--dark-color);
+    border-bottom: 1px solid #e0dcd5;
+}
+
+.reservation-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin: 40px 0 30px;
+}
+
+/* Search Form - Style de l'image */
+.search-form {
+    background-color: var(--primary-color);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: -50px auto 60px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.search-form .row {
+    align-items: end;
+}
+
+.search-form label {
+    color: white;
+    font-size: 0.9rem;
     margin-bottom: 5px;
     display: block;
+    font-weight: 500;
 }
 
-.search-container input {
-    padding: 12px;
-    border-radius: 6px;
+.search-form .form-select,
+.search-form .form-control {
+    background-color: white;
     border: none;
+    border-radius: 6px;
+    padding: 12px 15px;
     font-size: 1rem;
-    width: 100%;
-    box-sizing: border-box;
+    color: var(--dark-color);
+    height: 50px;
 }
 
-.search-container button {
-    grid-column: 1 / -1;
-    background-color: #d4a574;
-    color: white;
+.search-form .form-select {
+    color: #666;
+}
+
+.btn-search {
+    background-color: var(--secondary-color);
     border: none;
-    padding: 14px;
+    color: white;
+    font-weight: 600;
     border-radius: 6px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1.1rem;
+    height: 50px;
+    width: 100%;
     transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
-.search-container button:hover {
-    background-color: #c49563;
-    transform: translateY(-1px);
+.btn-search:hover {
+    background-color: #9a6b4d;
+    transform: translateY(-2px);
 }
 
 /* About Section */
 .about-section {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
     padding: 80px 40px;
     max-width: 1200px;
     margin: 0 auto;
     background-color: white;
 }
 
-.about-section > div:first-child {
+.about-content {
     flex: 1;
 }
 
-.about-section h2 {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.about-section p {
-    font-size: 1.1em;
-    line-height: 1.7;
-    color: #555;
+.about-label {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     margin-bottom: 15px;
 }
 
-.about-label {
-    color: #d4a574;
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+.about-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.about-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
 }
 
 .slider-container {
@@ -161,86 +198,83 @@
 .slider-container img {
     width: 100%;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Section Title */
-.section-title {
+/* Categories Section */
+.categories-section {
+    padding: 60px 40px;
+    background-color: var(--light-bg);
     text-align: center;
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #2c3e50;
-    margin: 60px 0 40px;
 }
 
 .section-subtitle {
-    text-align: center;
-    color: #d4a574;
+    color: var(--dark-color);
     font-weight: 600;
     font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     margin-bottom: 10px;
 }
 
-/* Boat Types */
-.boat-types-section {
-    background-color: #f8f9fa;
-    padding: 60px 20px;
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 50px;
 }
 
-.boat-types {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.boat-type-card {
+.category-card {
     background: white;
-    padding: 20px;
     border-radius: 12px;
-    text-align: center;
-    width: 180px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.boat-type-card:hover {
+.category-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.boat-type-card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 12px;
+.category-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
 }
 
-.boat-type-card .label {
-    padding: 10px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #2c3e50;
-    text-align: center;
-    background: var(--secondary-color);
-    color: white;
-    width: 100%;
+.category-content {
+    padding: 20px;
 }
 
-/* Offers */
-.offers {
+.category-content h5 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.category-content p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Offers Section */
+.offers-section {
+    padding: 60px 40px;
+    background-color: white;
+}
+
+.offers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -249,147 +283,134 @@
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
 }
 
 .offer-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .offer-card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
 }
 
-.offer-card .content {
+.offer-content {
     padding: 20px;
 }
 
 .offer-card h3 {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-.offer-card p {
-    color: #666;
-    margin-bottom: 8px;
-    font-size: 1rem;
-}
-
-.offer-card .price {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #d4a574;
+    color: var(--dark-color);
     margin-bottom: 15px;
 }
 
-.btn-view, .btn-reserve {
+.offer-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.offer-details span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.offer-card .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.price-unit {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666;
+}
+
+.btn-view {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     transition: all 0.3s ease;
-    margin: 5px 5px 5px 0;
-}
-
-.btn-view {
-    background-color: #d4a574;
+    background-color: var(--secondary-color);
     color: white;
+    margin-right: 10px;
 }
 
 .btn-view:hover {
-    background-color: #c49563;
-}
-
-.btn-reserve {
-    background-color: white;
-    border: 2px solid #d4a574;
-    color: #d4a574;
-}
-
-.btn-reserve:hover {
-    background-color: #d4a574;
+    background-color: #9a6b4d;
     color: white;
+    text-decoration: none;
 }
 
-/* Features Section */
-.features-section {
-    background: linear-gradient(135deg, #c1d0c4 0%, #d4e0d7 100%);
+/* Process Section */
+.process-section {
     padding: 80px 40px;
+    background-color: var(--light-bg);
 }
 
-.features {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.features-grid {
+.process-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 50px auto 0;
 }
 
-.feature-card {
+.process-step {
     text-align: center;
     padding: 30px;
 }
 
-.icon-circle {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 20px;
+.step-number {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-.icon-circle:hover {
-    transform: scale(1.05);
-}
-
-.anchor-icon {
-    background-color: #5a7a99;
+    font-size: 2rem;
+    font-weight: 700;
     color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.calendar-icon {
-    background-color: #28a745;
-    color: white;
-}
+.step-1 { background-color: var(--primary-color); }
+.step-2 { background-color: #28a745; }
+.step-3 { background-color: #ffc107; }
 
-.ship-icon {
-    background-color: #ffc107;
-    color: white;
-}
-
-.feature-card h4 {
+.process-step h4 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--dark-color);
     margin-bottom: 15px;
 }
 
-.feature-card p {
+.process-step p {
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #555;
 }
 
 /* Testimonials */
 .testimonials-section {
-    background-color: #f8f9fa;
     padding: 80px 40px;
+    background-color: white;
 }
 
 .testimonials-grid {
@@ -403,57 +424,64 @@
 .testimonial {
     background: white;
     border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    position: relative;
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
     transition: all 0.3s ease;
 }
 
 .testimonial:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.testimonial .user-icon {
-    position: absolute;
-    top: -15px;
-    left: 30px;
-    font-size: 30px;
-    color: #5a7a99;
-    background: white;
-    padding: 5px 10px;
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
 }
 
 .testimonial p {
     font-size: 1.05rem;
     line-height: 1.7;
     color: #555;
-    margin-top: 20px;
     font-style: italic;
 }
 
 .author {
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--dark-color);
     margin-top: 15px;
     font-style: normal;
 }
 
-.author span {
+.rating {
     color: #ffc107;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
-/* Rent Section */
-.rent-section {
+/* Owner Section */
+.owner-section {
     background: linear-gradient(135deg, #e8e5df 0%, #f5f1eb 100%);
     padding: 80px 40px;
     text-align: center;
 }
 
-.rent-section p:first-child {
-    color: #d4a574;
+.owner-section p:first-child {
+    color: var(--secondary-color);
     font-weight: 600;
     font-size: 0.95rem;
     text-transform: uppercase;
@@ -461,15 +489,15 @@
     margin-bottom: 15px;
 }
 
-.rent-section .section-title {
+.owner-section .section-title {
     margin: 0 0 20px;
 }
 
-.rent-section > p {
+.owner-section > p {
     max-width: 700px;
     margin: 0 auto 30px;
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.8;
     color: #555;
 }
 
@@ -483,7 +511,7 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--dark-color);
     margin-bottom: 30px;
 }
 
@@ -493,185 +521,105 @@
     height: 450px;
     margin: 0 auto;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('/images/jpt.png') no-repeat center center/cover;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
+ .process-section {
+            background-color: #c4d4cd;
+        }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border: 2px dashed #c8a882;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #c8a882;
+        }
 
-/* Search Form */
-.search-form {
-    background: var(--primary-color);
-    border-radius: 10px;
-    padding: 25px;
-    margin-top: -80px;
-    position: relative;
-    z-index: 10;
-}
+        .info-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #c8a882;
+            color: white;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.form-control, .form-select {
-    border: none;
-    border-radius: 5px;
-    padding: 12px 15px;
-    height: 50px;
-}
-
-.btn-search {
-    background-color: var(--secondary-color);
-    border: none;
-    color: white;
-    font-weight: 600;
-    border-radius: 5px;
-    height: 50px;
-}
-
-.boat-types-section {
-    padding: 80px 0;
-    background: var(--light-bg);
-}
-
-.category-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-}
-
-.category-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-}
-
-.category-content {
-    padding: 20px;
-    text-align: center;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: black; /* Couleur de fond noire */
-    border-radius: 50%; /* Pour arrondir les icônes */
-}
-
-.carousel-control-prev-icon::after,
-.carousel-control-next-icon::after {
-    color: black; /* Couleur des flèches */
-
-    .category-card {
-    border: 1px solid #ddd; /* Bordure pour chaque carte */
-    border-radius: 5px; /* Coins arrondis */
-    overflow: hidden; /* Cache le débordement */
-}
-
-.category-image {
-    width: 100%;
-    height: 200px; /* Ajustez la hauteur selon vos besoins */
-    background-size: cover; /* S'assure que l'image couvre toute la zone */
-    background-position: center; /* Centre l'image */
-}
-
-.category-content {
-    padding: 15px; /* Espacement autour du contenu */
-}
-
-.search-form {
-    margin-top: 20px;
-}
-
-.form-select,
-.form-control {
-    border-radius: 0; /* Pour des bordures carrées */
-}
 </style>
-
-
 
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="hero-content">
-                    <h1 class = "h" style="color: black">Trouvez le bateau parfait pour votre prochaine aventure</h1>
-                    <p  class = "h" style="color:black">Découvrez notre collection exceptionnelle de bateaux et vivez des moments inoubliables en mer.</p>
-                    <button class="btn btn-primary-custom">Commencer votre avanture </button>
+                    <h1>Trouvez le bateau parfait pour votre prochaine aventure</h1>
+                    <p>Découvrez notre collection exceptionnelle de bateaux et vivez des moments inoubliables en mer.</p>
+                    <a asp-page="/Bateaux" class="btn-primary-custom">Commencer votre aventure</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Reservation Title -->
+<h2 class="reservation-title">Réserver une location de bateau</h2>
+
 <!-- Search Form -->
-<form method="get" asp-page="/Bateaux" class="search-form" 
-      style="background-color: #4B6A88; padding: 20px; border-radius: 5px;">
-    <div class="row g-3 align-items-center">
-        <div class="col-lg-3">
-            <select class="form-select" name="LieuDepart" style="color: #4B6A88; border: 1px solid #4B6A88;">
-                <option value="">Lieu de départ</option>
-                <option value="Monaco">Monaco</option>
-                <option value="Nice">Nice</option>
-                <option value="Cannes">Cannes</option>
-                 <option value="Marseille">Marseille</option>
-                  <option value="Toulon">Toulon</option>
-            </select>
+<div class="container">
+    <form method="get" asp-page="/Bateaux" class="search-form">
+        <div class="row g-3">
+            <div class="col-lg-3">
+                <label for="lieuDepart">Lieu de départ</label>
+                <select class="form-select" id="lieuDepart" name="LieuDepart">
+                    <option value="">Sélectionner</option>
+                    <option value="Monaco">Monaco</option>
+                    <option value="Nice">Nice</option>
+                    <option value="Cannes">Cannes</option>
+                    <option value="Marseille">Marseille</option>
+                    <option value="Toulon">Toulon</option>
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <label for="dateDepart">Date de départ</label>
+                <input type="date" id="dateDepart" name="DateDepart" class="form-control">
+            </div>
+            <div class="col-lg-2">
+                <label for="dateFin">Date de fin</label>
+                <input type="date" id="dateFin" name="DateArrivee" class="form-control">
+            </div>
+            <div class="col-lg-3">
+                <label for="typeBateau">Type de bateau</label>
+                <select class="form-select" id="typeBateau" name="TypeBateau">
+                    <option value="">Sélectionner</option>
+                    <option value="Voilier">Voilier</option>
+                    <option value="Catamaran">Catamaran</option>
+                    <option value="Yacht">Yacht</option>
+                    <option value="Bateau à moteur">Bateau à moteur</option>
+                </select>
+            </div>
+            <div class="col-lg-2">
+                <button type="submit" class="btn-search">Rechercher</button>
+            </div>
         </div>
-        <div class="col-lg-2">
-            <label for="departureDate" class="form-label text-white">Date de départ</label>
-            <input type="date" id="departureDate" name="DateDepart" class="form-control"
-                   style="background-color: #4B6A88; color: white; border: 1px solid #4B6A88;">
-        </div>
-        <div class="col-lg-2">
-            <label for="arrivalDate" class="form-label text-white">Date d'arrivée</label>
-            <input type="date" id="arrivalDate" name="DateArrivee" class="form-control"
-                   style="background-color: #4B6A88; color: white; border: 1px solid #4B6A88;">
-        </div>
-        <div class="col-lg-3">
-            <select class="form-select" name="TypeBateau" style="color: #4B6A88; border: 1px solid #4B6A88;">
-                <option value="">Type de bateau</option>
-                <option value="Voilier">Voilier</option>
-                <option value="Catamaran">Catamaran</option>
-                <option value="Yacht">Yacht</option>
-            </select>
-        </div>
-        <div class="col-lg-2">
-            <button type="submit" class="btn btn-warning w-100" 
-                    style="background-color:#AD7C59; border: none;">Rechercher</button>
-        </div>
-    </div>
-</form>
-
-
+    </form>
+</div>
 
 <!-- About Section -->
 <section class="about-section">
-    <div>
+    <div class="about-content">
         <p class="about-label">À propos de SailingLoc</p>
-        <h2>Naviguez librement</h2>
+        <h2>Naviguez librement, entre passionnés</h2>
         <p>Chez SailingLoc, nous mettons en relation les amoureux de la mer pour faciliter la location de voiliers et bateaux à moteur entre particuliers.</p>
         <p>Que vous soyez marin expérimenté ou aventurier en quête de découverte, notre plateforme vous offre une expérience simple, sécurisée et conviviale. Découvrez une nouvelle façon de naviguer, avec une communauté qui partage la même passion.</p>
         <button class="btn-primary-custom" style="margin-top: 20px;">En savoir plus</button>
@@ -691,321 +639,215 @@
         '@Url.Content("~/images/pic-1-1.jpeg")'
     ];
 
-    const slider = document.getElementById('slider').querySelector('img');
-    let index = 0;
-
-    setInterval(() => {
-        index = (index + 1) % images.length;
-        slider.src = images[index];
-    }, 4000);
+    const slider = document.getElementById('slider')?.querySelector('img');
+    if (slider) {
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            slider.src = images[index];
+        }, 4000);
+    }
 </script>
 
-<!-- Map Section -->
-<section class="map-section">
-    <h3>Localisation des bateaux</h3>
-    <div id="map"></div>
+<!-- Categories Section -->
+<section class="categories-section">
+    <div class="container">
+        <p class="section-subtitle">Catégories de bateaux</p>
+        <h2 class="section-title">Trouvez le bateau qui correspond à votre besoin</h2>
+        
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-image" style="background-image: url('@Url.Content("~/images/pic-1-1.jpeg")');"></div>
+                <div class="category-content">
+                    <h5>Voiliers</h5>
+                    <p>Pour les amateurs de navigation traditionnelle</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-image" style="background-image: url('@Url.Content("~/images/bateaux moteur.jpg")');"></div>
+                <div class="category-content">
+                    <h5>Bateaux à moteurs</h5>
+                    <p>Vitesse et confort pour vos escapades</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-image" style="background-image: url('@Url.Content("~/images/catamaran.webp")');"></div>
+                <div class="category-content">
+                    <h5>Catamarans</h5>
+                    <p>Stabilité et espace pour toute la famille</p>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-image" style="background-image: url('@Url.Content("~/images/yatch.webp")');"></div>
+                <div class="category-content">
+                    <h5>Bateau Fluvial</h5>
+                    <p>Luxe et prestations haut de gamme</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<script>
-    function initMap() {
-        const center = { lat: 48.8566, lng: 2.3522 };
-
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 5,
-            center: center,
-        });
-
-        const boats = [
-            @foreach (var boat in Model.Boats)
+<!-- Offers Section -->
+<section class="offers-section">
+    <div class="container">
+        <p class="section-subtitle">Nos bateaux les plus prisés</p>
+        <h2 class="section-title">Sélection des modèles les plus loués et appréciés</h2>
+        
+        <div class="offers-grid">
+            @if (Model.Boats != null && Model.Boats.Any())
             {
-                if (boat.Latitude != 0 && boat.Longitude != 0)
+                foreach (var boat in Model.Boats)
                 {
-                    var photo = boat.Photos?.FirstOrDefault()?.PhotoUrl ?? "";
-                    var portName = boat.Port?.Name ?? "Port inconnu";
-                    var typeName = boat.BoatType?.Name ?? "Type inconnu";
+                    var photoUrl = (boat.Photo != null) 
+                        ? Url.Content(boat.Photo)
+                        : Url.Content("~/images/default-boat.jpg");
 
-                    <text>
-                    {
-                        lat: @boat.Latitude,
-                        lng: @boat.Longitude,
-                        name: "@boat.Name",
-                        port: "@portName",
-                        type: "@typeName",
-                        photo: "@Url.Content($"~/uploads/{photo}")"
-                    },
-                    </text>
+                    <div class="offer-card">
+                        <img src="@photoUrl" alt="Photo de @boat.Name" />
+                        
+                        <div class="offer-content">
+                            <h3>@boat.Name</h3>
+                            
+                            <div class="offer-details">
+                                <span>📏 @(boat.Length)m</span>
+                                <span>👥 @(boat.Capacity ?? 12) passagers</span>
+                            </div>
+                            
+                            <p class="price">@boat.DailyPrice€ <span class="price-unit">/jour</span></p>
+                            
+                            <div>
+                                <a asp-page="/BoatDetails" asp-route-id="@boat.Id" class="btn-view">Voir ce bateau</a>
+                            </div>
+
+                            @if (Model.IsAdmin || (Model.IsProprietaire && boat.OwnerId == Model.CurrentUserId))
+                            {
+                                <div style="margin-top: 15px;">
+                                    <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn-view" style="background-color: #28a745;">Modifier</a>
+                                    <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
+                                        <button type="submit" class="btn-view" style="background-color: #dc3545;">Supprimer</button>
+                                    </form>
+                                </div>
+                            }
+                        </div>
+                    </div>
                 }
             }
-        ];
-
-        boats.forEach(boat => {
-            const marker = new google.maps.Marker({
-                position: { lat: boat.lat, lng: boat.lng },
-                map: map,
-                title: boat.name
-            });
-
-            const contentString = `
-                <div style="max-width: 250px;">
-                    <h4>${boat.name}</h4>
-                    <p><strong>Port:</strong> ${boat.port}</p>
-                    <p><strong>Type:</strong> ${boat.type}</p>
-                    ${boat.photo ? `<img src="${boat.photo}" alt="Photo bateau" style="width: 100%; height: auto; border-radius: 8px;" />` : ""}
-                </div>
-            `;
-
-            const infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-
-            marker.addListener("click", () => {
-                infowindow.open(map, marker);
-            });
-        });
-    }
-</script>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5i7Pcfoy7KGhEo3bs_NpVhxPj9JaUJs&callback=initMap"></script>
-<!-- Boat Types Section -->
-<section class="boat-types-section">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title" style="color: var(--dark-color); font-weight: 700;">Nos catégories de bateaux</h2>
-            <p class="text-muted">Choisissez le type de bateau qui correspond à vos envies</p>
-        </div>
-
-        <div id="boatCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-
-                <!-- Premier Item du Carrousel -->
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="category-card">
-                                <div class="category-image" style="background-image: url('/images/pic-1-1.jpeg');"></div>
-                                <div class="category-content">
-                                    <h5>Pic</h5>
-                                    <p class="text-muted">Description du bateau Pic</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="category-card">
-                                <div class="category-image" style="background-image: url('/images/bateaux%20moteur.jpg');"></div>
-                                <div class="category-content">
-                                    <h5>Moteur</h5>
-                                    <p class="text-muted">Description du bateau à moteur</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="category-card">
-                                <div class="category-image" style="background-image: url('/images/catamaran.webp');"></div>
-                                <div class="category-content">
-                                    <h5>Catamaran</h5>
-                                    <p class="text-muted">Description du catamaran</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="category-card">
-                                <div class="category-image" style="background-image: url('/images/yatch.webp');"></div>
-                                <div class="category-content">
-                                    <h5>Yacht</h5>
-                                    <p class="text-muted">Description du yacht</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Deuxième Item du Carrousel -->
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="category-card">
-                                <div class="category-image" style="background-image: url('/images/yatch.webp');"></div>
-                                <div class="category-content">
-                                    <h5>Yacht</h5>
-                                    <p class="text-muted">Description du yacht</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="category-card">
-                                <div class="category-image" style="background-image: url('/images/catamaran.webp');"></div>
-                                <div class="category-content">
-                                    <h5>Catamaran</h5>
-                                    <p class="text-muted">Description du catamaran</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="category-card">
-                                <div class="category-image" style="background-image: url('/images/bateaux%20moteur.jpg');"></div>
-                                <div class="category-content">
-                                    <h5>Moteur</h5>
-                                    <p class="text-muted">Description du bateau à moteur</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="category-card">
-                                <div class="category-image" style="background-image: url('/images/pic-1-1.jpeg');"></div>
-                                <div class="category-content">
-                                    <h5>Pic</h5>
-                                    <p class="text-muted">Description du bateau Pic</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <a class="carousel-control-prev" href="#boatCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Précédent</span>
-            </a>
-            <a class="carousel-control-next" href="#boatCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Suivant</span>
-            </a>
-        </div>
-    </div>
-</section>
-<!-- Offers Section -->
-<section id="mes-bateaux">
-    <p class="section-subtitle">Nos bateaux les plus prisés</p>
-    <h2 class="section-title">Sélection des modèles les plus loués et appréciés</h2>
-      
-
-    <div class="offers">
-        @if (Model.Boats != null && Model.Boats.Any())
-        {
-            foreach (var boat in Model.Boats)
+            else
             {
-                var photoUrl = (boat.Photo != null) 
-                    ? Url.Content(boat.Photo)
-                    : Url.Content("~/images/default-boat.jpg");
-
-                <div class="offer-card">
-                    <img src="@photoUrl" alt="Photo de @boat.Name" />
-
-                    <div class="content">
-                        <h3>@boat.Name</h3>
-                        <p class="price">@boat.DailyPrice € / jour</p>
-                        <p>📍 @boat.Port?.Name</p>
-
-                        <div>
-                            <a asp-page="/BoatDetails" asp-route-id="@boat.Id" class="btn-view">Voir l'annonce</a>
-                            <a asp-page="/ReserveBoat" asp-route-id="@boat.Id" class="btn-reserve">Réserver</a>
-                        </div>
-
-                        @if (Model.IsAdmin || (Model.IsProprietaire && boat.OwnerId == Model.CurrentUserId))
-                        {
-                            <div style="margin-top: 10px;">
-                                <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn-view" style="background-color: #28a745; font-size: 0.9rem; padding: 8px 15px;">Modifier</a>
-
-                                <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
-                                    <button type="submit" class="btn-view" style="background-color: #dc3545; font-size: 0.9rem; padding: 8px 15px;">Supprimer</button>
-                                </form>
-                            </div>
-                        }
-                    </div>
-                </div>
+                <p style="grid-column: 1 / -1; text-align: center; color: #666;">Aucune offre de bateau disponible pour le moment.</p>
             }
-        }
-        else
+        </div>
+
+        @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
         {
-            <p style="grid-column: 1 / -1; text-align: center; color: #666;">Aucune offre de bateau disponible pour le moment.</p>
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="@Url.Content("~/Ajoutbat")" class="btn-primary-custom">
+                    Ajouter une annonce
+                </a>
+            </div>
         }
     </div>
-
-    @if (User.IsInRole("Admin") || User.IsInRole("Proprietaire"))
-    {
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="@Url.Content("~/Ajoutbat")" class="btn-primary-custom">
-                Ajouter une annonce
-            </a>
-        </div>
-    }
 </section>
 
-<!-- Features Section -->
-<section class="features-section">
-    <div class="features">
-        <p class="section-subtitle" style="color: #2c3e50;">Le processus</p>
-        <h2 class="section-title" style="margin: 10px 0 20px;">Simple, rapide et sécurisé</h2>
-        <p style="text-align: center; font-size: 1.05rem; color: #555; margin-bottom: 20px;">Louer votre bateau en 3 étapes</p>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="icon-circle anchor-icon">
-                    <i class="fas fa-anchor fa-3x"></i>
+<!-- Process Section -->
+<section class="process-section py-5">
+        <div class="container">
+            <p class="text-center mb-1" style="color: #2c3e37; font-size: 0.95rem;">Louer votre bateau en 3 étapes</p>
+            <h2 class="text-center mb-5" style="color: #1a1a1a; font-size: 1rem; font-weight: 600;">Simple, rapide et sécurisé</h2>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-4 text-center">
+                    <div class="step-number mx-auto mb-3">1</div>
+                    <h4 class="fw-semibold mb-2" style="font-size: 1rem; color: #1a1a1a;">Choisir votre bateau</h4>
+                    <p style="font-size: 0.88rem; color: #2c3e37; line-height: 1.5;">Parcourez notre sélection et trouvez le bateau idéal selon vos besoins : voilier, catamaran, bateau à moteur…</p>
                 </div>
-                <h4>Choisir votre bateau</h4>
-                <p>Parcourez notre sélection et trouvez le bateau idéal selon vos besoins : voilier, catamaran, bateau à moteur…</p>
+                
+                <div class="col-4 text-center">
+                    <div class="step-number mx-auto mb-3">2</div>
+                    <h4 class="fw-semibold mb-2" style="font-size: 1rem; color: #1a1a1a;">Réservez en ligne</h4>
+                    <p style="font-size: 0.88rem; color: #2c3e37; line-height: 1.5;">Sélectionnez vos dates, ajoutez les options souhaitées et effectuez votre paiement en toute sécurité.</p>
+                </div>
+                
+                <div class="col-4 text-center">
+                    <div class="step-number mx-auto mb-3">3</div>
+                    <h4 class="fw-semibold mb-2" style="font-size: 1rem; color: #1a1a1a;">Embarquer et profiter</h4>
+                    <p style="font-size: 0.88rem; color: #2c3e37; line-height: 1.5;">Rendez-vous au port, récupérez votre bateau et vivez une expérience inoubliable sur l'eau !</p>
+                </div>
             </div>
-
-            <div class="feature-card">
-                <div class="icon-circle calendar-icon">
-                    <i class="fas fa-calendar-check fa-3x"></i>
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="d-flex align-items-center justify-content-center gap-2 mb-0" style="font-size: 0.88rem; color: #2c3e37;">
+                        <span class="info-icon">i</span>
+                        <span>Si vous n'avez jamais loué un bateau auparavant, nous vous guiderons à chaque étapes du processus.</span>
+                    </p>
                 </div>
-                <h4>Réserver en ligne</h4>
-                <p>Sélectionnez vos dates, ajoutez les options souhaitées et effectuez votre paiement en toute sécurité.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon-circle ship-icon">
-                    <i class="fas fa-ship fa-3x"></i>
-                </div>
-                <h4>Embarquez et profitez</h4>
-                <p>Rendez-vous au port, récupérez votre bateau et vivez une expérience inoubliable sur l'eau !</p>
             </div>
         </div>
-
-        <p style="text-align: center; margin-top: 30px; font-size: 1.05rem; color: #555;">
-            Si vous n'avez jamais loué un bateau auparavant, nous vous guiderons à chaque étape du processus.
-        </p>
-    </div>
-</section>
+    </section>
 
 <!-- Testimonials Section -->
 <section class="testimonials-section">
-    <p class="section-subtitle">Témoignages</p>
-    <h2 class="section-title">Des expériences inoubliables en mer</h2>
-    <p style="text-align: center; font-size: 1.05rem; color: #666; max-width: 700px; margin: 0 auto 20px;">
-        Ce que nos navigateurs disent de nous
-    </p>
-
-    <div class="testimonials-grid">
-        <div class="testimonial">
-            <i class="fas fa-user user-icon"></i>
-            <p>"Louer un voilier via SailingLoc a été une expérience incroyable. Le bateau était en excellent état, et le processus de réservation était fluide. Nous avons passé une semaine magique à explorer la côte méditerranéenne. Je recommande vivement !"</p>
-            <div class="author">Marc L. <span>★★★★★</span></div>
-        </div>
-
-        <div class="testimonial">
-            <i class="fas fa-user user-icon"></i>
-            <p>Nous avons loué un catamaran pour un week-end entre amis, et tout était parfait ! L'équipe de SailingLoc nous a accompagnés à chaque étape, et le bateau était spacieux et confortable. Une expérience à refaire !</p>
-            <div class="author">Sophie D. <span>★★★★★</span></div>
-        </div>
-
-        <div class="testimonial">
-            <i class="fas fa-user user-icon"></i>
-            <p>"C'était ma première location de bateau, et SailingLoc m'a vraiment facilité la tâche. Le site est intuitif, et j'ai trouvé exactement ce que je cherchais en quelques clics. Le bateau était conforme à la description, et la prise en main s'est faite sans souci."</p>
-            <div class="author">Julien R. <span>★★★★★</span></div>
+    <div class="container">
+        <p class="section-subtitle">Ce que nos navigateurs disent de nous</p>
+        <h2 class="section-title">Des expériences inoubliables en mer</h2>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <div class="author">Marc L.</div>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <p>"Louer un voilier via SailingLoc a été une expérience incroyable. Le bateau était en excellent état, et le processus de réservation était fluide. Nous avons passé une semaine magique à explorer la côte méditerranéenne. Je recommande vivement !"</p>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <div class="author">Sophie D.</div>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <p>"Nous avons loué un catamaran pour un week-end entre amis, et tout était parfait ! L'équipe de SailingLoc nous a accompagnés à chaque étape, et le bateau était spacieux et confortable. Une expérience à refaire !"</p>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-header">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <div class="author">Julien R.</div>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <p>"C'était ma première location de bateau, et SailingLoc m'a vraiment facilité la tâche. Le site est intuitif, et j'ai trouvé exactement ce que je cherchais en quelques clics. Le bateau était conforme à la description, et la prise en main s'est faite sans souci."</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Rent Section -->
-<section class="rent-section">
-    <p>Devenez propriétaire sur SailingLoc</p>
-    <h2 class="section-title">Rentabilisez votre bateau en toute simplicité</h2>
-    <p>Mettez votre bateau en location et rejoignez une communauté de passionnés. SailingLoc vous permet de gérer vos disponibilités, sécuriser vos transactions et maximiser vos revenus en toute sérénité.</p>
-    <a href="@Url.Content("~/Ajoutbat")">
-        <button class="btn-primary-custom">Enregistrer votre bateau</button>
-    </a>
+<!-- Owner Section -->
+<section class="owner-section">
+    <div class="container">
+        <p>Devenez propriétaire sur SailingLoc</p>
+        <h2 class="section-title">Rentabilisez votre bateau en toute simplicité</h2>
+        <p>Mettez votre bateau en location et rejoignez une communauté de passionnés. SailingLoc vous permet de gérer vos disponibilités, sécuriser vos transactions et maximiser vos revenus en toute sérénité.</p>
+        <a href="@Url.Content("~/Ajoutbat")">
+            <button class="btn-primary-custom">Enregistrer votre bateau</button>
+        </a>
+    </div>
 </section>
+

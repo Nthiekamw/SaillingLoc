@@ -44,7 +44,7 @@ namespace SaillingLoc.Models
         [Required(ErrorMessage = "Le port est obligatoire")]
         [Range(1, int.MaxValue, ErrorMessage = "Veuillez sélectionner un port valide")]
         public int PortId { get; set; }
-
+ public bool IsActive { get; set; } = true; // ✅ Ajout de cette propriété
   
         public string UserId { get; set; }  // UserId ici représente le propriétaire du bateau
 

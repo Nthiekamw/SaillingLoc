@@ -2,171 +2,255 @@
 @model SailingLoc.Pages.ContactModel
 @{
     ViewData["Title"] = "Contact";
-     
 }
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <style>
-    .card {
-    background-color: #f9f9f9; /* Couleur de fond */
-    border: 1px solid #ccc; /* Bordure */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre */
-    transition: transform 0.2s; /* Animation au survol */
-}
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
 
-.card:hover {
-    transform: scale(1.05); /* Agrandissement au survol */
-}
+    .contact-hero {
+        background-image: url('https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1600');
+        background-size: cover;
+        background-position: center;
+        height: 350px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 100px;
+    }
 
-.text-custom {
-    color: #AD7C59; /* Couleur de texte */
-}
-.form-group label {
-    margin-bottom: 5px; /* Espace entre le label et le champ */
-}
+    .contact-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+    }
 
+    .contact-hero > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        font-weight: 400;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .contact-cards-wrapper {
+        margin-top: -100px;
+        margin-bottom: 60px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .contact-card {
+        background: white;
+        border-radius: 10px;
+        padding: 25px 15px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e5e5;
+        height: 100%;
+        transition: transform 0.2s;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .contact-card i {
+        width: 55px;
+        height: 55px;
+        background-color: #AD7C59;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        font-size: 1.3rem;
+    }
+
+    .contact-card h5 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+    }
+
+    .contact-card p {
+        font-size: 0.85rem;
+        color: #666;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .contact-card a {
+        color: #666;
+        text-decoration: none;
+    }
+
+    .contact-card a:hover {
+        color: #AD7C59;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 25px;
+    }
+
+    .form-control {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .form-control:focus {
+        border-color: #AD7C59;
+        box-shadow: 0 0 0 0.2rem rgba(173, 124, 89, 0.15);
+        outline: none;
+    }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .btn-submit {
+        background-color: #AD7C59;
+        color: white;
+        border: none;
+        padding: 12px 35px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-submit:hover {
+        background-color: #955b45;
+    }
+
+    .map-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 100%;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 450px;
+        border: 0;
+    }
+
+    .alert {
+        border-radius: 5px;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+    }
 </style>
-<link rel="stylesheet" href="~/css/style.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-@* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> *@
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">CONTACT</h2>
-    <p class="text-center">Envoyez-nous un mail</p>
-    <p class="text-center"><a href="mailto:info@sailingcop.com">info@sailingcop.com</a></p>
-
-    <div class="row justify-content-center mb-4">
-        <div class="col-md-3 text-center card p-3 mx-2 card-custom">
-            <i class="fas fa-map-marker-alt fa-2x text-custom"></i>
-            <h5 class="text-custom">Notre adresse</h5>
-            <p>123, Quai des Navigateurs, 75000 Paris, France</p>
-        </div>
-        <div class="col-md-3 text-center card p-3 mx-2 card-custom">
-            <i class="fas fa-clock fa-2x text-custom"></i>
-            <h5 class="text-custom">Heures d'ouverture</h5>
-            <p>Lun - Ven: 9h00 - 19h00</p>
-        </div>
-        <div class="col-md-3 text-center card p-3 mx-2 card-custom">
-            <i class="fas fa-phone fa-2x text-custom"></i>
-            <h5 class="text-custom">Appelez-nous</h5>
-            <p><a href="tel:+33612345678">+33 6 12 34 56 78</a></p>
-        </div>
-    </div>
-</div>
-  <div class="row">
-        <!-- Bloc Formulaire -->
-       <div class="col-md-6">
-
-<h3 class="mt-5 text-center">Entrer en contact avec nous</h3>
-
-@if (!string.IsNullOrEmpty(Model.SuccessMessage))
-{
-    <div class="alert alert-success">@Model.SuccessMessage</div>
-}
-
-@if (!string.IsNullOrEmpty(Model.ErrorMessage))
-{
-    <div class="alert alert-danger">@Model.ErrorMessage</div>
-}
-
-<form method="post">
-    <div class="form-group">
-        <label for="Name" class="font-weight-bold">Votre Nom</label>
-        <input type="text" class="form-control" id="Name" name="Name" required />
-    </div>
-    <div class="form-group">
-        <label for="Email" class="font-weight-bold">Votre Email</label>
-        <input type="email" class="form-control" id="Email" name="Email" required />
-    </div>
-    <div class="form-group">
-        <label for="Phone" class="font-weight-bold">Votre Numéro</label>
-        <input type="text" class="form-control" id="Phone" name="Phone" required />
-    </div>
-    <div class="form-group">
-        <label for="Subject" class="font-weight-bold">Sujet</label>
-        <input type="text" class="form-control" id="Subject" name="Subject" required />
-    </div>
-    <div class="form-group">
-        <label for="Message" class="font-weight-bold">Message</label>
-        <textarea class="form-control" id="Message" name="Message" rows="4" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-custom">Envoyez votre message</button>
-</form>
-
-
-
-
-    @* <h3 class="mt-5 text-center">Entrer en contact avec nous</h3>
-    <form method="post">
-        <div class="form-group">
-            <label for="Name" class="font-weight-bold">Votre Nom</label>
-            <input type="text" class="form-control" id="Name" name="Name" required />
-        </div>
-        <div class="form-group">
-            <label for="Email" class="font-weight-bold">Votre Email</label>
-            <input type="email" class="form-control" id="Email" name="Email" required />
-        </div>
-        <div class="form-group">
-            <label for="Phone" class="font-weight-bold">Votre Numéro</label>
-            <input type="text" class="form-control" id="Phone" name="Phone" required />
-        </div>
-        <div class="form-group">
-            <label for="Subject" class="font-weight-bold">Sujet</label>
-            <input type="text" class="form-control" id="Subject" name="Subject" required />
-        </div>
-        <div class="form-group">
-            <label for="Message" class="font-weight-bold">Message</label>
-            <textarea class="form-control" id="Message" name="Message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-custom">Envoyez votre message</button>
-    </form> *@
+<!-- Hero Section -->
+<div class="contact-hero">
+    <p class="hero-subtitle">ENTRER EN CONTACT AVEC NOUS</p>
+    <h1 class="hero-title">CONTACT</h1>
 </div>
 
-        <!-- Bloc Localisation -->
-        <div class="col-md-6">
-            <h3 class="mt-5 text-center">Localisation</h3>
+<div class="container">
+    <!-- Contact Cards -->
+    <div class="contact-cards-wrapper">
+        <div class="row g-3 justify-content-center">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h5>Envoyez-nous un mail</h5>
+                    <p><a href="mailto:info@sailingloc.com">info@sailingloc.com</a></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h5>Notre adresse</h5>
+                    <p>123, Quai des Navigateurs,<br>75000 Paris, France</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <h5>Heures d'ouverture</h5>
+                    <p>Lun-Dim: 8:00 - 19:00</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h5>Appelez-nous</h5>
+                    <p><a href="tel:+33060102030">+33 060102030</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="row g-4">
+        <!-- Formulaire -->
+        <div class="col-lg-6">
+            <h3 class="section-title">Entrer en contact avec nous</h3>
+
+            @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+            {
+                <div class="alert alert-success">@Model.SuccessMessage</div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="alert alert-danger">@Model.ErrorMessage</div>
+            }
+
+            <form method="post">
+                <input type="text" class="form-control" id="Name" name="Name" placeholder="Votre Nom*" required />
+                <input type="email" class="form-control" id="Email" name="Email" placeholder="Votre Mail*" required />
+                <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="Votre Numéro*" required />
+                <input type="text" class="form-control" id="Subject" name="Subject" placeholder="Sujet*" required />
+                <textarea class="form-control" id="Message" name="Message" placeholder="Message*" required></textarea>
+                <button type="submit" class="btn-submit">Envoyez votre message</button>
+            </form>
+        </div>
+
+        <!-- Carte -->
+        <div class="col-lg-6">
+            <h3 class="section-title">Localisation</h3>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509967!2d144.95373531531716!3d-37.81720997975196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f0f1a93%3A0x5045675218ceed0!2sFlinders%20Street%20Station!5e0!3m2!1sen!2sau!4v1616481343653!5m2!1sen!2sau" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.292292615674225!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fec70fb1d8d%3A0x40b82c3688c9460!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </div>
 </div>
 
-<style>
-    .map-container {
-        margin-top: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-
-    .container {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-        color: #2aa18b;
-    }
-
-    h3 {
-        color: #2aa18b;
-    }
-
-   .btn-custom {
-    background-color: #AD7C59; /* Couleur de fond */
-    color: white; /* Couleur du texte */
-    margin-left: 10px; 
-     padding-left: 30px;/* Déplace le bouton légèrement à droite */
-}
-    .btn-custom:hover {
-        background-color: #955b45; /* Couleur de fond au survol (optionnel) */
-    }
-  .form-group label {
-    margin-bottom: 5px; /* Espace entre le label et le champ */
-    padding-left: 30px; /* Augmentez cette valeur pour un décalage plus important */
-}
-</style>
+<div style="margin-bottom: 60px;"></div>

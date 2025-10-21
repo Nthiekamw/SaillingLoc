@@ -1,0 +1,632 @@
+@page
+@model SaillingLoc.Pages.DashUserModel
+@{
+    ViewData["Title"] = "Tableau de Bord Propriétaire";
+    Layout = "_Layout";
+}
+
+<style>
+    :root {
+        --primary: #4B6A88;
+        --secondary: #AD7C59;
+        --light-bg: #f5f0eb;
+        --card-bg: #ffffff;
+        --text-dark: #2c3e50;
+        --text-muted: #666;
+        --border: #e0e0e0;
+        --sidebar-bg: #f8f9fa;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: var(--light-bg);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-dark);
+    }
+
+    /* Layout Container */
+    .dashboard-container {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* ========== SIDEBAR ========== */
+    .sidebar {
+        width: 250px;
+        background: var(--card-bg);
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        z-index: 100;
+    }
+
+    .sidebar-logo {
+        padding: 30px 20px;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary) 0%, #5a7a99 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 12px rgba(75, 106, 136, 0.3);
+    }
+
+    .logo-text {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 1px;
+    }
+
+    /* Sidebar Menu */
+    .sidebar-menu {
+        flex: 1;
+        padding: 20px 0;
+        overflow-y: auto;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 14px 25px;
+        color: var(--text-dark);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+        position: relative;
+        font-size: 0.95rem;
+    }
+
+    .menu-item:hover {
+        background: rgba(173, 124, 89, 0.1);
+        border-left-color: var(--secondary);
+    }
+
+    .menu-item.active {
+        background: var(--secondary);
+        color: white;
+        border-left-color: var(--secondary);
+    }
+
+    .menu-item-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    .menu-item-text {
+        flex: 1;
+    }
+
+    .menu-badge {
+        background: #e74c3c;
+        color: white;
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+
+    /* Sidebar Footer */
+    .sidebar-footer {
+        padding: 20px;
+        border-top: 1px solid var(--border);
+    }
+
+    .btn-logout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 12px;
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        color: #e74c3c;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-logout:hover {
+        background: #fee;
+        border-color: #e74c3c;
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    .main-content {
+        flex: 1;
+        margin-left: 250px;
+        padding: 0;
+    }
+
+    /* Header */
+    .dashboard-header {
+        background: var(--card-bg);
+        padding: 25px 40px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .header-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--secondary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .header-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin: 0;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 15px;
+        background: var(--light-bg);
+        border-radius: 25px;
+    }
+
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .user-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    /* Content Area */
+    .content-area {
+        padding: 40px;
+    }
+
+    /* Stats Cards */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border);
+    }
+
+    .stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    .stat-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        flex-shrink: 0;
+    }
+
+    .stat-icon-1 { background: rgba(75, 106, 136, 0.15); color: var(--primary); }
+    .stat-icon-2 { background: rgba(39, 174, 96, 0.15); color: #27ae60; }
+    .stat-icon-3 { background: rgba(230, 126, 34, 0.15); color: #e67e22; }
+    .stat-icon-4 { background: rgba(52, 152, 219, 0.15); color: #3498db; }
+
+    .stat-info {
+        flex: 1;
+    }
+
+    .stat-value {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+    }
+
+    /* Actions Section */
+    .actions-section {
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 25px;
+    }
+
+    .actions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .action-btn {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        color: var(--text-dark);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-color: var(--secondary);
+    }
+
+    .action-btn.primary {
+        background: var(--secondary);
+        color: white;
+        border-color: var(--secondary);
+    }
+
+    .action-btn.primary:hover {
+        background: #9a6b4d;
+    }
+
+    .action-btn-text {
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+
+    /* Requests Section */
+    .requests-section {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--border);
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .empty-icon {
+        font-size: 4rem;
+        color: var(--secondary);
+        margin-bottom: 20px;
+        opacity: 0.5;
+    }
+
+    .empty-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+    }
+
+    .empty-text {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+    }
+
+    /* Quick Actions Cards (Bottom Section) */
+    .quick-actions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .quick-action-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .quick-action-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .quick-action-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 20px;
+        background: var(--light-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--secondary);
+    }
+
+    .quick-action-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+    }
+
+    .quick-action-desc {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+   
+</style>
+
+<div class="dashboard-container">
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-container">
+                <div class="logo-icon">⛵</div>
+                <div class="logo-text">SAILINGLOC</div>
+            </div>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="#" class="menu-item active">
+                <span class="menu-item-icon">🏠</span>
+                <span class="menu-item-text">Dashboard</span>
+            </a>
+            
+            <a asp-page="/Messages" class="menu-item">
+    <span class="menu-item-icon">💬</span>
+    <span class="menu-item-text">Messages</span>
+    @if (Model.MessagesNonLus > 0)
+    {
+        <span class="menu-badge">@Model.MessagesNonLus</span>
+    }
+</a>
+
+            
+              <a asp-page="/Profils" class="menu-item">
+                <span class="menu-item-icon">👤</span>
+                <span class="menu-item-text">Mon Profil</span>
+            </a>
+
+            <a asp-page="/MyReservations" class="menu-item">
+    <span class="menu-item-icon">📅</span>
+    <span class="menu-item-text">Mes Réservations</span>
+</a>
+
+            
+      <a asp-page="/Bateaux" class="menu-item">
+    <span class="menu-item-icon">🚤</span>
+    <span class="menu-item-text">Bateaux</span>
+</a>
+
+
+
+            
+            <a href="#" class="menu-item">
+                <span class="menu-item-icon">📄</span>
+                <span class="menu-item-text">Documents</span>
+            </a>
+            
+            <a href="#" class="menu-item">
+                <span class="menu-item-icon">⚙️</span>
+                <span class="menu-item-text">Paramètres</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <form method="post" asp-page-handler="Logout">
+                <button type="submit" class="btn-logout">
+                    <span>🚪</span>
+                    <span>Déconnexion</span>
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <div class="header-icon">👤</div>
+                <h1 class="header-title">Tableau de Bord Propriétaire</h1>
+            </div>
+            
+           <div class="header-right"> 
+    <div class="user-info">
+        <div class="user-avatar">
+            @{
+                // Génération automatique des initiales à partir du nom complet
+              var initials = string.Join("", @Model.CurrentUser?.FullName?
+    .Split(' ')
+    .Where(x => !string.IsNullOrWhiteSpace(x))
+    .Select(x => x[0]))
+    .ToUpper();
+
+            }
+            @initials
+        </div>
+       <span class="user-name">@Model.CurrentUser?.FullName </span>
+
+    </div>
+</div>
+
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-1">🚤</div>
+                    <div class="stat-info">
+                        <div class="stat-value">@Model.BateauxActifs</div>
+                        <div class="stat-label">Bateaux actifs</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-2">📅</div>
+                    <div class="stat-info">
+                        <div class="stat-value">@Model.ReservationsConfirmees</div>
+                        <div class="stat-label">Réservations confirmées</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-3">⏳</div>
+                    <div class="stat-info">
+                        <div class="stat-value">@Model.DemandesEnAttente</div>
+                        <div class="stat-label">Demandes en attente</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-4">✉️</div>
+                    <div class="stat-info">
+                        <div class="stat-value">@Model.MessagesNonLus</div>
+                        <div class="stat-label">Messages non lus</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions rapides -->
+            <div class="actions-section">
+                <h2 class="section-title">Actions rapides</h2>
+                <div class="actions-grid">
+                    <a asp-page="/AjoutBat" class="action-btn primary">
+                        <span style="font-size: 1.5rem;">➕</span>
+                        <span class="action-btn-text">Ajouter un bateau</span>
+                    </a>
+                   
+                    
+                    <a asp-page="/Manage" class="action-btn">
+                        <span style="font-size: 1.5rem;">📋</span>
+                        <span class="action-btn-text">Gérer mes bateaux</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Demandes en attente -->
+            <div class="requests-section">
+                <h2 class="section-title">Demandes en attente</h2>
+                
+                @if (Model.DemandesEnAttente == 0)
+                {
+                    <div class="empty-state">
+                        <div class="empty-icon">🚤</div>
+                        <div class="empty-title">Aucune demande en attente</div>
+                        <p class="empty-text">Vous n'avez actuellement aucune demande de réservation en attente.</p>
+                    </div>
+                }
+                else
+                {
+                    <partial name="_DemandesEnAttente" model="Model.Demandes" />
+                }
+            </div>
+
+            <!-- Quick Actions Bottom -->
+            <div class="quick-actions-grid">
+                <div class="quick-action-card">
+                    <div class="quick-action-icon">📸</div>
+                    <h3 class="quick-action-title">Photos qualité</h3>
+                    <p class="quick-action-desc">Ajoutez des photos professionnelles</p>
+                </div>
+
+                <div class="quick-action-card">
+                    <div class="quick-action-icon">📅</div>
+                    <h3 class="quick-action-title">Disponibilités</h3>
+                    <p class="quick-action-desc">Maintenez votre calendrier à jour</p>
+                </div>
+
+                <div class="quick-action-card">
+                    <div class="quick-action-icon">📊</div>
+                    <h3 class="quick-action-title">Analyse marché</h3>
+                    <p class="quick-action-desc">Adaptez vos tarifs saisonniers</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

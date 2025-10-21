@@ -1,0 +1,45 @@
+@page
+@model SaillingLoc.Pages.ProfilesModel
+@{
+    ViewData["Title"] = "Mon Profil";
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Mon Profil</h2>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="@Model.User.Photo" alt="Photo de profil" class="img-fluid rounded-circle mb-3" />
+                    </div>
+                    <div class="col-md-9">
+                    <p>Bonjour @Model.CurrentUser.FullName 👋</p>
+
+                        <h4>@Model.User.FullName</h4>
+                        <p><strong>Email:</strong> @Model.User.Email</p>
+                        <p><strong>Téléphone:</strong> @Model.User.PhoneNumber</p>
+                        <p><strong>Adresse:</strong> @Model.User.Address</p>
+                        <p><strong>Méthode de paiement:</strong> @Model.User.PaymentMethod</p>
+                        <p><strong>Messages non lus:</strong> @Model.User.UnreadMessagesCount</p>
+                        <a asp-page="./EditProfile" class="btn btn-primary">Modifier mon profil</a>
+                        <a asp-page="./ChangePassword" class="btn btn-secondary">Modifier mon mot de passe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    @* <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script> *@
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

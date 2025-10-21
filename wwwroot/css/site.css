@@ -162,11 +162,63 @@ body {
 
 
 
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .about-section {
+        flex-direction: column;
+    }
+    
+    .search-form {
+        margin: 20px auto;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+    @media (max-width: 992px) {
+        .boat-details-row {
+            flex-direction: column;
+        }
+
+        .boat-image-section,
+        .boat-info-section {
+            flex: 0 0 100%;
+        }
+
+        .equipements-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 
 
+ /* Responsive */
+    @media (max-width: 768px) {
+        .sidebar {
+            transform: translateX(-100%);
+        }
 
+        .main-content {
+            margin-left: 0;
+        }
 
+        .dashboard-header {
+            padding: 20px;
+        }
 
+        .content-area {
+            padding: 20px;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 
 
 
@@ -245,5 +297,34 @@ body {
         .about-section {
             flex-direction: column;
             padding: 40px 20px;
+        }
+    }
+
+      @media (max-width: 991px) {
+        .sidebar-filter {
+            margin-bottom: 30px;
+        }
+
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+    }
+
+     @media (max-width: 768px) {
+        .document-footer {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .document-actions {
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .btn-replace,
+        .btn-delete,
+        .btn-upload {
+            width: 100%;
+            justify-content: center;
         }
     }

@@ -321,8 +321,10 @@
 
                         @if (isSignedIn)
                         {
-                            <li class="nav-item"><a class="nav-link" asp-page="/Messages">Messagerie</a></li>
-                            <li class="nav-item"><a class="nav-link" asp-page="/MyReservations">Mes Réservations</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-page="/Destinations">Destinations</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-page="/Categories">Categories</a></li>
+                              @* <li class="nav-item"><a class="nav-link" asp-page="/MyReservations">Mes Réservations</a></li> *@
+                                <li class="nav-item"><a class="nav-link" asp-page="/About">A propos</a></li>
 
                             @if (roles.Contains("Admin"))
                             {
@@ -378,7 +380,7 @@
 
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
         <li>
-            <a class="dropdown-item" asp-page="/MonEspace">
+            <a class="dropdown-item" asp-page="/Dashuser">
                 <i class="fa-solid fa-user-circle me-2"></i> Mon espace
             </a>
         </li>

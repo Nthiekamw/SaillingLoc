@@ -72,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9hdERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/CGU.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ0dVLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,8 +88,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29va2llUG9saWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Dashuser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaHVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Destinations.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVzdGluYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Doc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/EditBoat.cshtml]
@@ -136,8 +148,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWZpY2F0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Pam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/PrivacyPolicy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeVBvbGljeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/Profils.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/William.NTHIEKAM/OneDrive - AKTO/Bureau/saillingloc/Pages/ReserveBoat.cshtml]

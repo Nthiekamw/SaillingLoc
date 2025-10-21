@@ -4,7 +4,6 @@
     ViewData["Title"] = "Bateaux";
 }
 
-<!-- Lien Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <style>
@@ -14,213 +13,420 @@
         font-family: 'Arial', sans-serif;
     }
 
-    /* Sidebar */
-    .sidebar-filter {
-        background-color: #334a66;
-        color: #fff;
-        border-radius: 10px;
-        padding: 20px;
+    /* Hero Section */
+    .hero-section {
+        @* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('~/images/jpt.png'); *@
+          background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
+                url('@Url.Content("~/images/jpt.png")') no-repeat center center/cover;
+        background-size: cover;
+        background-position: center;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        color: white;
+        position: relative;
     }
 
-    .sidebar-filter h3 {
-        font-size: 1.2rem;
+    .hero-content h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        max-width: 500px;
+    }
+
+    /* Sidebar Filter - Style bleu foncé de l'image */
+    .sidebar-filter {
+        background-color: #3d5a80;
+        color: #fff;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-header {
+        background-color: #2c4559;
+        padding: 15px 20px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .filter-section {
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .filter-section:last-child {
+        border-bottom: none;
+    }
+
+    .filter-section h4 {
+        font-size: 1rem;
         font-weight: 600;
         margin-bottom: 15px;
-    }
-
-    .sidebar-filter label,
-    .sidebar-filter h4 {
         color: #fff;
     }
 
     .sidebar-filter .form-control,
     .sidebar-filter .form-select {
-        border-radius: 8px;
+        border-radius: 4px;
         border: none;
-        padding: 8px;
+        padding: 10px;
+        margin-bottom: 0;
+        background-color: #fff;
+    }
+
+    .sidebar-filter .form-check {
         margin-bottom: 10px;
     }
 
-    .btn-filter {
-        background-color: #c47a53;
-        border: none;
-        border-radius: 8px;
-        width: 100%;
+    .sidebar-filter .form-check-label {
         color: #fff;
-        font-weight: 600;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+    .sidebar-filter .form-check-input {
+        cursor: pointer;
+    }
+
+    .btn-reset-filter {
+        background-color: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+        border-radius: 4px;
+        width: 100%;
         padding: 10px;
-    }
-
-    .btn-filter:hover {
-        background-color: #a9633f;
-    }
-
-    .btn-reset {
-        display: block;
-        text-align: center;
-        width: 100%;
+        font-weight: 500;
+        transition: all 0.3s ease;
         margin-top: 10px;
-        color: #fff;
-        text-decoration: underline;
     }
 
-    /* Boat cards */
+    .btn-reset-filter:hover {
+        background-color: #fff;
+        color: #3d5a80;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-custom {
+        background-color: transparent;
+        padding: 15px 0;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+    }
+
+    .breadcrumb-custom a {
+        color: #6c757d;
+        text-decoration: none;
+    }
+
+    .breadcrumb-custom a:hover {
+        color: #333;
+    }
+
+    /* Boat cards - Style marron comme dans l'image */
     .boat-card {
-        border: none;
-        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        transition: transform 0.2s ease;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .boat-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .boat-image {
+        height: 220px;
+        overflow: hidden;
     }
 
     .boat-image img {
         width: 100%;
-        height: 200px;
+        height: 100%;
         object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .boat-card:hover .boat-image img {
+        transform: scale(1.05);
     }
 
     .boat-content {
-        padding: 15px;
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .boat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 15px;
     }
 
     .boat-name {
-        font-weight: 600;
+        font-weight: 700;
         font-size: 1.1rem;
+        color: #2c3e50;
+        margin: 0;
     }
 
     .boat-price {
-        color: #c47a53;
+        color: #b8956a;
         font-weight: 700;
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+
+    .boat-price small {
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .boat-details {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 10px;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .boat-details span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
     }
 
     .btn-view-boat {
-        background-color: #c47a53;
+        background-color: #b8956a;
         color: #fff;
-        border-radius: 8px;
-        padding: 8px 15px;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
         display: inline-block;
         text-decoration: none;
         font-weight: 600;
+        text-align: center;
+        transition: all 0.3s ease;
+        margin-top: auto;
     }
 
     .btn-view-boat:hover {
-        background-color: #a9633f;
+        background-color: #a07d54;
         color: #fff;
+        transform: translateY(-2px);
     }
 
     /* Pagination */
-    .pagination .page-item.active .page-link {
-        background-color: #c47a53;
-        border-color: #c47a53;
+    .pagination {
+        gap: 5px;
     }
 
-    .pagination .page-link {
-        color: #c47a53;
+    .pagination .page-item .page-link {
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 8px 15px;
+        margin: 0 3px;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #b8956a;
+        border-color: #b8956a;
+        color: white;
+    }
+
+    .pagination .page-link:hover {
+        background-color: #f0f0f0;
+        border-color: #ddd;
     }
 
     /* Admin buttons */
+    .admin-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+    }
+
     .btn-edit {
         background-color: #0d6efd;
         color: #fff;
         border-radius: 6px;
-        padding: 5px 10px;
+        padding: 6px 12px;
         text-decoration: none;
+        font-size: 0.9rem;
+        border: none;
+    }
+
+    .btn-edit:hover {
+        background-color: #0b5ed7;
+        color: #fff;
     }
 
     .btn-delete {
         background-color: #dc3545;
         color: #fff;
         border-radius: 6px;
-        padding: 5px 10px;
+        padding: 6px 12px;
         border: none;
+        font-size: 0.9rem;
+    }
+
+    .btn-delete:hover {
+        background-color: #bb2d3b;
     }
 
     .btn-add-boat {
         background-color: #28a745;
         color: #fff;
-        padding: 10px 15px;
+        padding: 12px 25px;
         border-radius: 8px;
         text-decoration: none;
         font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .btn-add-boat:hover {
         background-color: #218838;
+        color: #fff;
     }
+
+    .results-count {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        color: #2c3e50;
+    }
+
+  
 </style>
 
-<section id="mes-bateaux" class="container-fluid py-4">
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Trouvez le bateau parfait pour votre prochaine aventure</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<section class="container-fluid py-4">
     <div class="row">
         <!-- Sidebar Filter -->
         <aside class="col-lg-3 mb-4">
             <div class="sidebar-filter">
+                <div class="filter-header">
+                    <span>🔍</span>
+                    <span>Filtrez les résultats</span>
+                </div>
+
                 <form method="get">
-                    <div class="mb-3">
-                        <input type="text" name="SearchQuery" placeholder="Rechercher..." value="@Model.SearchQuery" class="form-control" />
+                    <!-- Search Box -->
+                    <div class="filter-section">
+                        <input type="text" 
+                               name="SearchQuery" 
+                               placeholder="Search..." 
+                               value="@Model.SearchQuery" 
+                               class="form-control" />
                     </div>
 
-                    <h3>Filtrez les résultats ▼</h3>
-
-                    <div class="mb-3">
-                        <h4>Port ou ville de départ</h4>
+                    <!-- Port Selection -->
+                    <div class="filter-section">
+                        <h4>📍 Entrez le port ou la ville de départ</h4>
                         <select name="SelectedPortId" class="form-select" asp-items="@Model.PortsList">
                             <option value="">Tous les ports</option>
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <h4>Type de bateau</h4>
+                    <!-- Boat Type Selection -->
+                    <div class="filter-section">
+                        <h4>⛵ Sélectionnez un type de bateau</h4>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="" checked="@(string.IsNullOrEmpty(Model.SelectedBoatType))" />
-                            <label class="form-check-label">Tous</label>
+                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="" 
+                                   id="type_tous" checked="@(string.IsNullOrEmpty(Model.SelectedBoatType))" />
+                            <label class="form-check-label" for="type_tous">Tous</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Moteur" checked="@(Model.SelectedBoatType == "Moteur")" />
-                            <label class="form-check-label">Bateaux à moteur</label>
+                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Moteur" 
+                                   id="type_moteur" checked="@(Model.SelectedBoatType == "Moteur")" />
+                            <label class="form-check-label" for="type_moteur">Bateaux à moteur</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Yacht" checked="@(Model.SelectedBoatType == "Yacht")" />
-                            <label class="form-check-label">Yachts</label>
+                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Yacht" 
+                                   id="type_yacht" checked="@(Model.SelectedBoatType == "Yacht")" />
+                            <label class="form-check-label" for="type_yacht">Yachts</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Fluvial" checked="@(Model.SelectedBoatType == "Fluvial")" />
-                            <label class="form-check-label">Bateau fluvial</label>
+                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Fluvial" 
+                                   id="type_fluvial" checked="@(Model.SelectedBoatType == "Fluvial")" />
+                            <label class="form-check-label" for="type_fluvial">Bateau fluvial</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Catamaran" checked="@(Model.SelectedBoatType == "Catamaran")" />
-                            <label class="form-check-label">Catamaran</label>
+                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Catamaran" 
+                                   id="type_catamaran" checked="@(Model.SelectedBoatType == "Catamaran")" />
+                            <label class="form-check-label" for="type_catamaran">Catamaran</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Voilier" checked="@(Model.SelectedBoatType == "Voilier")" />
-                            <label class="form-check-label">Voiliers</label>
+                            <input class="form-check-input" type="radio" name="SelectedBoatType" value="Voilier" 
+                                   id="type_voilier" checked="@(Model.SelectedBoatType == "Voilier")" />
+                            <label class="form-check-label" for="type_voilier">Voiliers</label>
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <h4>Plage de prix (€)</h4>
-                        <input type="number" name="MinPrice" placeholder="Prix min" value="@Model.MinPrice" class="form-control" />
-                        <input type="number" name="MaxPrice" placeholder="Prix max" value="@Model.MaxPrice" class="form-control" />
+                    <!-- Price Range -->
+                    <div class="filter-section">
+                        <h4>💰 Plage de prix (€)</h4>
+                        <input type="number" 
+                               name="MinPrice" 
+                               placeholder="Prix min" 
+                               value="@Model.MinPrice" 
+                               class="form-control mb-2" />
+                        <input type="number" 
+                               name="MaxPrice" 
+                               placeholder="Prix max" 
+                               value="@Model.MaxPrice" 
+                               class="form-control" />
                     </div>
 
-                    <button type="submit" class="btn btn-filter">Filtrer</button>
-                    <a asp-page="/Bateaux" class="btn-reset">Réinitialisez le filtre</a>
+                    <!-- Reset Button -->
+                    <div class="filter-section">
+                        <a asp-page="/Bateaux" class="btn-reset-filter">Réinitialisez le filtre</a>
+                    </div>
                 </form>
             </div>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Boats Grid -->
         <div class="col-lg-9">
-            <nav class="mb-3">
-                <a asp-page="/Index" class="text-decoration-none text-muted">Locations bateaux</a> >
-                <span class="fw-bold">@(string.IsNullOrEmpty(Model.SelectedBoatType) ? "Tous les bateaux" : Model.SelectedBoatType)</span>
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb-custom">
+                <a asp-page="/Index">Locations bateaux</a>
+                <span class="mx-2">></span>
+                <span>@(string.IsNullOrEmpty(Model.SelectedBoatType) ? "Tous les bateaux" : Model.SelectedBoatType)</span>
             </nav>
 
-            <h4 class="mb-4 fw-bold">@Model.Boats.Count() bateau@(Model.Boats.Count() > 1 ? "x" : "")</h4>
+            <!-- Results Count -->
+            <h4 class="results-count">
+                @Model.Boats.Count() bateau@(Model.Boats.Count() != 1 ? "x" : "")
+            </h4>
 
+            <!-- Boats Grid -->
             <div class="row g-4">
                 @if (Model.Boats != null && Model.Boats.Any())
                 {
@@ -230,26 +436,35 @@
                             ? Url.Content(boat.Photos.First().PhotoUrl)
                             : Url.Content("~/images/default-boat.jpg");
 
-                        <div class="col-md-4">
-                            <div class="boat-card card">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="boat-card">
                                 <div class="boat-image">
                                     <img src="@photoUrl" alt="@boat.Name" />
                                 </div>
                                 <div class="boat-content">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="boat-header">
                                         <h5 class="boat-name">@boat.Name</h5>
-                                        <span class="boat-price">@boat.DailyPrice€ /jour</span>
+                                        <div class="boat-price">
+                                            @boat.DailyPrice€<small>/jour</small>
+                                        </div>
                                     </div>
-                                    <p class="mb-1">📏 @(boat.Length)m — 👥 @(boat.Capacity ?? 10) passagers</p>
-                                    <p class="text-muted small mb-2">📍 @(boat.Port?.Name ?? "Port non spécifié")</p>
-                                    <a asp-page="/BoatDetails" asp-route-id="@boat.Id" class="btn-view-boat">Voir ce bateau</a>
+                                    
+                                    <div class="boat-details">
+                                        <span>📏 @(boat.Length)m</span>
+                                        <span>👥 @(boat.Capacity ?? 10) passagers</span>
+                                    </div>
+
+                                    <a asp-page="/BoatDetails" asp-route-id="@boat.Id" class="btn-view-boat">
+                                        Voir ce bateau
+                                    </a>
 
                                     @if (Model.IsAdmin || (Model.IsProprietaire && boat.OwnerId == Model.CurrentUserId))
                                     {
-                                        <div class="mt-2 d-flex gap-2">
+                                        <div class="admin-actions">
                                             <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn-edit">Modifier</a>
                                             <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id"
-                                                  onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
+                                                  onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');" 
+                                                  style="display: inline;">
                                                 <button type="submit" class="btn-delete">Supprimer</button>
                                             </form>
                                         </div>
@@ -261,9 +476,8 @@
                 }
                 else
                 {
-                    <!-- ✅ Message dynamique selon la recherche -->
-                    <div class="text-center py-5">
-                        <p class="fs-5">
+                    <div class="col-12 text-center py-5">
+                        <p class="fs-5 text-muted">
                             @(Model.DateDepart.HasValue && Model.DateArrivee.HasValue
                                 ? "Aucun bateau disponible pour ces dates."
                                 : "Aucune offre de bateau disponible pour le moment.")
@@ -275,7 +489,7 @@
             <!-- Pagination -->
             @if (Model.TotalPages > 1)
             {
-                <nav class="mt-4">
+                <nav class="mt-5">
                     <ul class="pagination justify-content-center">
                         @if (Model.CurrentPage > 1)
                         {
@@ -307,13 +521,16 @@
                     </ul>
                 </nav>
             }
+
+            <!-- Add Boat Button (Admin/Owner) -->
+            @if (Model.IsAdmin || Model.IsProprietaire)
+            {<div class="text-center mt-4">
+  <a asp-page="/Ajoutbat" class="btn btn-add-boat">
+    <span>➕</span> Ajouter une annonce
+  </a>
+</div>
+
+            }
         </div>
     </div>
-
-    @if (Model.IsAdmin || Model.IsProprietaire)
-    {
-        <div class="text-center mt-4">
-            <a asp-page="/Ajoutbat" class="btn-add-boat">➕ Ajouter une annonce</a>
-        </div>
-    }
 </section>

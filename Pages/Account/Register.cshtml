@@ -10,7 +10,7 @@
         
         <!-- Logo -->
         <div class="mb-4">
-            <img src="~/images/sailingloc-logo.png" alt="SailingLoc" style="height: 80px;" />
+            <img src="~/images/plan2.png" alt="SailingLoc" style="height: 80px;" />
         </div>
 
         <!-- Titre -->
@@ -25,13 +25,13 @@
                 <label class="form-label" style="color: #4A4A4A; font-weight: 500;">Je suis un...</label>
                 <div class="d-flex gap-4">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Input.Role" id="Locataire" value="Locataire" asp-for="Input.Role" />
+                        <input class="form-check-input" type="radio" id="Locataire" value="Locataire" asp-for="Input.Role" />
                         <label class="form-check-label" for="Locataire" style="color: #4A4A4A;">
                             Locataire
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Input.Role" id="Proprietaire" value="Proprietaire" asp-for="Input.Role" />
+                        <input class="form-check-input" type="radio" id="Proprietaire" value="Proprietaire" asp-for="Input.Role" />
                         <label class="form-check-label" for="Proprietaire" style="color: #4A4A4A;">
                             Propriétaire
                         </label>
@@ -45,14 +45,16 @@
                 <div class="col-md-6">
                     <div class="text-start">
                         <label asp-for="Input.FirstName" class="form-label" style="color: #4A4A4A; font-weight: 500;">Prénom</label>
-                        <input asp-for="Input.FirstName" class="form-control" placeholder="Votre prénom" style="background-color: #FFFFFF; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
+                        <input asp-for="Input.FirstName" class="form-control" placeholder="Votre prénom"
+                               style="background-color: #FFFFFF; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
                         <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text-start">
                         <label asp-for="Input.LastName" class="form-label" style="color: #4A4A4A; font-weight: 500;">Nom</label>
-                        <input asp-for="Input.LastName" class="form-control" placeholder="Votre nom" style="background-color: #FFFFFF; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
+                        <input asp-for="Input.LastName" class="form-control" placeholder="Votre nom"
+                               style="background-color: #FFFFFF; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
                         <span asp-validation-for="Input.LastName" class="text-danger"></span>
                     </div>
                 </div>
@@ -61,14 +63,16 @@
             <!-- Email -->
             <div class="mb-3 text-start">
                 <label asp-for="Input.Email" class="form-label" style="color: #4A4A4A; font-weight: 500;">Email</label>
-                <input asp-for="Input.Email" class="form-control" style="background-color: #E8F0FE; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
+                <input asp-for="Input.Email" class="form-control"
+                       style="background-color: #E8F0FE; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
 
             <!-- Téléphone -->
             <div class="mb-3 text-start">
                 <label asp-for="Input.PhoneNumber" class="form-label" style="color: #4A4A4A; font-weight: 500;">Téléphone</label>
-                <input asp-for="Input.PhoneNumber" class="form-control" style="background-color: #FFFFFF; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
+                <input asp-for="Input.PhoneNumber" class="form-control"
+                       style="background-color: #FFFFFF; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
 
@@ -76,7 +80,8 @@
             <div class="mb-3 text-start">
                 <label asp-for="Input.Password" class="form-label" style="color: #4A4A4A; font-weight: 500;">Mot de passe</label>
                 <div class="position-relative">
-                    <input asp-for="Input.Password" type="password" class="form-control" style="background-color: #E8F0FE; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
+                    <input asp-for="Input.Password" type="password" class="form-control"
+                           style="background-color: #E8F0FE; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
             </div>
@@ -85,7 +90,9 @@
             <div class="mb-3 text-start">
                 <label asp-for="Input.ConfirmPassword" class="form-label" style="color: #4A4A4A; font-weight: 500;">Confirmer le mot de passe</label>
                 <div class="position-relative">
-                    <input asp-for="Input.ConfirmPassword" type="password" class="form-control" placeholder="Confirmez votre mot de passe" style="background-color: #FFFFFF; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
+                    <input asp-for="Input.ConfirmPassword" type="password" class="form-control"
+                           placeholder="Confirmez votre mot de passe"
+                           style="background-color: #FFFFFF; border: 1px solid #D0D0D0; padding: 12px; border-radius: 6px;" />
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
             </div>
@@ -95,7 +102,10 @@
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="AcceptTerms" required />
                     <label class="form-check-label" for="AcceptTerms" style="color: #4A4A4A; font-size: 14px;">
-                        J'accepte les <a href="#" style="color: #AD7C59; text-decoration: none;">conditions d'utilisation</a> et la <a href="#" style="color: #AD7C59; text-decoration: none;">politique de confidentialité</a>.
+                        J'accepte les
+                        <a href="#" style="color: #AD7C59; text-decoration: none;">conditions d'utilisation</a>
+                        et la
+                        <a href="#" style="color: #AD7C59; text-decoration: none;">politique de confidentialité</a>.
                     </label>
                 </div>
             </div>
@@ -107,7 +117,8 @@
 
             <!-- Bouton de création de compte -->
             <div class="mb-3">
-                <button type="submit" class="btn w-100" style="background-color: #B8C5D6; color: #FFFFFF; padding: 12px; border-radius: 6px; border: none; font-weight: 500; font-size: 16px;">
+                <button type="submit" class="btn w-100"
+                        style="background-color: #B8C5D6; color: #FFFFFF; padding: 12px; border-radius: 6px; border: none; font-weight: 500; font-size: 16px;">
                     Créer mon compte
                 </button>
             </div>

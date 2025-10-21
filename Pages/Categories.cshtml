@@ -1,0 +1,383 @@
+@page
+@model SailingLoc.Pages.CategoriesModel
+@{
+    ViewData["Title"] = "Catégories";
+}
+
+<style>
+    :root {
+        --primary-color: #0066cc;
+        --dark-color: #2c3e50;
+    }
+
+    .categories-hero {
+        text-align: center;
+        padding: 60px 0 40px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .categories-hero h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark-color);
+        margin-bottom: 15px;
+    }
+
+    .categories-hero p {
+        font-size: 1.1rem;
+        color: #666;
+    }
+
+    .category-grid {
+        padding: 60px 0;
+    }
+
+    .category-item {
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
+    }
+
+    .category-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .category-image-wrapper {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        height: 300px;
+    }
+
+    .category-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .category-item:hover .category-image-wrapper img {
+        transform: scale(1.05);
+    }
+
+    .category-label {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .category-label h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--dark-color);
+        margin: 0;
+    }
+
+    .carousel-section {
+        padding: 60px 0;
+        background-color: #f8f9fa;
+    }
+
+    .section-title-carousel {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .section-title-carousel h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark-color);
+        margin-bottom: 10px;
+    }
+
+    .category-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+
+    .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-card-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .category-card-content {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .category-card-content h5 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--dark-color);
+        margin-bottom: 10px;
+    }
+
+    .category-card-content p {
+        font-size: 0.9rem;
+        color: #777;
+        margin: 0;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .carousel-control-prev {
+        left: -25px;
+    }
+
+    .carousel-control-next {
+        right: -25px;
+    }
+
+  
+</style>
+
+<!-- Hero Section -->
+<div class="categories-hero">
+    <div class="container">
+        <h1>Catégories des Bateaux</h1>
+        <p>Trouvez la catégorie de bateau qui correspond à votre besoin</p>
+    </div>
+</div>
+
+<!-- Main Categories Grid -->
+<div class="category-grid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="category-item">
+                    <div class="category-image-wrapper">
+                        <img src="~/images/catamaran.webp" alt="Catamaran">
+                    </div>
+                    <div class="category-label">
+                        <h3>Catamaran</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="category-item">
+                    <div class="category-image-wrapper">
+                        <img src="~/images/yatch.webp" alt="Yacht">
+                    </div>
+                    <div class="category-label">
+                        <h3>Yacht</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="category-item">
+                    <div class="category-image-wrapper">
+                        <img src="~/images/pic-1-1.jpeg" alt="Bateau traditionnel">
+                    </div>
+                    <div class="category-label">
+                        <h3>Bateau traditionnel</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="category-item">
+                    <div class="category-image-wrapper">
+                        <img src="~/images/bateaux moteur.jpg" alt="Voilier">
+                    </div>
+                    <div class="category-label">
+                        <h3>Voilier</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="category-item">
+                    <div class="category-image-wrapper">
+                        <img src="~/images/catamaran.webp" alt="Bateau à moteur">
+                    </div>
+                    <div class="category-label">
+                        <h3>Bateau à moteur</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Carousel Section -->
+<div class="carousel-section">
+    <div class="container">
+        <div class="section-title-carousel">
+            <h2>Découvrez nos catégories de bateaux</h2>
+            <p class="text-muted">Choisissez le type de bateau qui correspond à vos envies</p>
+        </div>
+
+        <div id="boatCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Premier Item du Carrousel -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/pic-1-1.jpeg');"></div>
+                                <div class="category-card-content">
+                                    <h5>Pic</h5>
+                                    <p class="text-muted">Bateau traditionnel en bois pour une expérience authentique</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/bateaux moteur.jpg');"></div>
+                                <div class="category-card-content">
+                                    <h5>Moteur</h5>
+                                    <p class="text-muted">Puissance et vitesse pour des sensations fortes</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/catamaran.webp');"></div>
+                                <div class="category-card-content">
+                                    <h5>Catamaran</h5>
+                                    <p class="text-muted">Stabilité et espace pour une navigation confortable</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/yatch.webp');"></div>
+                                <div class="category-card-content">
+                                    <h5>Yacht</h5>
+                                    <p class="text-muted">Luxe et élégance pour une croisière inoubliable</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deuxième Item du Carrousel -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/yatch.webp');"></div>
+                                <div class="category-card-content">
+                                    <h5>Yacht de luxe</h5>
+                                    <p class="text-muted">Le summum du confort et de l'élégance</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/catamaran.webp');"></div>
+                                <div class="category-card-content">
+                                    <h5>Catamaran Premium</h5>
+                                    <p class="text-muted">Espace et stabilité exceptionnels</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/bateaux moteur.jpg');"></div>
+                                <div class="category-card-content">
+                                    <h5>Bateau rapide</h5>
+                                    <p class="text-muted">Vitesse et performance maximales</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/pic-1-1.jpeg');"></div>
+                                <div class="category-card-content">
+                                    <h5>Voilier traditionnel</h5>
+                                    <p class="text-muted">Navigation authentique et écologique</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Troisième Item du Carrousel -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/catamaran.webp');"></div>
+                                <div class="category-card-content">
+                                    <h5>Catamaran Sport</h5>
+                                    <p class="text-muted">Performance et confort réunis</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/pic-1-1.jpeg');"></div>
+                                <div class="category-card-content">
+                                    <h5>Bateau classique</h5>
+                                    <p class="text-muted">Charme intemporel et élégance</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/yatch.webp');"></div>
+                                <div class="category-card-content">
+                                    <h5>Yacht Prestige</h5>
+                                    <p class="text-muted">Excellence et raffinement absolu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="category-card">
+                                <div class="category-card-image" style="background-image: url('~/images/bateaux moteur.jpg');"></div>
+                                <div class="category-card-content">
+                                    <h5>Speedboat</h5>
+                                    <p class="text-muted">Adrénaline et sensations garanties</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contrôles du carrousel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#boatCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#boatCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Bootstrap 5 initialisation automatique du carrousel
+        var myCarousel = document.querySelector('#boatCarousel')
+        if (myCarousel) {
+            var carousel = new bootstrap.Carousel(myCarousel, {
+                interval: 5000,
+                wrap: true,
+                touch: true
+            });
+        }
+    </script>
+}
