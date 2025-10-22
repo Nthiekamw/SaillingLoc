@@ -4,140 +4,298 @@
     ViewData["Title"] = "Dashboard Admin";
 }
 
-<h2 class="text-center my-4">Dashboard Administrateur</h2>
-
-<div class="container">
-    <div class="row justify-content-center">
-
-        <!-- ✅ Utilisateurs -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow dashboard-card" role="button" tabindex="0"
-                 onclick="location.href='@Url.Page("/Admin/Users")'"
-                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Admin/Users")'}"
-                 aria-label="Voir la gestion des utilisateurs"
-                 style="cursor:pointer;">
-                <div class="card-body text-center">
-                    <h5>@Model.UserCount Utilisateur(s)</h5>
-                    <canvas id="usersChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- ✅ Réservations -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow dashboard-card" role="button" tabindex="0"
-                 onclick="location.href='@Url.Page("/Admin/Reservations")'"
-                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Admin/Reservations")'}"
-                 aria-label="Voir la gestion des réservations"
-                 style="cursor:pointer;">
-                <div class="card-body text-center">
-                    <h5>@Model.ReservationCount Réservation(s)</h5>
-                    <canvas id="reservationsChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- ✅ Messages -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow dashboard-card" role="button" tabindex="0"
-                 onclick="location.href='@Url.Page("/Admin/Messages")'"
-                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Admin/Messages")'}"
-                 aria-label="Voir la gestion des messages"
-                 style="cursor:pointer;">
-                <div class="card-body text-center">
-                    <h5>@Model.MessageCount Message(s)</h5>
-                    <canvas id="messagesChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- ✅ Bateaux -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow dashboard-card" role="button" tabindex="0"
-                 onclick="location.href='@Url.Page("/Admin/Boats")'"
-                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Admin/Boats")'}"
-                 aria-label="Voir la gestion des bateaux"
-                 style="cursor:pointer;">
-                <div class="card-body text-center">
-                    <h5>@Model.BoatCount Bateau(x)</h5>
-                    <canvas id="boatsChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- Nouvelle carte Historique -->
-        <div class="col-md-6 mb-4">
-            <div class="card shadow dashboard-card" role="button" tabindex="0"
-                 onclick="location.href='@Url.Page("/Logs")'"
-                 onkeypress="if(event.key === 'Enter'){location.href='@Url.Page("/Logs")'}"
-                 aria-label="Voir l'historique des actions utilisateurs"
-                 style="cursor:pointer;">
-                <div class="card-body text-center">
-                    <h5>Historique des actions</h5>
-                    <i class="fa fa-history fa-3x mt-2" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-
-    </div> <!-- fin row -->
-</div> <!-- fin container -->
-
 <style>
-    .dashboard-card:hover {
-        box-shadow: 0 0 15px rgba(0,0,0,0.3);
-        transition: box-shadow 0.3s ease;
+    .dashboard-header {
+        background-color: #8B4513;
+        color: white;
+        padding: 15px;
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 0;
+    }
+
+    .dashboard-container {
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        padding: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .stats-row {
+        display: flex;
+        gap: 20px;
+        padding: 30px;
+        background-color: white;
+    }
+
+    .stat-card {
+        flex: 1;
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .stat-card i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #8B4513;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin: 10px 0 5px 0;
+    }
+
+    .stat-label {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .actions-section {
+        padding: 20px 30px;
+        background-color: white;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .actions-title {
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .btn-action {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: opacity 0.2s;
+    }
+
+    .btn-action:hover {
+        opacity: 0.8;
+    }
+
+    .btn-primary-action {
+        background-color: #8B4513;
+        color: white;
+    }
+
+    .btn-secondary-action {
+        background-color: #D3D3D3;
+        color: #333;
+    }
+
+    .pending-section {
+        padding: 20px 30px;
+        background-color: white;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .pending-title {
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .pending-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #fafafa;
+    }
+
+    .pending-card-content {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .btn-view-details {
+        background-color: #8B4513;
+        color: white;
+        border: none;
+        padding: 6px 15px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .btn-view-details:hover {
+        opacity: 0.8;
+    }
+
+    .items-section {
+        padding: 20px 30px 30px 30px;
+        background-color: white;
+        border-top: 1px solid #e0e0e0;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .items-title {
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .items-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .item-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        background-color: #fafafa;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+    }
+
+    .item-card:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .item-name {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .item-details {
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    .view-all-link {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .view-all-link a {
+        color: #8B4513;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .view-all-link a:hover {
+        text-decoration: underline;
     }
 </style>
 
-@section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const usersChart = new Chart(document.getElementById('usersChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Utilisateurs'],
-                datasets: [{
-                    label: 'Nombre d\'utilisateurs',
-                    data: [@Model.UserCount],
-                    backgroundColor: ['#C1D0C4']
-                }]
-            }
-        });
+<div class="container mt-4">
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h5 class="mb-0">
+                <i class="fa fa-user-shield me-2"></i>
+                Tableau de Bord Administrateur
+            </h5>
+        </div>
 
-        const reservationsChart = new Chart(document.getElementById('reservationsChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Réservations'],
-                datasets: [{
-                    label: 'Réservations',
-                    data: [@Model.ReservationCount],
-                    backgroundColor: ['#A0C4FF']
-                }]
-            }
-        });
+        <!-- Statistics Cards -->
+        <div class="stats-row">
+            <div class="stat-card" onclick="location.href='@Url.Page("/Admin/Boats")'" style="cursor: pointer;">
+                <i class="fa fa-ship"></i>
+                <div class="stat-number">@Model.BoatCount</div>
+                <div class="stat-label">Bateaux actifs</div>
+            </div>
 
-        const messagesChart = new Chart(document.getElementById('messagesChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Messages'],
-                datasets: [{
-                    label: 'Messages',
-                    data: [@Model.MessageCount],
-                    backgroundColor: ['#FFD6A5']
-                }]
-            }
-        });
+            <div class="stat-card" onclick="location.href='@Url.Page("/Admin/Reservations")'" style="cursor: pointer;">
+                <i class="fa fa-calendar-check"></i>
+                <div class="stat-number">@Model.ReservationCount</div>
+                <div class="stat-label">Réservations confirmées</div>
+            </div>
 
-        const boatsChart = new Chart(document.getElementById('boatsChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Bateaux'],
-                datasets: [{
-                    label: 'Bateaux',
-                    data: [@Model.BoatCount],
-                    backgroundColor: ['#FFADAD']
-                }]
+            <div class="stat-card" onclick="location.href='@Url.Page("/Admin/Messages")'" style="cursor: pointer;">
+                <i class="fa fa-hourglass-half"></i>
+                <div class="stat-number">@Model.PendingReservationCount</div>
+                <div class="stat-label">Demandes en attente</div>
+            </div>
+
+            <div class="stat-card" onclick="location.href='@Url.Page("/Admin/Messages")'" style="cursor: pointer;">
+                <i class="fa fa-envelope"></i>
+                <div class="stat-number">@Model.UnreadMessageCount</div>
+                <div class="stat-label">Messages non lus</div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="actions-section">
+            <div class="actions-title">Actions rapides</div>
+            <div class="action-buttons">
+                <button class="btn-action btn-primary-action" onclick="location.href='@Url.Page("/Admin/Boats/Create")'">
+                    Ajouter un bateau
+                </button>
+                <button class="btn-action btn-secondary-action" onclick="location.href='@Url.Page("/Admin/Boats")'">
+                    Gérer mes bateaux
+                </button>
+                <button class="btn-action btn-secondary-action" onclick="location.href='@Url.Page("/Admin/Reservations", new { status = "pending" })'">
+                    Voir les demandes (1)
+                </button>
+            </div>
+        </div>
+
+        <!-- Pending Requests -->
+        <div class="pending-section">
+            <div class="pending-title">Demandes récentes en attente</div>
+            
+            @if (Model.PendingReservationCount > 0)
+            {
+                <div class="pending-card">
+                    <div class="pending-card-content">
+                        <strong>Bateau:</strong> Sophie Lambert 45<br>
+                        <strong>Locataire:</strong> Mohamed Martin<br>
+                        <strong>Dates:</strong> 15/09/2025 → 16/09/2025<br>
+                        <strong>Prix:</strong> 518.98 €
+                    </div>
+                    <button class="btn-view-details" onclick="location.href='@Url.Page("/Admin/Reservations")'">
+                        Voir détails
+                    </button>
+                </div>
             }
-        });
-    </script>
-}
+            else
+            {
+                <p class="text-muted">Aucune demande en attente</p>
+            }
+        </div>
+
+        <!-- My Boats -->
+        <div class="items-section">
+            <div class="items-title">Mes bateaux</div>
+            <div class="items-grid">
+                <div class="item-card" onclick="location.href='@Url.Page("/Admin/Boats")'">
+                    <div class="item-name">Azure Dream</div>
+                    <div class="item-details">Voir détails</div>
+                </div>
+                <div class="item-card" onclick="location.href='@Url.Page("/Admin/Boats")'">
+                    <div class="item-name">Sophie Lambert 45</div>
+                    <div class="item-details">Voir détails</div>
+                </div>
+                <div class="item-card" onclick="location.href='@Url.Page("/Admin/Boats")'">
+                    <div class="item-name">Sea Explorer</div>
+                    <div class="item-details">Voir détails</div>
+                </div>
+            </div>
+            <div class="view-all-link">
+                <a href="@Url.Page("/Admin/Boats")">Voir tous mes bateaux (3)</a>
+            </div>
+        </div>
+
+    </div>
+</div>

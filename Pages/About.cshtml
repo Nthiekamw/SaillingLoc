@@ -1,17 +1,386 @@
 @page
 @model SaillingLoc.Pages.AboutModel
 @{
-    ViewData["Title"] = "À Propos";
+    ViewData["Title"] = "À Propos - SailingLoc";
 }
 
-  <title>Location de bateaux - DSP Sailing</title>
-    <meta name="description" content="Louez un bateau facilement avec DSP Sailing. Réservez en ligne et profitez de votre séjour en mer.">
-    <meta name="keywords" content="location bateau, réservation bateau, mer, DSP Sailing">
-    <meta name="robots" content="index, follow">
+<style>
+    .about-hero {
+       background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
+                url('@Url.Content("~/images/jpt.png")') no-repeat center center/cover;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        text-align: center;
+        margin: -20px -15px 0 -15px;
+    }
 
-<div class="legal-page">
-    <h2>À Propos de SailingLoc</h2>
-    <p>Bienvenue sur SailingLoc ! Notre mission est de faciliter vos aventures nautiques avec des locations de bateaux simples, rapides et sécurisées.</p>
-    <p>Notre équipe passionnée est là pour vous guider, que vous soyez débutant ou navigateur expérimenté.</p>
-    <p>Pour toute question, n’hésitez pas à nous <a asp-page="/Contacts">contacter</a>.</p>
+    .about-hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .about-hero p {
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+
+    .about-section {
+        padding: 60px 0;
+    }
+
+    .about-intro {
+        background-color: #f8f5f0;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .about-intro h2 {
+        color: #8B4513;
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    .about-intro p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+        max-width: 900px;
+        margin: 0 auto 20px;
+    }
+
+    .about-intro ul {
+        list-style: none;
+        padding: 0;
+        max-width: 700px;
+        margin: 30px auto;
+        text-align: left;
+    }
+
+    .about-intro ul li {
+        padding: 10px 0;
+        font-size: 1.05rem;
+        color: #444;
+        padding-left: 30px;
+        position: relative;
+    }
+
+    .about-intro ul li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #8B4513;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .testimonials-section {
+        background-color: white;
+        padding: 60px 20px;
+    }
+
+    .testimonials-title {
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .testimonials-subtitle {
+        text-align: center;
+        font-size: 1.3rem;
+        color: #666;
+        margin-bottom: 50px;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .testimonial-card {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        position: relative;
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 25px;
+        font-style: italic;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #8B4513;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .testimonial-name {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .testimonial-stars {
+        color: #FFB800;
+        font-size: 0.9rem;
+        margin-top: 3px;
+    }
+
+    .testimonial-dots {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+        background-color: #ddd;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .dot.active {
+        background-color: #8B4513;
+    }
+
+    .team-section {
+        background-color: #f8f5f0;
+        padding: 60px 20px;
+    }
+
+    .team-title {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .team-subtitle {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 50px;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .team-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+
+    .team-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .team-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        background-color: #e0e0e0;
+    }
+
+    .team-info {
+        padding: 25px;
+        text-align: center;
+    }
+
+    .team-member-name {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .team-member-role {
+        font-size: 0.95rem;
+        color: #777;
+        line-height: 1.5;
+    }
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #8B4513;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        transition: background-color 0.3s;
+        z-index: 1000;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #6d3410;
+    }
+
+   
+</style>
+
+<!-- Hero Section -->
+<div class="about-hero">
+    <div>
+        <h1>À propos de SailingLoc</h1>
+        <p>Naviguez librement. Entre passionnés.</p>
+    </div>
 </div>
+
+<!-- Introduction Section -->
+<div class="about-intro">
+    <h2>À propos de SailingLoc</h2>
+    <p>
+        Chez SailingLoc, nous mettons en relation les amoureux de la mer pour faciliter la location de voiliers et de bateaux à moteur. Que vous soyez propriétaire cherchant à rentabiliser votre bateau ou marin souhaitant une aventure en quête de découverte, notre plateforme vous accompagne pour une expérience simple, sécurisée et conviviale sur l'eau.
+    </p>
+    <p>
+        Rejoignez une nouvelle façon de naviguer pour une expérience authentique qui allie la passion de la mer et l'envie d'explorer les horizons en toute liberté.
+    </p>
+    <ul>
+        <li>Nous facilitons la location entre particuliers</li>
+        <li>Une communauté passionnée pour une navigation simple et sécurisée</li>
+    </ul>
+</div>
+
+<!-- Testimonials Section -->
+<div class="testimonials-section">
+    <h3 class="testimonials-title">Ce que nos navigateurs disent de nous</h3>
+    <h2 class="testimonials-subtitle">Des expériences inoubliables en mer</h2>
+    
+    <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+            <p class="testimonial-text">
+                Louer un voilier via SailingLoc a été une expérience incroyable ! Le bateau était en excellent état, et le processus de réservation était fluide. J'ai même passé une semaine magique à explorer la côte méditerranéenne. Je recommande vivement !
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">M</div>
+                <div>
+                    <div class="testimonial-name">Marc L.</div>
+                    <div class="testimonial-stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+            <p class="testimonial-text">
+                Nous avons loué un catamaran pour une week-end entre amis, et tout était parfait ! L'équipe de SailingLoc nous a accompagnés à chaque étape, et le bateau était spacieux et confortable. Une expérience à refaire !
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">S</div>
+                <div>
+                    <div class="testimonial-name">Sophie D.</div>
+                    <div class="testimonial-stars">★★★★½</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="testimonial-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+
+<!-- Team Section -->
+<div class="team-section">
+    <p class="team-title">Équipe SailingLoc</p>
+    <h2 class="team-subtitle">Notre équipe d'ouvrage</h2>
+    
+    <div class="team-grid">
+        <!-- Team Member 1 -->
+        <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" 
+                 alt="Paul Voisin" 
+                 class="team-image">
+            <div class="team-info">
+                <h3 class="team-member-name">Paul Voisin</h3>
+                <p class="team-member-role">Fondateur et Directeur Général de SailingLoc</p>
+            </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" 
+                 alt="Sophie Martel" 
+                 class="team-image">
+            <div class="team-info">
+                <h3 class="team-member-name">Sophie Martel</h3>
+                <p class="team-member-role">Responsable Marketing et Communication</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scroll to Top Button -->
+<div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fa fa-arrow-up"></i>
+</div>
+
+@section Scripts {
+    <script>
+        // Dots pagination simulation
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 300) {
+                scrollBtn.style.display = 'flex';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        });
+    </script>
+}

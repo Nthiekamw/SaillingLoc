@@ -573,7 +573,7 @@ body {
 </section>
 
 <!-- Reservation Title -->
-<h2 class="reservation-title">Réserver une location de bateau</h2>
+@* <h2 class="reservation-title">Réserver une location de bateau</h2> *@
 
 <!-- Search Form -->
 <div class="container">
@@ -726,9 +726,9 @@ body {
                             @if (Model.IsAdmin || (Model.IsProprietaire && boat.OwnerId == Model.CurrentUserId))
                             {
                                 <div style="margin-top: 15px;">
-                                    <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn-view" style="background-color: #28a745;">Modifier</a>
+                                    <a asp-page="/EditBoat" asp-route-id="@boat.Id" class="btn-view" style="background-color:  #AD7C59;">Modifier</a>
                                     <form method="post" asp-page-handler="Delete" asp-route-id="@boat.Id" style="display:inline" onsubmit="return confirm('Voulez-vous vraiment supprimer cette annonce ?');">
-                                        <button type="submit" class="btn-view" style="background-color: #dc3545;">Supprimer</button>
+                                        <button type="submit" class="btn-view" style="background-color:  #AD7C59;">Supprimer</button>
                                     </form>
                                 </div>
                             }

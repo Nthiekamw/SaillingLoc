@@ -23,7 +23,7 @@
         min-height: 400px;
         display: flex;
         align-items: center;
-        color: white;
+        color: black;
         position: relative;
     }
 
@@ -262,7 +262,7 @@
     }
 
     .btn-edit {
-        background-color: #0d6efd;
+        background-color: #AD7C59 ;
         color: #fff;
         border-radius: 6px;
         padding: 6px 12px;
@@ -277,7 +277,7 @@
     }
 
     .btn-delete {
-        background-color: #dc3545;
+        background-color:  #AD7C59;
         color: #fff;
         border-radius: 6px;
         padding: 6px 12px;
@@ -290,8 +290,8 @@
     }
 
     .btn-add-boat {
-        background-color: #28a745;
-        color: #fff;
+        background-color: #fff;
+        color:  #AD7C59;
         padding: 12px 25px;
         border-radius: 8px;
         text-decoration: none;
@@ -302,7 +302,7 @@
     }
 
     .btn-add-boat:hover {
-        background-color: #218838;
+        background-color: #AD7C59;
         color: #fff;
     }
 
@@ -432,8 +432,8 @@
                 {
                     foreach (var boat in Model.Boats)
                     {
-                        var photoUrl = boat.Photos != null && boat.Photos.Any()
-                            ? Url.Content(boat.Photos.First().PhotoUrl)
+                        var photoUrl = boat.Photo != null 
+                            ? Url.Content(boat.Photo)
                             : Url.Content("~/images/default-boat.jpg");
 
                         <div class="col-lg-4 col-md-6">

@@ -367,3 +367,35 @@ body {
             text-align: center;
         }
     }
+
+     @media (max-width: 768px) {
+        .about-hero h1 {
+            font-size: 2rem;
+        }
+        .about-hero p {
+            font-size: 1rem;
+        }
+    }
+      @media (max-width: 992px) {
+        .search-bar-form {
+            flex-wrap: wrap;
+        }
+
+        .search-field {
+            flex: 1 1 calc(50% - 10px);
+            border-right: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-search-horizontal {
+            flex: 1 1 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .search-field {
+            flex: 1 1 100%;
+        }
+    }
