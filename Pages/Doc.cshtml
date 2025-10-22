@@ -13,10 +13,18 @@
         background-color: #f5f3ef;
     }
 
+    .documents-wrapper {
+        background-color: #f5f3ef;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
     .documents-container {
         max-width: 1400px;
-        margin: 40px auto;
-        padding: 0 20px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: white;
+        border-radius: 8px;
     }
 
     .user-header {
@@ -50,7 +58,7 @@
     }
 
     .page-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 600;
         color: #1a1a1a;
         margin-bottom: 30px;
@@ -58,11 +66,11 @@
 
     .document-card {
         background: white;
-        border: 1px solid #ddd;
+        border: 2px solid #ddd;
         border-radius: 12px;
         padding: 25px 30px;
         margin-bottom: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
     }
 
     .document-header {
@@ -73,15 +81,15 @@
     }
 
     .document-icon {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
         background-color: #a67c52;
         color: white;
         border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         flex-shrink: 0;
     }
 
@@ -93,13 +101,23 @@
         font-size: 1.1rem;
         font-weight: 600;
         color: #1a1a1a;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
     }
 
     .document-description {
         font-size: 0.9rem;
         color: #666;
         margin: 0;
+        line-height: 1.5;
+    }
+
+    .error-message {
+        position: absolute;
+        top: 25px;
+        right: 30px;
+        color: #dc3545;
+        font-size: 0.85rem;
+        font-weight: 500;
     }
 
     .document-footer {
@@ -113,7 +131,7 @@
     .document-status {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 15px;
         flex-wrap: wrap;
     }
 
@@ -132,7 +150,7 @@
         display: inline-flex;
         align-items: center;
         gap: 5px;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         font-weight: 500;
     }
 
@@ -145,7 +163,7 @@
     }
 
     .status-badge i {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .status-date {
@@ -161,7 +179,7 @@
     .btn-replace,
     .btn-delete,
     .btn-upload {
-        padding: 8px 20px;
+        padding: 8px 18px;
         border: none;
         border-radius: 6px;
         font-size: 0.9rem;
@@ -176,7 +194,7 @@
     .btn-replace {
         background-color: transparent;
         color: #333;
-        border: 1px solid #ddd;
+        border: 1px solid #999;
     }
 
     .btn-replace:hover {
@@ -186,12 +204,11 @@
     .btn-delete {
         background-color: transparent;
         color: #dc3545;
-        border: 1px solid #dc3545;
+        border: 1px solid transparent;
     }
 
     .btn-delete:hover {
-        background-color: #dc3545;
-        color: white;
+        background-color: #fff5f5;
     }
 
     .btn-upload {
@@ -206,122 +223,116 @@
     .no-document {
         color: #999;
         font-size: 0.9rem;
-        margin-bottom: 15px;
+        margin: 0;
     }
 
-    .error-message {
-        color: #dc3545;
-        font-size: 0.85rem;
-        margin-top: -10px;
-        margin-bottom: 15px;
-        text-align: right;
-    }
-
-   
+  
 </style>
 
-<div class="documents-container">
-    <!-- User Header -->
-    <div class="user-header">
-        <div class="user-info">
-            <div class="user-avatar">WN</div>
-            <span class="user-name">william nthiekam</span>
+<div class="documents-wrapper">
+    <div class="documents-container">
+        <!-- User Header -->
+        <div class="user-header">
+            <div class="user-info">
+                <div class="user-avatar">WN</div>
+                <span class="user-name">william nthiekam</span>
+            </div>
         </div>
-    </div>
 
-    <!-- Page Title -->
-    <h1 class="page-title">Mes Documents</h1>
+        <!-- Page Title -->
+        <h1 class="page-title">Mes Documents</h1>
 
-    <!-- Document 1: Carte d'identité -->
-    <div class="document-card">
-        <div class="document-header">
-            <div class="document-icon">
-                <i class="fas fa-id-card"></i>
+        <!-- Document 1: Carte d'identité -->
+        <div class="document-card">
+            <div class="document-header">
+                <div class="document-icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <div class="document-info">
+                    <h3 class="document-title">Carte d'identité</h3>
+                    <p class="document-description">Une copie recto-verso de votre pièce d'identité valide</p>
+                </div>
             </div>
-            <div class="document-info">
-                <h3 class="document-title">Carte d'identité</h3>
-                <p class="document-description">Une copie recto-verso de votre pièce d'identité valide</p>
+            <div class="document-footer">
+                <div class="document-status">
+                    <a href="#" class="status-link">Voir le document</a>
+                    <span class="status-badge validated">
+                        <i class="fas fa-check-circle"></i>
+                        Validé
+                    </span>
+                    <span class="status-date">Ajouté le 15/05/2023</span>
+                </div>
+                <div class="document-actions">
+                    <button class="btn-replace">
+                        <i class="fas fa-upload"></i>
+                        Remplacer
+                    </button>
+                    <button class="btn-delete">
+                        <i class="fas fa-trash"></i>
+                        Supprimer
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="document-footer">
-            <div class="document-status">
-                <a href="#" class="status-link">Voir le document</a>
-                <span class="status-badge validated">
-                    <i class="fas fa-check-circle"></i>
-                    Validé
-                </span>
-                <span class="status-date">Ajouté le 15/05/2023</span>
-            </div>
-            <div class="document-actions">
-                <button class="btn-replace">
-                    <i class="fas fa-upload"></i>
-                    Remplacer
-                </button>
-                <button class="btn-delete">
-                    <i class="fas fa-trash"></i>
-                    Supprimer
-                </button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Document 2: Permis bateau -->
-    <div class="document-card">
-        <div class="document-header">
-            <div class="document-icon">
-                <i class="fas fa-file-alt"></i>
+        <!-- Document 2: Permis bateau -->
+        <div class="document-card">
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <p class="error-message">@Model.ErrorMessage</p>
+            }
+            <div class="document-header">
+                <div class="document-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="document-info">
+                    <h3 class="document-title">Permis bateau</h3>
+                    <p class="document-description">Votre permis bateau valide (si nécessaire pour la location)</p>
+                </div>
             </div>
-            <div class="document-info">
-                <h3 class="document-title">Permis bateau</h3>
-                <p class="document-description">Votre permis bateau valide (si nécessaire pour la location)</p>
+            <div class="document-footer">
+                <div class="document-status">
+                    <a href="#" class="status-link">Voir le document</a>
+                    <span class="status-badge rejected">
+                        <i class="fas fa-times-circle"></i>
+                        Rejeté
+                    </span>
+                    <span class="status-date">Ajouté le 20/06/2023</span>
+                </div>
+                <div class="document-actions">
+                    <button class="btn-replace">
+                        <i class="fas fa-upload"></i>
+                        Remplacer
+                    </button>
+                    <button class="btn-delete">
+                        <i class="fas fa-trash"></i>
+                        Supprimer
+                    </button>
+                </div>
             </div>
         </div>
-        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-        {
-            <p class="error-message">@Model.ErrorMessage</p>
-        }
-        <div class="document-footer">
-            <div class="document-status">
-                <a href="#" class="status-link">Voir le document</a>
-                <span class="status-badge rejected">
-                    <i class="fas fa-times-circle"></i>
-                    Rejeté
-                </span>
-                <span class="status-date">Ajouté le 20/06/2023</span>
-            </div>
-            <div class="document-actions">
-                <button class="btn-replace">
-                    <i class="fas fa-upload"></i>
-                    Remplacer
-                </button>
-                <button class="btn-delete">
-                    <i class="fas fa-trash"></i>
-                    Supprimer
-                </button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Document 3: Assurance -->
-    <div class="document-card">
-        <div class="document-header">
-            <div class="document-icon">
-                <i class="fas fa-shield-alt"></i>
+        <!-- Document 3: Assurance -->
+        <div class="document-card">
+            <div class="document-header">
+                <div class="document-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="document-info">
+                    <h3 class="document-title">Assurance</h3>
+                    <p class="document-description">Votre attestation d'assurance couvrant la location</p>
+                </div>
             </div>
-            <div class="document-info">
-                <h3 class="document-title">Assurance</h3>
-                <p class="document-description">Votre attestation d'assurance couvrant la location</p>
-            </div>
-        </div>
-        <div class="document-footer">
-            <div class="document-status">
-                <p class="no-document">Aucun document téléchargé</p>
-            </div>
-            <div class="document-actions">
-                <button class="btn-upload">
-                    <i class="fas fa-upload"></i>
-                    Télécharger
-                </button>
+            <div class="document-footer">
+                <div class="document-status">
+                    <p class="no-document">Aucun document téléchargé</p>
+                </div>
+                <div class="document-actions">
+                    <button class="btn-upload">
+                        <i class="fas fa-upload"></i>
+                        Télécharger
+                    </button>
+                </div>
             </div>
         </div>
     </div>

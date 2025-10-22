@@ -1,7 +1,7 @@
 @page
 @model SaillingLoc.Pages.DashUserModel
 @{
-    ViewData["Title"] = "Tableau de Bord Propriétaire";
+    ViewData["Title"] = "Tableau de Bord ";
     Layout = "_Layout";
 }
 
@@ -444,8 +444,11 @@
     <aside class="sidebar">
         <div class="sidebar-logo">
             <div class="logo-container">
-                <div class="logo-icon">⛵</div>
-                <div class="logo-text">SAILINGLOC</div>
+              <div class="mb-4">
+            <img src="~/images/plan2.png" alt="SailingLoc" style="height: 80px;" />
+        </div>
+ 
+              
             </div>
         </div>
 
@@ -484,12 +487,12 @@
 
 
             
-            <a href="#" class="menu-item">
+                <a asp-page="/Doc" class="menu-item">
                 <span class="menu-item-icon">📄</span>
                 <span class="menu-item-text">Documents</span>
             </a>
             
-            <a href="#" class="menu-item">
+              <a asp-page="/Pam" class="menu-item">
                 <span class="menu-item-icon">⚙️</span>
                 <span class="menu-item-text">Paramètres</span>
             </a>
@@ -511,7 +514,7 @@
         <header class="dashboard-header">
             <div class="header-left">
                 <div class="header-icon">👤</div>
-                <h1 class="header-title">Tableau de Bord Propriétaire</h1>
+                <h1 class="header-title">Tableau de Bord </h1>
             </div>
             
            <div class="header-right"> 

@@ -1,0 +1,361 @@
+@page
+@model SailingLoc.Pages.PamModel
+@{
+    ViewData["Title"] = "Paramètres du compte";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f5f3ef;
+    }
+
+    .settings-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 40px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .user-header {
+        text-align: right;
+        margin-bottom: 30px;
+    }
+
+    .user-info {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        background-color: #5a7d9a;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .user-name {
+        font-size: 0.95rem;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 40px;
+    }
+
+    .section {
+        margin-bottom: 35px;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .section-title i {
+        color: #a67c52;
+        font-size: 1rem;
+    }
+
+    .role-badges {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+
+    .role-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .role-badge.locataire {
+        background-color: #e8f4f8;
+        color: #5a7d9a;
+    }
+
+    .role-badge.proprietaire {
+        background-color: #a67c52;
+        color: white;
+    }
+
+    .role-badge i.remove-icon {
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+
+    .btn-add-role {
+        background-color: #a67c52;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-add-role:hover {
+        background-color: #8f6a44;
+    }
+
+    .section-description {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .section-divider {
+        border: none;
+        border-top: 1px solid #e5e5e5;
+        margin: 30px 0;
+    }
+
+    .notification-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .notification-info h6 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 5px;
+    }
+
+    .notification-info p {
+        font-size: 0.85rem;
+        color: #666;
+        margin: 0;
+    }
+
+    /* Toggle Switch */
+    .toggle-switch {
+        position: relative;
+        width: 50px;
+        height: 26px;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+        background-color: #a67c52;
+    }
+
+    input:checked + .toggle-slider:before {
+        transform: translateX(24px);
+    }
+
+    .privacy-select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        color: #333;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .privacy-select:focus {
+        outline: none;
+        border-color: #a67c52;
+    }
+
+    .privacy-label {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .action-button {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #dc3545;
+        background-color: white;
+        color: #dc3545;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .action-button:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .action-button.delete {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .action-button.delete:hover {
+        background-color: #c82333;
+    }
+</style>
+
+<div class="settings-container">
+    <!-- User Header -->
+    <div class="user-header">
+        <div class="user-info">
+            <div class="user-avatar">WN</div>
+            <span class="user-name">william nthiekam</span>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <h1 class="page-title">Paramètres du compte</h1>
+
+    <!-- Section: Mes Rôles -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-user"></i>
+            Mes Rôles
+        </h2>
+        <div class="role-badges">
+            <span class="role-badge locataire">
+                <i class="fas fa-user"></i>
+                Locataire
+            </span>
+            <span class="role-badge proprietaire">
+                <i class="fas fa-home"></i>
+                Propriétaire
+                <i class="fas fa-times remove-icon"></i>
+            </span>
+            <button class="btn-add-role">+ Ajouter un rôle</button>
+        </div>
+        <p class="section-description">
+            Votre compte peut avoir plusieurs rôles (ex: locataire et propriétaire). Certains rôles nécessitent une vérification.
+        </p>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section: Notifications -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-bell"></i>
+            Notifications
+        </h2>
+
+        <div class="notification-item">
+            <div class="notification-info">
+                <h6>Notifications par email</h6>
+                <p>Recevoir des notifications importantes par email</p>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <div class="notification-item">
+            <div class="notification-info">
+                <h6>Newsletter</h6>
+                <p>Recevoir notre newsletter mensuelle</p>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Section: Confidentialité -->
+    <div class="section">
+        <h2 class="section-title">
+            <i class="fas fa-user-shield"></i>
+            Confidentialité
+        </h2>
+
+        <label class="privacy-label">Visibilité de l'email</label>
+        <select class="privacy-select">
+            <option selected>Privé (seul vous pouvez voir votre email)</option>
+            <option>Public (visible par tous)</option>
+            <option>Membres uniquement</option>
+        </select>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Actions -->
+    <div class="section">
+        <button class="action-button">
+            <i class="fas fa-sign-out-alt"></i>
+            Déconnexion
+        </button>
+        <button class="action-button delete">
+            <i class="fas fa-trash"></i>
+            Supprimer mon compte
+        </button>
+    </div>
+</div>

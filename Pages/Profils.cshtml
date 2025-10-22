@@ -1,45 +1,194 @@
 @page
-@model SaillingLoc.Pages.ProfilesModel
+@model SailingLoc.Pages.ProfilesModel
 @{
     ViewData["Title"] = "Mon Profil";
 }
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <title>@ViewData["Title"]</title>
-</head>
-<body>
-    <div class="container mt-5">
-        <h2>Mon Profil</h2>
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="@Model.User.Photo" alt="Photo de profil" class="img-fluid rounded-circle mb-3" />
-                    </div>
-                    <div class="col-md-9">
-                    <p>Bonjour @Model.CurrentUser.FullName 👋</p>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
 
-                        <h4>@Model.User.FullName</h4>
-                        <p><strong>Email:</strong> @Model.User.Email</p>
-                        <p><strong>Téléphone:</strong> @Model.User.PhoneNumber</p>
-                        <p><strong>Adresse:</strong> @Model.User.Address</p>
-                        <p><strong>Méthode de paiement:</strong> @Model.User.PaymentMethod</p>
-                        <p><strong>Messages non lus:</strong> @Model.User.UnreadMessagesCount</p>
-                        <a asp-page="./EditProfile" class="btn btn-primary">Modifier mon profil</a>
-                        <a asp-page="./ChangePassword" class="btn btn-secondary">Modifier mon mot de passe</a>
-                    </div>
-                </div>
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f5f3ef;
+    }
+
+    .profile-wrapper {
+        background-color: #f5f3ef;
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    .profile-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 40px;
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+        background-color: #b8c5d0;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 2rem;
+        text-transform: uppercase;
+        flex-shrink: 0;
+    }
+
+    .profile-info {
+        flex-grow: 1;
+    }
+
+    .profile-name {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 8px;
+    }
+
+    .profile-email {
+        font-size: 0.95rem;
+        color: #666;
+        margin: 0;
+    }
+
+    .profile-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .detail-item {
+        margin-bottom: 0;
+    }
+
+    .detail-label {
+        font-size: 0.9rem;
+        color: #999;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .detail-value {
+        font-size: 1rem;
+        color: #1a1a1a;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .profile-actions {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn-edit,
+    .btn-password {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-edit {
+        background-color: #a67c52;
+        color: white;
+    }
+
+    .btn-edit:hover {
+        background-color: #8f6a44;
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn-password {
+        background-color: #e5e5e5;
+        color: #333;
+    }
+
+    .btn-password:hover {
+        background-color: #d0d0d0;
+        color: #333;
+        text-decoration: none;
+    }
+
+   
+</style>
+
+<div class="profile-wrapper">
+    <div class="profile-container">
+        <!-- Page Title -->
+        <h1 class="page-title">Mon Profil</h1>
+
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar">
+                @if (!string.IsNullOrEmpty(Model.CurrentUser?.FullName))
+                {
+                    var initials = Model.CurrentUser.FullName.Split(' ');
+                    if (initials.Length >= 2)
+                    {
+                        @(initials[0].Substring(0, 1) + initials[1].Substring(0, 1))
+                    }
+                    else
+                    {
+                        @Model.CurrentUser.FullName.Substring(0, Math.Min(2, Model.CurrentUser.FullName.Length))
+                    }
+                }
+                else
+                {
+                    <text>WN</text>
+                }
+            </div>
+            <div class="profile-info">
+                <h2 class="profile-name">@(Model.CurrentUser?.FullName ?? "william nthiekam")</h2>
+                <p class="profile-email">@(Model.CurrentUser?.Email ?? "williamnthiekam392@gmail.com")</p>
             </div>
         </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    @* <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script> *@
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+        <!-- Profile Details -->
+        <div class="profile-details">
+            <div class="detail-item">
+                <span class="detail-label">Téléphone</span>
+                <p class="detail-value">@(Model.CurrentUser?.PhoneNumber ?? "0615013694")</p>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Adresse</span>
+                <p class="detail-value">@(Model.CurrentUser?.Address ?? "Avenue William Grisard, 7")</p>
+            </div>
+        </div>
+
+        <!-- Profile Actions -->
+        <div class="profile-actions">
+            <a href="#" class="btn-edit">Modifier mon profil</a>
+            <a href="#" class="btn-password">Modifier mon mot de passe</a>
+        </div>
+    </div>
+</div>

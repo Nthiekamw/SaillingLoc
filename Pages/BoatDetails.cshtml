@@ -232,7 +232,10 @@
                     <p><strong>Skipper requis :</strong> Non</p>
                 </div>
 
-                <button class="rent-button">Louer maintenant</button>
+               <a asp-page="/ReserveBoat" asp-route-id="@Model.Boat.Id" class="rent-button">
+    Louer maintenant
+</a>
+
             </div>
         </div>
 

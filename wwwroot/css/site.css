@@ -328,3 +328,42 @@ body {
             justify-content: center;
         }
     }
+
+      @media (max-width: 768px) {
+        .document-footer {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .document-actions {
+            width: 100%;
+        }
+
+        .btn-replace,
+        .btn-delete,
+        .btn-upload {
+            flex: 1;
+        }
+    }
+
+     @media (max-width: 768px) {
+        .profile-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .profile-details {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .profile-actions {
+            flex-direction: column;
+        }
+
+        .btn-edit,
+        .btn-password {
+            width: 100%;
+            text-align: center;
+        }
+    }
