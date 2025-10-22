@@ -221,17 +221,6 @@ body {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* Responsive */
     @media (max-width: 768px) {
         .hero h1 {
@@ -397,5 +386,95 @@ body {
     @media (max-width: 576px) {
         .search-field {
             flex: 1 1 100%;
+        }
+    }
+     @media (max-width: 768px) {
+        .form-row-custom {
+            grid-template-columns: 1fr;
+        }
+
+        .tabs-container {
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            flex: 1 1 50%;
+        }
+    }
+
+
+     @media (max-width: 1200px) {
+        .stats-section,
+        .action-cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .stats-section,
+        .action-cards,
+        .reservations-grid,
+        .financial-cards,
+        .bottom-stats-section {
+            grid-template-columns: 1fr;
+        }
+    }
+
+     @media (max-width: 1200px) {
+        .stats-section {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .stats-section {
+            grid-template-columns: 1fr;
+        }
+
+        .filters-section {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .search-input {
+            max-width: none;
+        }
+    }
+
+
+     @media (max-width: 768px) {
+        .messaging-container {
+            height: calc(100vh - 60px);
+            margin: 10px;
+        }
+
+        .conversations-sidebar {
+            width: 100%;
+            display: none;
+        }
+
+        .conversations-sidebar.mobile-show {
+            display: flex;
+        }
+
+        .chat-area {
+            display: none;
+        }
+
+        .chat-area.mobile-show {
+            display: flex;
+        }
+    }
+
+
+     @media (max-width: 768px) {
+        .reservations-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .header-section {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
         }
     }

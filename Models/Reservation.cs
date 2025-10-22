@@ -37,15 +37,16 @@ namespace SaillingLoc.Models
 
 
     }
-    
 
 
 
-public enum ReservationStatus
-{
-    EnAttente,
-    Acceptee,
-    Refusee
+
+    public enum ReservationStatus
+    {
+        EnAttente,
+        Acceptee,
+        Refusee,
+     Annulee // ✅ Ajoute cette ligne
 }
 
 }

@@ -1,51 +1,323 @@
 @page
+@using SaillingLoc.Models
+
 @model SaillingLoc.Pages.MyReservationsModel
 @{
     ViewData["Title"] = "Mes Réservations";
 }
 
-<a asp-page="/Manage"
-   class="btn"
-   style="background-color: #AD7C59; color: white; position: absolute; top: 75px; right: 80px;">
-   Gérer mes réservations reçues
-</a>
+<style>
+    body {
+        background-color: #f5f5f5;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
 
+    .reservations-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
+    .header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
 
+    .header-section h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #202124;
+        margin: 0;
+    }
 
-<h2>Mes Réservations</h2>
+    .btn-manage {
+        background-color: #AD7C59;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.2s;
+    }
 
+    .btn-manage:hover {
+        background-color: #c1926b;
+        color: white;
+    }
 
+    .reservations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 20px;
+    }
 
-@if (Model.Reservations == null || !Model.Reservations.Any())
-{
-    <p>Vous n'avez pas encore de réservations.</p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Référence</th>
-                <th>Bateau</th>
-                <th>Date de début</th>
-                <th>Date de fin</th>
-                <th>Prix total</th>
-                 <th>Statut</th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach (var res in Model.Reservations)
-        {
-            <tr>
-                <td>@res.Reference</td>
-                <td>@(res.Boat != null ? res.Boat.Name : "<em>Bateau supprimé</em>")</td>
-                <td>@res.StartDate.ToShortDateString()</td>
-                <td>@res.EndDate.ToShortDateString()</td>
-                <td>@res.TotalPrice.ToString("C")</td>
-                 <td>@res.Status.ToString()</td>
-            </tr>
-        }
-        </tbody>
-    </table>
-}
+    .reservation-card {
+        background-color: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: box-shadow 0.3s, transform 0.2s;
+    }
+
+    .reservation-card:hover {
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        transform: translateY(-2px);
+    }
+
+    .card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background-color: #e0e0e0;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .boat-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: #202124;
+        margin-bottom: 8px;
+    }
+
+    .boat-location {
+        font-size: 13px;
+        color: #5f6368;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .reservation-dates {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: #202124;
+        margin-bottom: 12px;
+        padding: 8px 0;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .reservation-price {
+        font-size: 20px;
+        font-weight: 600;
+        color: #202124;
+        margin-bottom: 12px;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+
+    .status-badge.confirme {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .status-badge.en-attente {
+        background-color: #fff3e0;
+        color: #f57c00;
+    }
+
+    .status-badge.annule {
+        background-color: #ffebee;
+        color: #c62828;
+    }
+
+    .card-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn-details {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #dadce0;
+        background-color: white;
+        color: #5f6368;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .btn-details:hover {
+        background-color: #f8f9fa;
+    }
+
+    .btn-cancel {
+        padding: 10px 16px;
+        border: none;
+        background-color: #ffebee;
+        color: #c62828;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .btn-cancel:hover {
+        background-color: #ffcdd2;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .empty-state-icon {
+        font-size: 64px;
+        margin-bottom: 16px;
+        opacity: 0.5;
+    }
+
+    .empty-state-text {
+        font-size: 18px;
+        color: #5f6368;
+        margin-bottom: 24px;
+    }
+
+    .btn-browse {
+        background-color: #AD7C59;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.2s;
+    }
+
+    .btn-browse:hover {
+        background-color: #c1926b;
+        color: white;
+    }
+
+   
+</style>
+
+<div class="reservations-container">
+    <!-- Header with button -->
+    <div class="header-section">
+        <h2>Mes réservations</h2>
+        <a href="@Url.Page("/Manage")" class="btn-manage">
+            Gérer mes réservations reçues
+        </a>
+    </div>
+
+    @if (Model.Reservations == null || !Model.Reservations.Any())
+    {
+        <!-- Empty State -->
+        <div class="empty-state">
+            <div class="empty-state-icon">🚤</div>
+            <div class="empty-state-text">Vous n'avez pas encore de réservations</div>
+            <a href="@Url.Page("/Index")" class="btn-browse">
+                Parcourir les bateaux
+            </a>
+        </div>
+    }
+    else
+    {
+        <!-- Reservations Grid -->
+        <div class="reservations-grid">
+            @foreach (var reservation in Model.Reservations)
+            {
+                <div class="reservation-card">
+                    <!-- Boat Image -->
+                    @if (!string.IsNullOrEmpty(reservation.Boat?.Photo))
+                    {
+                        <img src="@reservation.Boat.Photo" alt="@reservation.Boat.Name" class="card-image" />
+                    }
+                    else
+                    {
+                        <div class="card-image" style="display: flex; align-items: center; justify-content: center; font-size: 48px; color: #bdc1c6;">
+                            ⛵
+                        </div>
+                    }
+
+                    <!-- Card Content -->
+                    <div class="card-content">
+                        <div class="boat-name">
+                            @(reservation.Boat?.Name ?? "Bateau supprimé")
+                        </div>
+                        
+                        <div class="boat-location">
+                            📍 @(reservation.Boat?.Port?.Name ?? "Port inconnu")
+                        </div>
+
+                        <div class="reservation-dates">
+                            📅 Du @reservation.StartDate.ToString("dd/MM/yyyy") au @reservation.EndDate.ToString("dd/MM/yyyy")
+                        </div>
+
+                        <div class="reservation-price">
+                            @reservation.TotalPrice.ToString("N2") €
+                        </div>
+
+                        @{
+                            var statusClass = reservation.Status switch
+                            {
+                                ReservationStatus.Acceptee => "confirme",
+                                ReservationStatus.EnAttente => "en-attente",
+                                ReservationStatus.Refusee => "annule",
+                                ReservationStatus.Annulee => "annule",
+                                _ => "en-attente"
+                            };
+
+                            var statusText = reservation.Status switch
+                            {
+                                ReservationStatus.Acceptee => "Confirmée - en attente de paiement",
+                                ReservationStatus.EnAttente => "En attente de confirmation",
+                                ReservationStatus.Refusee => "Refusée",
+                                ReservationStatus.Annulee => "Annulée",
+                                _ => reservation.Status.ToString()
+                            };
+                        }
+
+                        <div class="status-badge @statusClass">
+                            @statusText
+                        </div>
+
+                        <div class="card-actions">
+                            <a href="@Url.Page("/Reservations/Details", new { id = reservation.Id })" class="btn-details">
+                                Voir les détails
+                            </a>
+                            
+                            @if (reservation.Status == ReservationStatus.EnAttente || reservation.Status == ReservationStatus.Acceptee)
+                            {
+                                <form method="post" asp-page-handler="Cancel" asp-route-id="@reservation.Id" style="margin: 0;" onsubmit="return confirm('Êtes-vous sûr de vouloir annuler cette réservation ?');">
+                                    <button type="submit" class="btn-cancel">
+                                        🗑 Annuler
+                                    </button>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

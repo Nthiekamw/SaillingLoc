@@ -1,29 +1,525 @@
 @page
 @model SaillingLoc.Pages.Admin.BoatsModel
 @{
-    ViewData["Title"] = "Gestion des bateaux";
+    ViewData["Title"] = "Gestion des Bateaux";
 }
 
-<h2>Liste des bateaux</h2>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Type</th>
-            <th>Prix/jour</th>
-            <th>Port</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var boat in Model.Boats)
-    {
-        <tr>
-            <td>@boat.Name</td>
-            <td>@boat.BoatType?.Name</td>
-            <td>@boat.DailyPrice €</td>
-            <td>@boat.Port?.Name</td>
-        </tr>
+<style>
+    body {
+        background-color: #f5f5f5;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
-    </tbody>
-</table>
+
+    .header-section {
+        background-color: white;
+        padding: 20px 30px;
+        margin-bottom: 0;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-left h4 {
+        color: #202124;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 5px 0;
+    }
+
+    .header-left p {
+        color: #5f6368;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .header-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn-export {
+        background-color: white;
+        border: 1px solid #dadce0;
+        color: #5f6368;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-export:hover {
+        background-color: #f8f9fa;
+    }
+
+    .btn-nouveau-bateau {
+        background-color: #AD7C59;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-nouveau-bateau:hover {
+        background-color: #c1926b;
+    }
+
+    .filters-section {
+        background-color: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .search-input {
+        flex: 1;
+        max-width: 350px;
+        padding: 10px 12px 10px 40px;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        font-size: 14px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235f6368'%3E%3Cpath d='M11.7 10.3l3.6 3.6-1.4 1.4-3.6-3.6a6 6 0 1 1 1.4-1.4zM7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: 12px center;
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: #AD7C59;
+    }
+
+    .filter-select {
+        padding: 10px 12px;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: white;
+        min-width: 180px;
+        cursor: pointer;
+    }
+
+    .filter-select:focus {
+        outline: none;
+        border-color: #AD7C59;
+    }
+
+    .stats-section {
+        background-color: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid #e0e0e0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .stat-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .stat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        flex-shrink: 0;
+    }
+
+    .stat-icon.brown {
+        background-color: #AD7C59;
+        color: white;
+    }
+
+    .stat-icon.green {
+        background-color: #34a853;
+        color: white;
+    }
+
+    .stat-icon.yellow {
+        background-color: #fbbc04;
+        color: white;
+    }
+
+    .stat-icon.orange {
+        background-color: #f57c00;
+        color: white;
+    }
+
+    .stat-content {
+        flex: 1;
+    }
+
+    .stat-label {
+        font-size: 13px;
+        color: #5f6368;
+        margin-bottom: 4px;
+    }
+
+    .stat-number {
+        font-size: 28px;
+        font-weight: 600;
+        color: #202124;
+    }
+
+    .table-container {
+        background-color: white;
+        padding: 0;
+        overflow-x: auto;
+    }
+
+    .boats-table {
+        width: 100%;
+        background-color: white;
+        margin: 0;
+        border-collapse: collapse;
+    }
+
+    .boats-table thead {
+        background-color: #fafafa;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .boats-table thead th {
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 11px;
+        font-weight: 600;
+        color: #5f6368;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+
+    .boats-table tbody tr {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .boats-table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .boats-table tbody td {
+        padding: 16px;
+        font-size: 14px;
+        color: #202124;
+        vertical-align: middle;
+    }
+
+    .checkbox-cell {
+        width: 40px;
+    }
+
+    .checkbox-cell input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+
+    .boat-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .boat-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 6px;
+        background-color: #AD7C59;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .boat-details {
+        flex: 1;
+    }
+
+    .boat-name {
+        font-weight: 500;
+        color: #202124;
+        margin-bottom: 2px;
+    }
+
+    .boat-meta {
+        font-size: 12px;
+        color: #5f6368;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .boat-meta span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .owner-name {
+        color: #202124;
+        font-size: 14px;
+    }
+
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .status-badge.actif {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .status-badge.inactif {
+        background-color: #ffebee;
+        color: #c62828;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    .status-dot.green {
+        background-color: #34a853;
+    }
+
+    .status-dot.red {
+        background-color: #ea4335;
+    }
+
+    .price-cell {
+        font-weight: 500;
+        color: #202124;
+    }
+
+    .rating-cell {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #fbbc04;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .action-icons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .icon-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 4px;
+        color: #5f6368;
+        font-size: 18px;
+        transition: all 0.2s;
+    }
+
+    .icon-btn:hover {
+        background-color: #f1f3f4;
+    }
+
+    .icon-btn.view {
+        color: #1976d2;
+    }
+
+    .icon-btn.edit {
+        color: #f57c00;
+    }
+
+    .icon-btn.delete {
+        color: #d32f2f;
+    }
+
+   
+</style>
+
+<div class="header-section">
+    <div class="header-left">
+        <h4>Gestion des Bateaux</h4>
+        <p>Gérez le catalogue des bateaux, validez les annonces et modérez le contenu</p>
+    </div>
+    <div class="header-actions">
+        <button class="btn-export">
+            <span>⬇</span>
+            Exporter CSV
+        </button>
+        <button class="btn-nouveau-bateau" onclick="location.href='@Url.Page("/Admin/Boats/Create")'">
+            <span>+</span>
+            Nouveau bateau
+        </button>
+    </div>
+</div>
+
+<form method="get" class="filters-section">
+    <input type="text" name="searchTerm" value="@Model.SearchTerm" class="search-input" placeholder="Rechercher un bateau..." />
+    
+    <select name="statusFilter" class="filter-select">
+        <option value="">Tous les statuts</option>
+        <option value="actif" selected="@(Model.StatusFilter == "actif")">Actif</option>
+        <option value="inactif" selected="@(Model.StatusFilter == "inactif")">Inactif</option>
+    </select>
+
+    <select name="typeFilter" class="filter-select">
+        <option value="">Tous les types</option>
+        @foreach (var type in Model.BoatTypes)
+        {
+            <option value="@type.Id" selected="@(Model.TypeFilter == type.Id.ToString())">@type.Name</option>
+        }
+    </select>
+
+    <select name="portFilter" class="filter-select">
+        <option value="">Tous les ports</option>
+        @foreach (var port in Model.Ports)
+        {
+            <option value="@port.Id" selected="@(Model.PortFilter == port.Id.ToString())">@port.Name</option>
+        }
+    </select>
+
+    <button type="submit" style="display: none;"></button>
+</form>
+
+<div class="stats-section">
+    <div class="stat-card">
+        <div class="stat-icon brown">⛵</div>
+        <div class="stat-content">
+            <div class="stat-label">Total bateaux</div>
+            <div class="stat-number">@Model.TotalBoats</div>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon green">✓</div>
+        <div class="stat-content">
+            <div class="stat-label">Bateaux actifs</div>
+            <div class="stat-number">@Model.ActiveBoats</div>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon yellow">⏱</div>
+        <div class="stat-content">
+            <div class="stat-label">En attente</div>
+            <div class="stat-number">@Model.PendingBoats</div>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon orange">⭐</div>
+        <div class="stat-content">
+            <div class="stat-label">Moyenne notes</div>
+            <div class="stat-number">@Model.AverageRating.ToString("0.0")</div>
+        </div>
+    </div>
+</div>
+
+<div class="table-container">
+    <table class="boats-table">
+        <thead>
+            <tr>
+                <th class="checkbox-cell"><input type="checkbox" /></th>
+                <th>BATEAU</th>
+                <th>PROPRIÉTAIRE</th>
+                <th>STATUT</th>
+                <th>PRIX/JOUR</th>
+                <th>NOTE</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var boat in Model.Boats)
+            {
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox" /></td>
+                    <td>
+                        <div class="boat-info">
+                            <div class="boat-icon">⛵</div>
+                            <div class="boat-details">
+                                <div class="boat-name">@boat.Name</div>
+                                <div class="boat-meta">
+                                    <span>@boat.BoatType?.Name</span>
+                                    <span>•</span>
+                                    <span>📍 @boat.Port?.Name</span>
+                                    <span>•</span>
+                                    <span>📸 0 photos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="owner-name">
+                        @if (boat.Owner != null)
+                        {
+                            @boat.Owner.FullName
+                        }
+                        else if (boat.User != null)
+                        {
+                            @boat.User.FullName
+                        }
+                        else
+                        {
+                            <span style="color: #80868b;">Propriétaire inconnu</span>
+                        }
+                    </td>
+                    <td>
+                        @if (boat.IsActive)
+                        {
+                            <span class="status-badge actif">
+                                <span class="status-dot green"></span>
+                                Actif
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="status-badge inactif">
+                                <span class="status-dot red"></span>
+                                Inactif
+                            </span>
+                        }
+                    </td>
+                    <td class="price-cell">@boat.DailyPrice.ToString("N0") €</td>
+                    <td>
+                        <div class="rating-cell">
+                            <span>⭐</span>
+                            <span>0</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="action-icons">
+                            <button class="icon-btn view" title="Voir" onclick="location.href='@Url.Page("/Admin/Boats/Details", new { id = boat.Id })'">👁</button>
+                            <button class="icon-btn edit" title="Modifier" onclick="location.href='@Url.Page("/Admin/Boats/Edit", new { id = boat.Id })'">✏️</button>
+                            <button class="icon-btn delete" title="Supprimer" onclick="if(confirm('Supprimer ce bateau ?')) location.href='@Url.Page("/Admin/Boats/Delete", new { id = boat.Id })'">🗑️</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
