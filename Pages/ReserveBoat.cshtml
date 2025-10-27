@@ -4,110 +4,482 @@
     ViewData["Title"] = "Réserver un bateau";
 }
 
-<h2>Réserver le bateau : <strong>@Model.Boat?.Name</strong></h2>
+<style>
+    body {
+        background-color: #f5f5f5;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
 
-@if (!ViewData.ModelState.IsValid)
-{
-    <div class="alert alert-danger">
-        <partial name="_ValidationSummary" model="ViewData.ModelState" />
-        Veuillez corriger les erreurs ci-dessous.
+    .container-custom {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .back-link {
+        color: #666;
+        text-decoration: none;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .back-link:hover {
+        color: #333;
+    }
+
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 30px;
+    }
+
+    .booking-card {
+        background: white;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .step-indicator {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .step-indicator::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 60px;
+        right: 60px;
+        height: 2px;
+        background: #e0e0e0;
+        z-index: 0;
+    }
+
+    .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .step-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+    }
+
+    .step.active .step-icon {
+        background: #5a7c9e;
+    }
+
+    .step-label {
+        font-size: 12px;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .step.active .step-label {
+        color: #333;
+    }
+
+    .section-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 24px;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: #5a7c9e;
+    }
+
+    .form-control[readonly] {
+        background-color: #f8f8f8;
+        color: #666;
+    }
+
+    .date-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .btn-continue {
+        width: 100%;
+        padding: 14px;
+        background: #6b8aa8;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 20px;
+    }
+
+    .btn-continue:hover {
+        background: #5a7c9e;
+    }
+
+    .availability-info {
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+    }
+
+    .availability-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 12px;
+    }
+
+    .availability-period {
+        font-size: 13px;
+        color: #666;
+    }
+
+    .summary-card {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        height: fit-content;
+        position: sticky;
+        top: 20px;
+    }
+
+    .summary-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .boat-info {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .boat-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        object-fit: cover;
+        background: #e0e0e0;
+    }
+
+    .boat-details h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 4px 0;
+    }
+
+    .boat-details p {
+        font-size: 13px;
+        color: #666;
+        margin: 0;
+    }
+
+    .price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        font-size: 14px;
+    }
+
+    .price-row.total {
+        padding-top: 16px;
+        border-top: 1px solid #eee;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .price-label {
+        color: #666;
+    }
+
+    .price-value {
+        color: #333;
+        font-weight: 500;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: #666;
+        margin-top: 12px;
+    }
+
+    .info-icon {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #AD7C59;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .alert {
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    .alert-danger {
+        background: #fee;
+        border: 1px solid #fcc;
+        color: #c33;
+    }
+
+    .alert-success {
+        background: #efe;
+        border: 1px solid #cfc;
+        color: #3c3;
+    }
+
+    .alert-info {
+        background: #eef;
+        border: 1px solid #ccf;
+        color: #33c;
+    }
+
+   
+</style>
+
+<div class="container-custom">
+    <a href="javascript:history.back()" class="back-link">
+        ← Retour au bateau
+    </a>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <partial name="_ValidationSummary" model="ViewData.ModelState" />
+            Veuillez corriger les erreurs ci-dessous.
+        </div>
+    }
+
+    @if (Model.Reservation != null)
+    {
+        <div class="alert alert-info">
+            <strong>Référence :</strong> @Model.Reservation.Reference
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <div class="main-content">
+        <!-- Formulaire de réservation -->
+        <div class="booking-card">
+            <div class="step-indicator">
+                <div class="step active">
+                    <div class="step-icon">📅</div>
+                    <div class="step-label">Dates</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">👤</div>
+                    <div class="step-label">Détails</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">📄</div>
+                    <div class="step-label">Documents</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">✓</div>
+                    <div class="step-label">Confirmation</div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Choisissez vos dates</h2>
+
+            <form method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="date-inputs">
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="form-label">Date de début</label>
+                        <input type="date" asp-for="StartDate" class="form-control" id="StartDate"
+                               value="@(Model.StartDate == default ? DateTime.Today.ToString("yyyy-MM-dd") : Model.StartDate.ToString("yyyy-MM-dd"))"
+                               placeholder="Sélectionnez une date"
+                               required />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="form-label">Date de fin</label>
+                        <input type="date" asp-for="EndDate" class="form-control" id="EndDate"
+                               value="@(Model.EndDate == default ? DateTime.Today.AddDays(1).ToString("yyyy-MM-dd") : Model.EndDate.ToString("yyyy-MM-dd"))"
+                               placeholder="Sélectionnez une date"
+                               required />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nombre de passagers</label>
+                    <select class="form-control">
+                        <option value="2">2 personnes</option>
+                        <option value="4">4 personnes</option>
+                        <option value="6">6 personnes</option>
+                        <option value="8">8 personnes</option>
+                    </select>
+                </div>
+
+                <!-- reCAPTCHA -->
+                <div class="g-recaptcha" data-sitekey="6LdEqvgrAAAAAP-MCo0PNl_IbKp1kpOmTU5DdQst"></div>
+
+                <button type="submit" class="btn-continue">Continuer</button>
+
+                <div class="availability-info">
+                    <div class="availability-title">Périodes disponibles :</div>
+                    <div class="availability-period">• Du 15/09/2025 au 02/01/2026</div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Résumé de la réservation -->
+        <div class="summary-card">
+            <h3 class="summary-title">Votre réservation</h3>
+
+            <div class="boat-info">
+                <div class="boat-image"></div>
+                <div class="boat-details">
+                    <h3>@(Model.Boat?.Name ?? "Sophie Lambert 4S")</h3>
+                    <p>Sea Ray Oceani 40</p>
+                </div>
+            </div>
+
+            <div class="price-row">
+                <span class="price-label">
+                    <span id="priceCalculation">@(Model.Boat?.PricePerDay ?? 519.98m) € x 0 jours</span>
+                </span>
+                <span class="price-value" id="subtotalPrice">0€</span>
+            </div>
+
+            <div class="price-row total">
+                <span>Total</span>
+                <span id="totalPriceDisplay">0€</span>
+            </div>
+
+            <div class="info-item">
+                <span class="info-icon">✓</span>
+                <span>Annulation gratuite jusqu'à 7 jours avant la location</span>
+            </div>
+
+            <div class="info-item">
+                <span class="info-icon">✓</span>
+                <span>Assurance incluse</span>
+            </div>
+        </div>
     </div>
-}
-
-@if (Model.Boat != null)
-{
-    <p><strong>Prix par jour :</strong> @Model.Boat.PricePerDay €</p>
-}
-
-<!-- Affichage de la référence de la réservation si elle a été créée -->
-@if (Model.Reservation != null)
-{
-    <div class="alert alert-info">
-        <strong>Référence :</strong> @Model.Reservation.Reference
-    </div>
-}
-
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-
-<form method="post">
-    @* <div class="form-group mb-3">
-        <label asp-for="StartDate" class="form-label">Date de début</label>
-        <input type="date" asp-for="StartDate" class="form-control" id="StartDate" required />
-        <span asp-validation-for="StartDate" class="text-danger"></span>
-    </div>
-
-    <div class="form-group mb-3">
-        <label asp-for="EndDate" class="form-label">Date de fin</label>
-        <input type="date" asp-for="EndDate" class="form-control" id="EndDate" required />
-        <span asp-validation-for="EndDate" class="text-danger"></span>
-    </div> *@
-
-
-
-
-
-
-<div class="form-group mb-3">
-    <label asp-for="StartDate" class="form-label">Date de début</label>
-    <input type="date" asp-for="StartDate" class="form-control" id="StartDate"
-           value="@(Model.StartDate == default ? DateTime.Today.ToString("yyyy-MM-dd") : Model.StartDate.ToString("yyyy-MM-dd"))"
-           required />
-    <span asp-validation-for="StartDate" class="text-danger"></span>
 </div>
-
-<div class="form-group mb-3">
-    <label asp-for="EndDate" class="form-label">Date de fin</label>
-    <input type="date" asp-for="EndDate" class="form-control" id="EndDate"
-           value="@(Model.EndDate == default ? DateTime.Today.ToString("yyyy-MM-dd") : Model.EndDate.ToString("yyyy-MM-dd"))"
-           required />
-    <span asp-validation-for="EndDate" class="text-danger"></span>
-</div>
-
-    <!-- Affichage dynamique du prix total estimé -->
-    <div class="form-group mb-3">
-        <label>Prix total estimé</label>
-        <input type="text" id="totalPrice" class="form-control" readonly />
-    </div>
-   <div class="g-recaptcha" data-sitekey="6LcGSrErAAAAAIdnoBnj4TGt42miODROi2BWr9_C"></div>
-<button type="submit" style="background-color: #AD7C59; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Réserver</button>
-
-</form>
-
-
-
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>
-        const pricePerDay = parseFloat('@Model.Boat?.PricePerDay');
+        const pricePerDay = parseFloat('@(Model.Boat?.PricePerDay ?? 0)');
 
         function calculateTotalPrice() {
             const startInput = document.querySelector('#StartDate');
             const endInput = document.querySelector('#EndDate');
-            const totalInput = document.querySelector('#totalPrice');
+            const priceCalculation = document.querySelector('#priceCalculation');
+            const subtotalPrice = document.querySelector('#subtotalPrice');
+            const totalPriceDisplay = document.querySelector('#totalPriceDisplay');
 
-            const start = new Date(startInput.value);
-            const end = new Date(endInput.value);
+            if (!startInput || !endInput) return;
 
-            if (!isNaN(start) && !isNaN(end) && end > start) {
+            const startVal = startInput.value;
+            const endVal = endInput.value;
+            
+            if (!startVal || !endVal) {
+                if (priceCalculation) priceCalculation.textContent = pricePerDay.toFixed(2) + ' € x 0 jours';
+                if (subtotalPrice) subtotalPrice.textContent = '0€';
+                if (totalPriceDisplay) totalPriceDisplay.textContent = '0€';
+                return;
+            }
+
+            const start = new Date(startVal + 'T00:00:00');
+            const end = new Date(endVal + 'T00:00:00');
+
+            if (!isNaN(start) && !isNaN(end) && end > start && pricePerDay > 0) {
                 const diffTime = end - start;
                 const diffDays = diffTime / (1000 * 60 * 60 * 24);
                 const total = diffDays * pricePerDay;
-                totalInput.value = total.toFixed(2) + ' €';
+                
+                if (priceCalculation) priceCalculation.textContent = pricePerDay.toFixed(2) + ' € x ' + diffDays + ' jours';
+                if (subtotalPrice) subtotalPrice.textContent = total.toFixed(2) + '€';
+                if (totalPriceDisplay) totalPriceDisplay.textContent = total.toFixed(2) + '€';
             } else {
-                totalInput.value = '';
+                if (priceCalculation) priceCalculation.textContent = pricePerDay.toFixed(2) + ' € x 0 jours';
+                if (subtotalPrice) subtotalPrice.textContent = '0€';
+                if (totalPriceDisplay) totalPriceDisplay.textContent = '0€';
             }
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector('#StartDate').addEventListener('change', calculateTotalPrice);
-            document.querySelector('#EndDate').addEventListener('change', calculateTotalPrice);
+            const start = document.querySelector('#StartDate');
+            const end = document.querySelector('#EndDate');
+
+            if (start) start.addEventListener('change', calculateTotalPrice);
+            if (end) end.addEventListener('change', calculateTotalPrice);
+
+            calculateTotalPrice();
         });
     </script>
 }

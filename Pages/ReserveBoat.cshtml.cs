@@ -8,6 +8,8 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace SaillingLoc.Pages
 {
@@ -35,6 +37,9 @@ namespace SaillingLoc.Pages
 
         public Reservation Reservation { get; set; }
 
+        // Clé secrète reCAPTCHA fournie (garde-la confidentielle)
+        private const string RecaptchaSecretKey = "6LdEqvgrAAAAAE_H7qrpZgCYdbxcHh0TI_-nkVzR";
+
         public async Task<IActionResult> OnGetAsync()
         {
             Boat = await _context.Boats.FindAsync(Id);
@@ -43,51 +48,92 @@ namespace SaillingLoc.Pages
                 return NotFound();
             }
 
+            // Initialisation par défaut des dates côté serveur si non fournies
+            if (StartDate == default) StartDate = DateTime.Today;
+            if (EndDate == default) EndDate = DateTime.Today.AddDays(1);
+
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            // 1️⃣ Vérification du captcha
-            var captchaResponse = Request.Form["g-recaptcha-response"];
-            var secretKey = "6LcGSrErAAAAADr7CQLWSSywunsmo6kBg57qX7dU"; // Ta clé secrète
-
-            using var client = new HttpClient();
-            var response = await client.GetStringAsync(
-                $"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={captchaResponse}");
-
-            var captchaResult = JsonSerializer.Deserialize<RecaptchaResponse>(response);
-
-            if (!captchaResult.success)
-            {
-                ModelState.AddModelError("", "Veuillez valider le captcha.");
-                Boat = await _context.Boats.FindAsync(Id); // recharge le bateau
-                return Page();
-            }
-
-            // 2️⃣ Vérification des champs et de l'utilisateur connecté
-            var user = await _userManager.GetUserAsync(User);
-
-            if (!ModelState.IsValid || StartDate >= EndDate || user == null)
-            {
-                ModelState.AddModelError(string.Empty, "Veuillez vérifier les dates de réservation ou assurez-vous d'être connecté.");
-                Boat = await _context.Boats.FindAsync(Id);
-                return Page();
-            }
-
-            if (StartDate < DateTime.UtcNow)
-            {
-                ModelState.AddModelError(string.Empty, "La date de début doit être dans le futur.");
-                Boat = await _context.Boats.FindAsync(Id);
-                return Page();
-            }
-
-            var boat = await _context.Boats.FindAsync(Id);
-            if (boat == null)
+            // Recharger le bateau d'abord (utile en cas d'erreur du captcha)
+            Boat = await _context.Boats.FindAsync(Id);
+            if (Boat == null)
             {
                 return NotFound();
             }
 
+            // 1) Vérification du captcha
+            var captchaResponse = Request.Form["g-recaptcha-response"].FirstOrDefault();
+            if (string.IsNullOrWhiteSpace(captchaResponse))
+            {
+                ModelState.AddModelError(string.Empty, "Veuillez valider le captcha.");
+                return Page();
+            }
+
+            try
+            {
+                using var client = new HttpClient();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                // POST vers l'API de verification (on peut aussi utiliser Get, mais POST est recommandé)
+                var verifyUrl = $"https://www.google.com/recaptcha/api/siteverify?secret={Uri.EscapeDataString(RecaptchaSecretKey)}&response={Uri.EscapeDataString(captchaResponse)}";
+                var httpResponse = await client.PostAsync(verifyUrl, null);
+
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    ModelState.AddModelError(string.Empty, "Erreur lors de la vérification du captcha.");
+                    return Page();
+                }
+
+                var content = await httpResponse.Content.ReadAsStringAsync();
+                var captchaResult = JsonSerializer.Deserialize<RecaptchaResponse>(content, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+                if (captchaResult == null || !captchaResult.success)
+                {
+                    ModelState.AddModelError(string.Empty, "Échec de la vérification du captcha. Veuillez réessayer.");
+                    return Page();
+                }
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty, "Impossible de vérifier le captcha. Veuillez réessayer plus tard.");
+                return Page();
+            }
+
+            // 2) Vérification de l'utilisateur connecté
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, "Vous devez être connecté pour effectuer une réservation.");
+                return Page();
+            }
+
+            // 3) Validation des dates côté serveur
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError(string.Empty, "Veuillez vérifier les données saisies.");
+                return Page();
+            }
+
+            if (StartDate >= EndDate)
+            {
+                ModelState.AddModelError(string.Empty, "La date de fin doit être supérieure à la date de début.");
+                return Page();
+            }
+
+            // Date de début dans le futur (compare sur Date pour éviter problème fuseau)
+            if (StartDate.Date < DateTime.UtcNow.Date)
+            {
+                ModelState.AddModelError(string.Empty, "La date de début doit être dans le futur.");
+                return Page();
+            }
+
+            // Vérifier chevauchement de réservations existantes
             var isOverlap = await _context.Reservations.AnyAsync(r =>
                 r.BoatId == Id &&
                 ((StartDate >= r.StartDate && StartDate < r.EndDate) ||
@@ -98,21 +144,25 @@ namespace SaillingLoc.Pages
             if (isOverlap)
             {
                 ModelState.AddModelError(string.Empty, "Ce bateau est déjà réservé à ces dates.");
-                Boat = boat;
                 return Page();
             }
 
+            // Calcul du prix et création de la réservation
             double totalDays = (EndDate - StartDate).TotalDays;
-            decimal totalPrice = (decimal)totalDays * boat.PricePerDay;
+            if (totalDays <= 0)
+            {
+                ModelState.AddModelError(string.Empty, "La durée de réservation doit être d'au moins 1 jour.");
+                return Page();
+            }
 
-            var boatOwnerId = boat.UserId;
+            decimal totalPrice = (decimal)totalDays * Boat.PricePerDay;
 
             var reservation = new Reservation
             {
                 Reference = $"RES-{Guid.NewGuid().ToString().Substring(0, 8).ToUpper()}",
                 BoatId = Id,
                 UserId = user.Id,
-                BoatOwnerId = boatOwnerId,
+                BoatOwnerId = Boat.UserId,
                 StartDate = StartDate,
                 EndDate = EndDate,
                 TotalPrice = totalPrice,
@@ -136,7 +186,8 @@ namespace SaillingLoc.Pages
         public bool success { get; set; }
         public float score { get; set; } // uniquement pour v3
         public string action { get; set; } // uniquement pour v3
+        public string challenge_ts { get; set; }
+        public string hostname { get; set; }
+        // public string[] error-codes { get; set; } // possible erreurs renvoyées par l'API
     }
 }
-
-

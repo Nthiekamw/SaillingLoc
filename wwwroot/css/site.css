@@ -478,3 +478,17 @@ body {
             gap: 16px;
         }
     }
+
+     @media (max-width: 968px) {
+        .main-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .summary-card {
+            position: static;
+        }
+
+        .date-inputs {
+            grid-template-columns: 1fr;
+        }
+    }

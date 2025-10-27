@@ -109,6 +109,26 @@
         color: #3d5a80;
     }
 
+    /* Nouveau bouton Rechercher */
+    .btn-search-filter {
+        background-color: #AD7C59;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        width: 100%;
+        padding: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .btn-search-filter:hover {
+        background-color: #8f6347;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
     /* Breadcrumb */
     .breadcrumb-custom {
         background-color: transparent;
@@ -402,6 +422,13 @@
                                placeholder="Prix max" 
                                value="@Model.MaxPrice" 
                                class="form-control" />
+                    </div>
+
+                    <!-- Bouton Rechercher -->
+                    <div class="filter-section">
+                        <button type="submit" class="btn-search-filter">
+                            🔍 Rechercher
+                        </button>
                     </div>
 
                     <!-- Reset Button -->

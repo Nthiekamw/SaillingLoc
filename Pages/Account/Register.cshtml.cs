@@ -84,7 +84,9 @@ namespace SaillingLoc.Pages.Account
 
             // ✅ 1️⃣ Vérification du reCAPTCHA
             var captchaResponse = Request.Form["g-recaptcha-response"];
-            var secretKey = _configuration["GoogleReCaptcha:SecretKey"];
+            
+            // ✅ Clé secrète mise en dur ici (clé fournie)
+            var secretKey = "6LdEqvgrAAAAAE_H7qrpZgCYdbxcHh0TI_-nkVzR";
 
             if (string.IsNullOrEmpty(secretKey))
             {
