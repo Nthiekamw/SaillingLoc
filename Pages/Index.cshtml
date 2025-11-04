@@ -359,6 +359,255 @@ body {
     text-decoration: none;
 }
 
+/* Process Section - mise à jour esthétique */
+.process-section {
+    background-color: #c4d4cd;
+    padding: 80px 40px;
+    border-radius: 12px;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    border: 2px dashed #c8a882;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #c8a882;
+    margin: 0 auto 20px;
+}
+
+.info-icon {
+    width: 18px;
+    height: 18px;
+    background-color: #c8a882;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 40px;
+    background-color: white;
+}
+
+
+/* About Section */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-label {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.about-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.slider-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+.slider-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 60px 40px;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.section-subtitle {
+    color: var(--dark-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.category-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.category-content {
+    padding: 20px;
+}
+
+.category-content h5 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.category-content p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Offers Section */
+.offers-section {
+    padding: 60px 40px;
+    background-color: white;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.offer-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.offer-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.offer-content {
+    padding: 20px;
+}
+
+.offer-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.offer-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.offer-details span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.offer-card .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.price-unit {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666;
+}
+
+.btn-view {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: var(--secondary-color);
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-view:hover {
+    background-color: #9a6b4d;
+    color: white;
+    text-decoration: none;
+}
+
 /* Process Section */
 .process-section {
     padding: 80px 40px;
@@ -556,6 +805,7 @@ body {
             align-items: center;
             justify-content: center;
         }
+/* ... (le reste de ton CSS reste inchangé, y compris testimonials, owner-section, map-section, etc.) ... */
 
 </style>
 
@@ -574,15 +824,12 @@ body {
     </div>
 </section>
 
-<!-- Reservation Title -->
-@* <h2 class="reservation-title">Réserver une location de bateau</h2> *@
-
 <!-- Search Form -->
 <div class="container">
     <form method="get" asp-page="/Bateaux" class="search-form">
         <div class="row g-3">
             <div class="col-lg-3">
-                <label for="lieuDepart">Lieu de départ</label>
+                <label for="lieuDepart">Date de départ</label>
                 <select class="form-select" id="lieuDepart" name="LieuDepart">
                     <option value="">Sélectionner</option>
                     <option value="Monaco">Monaco</option>
@@ -693,6 +940,23 @@ body {
     </div>
 </section>
 
+@{
+    var boatErrors = ModelState[string.Empty]?.Errors
+                     .Where(e => e.ErrorMessage.Contains("Impossible de supprimer ce bateau"))
+                     .ToList();
+}
+
+@if (boatErrors != null && boatErrors.Any())
+{
+    <div class="alert alert-danger">
+        @foreach (var error in boatErrors)
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+
 <!-- Offers Section -->
 <section class="offers-section">
     <div class="container">
@@ -757,40 +1021,40 @@ body {
 
 <!-- Process Section -->
 <section class="process-section py-5">
-        <div class="container">
-            <p class="text-center mb-1" style="color: #2c3e37; font-size: 0.95rem;">Louer votre bateau en 3 étapes</p>
-            <h2 class="text-center mb-5" style="color: #1a1a1a; font-size: 1rem; font-weight: 600;">Simple, rapide et sécurisé</h2>
-            
-            <div class="row justify-content-center mb-5">
-                <div class="col-4 text-center">
-                    <div class="step-number mx-auto mb-3">1</div>
-                    <h4 class="fw-semibold mb-2" style="font-size: 1rem; color: #1a1a1a;">Choisir votre bateau</h4>
-                    <p style="font-size: 0.88rem; color: #2c3e37; line-height: 1.5;">Parcourez notre sélection et trouvez le bateau idéal selon vos besoins : voilier, catamaran, bateau à moteur…</p>
-                </div>
-                
-                <div class="col-4 text-center">
-                    <div class="step-number mx-auto mb-3">2</div>
-                    <h4 class="fw-semibold mb-2" style="font-size: 1rem; color: #1a1a1a;">Réservez en ligne</h4>
-                    <p style="font-size: 0.88rem; color: #2c3e37; line-height: 1.5;">Sélectionnez vos dates, ajoutez les options souhaitées et effectuez votre paiement en toute sécurité.</p>
-                </div>
-                
-                <div class="col-4 text-center">
-                    <div class="step-number mx-auto mb-3">3</div>
-                    <h4 class="fw-semibold mb-2" style="font-size: 1rem; color: #1a1a1a;">Embarquer et profiter</h4>
-                    <p style="font-size: 0.88rem; color: #2c3e37; line-height: 1.5;">Rendez-vous au port, récupérez votre bateau et vivez une expérience inoubliable sur l'eau !</p>
-                </div>
+    <div class="container">
+        <p class="text-center mb-2" style="color: #2c3e37; font-size: 0.95rem;">Louer votre bateau en 3 étapes simples</p>
+        <h2 class="text-center mb-5" style="color: #1a1a1a; font-size: 1.2rem; font-weight: 600;">Simple, rapide et sécurisé</h2>
+        
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-number">1</div>
+                <h4 style="font-size: 1.1rem; color: #1a1a1a; font-weight: 600;">Choisir votre bateau</h4>
+                <p style="font-size: 0.9rem; color: #2c3e37; line-height: 1.6;">Parcourez notre sélection et trouvez le bateau idéal selon vos besoins : voilier, catamaran, bateau à moteur…</p>
             </div>
             
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="d-flex align-items-center justify-content-center gap-2 mb-0" style="font-size: 0.88rem; color: #2c3e37;">
-                        <span class="info-icon">i</span>
-                        <span>Si vous n'avez jamais loué un bateau auparavant, nous vous guiderons à chaque étapes du processus.</span>
-                    </p>
-                </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-number">2</div>
+                <h4 style="font-size: 1.1rem; color: #1a1a1a; font-weight: 600;">Réservez en ligne</h4>
+                <p style="font-size: 0.9rem; color: #2c3e37; line-height: 1.6;">Sélectionnez vos dates, ajoutez les options souhaitées et effectuez votre paiement en toute sécurité.</p>
+            </div>
+            
+            <div class="col-md-4 text-center mb-4">
+                <div class="step-number">3</div>
+                <h4 style="font-size: 1.1rem; color: #1a1a1a; font-weight: 600;">Embarquer et profiter</h4>
+                <p style="font-size: 0.9rem; color: #2c3e37; line-height: 1.6;">Rendez-vous au port, récupérez votre bateau et vivez une expérience inoubliable sur l'eau !</p>
             </div>
         </div>
-    </section>
+        
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="d-flex align-items-center justify-content-center gap-2 mb-0" style="font-size: 0.88rem; color: #2c3e37;">
+                    <span class="info-icon">i</span>
+                    <span>Si vous n'avez jamais loué un bateau auparavant, nous vous guiderons à chaque étape du processus pour que tout se passe parfaitement.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Testimonials Section -->
 <section class="testimonials-section">
@@ -852,4 +1116,3 @@ body {
         </a>
     </div>
 </section>
-

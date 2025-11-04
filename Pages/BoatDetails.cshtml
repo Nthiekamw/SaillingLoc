@@ -1,5 +1,10 @@
 @page "{id:int}"
 @model SaillingLoc.Pages.BoatDetailsModel
+
+@using Microsoft.AspNetCore.Identity
+@using SaillingLoc.Models
+@inject SignInManager<User> SignInManager
+
 @{
     ViewData["Title"] = "Détails du bateau";
     Layout = "_Layout";
@@ -182,8 +187,6 @@
     .back-link:hover {
         text-decoration: underline;
     }
-
-
 </style>
 
 <div class="boat-details-container">
@@ -232,9 +235,24 @@
                     <p><strong>Skipper requis :</strong> Non</p>
                 </div>
 
-               <a asp-page="/ReserveBoat" asp-route-id="@Model.Boat.Id" class="rent-button">
-    Louer maintenant
-</a>
+                @* Bouton Louer maintenant avec redirection selon la connexion *@
+                @if (SignInManager.IsSignedIn(User))
+{
+    <a asp-page="/ReserveBoat"
+       asp-route-id="@Model.Boat.Id"
+       asp-route-price="@Model.Boat.DailyPrice"
+       class="rent-button">
+        Louer maintenant
+    </a>
+}
+else
+{
+    <a asp-page="/Account/Login"
+       asp-route-returnUrl="@Url.Page("/ReserveBoat", new { id = Model.Boat.Id, price = Model.Boat.DailyPrice })"
+       class="rent-button">
+        Louer maintenant
+    </a>
+}
 
             </div>
         </div>

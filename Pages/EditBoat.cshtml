@@ -4,17 +4,8 @@
     ViewData["Title"] = "Modifier une annonce";
 }
 
-
-
 <style>
-
-
-
-
-
-
-
-    .modifier-bateau-container {
+.modifier-bateau-container {
     background-color: #AD7C59;
     padding: 40px 20px;
     border-radius: 10px;
@@ -23,83 +14,52 @@
     color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
-.modifier-bateau-container h1 {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 30px;
-}
-
-.modifier-bateau-container label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 5px;
-}
+.modifier-bateau-container h1 { text-align:center; color:#fff; margin-bottom:30px; }
+.modifier-bateau-container label { font-weight:600; display:block; margin-bottom:5px; }
 
 .modifier-bateau-container input,
 .modifier-bateau-container select,
 .modifier-bateau-container textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    margin-bottom: 15px;
-    box-sizing: border-box;
+    width:100%; padding:10px; border-radius:6px; border:none; margin-bottom:15px;
+    color:#333; background:#fff;
 }
 
-.modifier-bateau-container textarea {
-    resize: vertical;
-}
+.text-danger { color:#ffcccc !important; font-size:0.85rem; margin-top:5px; }
+.img-preview { max-width:200px; margin-top:10px; border-radius:5px; border:1px solid #fff; }
 
-.modifier-bateau-container .btn-primary {
-    background-color: #fff;
-    color: #AD7C59;
-    border: 2px solid #AD7C59;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
+.btn-primary {
+    background:#fff; color:#AD7C59; border:2px solid #AD7C59; font-weight:bold;
 }
+.btn-primary:hover { background:#AD7C59; color:#fff; }
+.btn-secondary { background:transparent; color:#fff; border:2px solid #fff; margin-left:10px; }
+.btn-secondary:hover { background:#fff; color:#AD7C59; }
 
-.modifier-bateau-container .btn-primary:hover {
-    background-color: #AD7C59;
-    color: #fff;
+.alert-danger {
+    background:#ffcccc; color:#800; padding:10px; border-radius:6px; margin-bottom:20px;
 }
-
-.modifier-bateau-container .btn-secondary {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-    margin-left: 10px;
-    transition: 0.3s ease;
-    font-weight: bold;
-}
-
-.modifier-bateau-container .btn-secondary:hover {
-    background: #fff;
-    color: #AD7C59;
-}
-
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div class="modifier-bateau-container">
     <h1>Modifier une annonce de bateau</h1>
 
-    <form method="post">
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert-danger">
+            <strong>Veuillez corriger les erreurs suivantes :</strong>
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Boat.Id" />
+        <input type="hidden" asp-for="Boat.OwnerId" />
+        <input type="hidden" asp-for="Boat.UserId" />
+
         <div>
             <label asp-for="Boat.Name"></label>
             <input asp-for="Boat.Name" />
@@ -107,7 +67,37 @@
         </div>
 
         <div>
-            <label asp-for="Boat.DailyPrice"></label>
+            <label asp-for="Boat.Brand"></label>
+            <input asp-for="Boat.Brand" />
+            <span asp-validation-for="Boat.Brand" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Boat.Model"></label>
+            <input asp-for="Boat.Model" />
+            <span asp-validation-for="Boat.Model" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Boat.Length"></label>
+            <input asp-for="Boat.Length" type="number" step="0.1" />
+            <span asp-validation-for="Boat.Length" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Boat.EngineType"></label>
+            <input asp-for="Boat.EngineType" />
+            <span asp-validation-for="Boat.EngineType" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Boat.MaxPassengers"></label>
+            <input asp-for="Boat.MaxPassengers" type="number" />
+            <span asp-validation-for="Boat.MaxPassengers" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Boat.DailyPrice">Prix par jour (€)</label>
             <input asp-for="Boat.DailyPrice" type="number" step="0.01" />
             <span asp-validation-for="Boat.DailyPrice" class="text-danger"></span>
         </div>
@@ -132,6 +122,16 @@
             <label asp-for="Boat.Description"></label>
             <textarea asp-for="Boat.Description"></textarea>
             <span asp-validation-for="Boat.Description" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Photo">Photo principale</label>
+            <input asp-for="Photo" type="file" accept="image/*" />
+            @if (!string.IsNullOrEmpty(Model.Boat?.Photo))
+            {
+                <img src="@Model.Boat.Photo" class="img-preview" alt="Photo actuelle" />
+            }
+            <span asp-validation-for="Photo" class="text-danger"></span>
         </div>
 
         <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>

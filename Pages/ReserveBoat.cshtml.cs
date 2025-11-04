@@ -34,6 +34,9 @@ namespace SaillingLoc.Pages
         public DateTime EndDate { get; set; }
 
         public Boat Boat { get; set; }
+        [BindProperty(SupportsGet = true)]
+public decimal Price { get; set; }
+
 
         public Reservation Reservation { get; set; }
 
@@ -141,11 +144,12 @@ namespace SaillingLoc.Pages
                  (StartDate <= r.StartDate && EndDate >= r.EndDate))
             );
 
-            if (isOverlap)
-            {
-                ModelState.AddModelError(string.Empty, "Ce bateau est déjà réservé à ces dates.");
-                return Page();
-            }
+           if (isOverlap)
+{
+    TempData["ErrorMessage"] = "⛔ Ce bateau n'est pas disponible pour les dates sélectionnées. Veuillez choisir une autre période.";
+    return Page();
+}
+
 
             // Calcul du prix et création de la réservation
             double totalDays = (EndDate - StartDate).TotalDays;

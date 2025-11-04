@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj": {}
+    "C:\\Users\\William.NTHIEKAM\\saillingloc\\SaillingLoc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj": {
+    "C:\\Users\\William.NTHIEKAM\\saillingloc\\SaillingLoc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj",
+        "projectUniqueName": "C:\\Users\\William.NTHIEKAM\\saillingloc\\SaillingLoc.csproj",
         "projectName": "SaillingLoc",
-        "projectPath": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\SaillingLoc.csproj",
+        "projectPath": "C:\\Users\\William.NTHIEKAM\\saillingloc\\SaillingLoc.csproj",
         "packagesPath": "C:\\Users\\William.NTHIEKAM\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\William.NTHIEKAM\\OneDrive - AKTO\\Bureau\\saillingloc\\obj\\",
+        "outputPath": "C:\\Users\\William.NTHIEKAM\\saillingloc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\William.NTHIEKAM\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -44,21 +44,17 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "FluentAssertions": {
-              "target": "Package",
-              "version": "[8.6.0, )"
-            },
             "MailKit": {
               "target": "Package",
               "version": "[4.13.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.AspNetCore.SignalR.Core": {
               "target": "Package",
@@ -66,23 +62,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[9.0.0, )"
-            },
-            "xunit": {
-              "target": "Package",
-              "version": "[2.9.3, )"
-            },
-            "xunit.runner.visualstudio": {
-              "target": "Package",
-              "version": "[3.1.4, )"
             }
           },
           "imports": [

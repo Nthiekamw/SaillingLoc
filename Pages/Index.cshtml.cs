@@ -47,6 +47,12 @@ namespace SaillingLoc.Pages
 
         public async Task OnGetAsync()
         {
+            await LoadBoatsAsync();
+        }
+
+        // Méthode pour charger les bateaux et ports
+        private async Task LoadBoatsAsync()
+        {
             var user = await _userManager.GetUserAsync(User);
             CurrentUserId = user?.Id;
             IsAdmin = user != null && await _userManager.IsInRoleAsync(user, "Admin");
@@ -68,18 +74,7 @@ namespace SaillingLoc.Pages
                 query = query.Where(b => b.Capacity >= searchNumberOfPeople.Value);
             }
 
-            if (searchStartDate.HasValue && searchEndDate.HasValue)
-            {
-                query = query.Where(b => !_context.Reservations.Any(r =>
-                    r.BoatId == b.Id &&
-                    (
-                        (searchStartDate.Value >= r.StartDate && searchStartDate.Value <= r.EndDate) ||
-                        (searchEndDate.Value >= r.StartDate && searchEndDate.Value <= r.EndDate) ||
-                        (searchStartDate.Value <= r.StartDate && searchEndDate.Value >= r.EndDate)
-                    )
-                ));
-            }
-
+            // IMPORTANT : ne pas filtrer définitivement par réservations, sinon les bateaux ne s'affichent pas
             Boats = await query.ToListAsync();
 
             var ports = await _context.Ports.ToListAsync();
@@ -90,6 +85,7 @@ namespace SaillingLoc.Pages
             });
         }
 
+        // Suppression d'un bateau
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             var boat = await _context.Boats.FindAsync(id);
@@ -106,21 +102,32 @@ namespace SaillingLoc.Pages
 
             var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
 
-            // Vérifie si l'utilisateur est admin ou propriétaire du bateau
             if (!isAdmin && boat.OwnerId != user.Id)
             {
-                return Forbid(); // interdit la suppression
+                return Forbid();
             }
 
+            // Vérifier s'il y a des réservations liées
+            var hasReservations = _context.Reservations.Any(r => r.BoatId == id);
+            if (hasReservations)
+            {
+                ModelState.AddModelError(string.Empty, "Impossible de supprimer ce bateau car il a des réservations en cours.");
+                
+                // Recharger les bateaux pour l'affichage
+                await LoadBoatsAsync();
+                return Page();
+            }
+
+            // Si aucune réservation, supprimer le bateau
             _context.Boats.Remove(boat);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage();
+            // Recharger la liste après suppression
+            await LoadBoatsAsync();
+            return Page();
         }
     }
 }
-
-
 
 
 

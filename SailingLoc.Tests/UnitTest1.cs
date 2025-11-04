@@ -1,15 +1,16 @@
-﻿using Xunit;
-using FluentAssertions;
+﻿// using Xunit;
+// using FluentAssertions;
+// using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace SailingLoc.Tests
-{
-    public class UnitTest1
-    {
-        [Fact]
-        public void SimpleTest()
-        {
-            // Exemple simple : addition
-            (1 + 1).Should().Be(2);
-        }
-    }
-}
+
+// namespace SailingLoc.Tests  // ← Même namespace partout
+// {
+//     public class UnitTest1
+//     {
+//         [Fact]
+//         public void SimpleTest()
+//         {
+//             (1 + 1).Should().Be(2);
+//         }
+//     }
+// }

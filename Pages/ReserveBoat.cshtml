@@ -291,14 +291,27 @@
         border: 1px solid #ccf;
         color: #33c;
     }
-
-   
 </style>
 
 <div class="container-custom">
     <a href="javascript:history.back()" class="back-link">
         ← Retour au bateau
     </a>
+
+    <!-- ✅ Messages généraux de succès / erreur -->
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger text-center">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success text-center">
+            @TempData["SuccessMessage"]
+        </div>
+    }
 
     @if (!ViewData.ModelState.IsValid)
     {
@@ -315,32 +328,13 @@
         </div>
     }
 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["SuccessMessage"]
-        </div>
-    }
-
     <div class="main-content">
         <!-- Formulaire de réservation -->
         <div class="booking-card">
             <div class="step-indicator">
                 <div class="step active">
                     <div class="step-icon">📅</div>
-                    <div class="step-label">Dates</div>
-                </div>
-                <div class="step">
-                    <div class="step-icon">👤</div>
-                    <div class="step-label">Détails</div>
-                </div>
-                <div class="step">
-                    <div class="step-icon">📄</div>
-                    <div class="step-label">Documents</div>
-                </div>
-                <div class="step">
-                    <div class="step-icon">✓</div>
-                    <div class="step-label">Confirmation</div>
+                    <div class="step-label">Dates et Confirmation</div>
                 </div>
             </div>
 
@@ -354,7 +348,6 @@
                         <label asp-for="StartDate" class="form-label">Date de début</label>
                         <input type="date" asp-for="StartDate" class="form-control" id="StartDate"
                                value="@(Model.StartDate == default ? DateTime.Today.ToString("yyyy-MM-dd") : Model.StartDate.ToString("yyyy-MM-dd"))"
-                               placeholder="Sélectionnez une date"
                                required />
                         <span asp-validation-for="StartDate" class="text-danger"></span>
                     </div>
@@ -363,7 +356,6 @@
                         <label asp-for="EndDate" class="form-label">Date de fin</label>
                         <input type="date" asp-for="EndDate" class="form-control" id="EndDate"
                                value="@(Model.EndDate == default ? DateTime.Today.AddDays(1).ToString("yyyy-MM-dd") : Model.EndDate.ToString("yyyy-MM-dd"))"
-                               placeholder="Sélectionnez une date"
                                required />
                         <span asp-validation-for="EndDate" class="text-danger"></span>
                     </div>
@@ -379,10 +371,9 @@
                     </select>
                 </div>
 
-                <!-- reCAPTCHA -->
                 <div class="g-recaptcha" data-sitekey="6LdEqvgrAAAAAP-MCo0PNl_IbKp1kpOmTU5DdQst"></div>
 
-                <button type="submit" class="btn-continue">Continuer</button>
+                <button type="submit" class="btn-continue">Confirmation</button>
 
                 <div class="availability-info">
                     <div class="availability-title">Périodes disponibles :</div>
@@ -403,17 +394,18 @@
                 </div>
             </div>
 
-            <div class="price-row">
-                <span class="price-label">
-                    <span id="priceCalculation">@(Model.Boat?.PricePerDay ?? 519.98m) € x 0 jours</span>
-                </span>
-                <span class="price-value" id="subtotalPrice">0€</span>
-            </div>
+           <div class="price-row">
+    <span class="price-label">
+        <span id="priceCalculation">@Model.Price.ToString("F2") € x 0 jours</span>
+    </span>
+    <span class="price-value" id="subtotalPrice">0 €</span>
+</div>
 
-            <div class="price-row total">
-                <span>Total</span>
-                <span id="totalPriceDisplay">0€</span>
-            </div>
+<div class="price-row total">
+    <span>Total</span>
+    <span id="totalPriceDisplay">0 €</span>
+</div>
+
 
             <div class="info-item">
                 <span class="info-icon">✓</span>
@@ -430,10 +422,13 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <!-- ✅ Script Google reCAPTCHA (doit être avant ton code JS ou à la fin, mais à l’intérieur de la section) -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>
-        const pricePerDay = parseFloat('@(Model.Boat?.PricePerDay ?? 0)');
+        // 🧮 Correction : on divise par 100 si le prix est en centimes
+        const pricePerDay = parseFloat('@((Model.Price / 100).ToString(System.Globalization.CultureInfo.InvariantCulture))');
 
         function calculateTotalPrice() {
             const startInput = document.querySelector('#StartDate');
@@ -444,41 +439,26 @@
 
             if (!startInput || !endInput) return;
 
-            const startVal = startInput.value;
-            const endVal = endInput.value;
-            
-            if (!startVal || !endVal) {
-                if (priceCalculation) priceCalculation.textContent = pricePerDay.toFixed(2) + ' € x 0 jours';
-                if (subtotalPrice) subtotalPrice.textContent = '0€';
-                if (totalPriceDisplay) totalPriceDisplay.textContent = '0€';
-                return;
-            }
+            const start = new Date(startInput.value);
+            const end = new Date(endInput.value);
 
-            const start = new Date(startVal + 'T00:00:00');
-            const end = new Date(endVal + 'T00:00:00');
-
-            if (!isNaN(start) && !isNaN(end) && end > start && pricePerDay > 0) {
-                const diffTime = end - start;
-                const diffDays = diffTime / (1000 * 60 * 60 * 24);
+            if (!isNaN(start) && !isNaN(end) && end > start) {
+                const diffDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
                 const total = diffDays * pricePerDay;
-                
-                if (priceCalculation) priceCalculation.textContent = pricePerDay.toFixed(2) + ' € x ' + diffDays + ' jours';
-                if (subtotalPrice) subtotalPrice.textContent = total.toFixed(2) + '€';
-                if (totalPriceDisplay) totalPriceDisplay.textContent = total.toFixed(2) + '€';
+
+                priceCalculation.textContent = `${pricePerDay.toFixed(2)} € x ${diffDays} jours`;
+                subtotalPrice.textContent = `${total.toFixed(2)} €`;
+                totalPriceDisplay.textContent = `${total.toFixed(2)} €`;
             } else {
-                if (priceCalculation) priceCalculation.textContent = pricePerDay.toFixed(2) + ' € x 0 jours';
-                if (subtotalPrice) subtotalPrice.textContent = '0€';
-                if (totalPriceDisplay) totalPriceDisplay.textContent = '0€';
+                priceCalculation.textContent = `${pricePerDay.toFixed(2)} € x 0 jours`;
+                subtotalPrice.textContent = `0 €`;
+                totalPriceDisplay.textContent = `0 €`;
             }
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            const start = document.querySelector('#StartDate');
-            const end = document.querySelector('#EndDate');
-
-            if (start) start.addEventListener('change', calculateTotalPrice);
-            if (end) end.addEventListener('change', calculateTotalPrice);
-
+            document.querySelector('#StartDate').addEventListener('change', calculateTotalPrice);
+            document.querySelector('#EndDate').addEventListener('change', calculateTotalPrice);
             calculateTotalPrice();
         });
     </script>

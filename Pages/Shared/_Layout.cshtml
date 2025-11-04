@@ -306,113 +306,144 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">
-                    <img src="~/images/plan2.png" alt="Logo SailingLoc" />
-                </a>
+   <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" asp-page="/Index">Accueil</a></li>
-
-                        @if (isSignedIn)
-                        {
-                            <li class="nav-item"><a class="nav-link" asp-page="/Destinations">Destinations</a></li>
-                            <li class="nav-item"><a class="nav-link" asp-page="/Categories">Categories</a></li>
-                              @* <li class="nav-item"><a class="nav-link" asp-page="/MyReservations">Mes Réservations</a></li> *@
-                                <li class="nav-item"><a class="nav-link" asp-page="/About">A propos</a></li>
-
-                            @if (roles.Contains("Admin"))
-                            {
-                                <li class="nav-item"><a class="nav-link" asp-page="/AdminDashboard">Dashboard Admin</a></li>
-                            }
-<li class="nav-item">
-    <a class="nav-link" asp-page="/Bateaux">Mes Bateaux</a>
-
-</li>
-
-
-
-                        }
-
-                        <li class="nav-item"><a class="nav-link" asp-page="/Contacts">Contact</a></li>
-                    </ul>
-
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item me-3">
-                            <select class="language-selector">
-                                <option value="fr">FR</option>
-                                <option value="en">EN</option>
-                                <option value="es">ES</option>
-                            </select>
-                        </li>
-@* 
-                        <li class="nav-item me-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
-                                <label class="form-check-label" for="darkModeSwitch">🌙</label>
-                            </div>
-                        </li> *@
-
-                        @if (isSignedIn)
-                        {
-                            <li class="nav-item me-3">@await Component.InvokeAsync("UnreadMessages")</li>
-                            <li class="nav-item me-3">
-                                <a href="/Notifications" class="nav-link position-relative p-2" title="Notifications">
-                                    <i class="fa-regular fa-bell fa-lg"></i>
-                                    @if (unreadNotificationsCount > 0)
-                                    {
-                                        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
-                                            @unreadNotificationsCount
-                                        </span>
-                                    }
-                                </a>
-                            </li>
-                      <li class="nav-item dropdown me-3">
-    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa-solid fa-user me-2"></i>
-        <span>@currentUser.FirstName</span>
-    </a>
-
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-        <li>
-            <a class="dropdown-item" asp-page="/Dashuser">
-                <i class="fa-solid fa-user-circle me-2"></i> Mon espace
+            <!-- Logo -->
+            <a class="navbar-brand" asp-area="" asp-page="/Index">
+                <img src="~/images/plan2.png" alt="Logo SailingLoc" />
             </a>
-        </li>
 
-        <li><hr class="dropdown-divider"></li>
+            <!-- Bouton mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <li>
-            <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
-                <button type="submit" class="dropdown-item text-danger">
-                    <i class="fa-solid fa-right-from-bracket me-2"></i> Déconnexion
-                </button>
-            </form>
-        </li>
-    </ul>
-</li>
+            <!-- Contenu de la barre -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+                <!-- Liens centraux -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Index">Accueil</a>
+                    </li>
 
-                        }
-                        else
-                        {
-                            @* <li class="nav-item me-2"><a class="nav-link" asp-page="/Ajoutbat" style="font-weight: 600;">Enregistrer votre bateau</a></li> *@
-                            <li class="nav-item me-2"><a class="btn btn-sm custom-btn" asp-page="/Account/Login">Se connecter</a></li>
-                            @* <li class="nav-item"><a class="btn btn-sm btn-outline-success" asp-page="/Account/Register">Inscription</a></li> *@
-                        }
-                    </ul>
-                </div>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Bateaux">Nos Bateaux</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Destinations">Destinations</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Categories">Catégories</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/About">À propos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Contacts">Contact</a>
+                    </li>
+
+                    @* Affichage du lien admin si connecté et admin *@
+                    @if (isSignedIn && roles.Contains("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-danger" asp-page="/AdminDashboard">
+                                Dashboard Admin
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <!-- Section droite -->
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <!-- Sélecteur de langue -->
+                    <li class="nav-item me-3">
+                        <select class="language-selector">
+                            <option value="fr">FR</option>
+                            <option value="en">EN</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </li>
+
+                    <!-- Si utilisateur connecté -->
+                    @if (isSignedIn)
+                    {
+                        <!-- Messages non lus -->
+                        <li class="nav-item me-3">
+                            @await Component.InvokeAsync("UnreadMessages")
+                        </li>
+
+                        <!-- Notifications -->
+                        <li class="nav-item me-3">
+                            <a href="/Notifications" class="nav-link position-relative p-2" title="Notifications">
+                                <i class="fa-regular fa-bell fa-lg"></i>
+                                @if (unreadNotificationsCount > 0)
+                                {
+                                    <span class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">
+                                        @unreadNotificationsCount
+                                    </span>
+                                }
+                            </a>
+                        </li>
+
+                        <!-- Menu utilisateur -->
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user me-2"></i>
+                                <span>@currentUser?.FirstName</span>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-page="/Dashuser">
+                                        <i class="fa-solid fa-user-circle me-2"></i> Mon espace
+                                    </a>
+                                </li>
+
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li>
+                                    <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
+                                        <button type="submit" class="dropdown-item text-danger">
+                                            <i class="fa-solid fa-right-from-bracket me-2"></i> Déconnexion
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <!-- Si NON connecté -->
+                        <li class="nav-item me-2">
+                            <a class="btn btn-sm custom-btn" asp-page="/Account/Login">
+                                Se connecter
+                            </a>
+                        </li>
+                        @* <li class="nav-item">
+                            <a class="btn btn-sm btn-outline-success" asp-page="/Account/Register">
+                                Inscription
+                            </a>
+                        </li> *@
+                    }
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
 
     <main class="pb-4">
         @RenderBody()
