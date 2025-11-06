@@ -44,6 +44,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.13.0, )"
@@ -55,10 +63,6 @@
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[9.0.10, )"
-            },
-            "Microsoft.AspNetCore.SignalR.Core": {
-              "target": "Package",
-              "version": "[1.2.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
